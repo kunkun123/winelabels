@@ -1,3 +1,0 @@
-/**
- * wineLabels-alproduct
- */
