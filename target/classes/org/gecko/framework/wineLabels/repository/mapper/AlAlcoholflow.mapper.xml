@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.gecko.framework.wineLabels.repository.dao.AlAlcoholflowDao">
+	<select id="findByWinelabels" resultMap="AlAlcoholflow" parameterType="String">
+		select  AlAlcoholflow.* from AL_ALCOHOLFLOW AlAlcoholflow where AlAlcoholflow.serial = #{winelabelId} 
+		order by to_number(temp1) desc
+	</select>
+</mapper>

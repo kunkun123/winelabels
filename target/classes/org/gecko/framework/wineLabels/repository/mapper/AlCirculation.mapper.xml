@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.gecko.framework.wineLabels.repository.dao.AlCirculationDao">
+	 <select id="findHisAlCirculationByParam" resultMap="AlCirculation" parameterType="org.gecko.framework.wineLabels.entity.AlCirculation">
+        select * from AL_CIRCULATION t where 1=1 and t.id in
+        (select saleLinkId from Al_Alcoholflow f where f.serial 
+        in(select serial from AL_ALCOHOLLABLE l where 1=1 
+         <!-- 酒标编号 -->
+        <if test="param.temp1!=null">and l.serial like #{param.temp1}</if>
+        <!--  酒标类型 -->
+        <if test="param.temp2!=null">and l.type like #{param.temp2}</if> 
+		and l.productid in 
+		(select id from AL_PRODUCT p where 1=1
+		 <!-- 商品名称 -->
+        <if test="param.temp3!=null">and p.productname like #{param.temp3}</if> 
+		<!--  商品种类 -->
+        <if test="param.temp4!=null">and p.producttype like  #{param.temp4}</if>
+        )))
+    	<!--  下游企业 -->
+     	<if test="param.belowentid!=null"> and t.belowentid like #{param.belowentid}</if>
+	 	<if test="param.starttime!=null and param.endtime!=null"> 
+	 		and t.starttime BETWEEN #{param.starttime} AND #{param.endtime}
+	 	</if>
+     	<if test="param.starttime!=null and param.endtime==null"> 
+     		and t.starttime BETWEEN #{param.starttime} AND to_DATE('9999-12-31','yyyy-MM-dd')
+     	</if>
+     	<if test="param.starttime==null and param.endtime!=null"> 
+     		and t.starttime BETWEEN to_DATE('0000-01-01','yyyy-MM-dd') AND #{param.endtime}
+     	</if>
+     </select>
+</mapper>

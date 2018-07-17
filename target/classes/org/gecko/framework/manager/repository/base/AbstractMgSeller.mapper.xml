@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.manager.repository.dao.MgSellerDao">
+	<resultMap id="MgSeller" type="org.gecko.framework.manager.entity.MgSeller">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="temp1" column="TEMP1" jdbcType="VARCHAR" />
+		<result property="temp2" column="TEMP2" jdbcType="VARCHAR" />
+		<result property="entid" column="ENTID" jdbcType="VARCHAR" />
+		<result property="temp4" column="TEMP4" jdbcType="VARCHAR" />
+		<result property="creator" column="CREATOR" jdbcType="VARCHAR" />
+		<result property="temp3" column="TEMP3" jdbcType="VARCHAR" />
+		<result property="lastupdatetime" column="LASTUPDATETIME" jdbcType="DATE" />
+		<result property="sellernum" column="SELLERNUM" jdbcType="VARCHAR" />
+		<result property="nvrip" column="NVRIP" jdbcType="VARCHAR" />
+		<result property="status" column="STATUS" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.manager.entity.MgSeller">
+		select count(*) from MG_SELLER t where 1=1
+	</select>
+	
+	<select id="get" resultMap="MgSeller" parameterType="String">
+		select  MgSeller.* from MG_SELLER MgSeller where MgSeller.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.manager.entity.MgSeller">	
+ 		insert into MG_SELLER(ID,TEMP1,TEMP2,ENTID,TEMP4,CREATOR,TEMP3,LASTUPDATETIME,SELLERNUM,NVRIP,STATUS)
+ 		VALUES(#{id},#{temp1,jdbcType=VARCHAR},#{temp2,jdbcType=VARCHAR},#{entid,jdbcType=VARCHAR},#{temp4,jdbcType=VARCHAR},#{creator,jdbcType=VARCHAR},#{temp3,jdbcType=VARCHAR},#{lastupdatetime,jdbcType=DATE},#{sellernum,jdbcType=VARCHAR},#{nvrip,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into MG_SELLER(ID,TEMP1,TEMP2,ENTID,TEMP4,CREATOR,TEMP3,LASTUPDATETIME,SELLERNUM,NVRIP,STATUS)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.temp1,jdbcType=VARCHAR},#{o.temp2,jdbcType=VARCHAR},#{o.entid,jdbcType=VARCHAR},#{o.temp4,jdbcType=VARCHAR},#{o.creator,jdbcType=VARCHAR},#{o.temp3,jdbcType=VARCHAR},#{o.lastupdatetime,jdbcType=DATE},#{o.sellernum,jdbcType=VARCHAR},#{o.nvrip,jdbcType=VARCHAR},#{o.status,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.manager.entity.MgSeller">
+    		update MG_SELLER set TEMP1=#{temp1}, TEMP2=#{temp2}, ENTID=#{entid}, TEMP4=#{temp4}, CREATOR=#{creator}, TEMP3=#{temp3}, LASTUPDATETIME=#{lastupdatetime}, SELLERNUM=#{sellernum}, NVRIP=#{nvrip}, STATUS=#{status} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.manager.entity.MgSeller">
+		delete from MG_SELLER where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from MG_SELLER where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from MG_SELLER where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from MG_SELLER where         <if test="temp1!=null">and TEMP1 = #{temp1}</if><if test="temp2!=null">and TEMP2 = #{temp2}</if><if test="entid!=null">and ENTID = #{entid}</if><if test="temp4!=null">and TEMP4 = #{temp4}</if><if test="creator!=null">and CREATOR = #{creator}</if><if test="temp3!=null">and TEMP3 = #{temp3}</if><if test="lastupdatetime!=null">and LASTUPDATETIME = #{lastupdatetime}</if><if test="sellernum!=null">and SELLERNUM = #{sellernum}</if><if test="nvrip!=null">and NVRIP = #{nvrip}</if><if test="status!=null">and STATUS = #{status}</if>    </delete>
+
+    <select id="find" resultMap="MgSeller" parameterType="org.gecko.framework.manager.entity.MgSeller">
+        select MgSeller.* from MG_SELLER MgSeller where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="temp1!=null"> and TEMP1 = #{temp1} </if><if test="temp2!=null"> and TEMP2 = #{temp2} </if><if test="entid!=null"> and ENTID = #{entid} </if><if test="temp4!=null"> and TEMP4 = #{temp4} </if><if test="creator!=null"> and CREATOR = #{creator} </if><if test="temp3!=null"> and TEMP3 = #{temp3} </if><if test="lastupdatetime!=null"> and LASTUPDATETIME = #{lastupdatetime} </if><if test="sellernum!=null"> and SELLERNUM = #{sellernum} </if><if test="nvrip!=null"> and NVRIP = #{nvrip} </if><if test="status!=null"> and STATUS = #{status} </if>    </select>
+
+	<select id="findByPage" resultMap="MgSeller" parameterType="org.gecko.framework.manager.entity.MgSeller">
+		select MgSeller.* from MG_SELLER MgSeller where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.temp1!=null"> and TEMP1 = #{param.temp1} </if><if test="param.temp2!=null"> and TEMP2 = #{param.temp2} </if><if test="param.entid!=null"> and ENTID = #{param.entid} </if><if test="param.temp4!=null"> and TEMP4 = #{param.temp4} </if><if test="param.creator!=null"> and CREATOR = #{param.creator} </if><if test="param.temp3!=null"> and TEMP3 = #{param.temp3} </if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME = #{param.lastupdatetime} </if><if test="param.sellernum!=null"> and SELLERNUM = #{param.sellernum} </if><if test="param.nvrip!=null"> and NVRIP = #{param.nvrip} </if><if test="param.status!=null"> and STATUS = #{param.status} </if>	</select>
+
+    <select id="likeByPage" resultMap="MgSeller" parameterType="org.gecko.framework.manager.entity.MgSeller">
+        select MgSeller.* from MG_SELLER MgSeller where 1=1
+        <if test="param.temp1!=null"> and TEMP1 like #{param.temp1}</if><if test="param.temp2!=null"> and TEMP2 like #{param.temp2}</if><if test="param.entid!=null"> and ENTID like #{param.entid}</if><if test="param.temp4!=null"> and TEMP4 like #{param.temp4}</if><if test="param.creator!=null"> and CREATOR like #{param.creator}</if><if test="param.temp3!=null"> and TEMP3 like #{param.temp3}</if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME like #{param.lastupdatetime}</if><if test="param.sellernum!=null"> and SELLERNUM like #{param.sellernum}</if><if test="param.nvrip!=null"> and NVRIP like #{param.nvrip}</if><if test="param.status!=null"> and STATUS like #{param.status}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE MG_SELLER SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

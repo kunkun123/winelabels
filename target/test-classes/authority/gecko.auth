@@ -1,0 +1,51 @@
+{
+  "serviceStep" : 100000,
+  "services" : {
+    "system" : {
+      "serviceName" : "system",
+      "startIndex" : 100000,
+      "entities" : {
+        "system_resources" : {
+          "entityName" : "system_resources",
+          "startIndex" : 100
+        },
+        "system_role_authorities" : {
+          "entityName" : "system_role_authorities",
+          "startIndex" : 300
+        },
+        "system_org_accounts" : {
+          "entityName" : "system_org_accounts",
+          "startIndex" : 500
+        },
+        "system_authorities" : {
+          "entityName" : "system_authorities",
+          "startIndex" : 700
+        },
+        "system_duties" : {
+          "entityName" : "system_duties",
+          "startIndex" : 900
+        },
+        "system_account_roles" : {
+          "entityName" : "system_account_roles",
+          "startIndex" : 1100
+        },
+        "system_accounts" : {
+          "entityName" : "system_accounts",
+          "startIndex" : 1300
+        },
+        "system_organizations" : {
+          "entityName" : "system_organizations",
+          "startIndex" : 1500
+        },
+        "system_roles" : {
+          "entityName" : "system_roles",
+          "startIndex" : 1900
+        },
+        "system_sys_logs" : {
+          "entityName" : "system_sys_logs",
+          "startIndex" : 2100
+        }
+      }
+    }
+  }
+}
