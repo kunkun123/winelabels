@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.system.repository.dao.AccountDao">
+	<resultMap id="Account" type="org.gecko.framework.system.entity.Account">
+		<result property="id" column="id" jdbcType="VARCHAR"/>
+		<result property="realName" column="real_name" jdbcType="VARCHAR" />
+		<result property="principal" column="principal" jdbcType="VARCHAR" />
+		<result property="credential" column="credential" jdbcType="VARCHAR" />
+		<result property="locked" column="locked" jdbcType="VARCHAR" />
+		<result property="salt" column="salt" jdbcType="VARCHAR" />
+		<result property="mobilePhone" column="mobile_phone" jdbcType="VARCHAR" />
+		<result property="telPhone" column="tel_phone" jdbcType="VARCHAR" />
+		<result property="qq" column="qq" jdbcType="VARCHAR" />
+		<result property="email" column="email" jdbcType="VARCHAR" />
+		<result property="createTime" column="create_time" jdbcType="VARCHAR" />
+		<result property="gender" column="gender" typeHandler="org.gecko.core.mybatis.handlers.GeckoEnumTypeHandler"/>
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.system.entity.Account">
+		select count(*) from system_accounts t where 1=1
+	</select>
+	
+	<select id="get" resultMap="Account" parameterType="String">
+		select  Account.* from system_accounts Account where Account.id = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.system.entity.Account">	
+ 		insert into system_accounts(id,real_name,principal,gender,credential,locked,salt,mobile_phone,tel_phone,qq,email,create_time)
+ 		VALUES(#{id},#{realName,jdbcType=VARCHAR},#{principal,jdbcType=VARCHAR},#{gender,jdbcType=VARCHAR},#{credential,jdbcType=VARCHAR},#{locked,jdbcType=VARCHAR},#{salt,jdbcType=VARCHAR},#{mobilePhone,jdbcType=VARCHAR},#{telPhone,jdbcType=VARCHAR},#{qq,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{createTime,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into system_accounts(id,real_name,principal,gender,credential,locked,salt,mobile_phone,tel_phone,qq,email,create_time)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.realName,jdbcType=VARCHAR},#{o.principal,jdbcType=VARCHAR},#{o.gender,jdbcType=VARCHAR},#{o.credential,jdbcType=VARCHAR},#{o.locked,jdbcType=VARCHAR},#{o.salt,jdbcType=VARCHAR},#{o.mobilePhone,jdbcType=VARCHAR},#{o.telPhone,jdbcType=VARCHAR},#{o.qq,jdbcType=VARCHAR},#{o.email,jdbcType=VARCHAR},#{o.createTime,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.system.entity.Account">
+    		update system_accounts set real_name=#{realName}, principal=#{principal}, gender=#{gender}, credential=#{credential}, locked=#{locked}, salt=#{salt}, mobile_phone=#{mobilePhone}, tel_phone=#{telPhone}, qq=#{qq}, email=#{email}, create_time=#{createTime} where id=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.system.entity.Account">
+		delete from system_accounts where id=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from system_accounts where id=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from system_accounts where id in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from system_accounts where         <if test="realName!=null">and real_name = #{realName}</if><if test="principal!=null">and principal = #{principal}</if><if test="gender!=null">and gender = #{gender}</if><if test="locked!=null">and locked = #{locked}</if><if test="mobilePhone!=null">and mobile_phone = #{mobilePhone}</if><if test="telPhone!=null">and tel_phone = #{telPhone}</if><if test="qq!=null">and qq = #{qq}</if><if test="email!=null">and email = #{email}</if>    </delete>
+
+    <select id="find" resultMap="Account" parameterType="org.gecko.framework.system.entity.Account">
+        select Account.* from system_accounts Account where 1=1 <if test="id!=null">and id=#{id}</if>
+        <if test="realName!=null"> and real_name = #{realName} </if><if test="principal!=null"> and principal = #{principal} </if><if test="gender!=null"> and gender = #{gender} </if><if test="locked!=null"> and locked = #{locked} </if><if test="mobilePhone!=null"> and mobile_phone = #{mobilePhone} </if><if test="telPhone!=null"> and tel_phone = #{telPhone} </if><if test="qq!=null"> and qq = #{qq} </if><if test="email!=null"> and email = #{email} </if>    </select>
+
+	<select id="findByPage" resultMap="Account" parameterType="org.gecko.framework.system.entity.Account">
+		select Account.* from system_accounts Account where 1=1 <if test="param.id!=null">and id=#{id}</if>
+		<if test="param.realName!=null"> and real_name = #{param.realName} </if><if test="param.principal!=null"> and principal = #{param.principal} </if><if test="param.gender!=null"> and gender = #{param.gender} </if><if test="param.locked!=null"> and locked = #{param.locked} </if><if test="param.mobilePhone!=null"> and mobile_phone = #{param.mobilePhone} </if><if test="param.telPhone!=null"> and tel_phone = #{param.telPhone} </if><if test="param.qq!=null"> and qq = #{param.qq} </if><if test="param.email!=null"> and email = #{param.email} </if>	</select>
+
+    <select id="likeByPage" resultMap="Account" parameterType="org.gecko.framework.system.entity.Account">
+        select Account.* from system_accounts Account where 1=1
+        <if test="param.realName!=null"> and real_name like #{param.realName}</if><if test="param.principal!=null"> and principal like #{param.principal}</if><if test="param.gender!=null"> and gender like #{param.gender}</if><if test="param.locked!=null"> and locked like #{param.locked}</if><if test="param.mobilePhone!=null"> and mobile_phone like #{param.mobilePhone}</if><if test="param.telPhone!=null"> and tel_phone like #{param.telPhone}</if><if test="param.qq!=null"> and qq like #{param.qq}</if><if test="param.email!=null"> and email like #{param.email}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE system_accounts SET ${field} = #{value} WHERE id = #{pk}
+    </update>
+</mapper>

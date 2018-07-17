@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.complaint.repository.dao.CpComplaintproductDao">
+	<resultMap id="CpComplaintproduct" type="org.gecko.framework.complaint.entity.CpComplaintproduct">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="validitydate" column="VALIDITYDATE" jdbcType="VARCHAR" />
+		<result property="manufacturer" column="MANUFACTURER" jdbcType="VARCHAR" />
+		<result property="lastupdatetime" column="LASTUPDATETIME" jdbcType="DATE" />
+		<result property="dateOfManufacture" column="DATEOFMANUFACTURE" jdbcType="VARCHAR" />
+		<result property="spec" column="SPEC" jdbcType="VARCHAR" />
+		<result property="operator" column="OPERATOR" jdbcType="VARCHAR" />
+		<result property="temp1" column="TEMP1" jdbcType="VARCHAR" />
+		<result property="isimport" column="ISIMPORT" jdbcType="VARCHAR" />
+		<result property="approvalNumber" column="APPROVAL" jdbcType="VARCHAR" />
+		<result property="productchannel" column="PRODUCTCHANNEL" jdbcType="VARCHAR" />
+		<result property="product" column="PRODUCT" jdbcType="VARCHAR" />
+		<result property="batchNumber" column="BATCH" jdbcType="VARCHAR" />
+		<result property="temp2" column="TEMP2" jdbcType="VARCHAR" />
+		<result property="producttype" column="PRODUCTTYPE" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.complaint.entity.CpComplaintproduct">
+		select count(*) from CP_COMPLAINTPRODUCT t where 1=1
+	</select>
+	
+	<select id="get" resultMap="CpComplaintproduct" parameterType="String">
+		select  CpComplaintproduct.* from CP_COMPLAINTPRODUCT CpComplaintproduct where CpComplaintproduct.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.complaint.entity.CpComplaintproduct">	
+ 		insert into CP_COMPLAINTPRODUCT(ID,VALIDITYDATE,MANUFACTURER,LASTUPDATETIME,DATEOFMANUFACTURE,SPEC,OPERATOR,TEMP1,ISIMPORT,APPROVAL,PRODUCTCHANNEL,PRODUCT,BATCH,TEMP2,PRODUCTTYPE)
+ 		VALUES(#{id},#{validitydate,jdbcType=VARCHAR},#{manufacturer,jdbcType=VARCHAR},#{lastupdatetime,jdbcType=DATE},#{dateOfManufacture,jdbcType=VARCHAR},#{spec,jdbcType=VARCHAR},#{operator,jdbcType=VARCHAR},#{temp1,jdbcType=VARCHAR},#{isimport,jdbcType=VARCHAR},#{approvalNumber,jdbcType=VARCHAR},#{productchannel,jdbcType=VARCHAR},#{product,jdbcType=VARCHAR},#{batchNumber,jdbcType=VARCHAR},#{temp2,jdbcType=VARCHAR},#{producttype,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into CP_COMPLAINTPRODUCT(ID,VALIDITYDATE,MANUFACTURER,LASTUPDATETIME,DATEOFMANUFACTURE,SPEC,OPERATOR,TEMP1,ISIMPORT,APPROVAL,PRODUCTCHANNEL,PRODUCT,BATCH,TEMP2,PRODUCTTYPE)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.validitydate,jdbcType=VARCHAR},#{o.manufacturer,jdbcType=VARCHAR},#{o.lastupdatetime,jdbcType=DATE},#{o.dateOfManufacture,jdbcType=VARCHAR},#{o.spec,jdbcType=VARCHAR},#{o.operator,jdbcType=VARCHAR},#{o.temp1,jdbcType=VARCHAR},#{o.isimport,jdbcType=VARCHAR},#{o.approvalNumber,jdbcType=VARCHAR},#{o.productchannel,jdbcType=VARCHAR},#{o.product,jdbcType=VARCHAR},#{o.batchNumber,jdbcType=VARCHAR},#{o.temp2,jdbcType=VARCHAR},#{o.producttype,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.complaint.entity.CpComplaintproduct">
+    		update CP_COMPLAINTPRODUCT set VALIDITYDATE=#{validitydate,jdbcType=VARCHAR}, MANUFACTURER=#{manufacturer,jdbcType=VARCHAR}, LASTUPDATETIME=#{lastupdatetime,jdbcType=DATE}, DATEOFMANUFACTURE=#{dateOfManufacture,jdbcType=VARCHAR}, SPEC=#{spec,jdbcType=VARCHAR}, OPERATOR=#{operator,jdbcType=VARCHAR}, TEMP1=#{temp1,jdbcType=VARCHAR}, ISIMPORT=#{isimport,jdbcType=VARCHAR}, APPROVAL=#{approvalNumber,jdbcType=VARCHAR}, PRODUCTCHANNEL=#{productchannel,jdbcType=VARCHAR}, PRODUCT=#{product,jdbcType=VARCHAR}, BATCH=#{batchNumber,jdbcType=VARCHAR}, TEMP2=#{temp2,jdbcType=VARCHAR}, PRODUCTTYPE=#{producttype,jdbcType=VARCHAR} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.complaint.entity.CpComplaintproduct">
+		delete from CP_COMPLAINTPRODUCT where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from CP_COMPLAINTPRODUCT where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from CP_COMPLAINTPRODUCT where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from CP_COMPLAINTPRODUCT where         <if test="validitydate!=null">and VALIDITYDATE = #{validitydate}</if><if test="manufacturer!=null">and MANUFACTURER = #{manufacturer}</if><if test="lastupdatetime!=null">and LASTUPDATETIME = #{lastupdatetime}</if><if test="dateOfManufacture!=null">and DATE OF MANUFACTURE = #{dateOfManufacture}</if><if test="spec!=null">and SPEC = #{spec}</if><if test="operator!=null">and OPERATOR = #{operator}</if><if test="temp1!=null">and TEMP1 = #{temp1}</if><if test="isimport!=null">and ISIMPORT = #{isimport}</if><if test="approvalNumber!=null">and APPROVAL NUMBER = #{approvalNumber}</if><if test="productchannel!=null">and PRODUCTCHANNEL = #{productchannel}</if><if test="product!=null">and PRODUCT = #{product}</if><if test="batchNumber!=null">and BATCH NUMBER = #{batchNumber}</if><if test="temp2!=null">and TEMP2 = #{temp2}</if><if test="producttype!=null">and PRODUCTTYPE = #{producttype}</if>    </delete>
+
+    <select id="find" resultMap="CpComplaintproduct" parameterType="org.gecko.framework.complaint.entity.CpComplaintproduct">
+        select CpComplaintproduct.* from CP_COMPLAINTPRODUCT CpComplaintproduct where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="validitydate!=null"> and VALIDITYDATE = #{validitydate} </if><if test="manufacturer!=null"> and MANUFACTURER = #{manufacturer} </if><if test="lastupdatetime!=null"> and LASTUPDATETIME = #{lastupdatetime} </if><if test="dateOfManufacture!=null"> and DATEOFMANUFACTURE = #{dateOfManufacture} </if><if test="spec!=null"> and SPEC = #{spec} </if><if test="operator!=null"> and OPERATOR = #{operator} </if><if test="temp1!=null"> and TEMP1 = #{temp1} </if><if test="isimport!=null"> and ISIMPORT = #{isimport} </if><if test="approvalNumber!=null"> and APPROVAL = #{approvalNumber} </if><if test="productchannel!=null"> and PRODUCTCHANNEL = #{productchannel} </if><if test="product!=null"> and PRODUCT = #{product} </if><if test="batchNumber!=null"> and BATCH = #{batchNumber} </if><if test="temp2!=null"> and TEMP2 = #{temp2} </if><if test="producttype!=null"> and PRODUCTTYPE = #{producttype} </if>    </select>
+
+	<select id="findByPage" resultMap="CpComplaintproduct" parameterType="org.gecko.framework.complaint.entity.CpComplaintproduct">
+		select CpComplaintproduct.* from CP_COMPLAINTPRODUCT CpComplaintproduct where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.validitydate!=null"> and VALIDITYDATE = #{param.validitydate} </if><if test="param.manufacturer!=null"> and MANUFACTURER = #{param.manufacturer} </if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME = #{param.lastupdatetime} </if><if test="param.dateOfManufacture!=null"> and DATEOFMANUFACTURE = #{param.dateOfManufacture} </if><if test="param.spec!=null"> and SPEC = #{param.spec} </if><if test="param.operator!=null"> and OPERATOR = #{param.operator} </if><if test="param.temp1!=null"> and TEMP1 = #{param.temp1} </if><if test="param.isimport!=null"> and ISIMPORT = #{param.isimport} </if><if test="param.approvalNumber!=null"> and APPROVAL NUMBER = #{param.approvalNumber} </if><if test="param.productchannel!=null"> and PRODUCTCHANNEL = #{param.productchannel} </if><if test="param.product!=null"> and PRODUCT = #{param.product} </if><if test="param.batchNumber!=null"> and BATCH NUMBER = #{param.batchNumber} </if><if test="param.temp2!=null"> and TEMP2 = #{param.temp2} </if><if test="param.producttype!=null"> and PRODUCTTYPE = #{param.producttype} </if>	</select>
+
+    <select id="likeByPage" resultMap="CpComplaintproduct" parameterType="org.gecko.framework.complaint.entity.CpComplaintproduct">
+        select CpComplaintproduct.* from CP_COMPLAINTPRODUCT CpComplaintproduct where 1=1
+        <if test="param.validitydate!=null"> and VALIDITYDATE like #{param.validitydate}</if><if test="param.manufacturer!=null"> and MANUFACTURER like #{param.manufacturer}</if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME like #{param.lastupdatetime}</if><if test="param.dateOfManufacture!=null"> and DATE OF MANUFACTURE like #{param.dateOfManufacture}</if><if test="param.spec!=null"> and SPEC like #{param.spec}</if><if test="param.operator!=null"> and OPERATOR like #{param.operator}</if><if test="param.temp1!=null"> and TEMP1 like #{param.temp1}</if><if test="param.isimport!=null"> and ISIMPORT like #{param.isimport}</if><if test="param.approvalNumber!=null"> and APPROVAL NUMBER like #{param.approvalNumber}</if><if test="param.productchannel!=null"> and PRODUCTCHANNEL like #{param.productchannel}</if><if test="param.product!=null"> and PRODUCT like #{param.product}</if><if test="param.batchNumber!=null"> and BATCH NUMBER like #{param.batchNumber}</if><if test="param.temp2!=null"> and TEMP2 like #{param.temp2}</if><if test="param.producttype!=null"> and PRODUCTTYPE like #{param.producttype}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE CP_COMPLAINTPRODUCT SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

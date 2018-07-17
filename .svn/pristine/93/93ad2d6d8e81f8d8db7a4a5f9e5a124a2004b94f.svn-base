@@ -1,0 +1,398 @@
+package org.gecko.framework.ent.entity.base;
+
+import org.gecko.framework.base.BaseEntity;
+import org.gecko.framework.manager.entity.enums.HaveOrNOT;
+import org.gecko.annotations.GeckoField;
+import org.gecko.annotations.GeckoField.FieldType;
+
+/**
+ * 
+ * AbstractEntEntbasic
+ * ENT_ENTBASIC
+ * @author Gecko Generator
+ * @email admin@aisino.com
+ * @date 2018-01-08 14:25:44 
+ *
+ */
+public abstract class AbstractEntEntbasic extends BaseEntity {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@GeckoField(primarykey=true,fieldType = GeckoField.FieldType.STRING, length = 10, nullable = false, description = "", searchable = true)
+    private String id;
+
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 10, nullable = true, description = "", searchable = true)
+    private String temp4;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 10, nullable = true, description = "", searchable = true)
+    private String temp3;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 10, nullable = true, description = "", searchable = true)
+    private String temp2;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 10, nullable = true, description = "", searchable = true)
+    private String temp1;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 10, nullable = true, description = "", searchable = true)
+    private String creator;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.DATE, length = 7, nullable = true, description = "", searchable = true)
+    private java.sql.Date lastupdatetime;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 20, nullable = true, description = "联系电话", searchable = true)
+    private String contactphone;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 10, nullable = true, description = "原记录id", searchable = true)
+    private String oldinfoid;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 50, nullable = true, description = "电子邮件", searchable = true)
+    private String email;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 50, nullable = true, description = "联系人", searchable = true)
+    private String contacts;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 100, nullable = true, description = "营业执照附件地址", searchable = true)
+    private String permissionattach;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 100, nullable = true, description = "零售企业许可证的附件地址 ", searchable = true)
+    private String sellpermissionurl;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 50, nullable = true, description = "拒绝原因", searchable = true)
+    private String reason;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 10, nullable = true, description = "审核人", searchable = true)
+    private String auditor;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 2, nullable = true, description = "审核类型", searchable = true)
+    private String audittype;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 2, nullable = true, description = "状态", searchable = true)
+    private String status;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 30, nullable = true, description = "开户银行", searchable = true)
+    private String bank;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 100, nullable = true, description = "地址", searchable = true)
+    private String address;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 20, nullable = true, description = "银行账号", searchable = true)
+    private String acct;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 20, nullable = true, description = "电话", searchable = true)
+    private String tel;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 2, nullable = true, description = "企业类型", searchable = true)
+    private String enttype;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 50, nullable = true, description = "企业名称", searchable = true)
+    private String entname;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 30, nullable = true, description = "统一社会信用代码", searchable = true)
+    private String creditcode;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.ENUM, length = 2, nullable = true, description = "进口企业许可证的有无 ", searchable = true)
+    private HaveOrNOT importpermission;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.ENUM, length = 2, nullable = true, description = "生产企业许可证的有无 ", searchable = true)
+    private HaveOrNOT producepermission;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 100, nullable = true, description = "生产企业许可证的有无 ", searchable = true)
+    private String producepermissionurl;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.ENUM, length = 2, nullable = true, description = "零售企业许可证的有无 ", searchable = true)
+    private HaveOrNOT sellpermission;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 100, nullable = true, description = "经销企业许可证的有无 ", searchable = true)
+    private String businesspermissionurl;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.STRING, length = 100, nullable = true, description = "进口企业许可证的有无 ", searchable = true)
+    private String importpermissionurl;
+    
+    @GeckoField(fieldType = GeckoField.FieldType.ENUM, length = 2, nullable = true, description = "经销企业许可证的有无 ", searchable = true)
+    private HaveOrNOT businesspermission;
+    
+    public void setTemp4(String temp4){
+        this.temp4 = temp4;
+    }
+
+    public String getTemp4(){
+        return this.temp4;
+    }
+    
+    public void setTemp3(String temp3){
+        this.temp3 = temp3;
+    }
+
+    public String getTemp3(){
+        return this.temp3;
+    }
+    
+    public void setTemp2(String temp2){
+        this.temp2 = temp2;
+    }
+
+    public String getTemp2(){
+        return this.temp2;
+    }
+    
+    public void setTemp1(String temp1){
+        this.temp1 = temp1;
+    }
+
+    public String getTemp1(){
+        return this.temp1;
+    }
+    
+    public void setCreator(String creator){
+        this.creator = creator;
+    }
+
+    public String getCreator(){
+        return this.creator;
+    }
+    
+    public void setLastupdatetime(java.sql.Date lastupdatetime){
+        this.lastupdatetime = lastupdatetime;
+    }
+
+    public java.sql.Date getLastupdatetime(){
+        return this.lastupdatetime;
+    }
+    
+    public void setContactphone(String contactphone){
+        this.contactphone = contactphone;
+    }
+
+    public String getContactphone(){
+        return this.contactphone;
+    }
+    
+    public void setOldinfoid(String oldinfoid){
+        this.oldinfoid = oldinfoid;
+    }
+
+    public String getOldinfoid(){
+        return this.oldinfoid;
+    }
+    
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public String getEmail(){
+        return this.email;
+    }
+    
+    public void setContacts(String contacts){
+        this.contacts = contacts;
+    }
+
+    public String getContacts(){
+        return this.contacts;
+    }
+    
+    public void setPermissionattach(String permissionattach){
+        this.permissionattach = permissionattach;
+    }
+
+    public String getPermissionattach(){
+        return this.permissionattach;
+    }
+    
+    public void setSellpermissionurl(String sellpermissionurl){
+        this.sellpermissionurl = sellpermissionurl;
+    }
+
+    public String getSellpermissionurl(){
+        return this.sellpermissionurl;
+    }
+    
+    public void setReason(String reason){
+        this.reason = reason;
+    }
+
+    public String getReason(){
+        return this.reason;
+    }
+    
+    public void setAuditor(String auditor){
+        this.auditor = auditor;
+    }
+
+    public String getAuditor(){
+        return this.auditor;
+    }
+    
+    public void setAudittype(String audittype){
+        this.audittype = audittype;
+    }
+
+    public String getAudittype(){
+        return this.audittype;
+    }
+    
+    public void setStatus(String status){
+        this.status = status;
+    }
+
+    public String getStatus(){
+        return this.status;
+    }
+    
+    public void setBank(String bank){
+        this.bank = bank;
+    }
+
+    public String getBank(){
+        return this.bank;
+    }
+    
+    public void setAddress(String address){
+        this.address = address;
+    }
+
+    public String getAddress(){
+        return this.address;
+    }
+    
+    public void setAcct(String acct){
+        this.acct = acct;
+    }
+
+    public String getAcct(){
+        return this.acct;
+    }
+    
+    public void setTel(String tel){
+        this.tel = tel;
+    }
+
+    public String getTel(){
+        return this.tel;
+    }
+    
+    public void setEnttype(String enttype){
+        this.enttype = enttype;
+    }
+
+    public String getEnttype(){
+        return this.enttype;
+    }
+    
+    public void setEntname(String entname){
+        this.entname = entname;
+    }
+
+    public String getEntname(){
+        return this.entname;
+    }
+    
+    public void setCreditcode(String creditcode){
+        this.creditcode = creditcode;
+    }
+
+    public String getCreditcode(){
+        return this.creditcode;
+    }
+    
+    public void setImportpermission(HaveOrNOT importpermission){
+        this.importpermission = importpermission;
+    }
+
+    public HaveOrNOT getImportpermission(){
+        return this.importpermission;
+    }
+    
+    public void setProducepermission(HaveOrNOT producepermission){
+        this.producepermission = producepermission;
+    }
+
+    public HaveOrNOT getProducepermission(){
+        return this.producepermission;
+    }
+    
+    public void setProducepermissionurl(String producepermissionurl){
+        this.producepermissionurl = producepermissionurl;
+    }
+
+    public String getProducepermissionurl(){
+        return this.producepermissionurl;
+    }
+    
+    public void setSellpermission(HaveOrNOT sellpermission){
+        this.sellpermission = sellpermission;
+    }
+
+    public HaveOrNOT getSellpermission(){
+        return this.sellpermission;
+    }
+    
+    public void setBusinesspermissionurl(String businesspermissionurl){
+        this.businesspermissionurl = businesspermissionurl;
+    }
+
+    public String getBusinesspermissionurl(){
+        return this.businesspermissionurl;
+    }
+    
+    public void setImportpermissionurl(String importpermissionurl){
+        this.importpermissionurl = importpermissionurl;
+    }
+
+    public String getImportpermissionurl(){
+        return this.importpermissionurl;
+    }
+    
+    public void setBusinesspermission(HaveOrNOT businesspermission){
+        this.businesspermission = businesspermission;
+    }
+
+    public HaveOrNOT getBusinesspermission(){
+        return this.businesspermission;
+    }
+    
+    public void setId(String id){
+        this.id = id;
+    }
+
+    public String getId(){
+        return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "AbstractEntEntbasic{" +
+                "id='" + id + '\'' +
+                ", temp4=" + temp4 +
+                ", temp3=" + temp3 +
+                ", temp2=" + temp2 +
+                ", temp1=" + temp1 +
+                ", creator=" + creator +
+                ", lastupdatetime=" + lastupdatetime +
+                ", contactphone=" + contactphone +
+                ", oldinfoid=" + oldinfoid +
+                ", email=" + email +
+                ", contacts=" + contacts +
+                ", permissionattach=" + permissionattach +
+                ", sellpermissionurl=" + sellpermissionurl +
+                ", reason=" + reason +
+                ", auditor=" + auditor +
+                ", audittype=" + audittype +
+                ", status=" + status +
+                ", bank=" + bank +
+                ", address=" + address +
+                ", acct=" + acct +
+                ", tel=" + tel +
+                ", enttype=" + enttype +
+                ", entname=" + entname +
+                ", creditcode=" + creditcode +
+                ", importpermission=" + importpermission +
+                ", producepermission=" + producepermission +
+                ", producepermissionurl=" + producepermissionurl +
+                ", sellpermission=" + sellpermission +
+                ", businesspermissionurl=" + businesspermissionurl +
+                ", importpermissionurl=" + importpermissionurl +
+                ", businesspermission=" + businesspermission +
+                '}';
+    }
+}

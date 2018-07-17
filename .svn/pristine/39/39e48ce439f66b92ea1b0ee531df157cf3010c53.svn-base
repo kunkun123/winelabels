@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.trusteeship.repository.dao.MgTrusteeshipDao">
+	<resultMap id="MgTrusteeship" type="org.gecko.framework.trusteeship.entity.MgTrusteeship">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="temp2" column="TEMP2" jdbcType="VARCHAR" />
+		<result property="temp1" column="TEMP1" jdbcType="VARCHAR" />
+		<result property="enddate" column="ENDDATE" jdbcType="DATE" />
+		<result property="startdate" column="STARTDATE" jdbcType="DATE" />
+		<result property="status" column="STATUS" jdbcType="VARCHAR" />
+		<result property="reason" column="REASON" jdbcType="VARCHAR" />
+		<result property="trustee" column="TRUSTEE" jdbcType="VARCHAR" />
+		<result property="custodian" column="CUSTODIAN" jdbcType="VARCHAR" />
+		<result property="eventid" column="EVENTID" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.trusteeship.entity.MgTrusteeship">
+		select count(*) from MG_TRUSTEESHIP t where 1=1
+	</select>
+	
+	<select id="get" resultMap="MgTrusteeship" parameterType="String">
+		select  MgTrusteeship.* from MG_TRUSTEESHIP MgTrusteeship where MgTrusteeship.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.trusteeship.entity.MgTrusteeship">	
+ 		insert into MG_TRUSTEESHIP(ID,TEMP2,TEMP1,ENDDATE,STARTDATE,STATUS,REASON,TRUSTEE,CUSTODIAN,EVENTID)
+ 		VALUES(#{id},#{temp2,jdbcType=VARCHAR},#{temp1,jdbcType=VARCHAR},#{enddate,jdbcType=DATE},#{startdate,jdbcType=DATE},#{status,jdbcType=VARCHAR},#{reason,jdbcType=VARCHAR},#{trustee,jdbcType=VARCHAR},#{custodian,jdbcType=VARCHAR},#{eventid,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into MG_TRUSTEESHIP(ID,TEMP2,TEMP1,ENDDATE,STARTDATE,STATUS,REASON,TRUSTEE,CUSTODIAN,EVENTID)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.temp2,jdbcType=VARCHAR},#{o.temp1,jdbcType=VARCHAR},#{o.enddate,jdbcType=DATE},#{o.startdate,jdbcType=DATE},#{o.status,jdbcType=VARCHAR},#{o.reason,jdbcType=VARCHAR},#{o.trustee,jdbcType=VARCHAR},#{o.custodian,jdbcType=VARCHAR},#{o.eventid,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.trusteeship.entity.MgTrusteeship">
+    		update MG_TRUSTEESHIP set TEMP2=#{temp2,jdbcType=VARCHAR}, TEMP1=#{temp1,jdbcType=VARCHAR}, ENDDATE=#{enddate,jdbcType=DATE}, STARTDATE=#{startdate,jdbcType=DATE}, STATUS=#{status,jdbcType=VARCHAR}, REASON=#{reason,jdbcType=VARCHAR}, TRUSTEE=#{trustee,jdbcType=VARCHAR}, CUSTODIAN=#{custodian,jdbcType=VARCHAR}, EVENTID=#{eventid,jdbcType=VARCHAR} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.trusteeship.entity.MgTrusteeship">
+		delete from MG_TRUSTEESHIP where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from MG_TRUSTEESHIP where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from MG_TRUSTEESHIP where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from MG_TRUSTEESHIP where         <if test="temp2!=null">and TEMP2 = #{temp2}</if><if test="temp1!=null">and TEMP1 = #{temp1}</if><if test="enddate!=null">and ENDDATE = #{enddate}</if><if test="startdate!=null">and STARTDATE = #{startdate}</if><if test="status!=null">and STATUS = #{status}</if><if test="reason!=null">and REASON = #{reason}</if><if test="trustee!=null">and TRUSTEE = #{trustee}</if><if test="custodian!=null">and CUSTODIAN = #{custodian}</if><if test="eventid!=null">and EVENTID = #{eventid}</if>    </delete>
+
+    <select id="find" resultMap="MgTrusteeship" parameterType="org.gecko.framework.trusteeship.entity.MgTrusteeship">
+        select MgTrusteeship.* from MG_TRUSTEESHIP MgTrusteeship where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="temp2!=null"> and TEMP2 = #{temp2} </if><if test="temp1!=null"> and TEMP1 = #{temp1} </if><if test="enddate!=null"> and ENDDATE = #{enddate} </if><if test="startdate!=null"> and STARTDATE = #{startdate} </if><if test="status!=null"> and STATUS = #{status} </if><if test="reason!=null"> and REASON = #{reason} </if><if test="trustee!=null"> and TRUSTEE = #{trustee} </if><if test="custodian!=null"> and CUSTODIAN = #{custodian} </if><if test="eventid!=null"> and EVENTID = #{eventid} </if>    </select>
+
+	<select id="findByPage" resultMap="MgTrusteeship" parameterType="org.gecko.framework.trusteeship.entity.MgTrusteeship">
+		select MgTrusteeship.* from MG_TRUSTEESHIP MgTrusteeship where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.temp2!=null"> and TEMP2 = #{param.temp2} </if><if test="param.temp1!=null"> and TEMP1 = #{param.temp1} </if><if test="param.enddate!=null"> and ENDDATE = #{param.enddate} </if><if test="param.startdate!=null"> and STARTDATE = #{param.startdate} </if><if test="param.status!=null"> and STATUS = #{param.status} </if><if test="param.reason!=null"> and REASON = #{param.reason} </if><if test="param.trustee!=null"> and TRUSTEE = #{param.trustee} </if><if test="param.custodian!=null"> and CUSTODIAN = #{param.custodian} </if><if test="param.eventid!=null"> and EVENTID = #{param.eventid} </if>	</select>
+
+    <select id="likeByPage" resultMap="MgTrusteeship" parameterType="org.gecko.framework.trusteeship.entity.MgTrusteeship">
+        select MgTrusteeship.* from MG_TRUSTEESHIP MgTrusteeship where 1=1
+        <if test="param.temp2!=null"> and TEMP2 like #{param.temp2}</if><if test="param.temp1!=null"> and TEMP1 like #{param.temp1}</if><if test="param.enddate!=null"> and ENDDATE like #{param.enddate}</if><if test="param.startdate!=null"> and STARTDATE like #{param.startdate}</if><if test="param.status!=null"> and STATUS like #{param.status}</if><if test="param.reason!=null"> and REASON like #{param.reason}</if><if test="param.trustee!=null"> and TRUSTEE like #{param.trustee}</if><if test="param.custodian!=null"> and CUSTODIAN like #{param.custodian}</if><if test="param.eventid!=null"> and EVENTID like #{param.eventid}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE MG_TRUSTEESHIP SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

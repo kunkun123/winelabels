@@ -1,0 +1,52 @@
+.page-content{
+	height:509px;
+}
+.page-left{
+	border:solid 1px #DAE0E7;
+	border-top:solid 2px #4C8EBC;
+	height:487px;
+	overflow:scroll;
+	overflow-x: hidden;
+}
+.page-right{
+	padding:0px !important;
+}
+.list-group{
+	border:solid 1px #DAE0E7;
+	border-top:none;
+	height:444px;
+	padding:0px 15px !important;
+	box-sizing: border-box;
+	margin-top:1px;
+}
+.list-group-item{
+	border:dotted 1px #DAE0E7 !important;
+	border-right:none !important;
+	border-left:none !important;
+}
+.list-group-item:first-child{
+	border-top:none !important;	
+}
+.tap{
+	border-top:solid 2px #4C8EBC !important;
+}
+.tree{
+	background:red !important;
+}
+.row-fluid{
+	background: #FFFFFF !important;
+}
+.tree-widget-box{
+	border:none !important;
+}
+/*::-webkit-scrollbar{
+	width:10px;
+	height:100px;
+}
+::-webkit-scrollbar-track-piece{
+	background:red;
+	-webkit-border-radius:5px;
+}
+::-webkit-scrollbar-thumb:vertical{
+	background:red;
+}*/

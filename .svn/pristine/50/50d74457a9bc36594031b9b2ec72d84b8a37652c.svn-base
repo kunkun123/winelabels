@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.pubdata.repository.dao.PubBaseinfoSyspostDao">
+	<resultMap id="PubBaseinfoSyspost" type="org.gecko.framework.pubdata.entity.PubBaseinfoSyspost">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="isleader" column="ISLEADER" jdbcType="VARCHAR" />
+		<result property="sourceid" column="SOURCEID" jdbcType="VARCHAR" />
+		<result property="unitnum" column="UNITNUM" jdbcType="VARCHAR" />
+		<result property="postdesc" column="POSTDESC" jdbcType="CLOB" typeHandler="org.apache.ibatis.type.ClobTypeHandler" />
+		<result property="postnum" column="POSTNUM" jdbcType="VARCHAR" />
+		<result property="postname" column="POSTNAME" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSyspost">
+		select count(*) from PUB_BASEINFO_SYSPOST t where 1=1
+	</select>
+	
+	<select id="get" resultMap="PubBaseinfoSyspost" parameterType="String">
+		select  PubBaseinfoSyspost.* from PUB_BASEINFO_SYSPOST PubBaseinfoSyspost where PubBaseinfoSyspost.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSyspost">	
+ 		insert into PUB_BASEINFO_SYSPOST(ID,ISLEADER,SOURCEID,UNITNUM,POSTDESC,POSTNUM,POSTNAME)
+ 		VALUES(#{id},#{isleader,jdbcType=VARCHAR},#{sourceid,jdbcType=VARCHAR},#{unitnum,jdbcType=VARCHAR},#{postdesc,jdbcType=CLOB,typeHandler=org.apache.ibatis.type.ClobTypeHandler},#{postnum,jdbcType=VARCHAR},#{postname,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into PUB_BASEINFO_SYSPOST(ID,ISLEADER,SOURCEID,UNITNUM,POSTDESC,POSTNUM,POSTNAME)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.isleader,jdbcType=VARCHAR},#{o.sourceid,jdbcType=VARCHAR},#{o.unitnum,jdbcType=VARCHAR},#{o.postdesc,jdbcType=CLOB,typeHandler=org.apache.ibatis.type.ClobTypeHandler},#{o.postnum,jdbcType=VARCHAR},#{o.postname,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSyspost">
+    		update PUB_BASEINFO_SYSPOST set ISLEADER=#{isleader}, SOURCEID=#{sourceid}, UNITNUM=#{unitnum}, POSTDESC=#{postdesc,jdbcType=CLOB,typeHandler=org.apache.ibatis.type.ClobTypeHandler}, POSTNUM=#{postnum}, POSTNAME=#{postname} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSyspost">
+		delete from PUB_BASEINFO_SYSPOST where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from PUB_BASEINFO_SYSPOST where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from PUB_BASEINFO_SYSPOST where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from PUB_BASEINFO_SYSPOST where         <if test="isleader!=null">and ISLEADER = #{isleader}</if><if test="sourceid!=null">and SOURCEID = #{sourceid}</if><if test="unitnum!=null">and UNITNUM = #{unitnum}</if><if test="postnum!=null">and POSTNUM = #{postnum}</if><if test="postname!=null">and POSTNAME = #{postname}</if>    </delete>
+
+    <select id="find" resultMap="PubBaseinfoSyspost" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSyspost">
+        select PubBaseinfoSyspost.* from PUB_BASEINFO_SYSPOST PubBaseinfoSyspost where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="isleader!=null"> and ISLEADER = #{isleader} </if><if test="sourceid!=null"> and SOURCEID = #{sourceid} </if><if test="unitnum!=null"> and UNITNUM = #{unitnum} </if><if test="postnum!=null"> and POSTNUM = #{postnum} </if><if test="postname!=null"> and POSTNAME = #{postname} </if>    </select>
+
+	<select id="findByPage" resultMap="PubBaseinfoSyspost" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSyspost">
+		select PubBaseinfoSyspost.* from PUB_BASEINFO_SYSPOST PubBaseinfoSyspost where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.isleader!=null"> and ISLEADER = #{param.isleader} </if><if test="param.sourceid!=null"> and SOURCEID = #{param.sourceid} </if><if test="param.unitnum!=null"> and UNITNUM = #{param.unitnum} </if><if test="param.postnum!=null"> and POSTNUM = #{param.postnum} </if><if test="param.postname!=null"> and POSTNAME = #{param.postname} </if>	</select>
+
+    <select id="likeByPage" resultMap="PubBaseinfoSyspost" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSyspost">
+        select PubBaseinfoSyspost.* from PUB_BASEINFO_SYSPOST PubBaseinfoSyspost where 1=1
+        <if test="param.isleader!=null"> and ISLEADER like #{param.isleader}</if><if test="param.sourceid!=null"> and SOURCEID like #{param.sourceid}</if><if test="param.unitnum!=null"> and UNITNUM like #{param.unitnum}</if><if test="param.postnum!=null"> and POSTNUM like #{param.postnum}</if><if test="param.postname!=null"> and POSTNAME like #{param.postname}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE PUB_BASEINFO_SYSPOST SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

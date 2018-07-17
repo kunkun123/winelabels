@@ -1,0 +1,1574 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>complaint-CpComplaintsreport</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="../../static/styles/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../static/styles/css/font-awesome.min.css" />
+
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="../../static/styles/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="../../static/styles/css/chosen.min.css" />
+		<link rel="stylesheet" href="../../static/styles/css/bootstrap-datepicker3.min.css" />
+		<link rel="stylesheet" href="../../static/styles/css/bootstrap-timepicker.min.css" />
+		<link rel="stylesheet" href="../../static/styles/css/daterangepicker.min.css" />
+		<link rel="stylesheet" href="../../static/styles/css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="../../static/styles/css/bootstrap-colorpicker.min.css" />
+		
+		
+		<!-- text fonts -->
+		<link rel="stylesheet" href="../../static/styles/css/fonts.googleapis.com.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="../../static/static/css/system/ace/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="../../static/static/css/system/ace/ace-skins.min.css" />
+		<link rel="stylesheet" href="../../static/static/css/system/ace/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="../../static/scripts/gecko-modules/ace/ace-extra.min.js"></script>
+		<script type="text/javascript" src="../../static/scripts/complaint/complaint.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="no-skin">
+		<div class="main-container ace-save-state" id="main-container">
+			<div class="main-content">
+				<div class="main-content-inner">
+					<div class="page-content">
+
+						<div class="page-header">
+							<h1>
+								信息编号：
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									${cpComplaintsreport.id}
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+						
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<form id="registrationForm" onSubmit="javascript:checkContent(this, event)" class="form-inline" role="form" method="post" enctype="multipart/form-data"  action="/complaint/cpcomplaintsreport/save">
+									<h3>登记信息：</h3>
+									<table style="border-collapse:separate; border-spacing:0px 10px;">
+										<tr>
+										<td align="right" width="8%">
+											<div class="form-group">
+												<label class="bolder blue " for="form-field-1" >登记时间：</label>
+											</div>
+										</td>
+										<td align="left" width="18%">
+											<div class="form-group">
+												<input id="date-timepicker1" name="registerdate" type="text" class="form-control" />
+											</div>
+										</td>
+										<td align="right" width="8%">
+											<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>登记人姓名：</label>
+										</td>
+										<td align="left" width="15%">
+											<input type="text" id="operator" name="operator" class="" />
+										</td>
+										<td align="right" width="8%">
+											<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>登记人单位：</label>
+
+										</td>
+										<td align="left" width="35%">
+											<input type="text" id="form-field-1-1"  style="width: 95%"/>
+
+										</td>
+										</tr>
+										<tr>
+											<td align="right" >
+												<label class="control-label bolder blue">
+												<span style="color:#FF0000;">*</span>
+												<span>登记单位行政区域划分：</span>
+												</label>
+											</td>
+											<td align="left">
+												<select name="mengshi1" id="mengshi1" style="width:98px">
+													
+												</select>
+												<select  id="qixian1" style="width:98px"></select>
+												<input name="registrationarea" id="registrationarea" type="hidden"/>
+											</td>
+											<td align="right">
+												<label class="control-label bolder blue"><span style="color:#FF0000;">*</span>
+													<span>业务类型：</span></label>
+											</td>
+											<td align="left">
+												<select name="businessType" id="businessType" style="width:95%">
+													
+													<option value="1">&nbsp;咨询</option>
+													<option value="2">&nbsp;投诉举报</option>
+													<option value="3">&nbsp;意见建议</option>
+													<option value="4">&nbsp;表扬</option>
+													<option value="5">&nbsp;其他</option>
+												</select>
+											</td>
+											<td align="right">
+												<label class="control-label bolder blue"><span style="color:#FF0000;">*</span>
+													<span>业务来源：</span></label>
+											</td>
+											<td align="left">
+												<select name="source" id="source" style="width:95%">
+													<option value="1">&nbsp;自接收</option>
+													<option value="2">&nbsp;上级交办</option>
+													<option value="3">&nbsp;同级转办</option>
+													<option value="4">&nbsp;其他</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">
+													<span style="color:#FF0000;">*</span>
+													<span>接收方式：</span></label>
+											</td>
+											<td align="left">
+												<select name="acceptype" id="acceptype">
+													<option value="1">&nbsp;电话</option>
+													<option value="2">&nbsp;走访</option>
+													<option value="3">&nbsp;信件</option>
+													<option value="4">&nbsp;网络（网站、微信等）</option>
+													<option value="5">&nbsp;电子邮件</option>
+													<option value="6">&nbsp;短信</option>
+													<option value="7">&nbsp;传真</option>
+													<option value="8">&nbsp;语音留言</option>
+													<option value="9">&nbsp;其他</option>
+												</select>
+											</td>
+										</tr>
+
+									</table>
+							        <hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+							        <h3>投诉举报单位/个人信息：</h3>
+									<table style="border-collapse:separate; border-spacing:0px 10px;">
+										<tr>
+											<td align="right" width="12%" nowrap="nowrap">
+												<label class="control-label bolder blue"><span style="color:#FF0000;">*</span>是否匿名：</label>
+											</td>
+											<td align="left" width="20%">
+												<input name="isanonymous"  type="radio" class="ace" value="0" checked/>
+												<span class="lbl"> 是</span>
+												<input name="isanonymous" type="radio" class="ace" value="1"/>
+												<span class="lbl"> 否</span>
+											</td>
+											<td align="right" width="12%" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1">
+													<span style="color:#FF0000;">*</span>
+													<span>投诉举报人类型：</span></label>
+											</td>
+											<td align="left" width="20%">
+												<input name="complainanttype" type="radio"  class="ace" value="0" checked/>
+												<span class="lbl"> 个人</span>
+												<input name="complainanttype" type="radio" class="ace" value="1"/>
+												<span class="lbl"> 单位</span>
+											</td>
+											<td align="right" width="12%">&nbsp;</td>
+											<td align="left" width="20%">&nbsp;</td>
+										</tr>
+										<tr>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>投诉举报人名称：</label>
+
+											</td>
+											<td align="left">
+												<input type="text" name="complainantname" id="complainantname" value="${cpComplaintinfo.complainantname}" style="width:95%"/>
+
+											</td>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#FF0000;">*</span>投诉举报人联系电话：</label>
+
+											</td>
+											
+											<td align="left">
+											<div class="form-group">
+												<input type="text" name="tel" id="tel" value="${cpComplaintinfo.tel}" style="width:95%"/>
+											</div>
+											</td>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1">投诉举报人电子邮箱：</label>
+
+											</td>
+											<td align="left">
+											<div class="form-group">
+												<input type="email" name="email" id="email" value="${cpComplaintinfo.email}" style="width:95%"/>
+											</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1">
+													<span style="color:#FF0000;">*</span>
+													<span>投诉举报人联系地址：</span></label>
+											</td>
+											<td align="left" colspan="3">
+												<select name="mengshi2" id="mengshi2" style="width:15%" >
+													
+												</select>
+												<select name="qixian2" id="qixian2" style="width:15%"></select>
+												<input name="address" type="text" id="address"  style="width:65%"/>
+											</td>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1">投诉举报人邮政编码:</label>
+
+											</td>
+											<td align="left">
+												<input type="text" name="zipcode" value="${cpComplaintinfo.zipcode}" id="zipcode"  style="width:95%"/>
+
+											</td>
+										</tr>
+										<tr>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1">投诉举报人IP地址：</label>
+
+											</td>
+											<td align="left">
+												<input type="text" name="ip" id="form-field-1-1" value="${cpComplaintinfo.ip}" style="width:95%"/>
+
+											</td>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>证件类型：</label>
+
+											</td>
+											<td align="left">
+												<select name="licensetype" id="licensetype">
+													<option value="1">&nbsp;居民身份证</option>
+													<option value="2">&nbsp;军官证</option>
+													<option value="3">&nbsp;士兵证</option>
+													<option value="4">&nbsp;文职干部证</option>
+													<option value="5">&nbsp;部队离退休证</option>
+													<option value="6">&nbsp;香港特区护照/身份证明</option>
+													<option value="7">&nbsp;澳门特区护照/身份证明</option>
+													<option value="8">&nbsp;台湾居民来往大陆通行证</option>
+													<option value="9">&nbsp;境外永久居住证</option>
+													<option value="10">&nbsp;护照</option>
+													<option value="11">&nbsp;户口本</option>
+													<option value="12">&nbsp;其他</option>
+												</select>
+											</td>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>证件号码：</label>
+
+											</td>
+											<td align="left">
+												<input type="text" name="complainantlicense" id="complainantlicense" value="${cpComplaintinfo.complainantlicense}" style="width:95%"/>
+
+											</td>
+										</tr>
+
+									</table>
+
+
+
+							        <hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+							        <h3>被投诉举报对象/产品信息类：</h3>
+									<table style="border-collapse:separate; border-spacing:0px 10px;">
+										<tr>
+											<td width="12%" align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1">
+													<span style="color:#FF0000;">*</span>
+													<span>被投诉举报人类型：</span></label>
+											</td>
+											<td width="20" align="left">
+												<input name="respondenttype" type="radio" class="ace" value="0" checked/>
+												<span class="lbl"> 个人</span>
+												<input name="respondenttype" type="radio" class="ace" value="1"/>
+												<span class="lbl"> 单位</span>
+											</td>
+											<td width="12%" align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>被投诉举报人名称：</label>
+
+											</td>
+											<td width="20%" align="left">
+												<input name="respondentname" type="text" id="respondentname" value="${cpRespondent.respondentname}" style="width:95%"/>
+
+											</td>
+											<td width="12%" align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>被投诉举报人联系电话：</label>
+
+											</td>
+											<td width = "20%" align="left">
+												<input name="respondenttel" type="text" id="respondenttel" value="${cpRespondent.respondenttel}" style="width:95%"/>
+
+											</td>
+										</tr>
+										<tr>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>被投诉举报人联系地址：</label>
+
+											</td>
+											<td align="left" colspan="3">
+												<input name="respondentaddress" type="text" id="respondentaddress" value="${cpRespondent.respondentaddress}" style="width: 95%"/>
+
+											</td>
+											<td align="right" nowrap="nowrap">
+												<label class="control-label bolder blue"><span style="color:#FF0000;">*</span>是否涉及产品：</label>
+
+											</td>
+											<td align="left">
+												<input name="isProductRadio" type="radio" class="ace" onclick="showProduct();"  checked="checked" value="0"/>
+												<span class="lbl"> 是</span>
+												<input name="isProductRadio" type="radio" class="ace" onclick="hideProduct();" value="1"/>
+												<span class="lbl"> 否</span>
+											</td>
+										</tr>
+									</table>
+
+
+									<div id="isProduct">
+									<hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+										<table style="border-collapse:separate; border-spacing:0px 10px;">
+											<tr>
+												<td width="12%" align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>涉及产品名称：</label>
+
+												</td>
+												<td width="20%" align="left">
+													<input name="product1" type="text" value="${cpComplaintproduct.product}" id="product1"  style="width: 95%"/>
+
+												</td>
+												<td width="12%" align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>涉及产品类型：</label>
+
+												</td>
+												<td width="20%" align="left">
+													<select name="producttype" id="producttype" style="width: 208px">
+														<option value="1">&nbsp;食品</option>
+														<option value="2">&nbsp;药品</option>
+														<option value="3">&nbsp;医疗器械</option>
+														<option value="4">&nbsp;化妆品</option>
+														<option value="5">&nbsp;其他</option>
+													</select>
+												</td>
+												<td width="12%" align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1">产品国产进口类型：</label>
+
+												</td>
+												<td width="20%" align="left">
+													<select name="isimport" id="u10889_input" style="width: 208px">
+														<option value="1">&nbsp;国产</option>
+														<option value="2">&nbsp;进口</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1">产品购买渠道：</label>
+
+												</td>
+												<td align="left">
+													<select name="productchannel" id="u10889_input" style="width: 208px">
+														<option value="1">&nbsp;线上网络</option>
+														<option value="2">&nbsp;线下实体</option>
+														<option value="3">&nbsp;电话购物</option>
+													</select>
+												</td>
+												<td align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>产品批准文号：</label>
+
+												</td>
+												<td align="left">
+													<input name="approvalNumber" id="approvalNumber" type="text" value="${cpComplaintproduct.approvalNumber}" id="form-field-1-1"  style="width: 95%"/>
+
+												</td>
+												<td align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>产品型号规格：</label>
+
+												</td>
+												<td align="left">
+													<input name="spec" type="text" id="spec" value="${cpComplaintproduct.spec}" style="width: 95%"/>
+
+												</td>
+											</tr>
+											<tr>
+												<td align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>产品批号：</label>
+
+												</td>
+												<td align="left">
+													<input name="batchNumber" type="text" id="batchNumber" value="${cpComplaintproduct.batchNumber}" style="width: 95%"/>
+
+												</td>
+												<td align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>产品生产企业：</label>
+
+												</td>
+												<td align="left">
+													<input name="manufacturer" type="text" id="manufacturer" value="${cpComplaintproduct.manufacturer}" style="width: 95%"/>
+
+												</td>
+												<td align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>产品销售企业：</label>
+
+												</td>
+												<td align="left">
+													<input name="temp1" type="text" id="temp1" value="${cpComplaintproduct.temp1}" style="width: 95%"/>
+
+												</td>
+											</tr>
+											<tr>
+												<td align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>产品生产日期：</label>
+
+												</td>
+												<td align="left">
+													<input name="dateOfManufacture" type="text" id="dateOfManufacture" value="${cpComplaintproduct.dateOfManufacture}" style="width: 95%"/>
+
+												</td>
+												<td align="right" nowrap="nowrap">
+													<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>产品有效期：</label>
+
+												</td>
+												<td align="left">
+													<input name="validitydate" type="text" id="validitydate" value="${cpComplaintproduct.validitydate}" style="width: 95%"/>
+
+												</td>
+											</tr>
+										</table>
+
+									</div>
+									<hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+							        <h3>受理信息：</h3>
+									<table style="border-collapse:separate; border-spacing:0px 10px;">
+										<tr>
+											<td width="12%" align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">
+													<span>是否首次举报：</span></label>
+											</td>
+											<td width="20%" align="left">
+												<input name="isfirst" type="radio" class="ace" value="是"/>
+												<span class="lbl"> 是</span>
+												<input name="isfirst" type="radio" class="ace" value="否"/>
+												<span class="lbl"> 否</span>
+											</td>
+											<td width="12%" align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">
+													<span>是否受理：</span></label>
+											</td>
+											<td width="20%" align="left">
+												<input name="acceptance" type="radio" class="ace" value="是"/>
+												<span class="lbl"> 是</span>
+												<input name="acceptance" type="radio" class="ace" value="否"/>
+												<span class="lbl"> 否</span>
+											</td>
+											<td width="12%" align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">
+													<span>是否需要反馈：</span></label>
+											</td>
+											<td width="20%" align="left">
+												<input name="form-field-radio8" type="radio" class="ace" value="是"/>
+												<span class="lbl"> 是</span>
+												<input name="form-field-radio8" type="radio" class="ace" value="否"/>
+												<span class="lbl"> 否</span>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												<label class="control-label bolder blue" for="form-field-1-1"><span style="color:#FF0000;">*</span>标题：</label>
+											</td>
+											<td align="left">
+												<input name="title" type="text" id="title"  style="width: 95%"/>
+											</td>
+											<td align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">问题分类：</label>
+											</td>
+											<td align="left">
+												<select name="classification" id="u10889_input" style="width: 95%">
+													<option value="1">&nbsp;质量问题</option>							          
+													<option value="2">&nbsp;许可问题</option>
+													<option value="3">&nbsp;特殊食品注册问题</option>
+													<option value="4">&nbsp;生产、经营条件不具备</option>
+													<option value="5">&nbsp;生产、经营过程不规范</option>
+													<option value="6">&nbsp;标签、说明书问题</option>
+													<option value="7">&nbsp;转基因问题</option>
+													<option value="8">&nbsp;虚假宣传</option>
+													<option value="9">&nbsp;保健食品广告问题</option>
+												</select>
+											</td>
+											<td align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">问题环节：</label>
+											</td>
+											<td align="left">
+												<select name="problemLink" id="u10889_input" style="width: 95%">
+													<option value="1">&nbsp;注册</option>
+													<option value="2">&nbsp;生产</option>
+													<option value="3">&nbsp;经营</option>
+													<option value="4">&nbsp;使用</option>
+													<option value="5">&nbsp;其他</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">关键词：</label>
+											</td>
+											<td align="left">
+												<input name="temp5" type="text" id="form-field-1-1"  style="width: 95%"/>
+											</td>
+											<td align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">
+													问题发生地行政区域划分：</label>
+											</td>
+											<td align="left">
+												<select name="mengshi3" id="mengshi3" style="width: 45%" >
+													
+												</select>
+												<select name="area" id="qixian3" style="width: 50%"></select>
+											</td>
+											<td align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">重要程度：</label>
+											</td>
+											<td align="left">
+												<select name="importance" id="u10889_input" style="width: 95%">
+													<option value="1">&nbsp;一般</option>
+													<option value="2">&nbsp;重要</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												<label class="control-label bolder blue" for="form-field-1-1">产品首次投诉举报信息编号：</label>
+											</td>
+											<td align="left">
+												<input type="text" name="infoid" id="form-field-1-1"  style="width: 95%"/>
+											</td>
+											<td align="right">
+												
+													<label class="control-label bolder blue" for="form-field-1">受理日期：</label>
+												
+											</td>
+											<td align="left">
+												<div class="form-group">
+												<input name="acceptedDate" id="date-timepicker2" type="text" class="" />
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												<label for="form-field-9 bolder blue">
+													<span style="color:#FF0000;">*</span>主要内容：</label>
+											</td>
+											<td align="left">
+												<textarea name="responsecontent" class="form-control limited" rows="8" id="responsecontent" maxlength="1999" style="width: 95%"></textarea>
+
+											</td>
+											<td align="right">
+												<label for="finputlimiterorm-field-9 bolder blue">
+													<span style="color:#FF0000;">*</span>处理意见：
+												</label>
+											</td>
+											<td align="left">
+												<textarea name="opinion" class="form-control limited" id="opinion" rows="8" maxlength="1999" style="width: 95%"></textarea>
+
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												<label class="control-label bolder blue" for="form-field-9">
+													附件：
+												</label>
+											</td>
+											<td align="left">
+											<input name="uploadFile" type="file" id="uploadFile" />
+										<input name="cpComplaintinfoId" style="display:none" id="cpComplaintinfoId" type="text" value="${cpComplaintinfo.id}" class="form-control" />
+										 <input name="cpComplaintproductId" style="display:none"  id="cpComplaintproductId" type="text" value="${cpComplaintproduct.id}" class="form-control" readonly/>
+										 <input name="cpComplaintsreportId" style="display:none"  id="cpComplaintsreportId" type="text" value="${cpComplaintsreport.id}" class="form-control" readonly/>
+										 <input name="cpRespondentId" style="display:none"  id="cpRespondentId" type="text" value="${cpRespondent.id}" class="form-control" readonly/>
+								 		<input name="querycode" style="display:none"  id="querycode" type="text" value="${cpComplaintsreport.querycode}" class="form-control" readonly/>
+								 			<input name="cpRespondentId" style="display:none"  id="cpRespondentId" type="text" value="${cpRespondent.id}" class="form-control" readonly/>
+								
+											</td>
+											
+										<td colspan="2">
+											&nbsp;&nbsp;&nbsp;&nbsp;<a href="/complaint/file/fileDownload?url=/${cpComplaintsreport.attachurl}&&name=${cpComplaintsreport.temp3}">${cpComplaintsreport.temp3}</a>
+										</td>
+										</tr>
+										</table>
+
+
+
+
+									
+									<hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+							        <h3>业务办理：</h3>
+								<table style="border-collapse:separate; border-spacing:0px 10px;">
+								<tr>
+									<td width="1%" align="left">
+										<label class="control-label bolder blue" for="form-field-1-1">业务办理：</label>
+									</td>
+									<td width="20%" align="left">
+										<select name="operation" id="operation" style="width: 238px"></select>
+							        </td>
+							     </tr>
+								 <tbody id ="assignNextDiv" style="display:none;">
+								  <tr>
+								    <td width="1%" align="left">
+										<label class="control-label bolder blue" for="form-field-1">拟交办单位：</label>
+									</td>
+									<td width="20%" align="left">
+										<input name="nextAssign" type="text" id="nextAssign"  style="width: 238px"/>
+										<input type="hidden" name="nextAssignId" id="nextAssignId" value=""/>
+										<input class="btn btn-info" value="选择" type="button" onclick="javascript:showAccount_1()"/>
+									</td>
+								</tr>
+								</tbody>
+								<tbody id ="assignMengshiDiv" style="display:none;">
+								<tr>
+									<td>
+										<label class="control-label bolder blue" for="form-field-1">盟市办理单位：</label>
+									</td>
+									<td>
+										<input type="text" id="assignMengshi" value="" style="width: 238px"/>
+									    <input class="btn btn-info" value="选择" type="button" onclick="javascript:showAccount_0()"/>
+										<input type="hidden" name="nextAssignIdMengshi" id="nextAssignIdMengshi" value=""/>
+									</td>
+								</tr></tbody>
+									<br>
+									<br>
+								<tr>
+									<td>
+										<label class="control-label bolder blue" for="form-field-1">拟交办意见：</label>
+									</td>
+									<td>
+										<textarea name="commit" type="text" id="commit" style="width:238px;"></textarea>
+							       
+									</td>
+								</tr>
+								</form>	
+									<tr><td>
+									<button id="submit" class="btn btn-info">提交</button>
+									</td><td><button id="adjustment" type="button" class="btn btn-info">判重</button>
+									</td></tr>
+								</table>
+	<div id="showAccount">
+		<table id="accountTable"></table>
+	</div>
+	<div id="showRepeat">
+		<table id="repeatTable"></table>
+	</div>		
+	
+
+	<div style="display:none;overflow:hidden;padding:3px" id="repeatListDialog">
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="repeatListIframe"  scrolling="auto"  width="100%" height="100%">
+	</iframe></div>
+					
+										</div>
+									</div>
+								</div><!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.js"></script>
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="/static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
+		
+		<script src="../../static/scripts/gecko-modules/jquery/jquery-ui.js"></script>
+		
+		<script src="../../static/scripts/gecko-modules/jquery/jquery-ui.custom.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/jquery/jquery.ui.touch-punch.js"></script>
+		<script src="../../static/scripts/gecko-modules/jquery/chosen.jquery.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/spinbox.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/bootstrap-datepicker.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/bootstrap-datepicker-zhCN.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/bootstrap-timepicker.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/moment.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/daterangepicker.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/bootstrap-datetimepicker.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/bootstrap-colorpicker.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/jquery/jquery.knob.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/autosize.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/jquery/jquery.inputlimiter.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/jquery/jquery.maskedinput.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/bootstrap/bootstrap-tag.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/jquery/jquery.validate.min.js"></script>
+		 <script type="text/javascript" src="../../static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+		<script type="text/javascript" src="../../static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+	
+		<!-- ace scripts -->
+		<script src="../../static/scripts/gecko-modules/ace/ace-elements.min.js"></script>
+		<script src="../../static/scripts/gecko-modules/ace/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+				//投诉举报人的证件类型加载选择
+				/* var options = document.getElementById('licensetype').children;
+				options[${cpComplaintinfo.licensetype}].selected = true; */
+				//是否匿名 的选择
+				var complainantname = "${cpComplaintinfo.complainantname}";
+				if(null!= complainantname){
+					$("input[name='isanonymous']").eq(1).attr("checked","checked");
+				}else{
+					$("input[name='isanonymous']").eq(0).attr("checked","checked");
+				}
+				
+				/* $("#tel").blur(function(){
+	    		if(""==$("#tel").val()){
+	    			$("#tel").closest('.form-group').removeClass('has-info').addClass('has-error');
+	    			return ;
+	    		}else if(!$("#tel").val().match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+	    			window.setTimeout (function(){$("#tel").focus();},0);
+	    			alert("格式不正确！请重新输入");
+	    			//$("#tel").focus();
+	    			return ;
+	    		}else{
+	    			$("#tel").closest('.form-group').removeClass('has-info').removeClass('has-error');
+	    			return ;
+	    		} */
+    	});
+    			
+		    	/**
+		    	加载盟市的option
+		    	*/
+				$.ajax({
+				     url: "/complaint/area/getCitys"
+				    , type: "POST"
+				    //自治区编号
+				    , data: {parentArea:"116156"}
+				    , success: function(data){
+					     $.each(data, function(i,item){
+							$("select[id^='mengshi']").append("<option value='"+item.id+"'>"+item.areaName+"</option>");  
+						});
+						
+						var mengshi1 = $("#mengshi1").find("option:selected").val();
+						$.ajax({
+						     url: "/complaint/area/getCitys"
+						    , type: "POST"
+						    //盟市编号
+						    , data: {parentArea:mengshi1}
+						    , success: function(data){
+						     $.each(data, function(i,item){
+								$("#qixian1").append("<option value='"+item.id+"'>"+item.areaName+"</option>");  
+							});
+						    }
+						});
+						var mengshi2 = $("#mengshi2").find("option:selected").val();
+						var cpComplaintinfoMengshi = "${cpComplaintinfo.address}".split("-")[0];
+						var cpComplaintinfoQixian = "${cpComplaintinfo.address}".split("-")[1];
+						var cpComplaintinfoAddress = "${cpComplaintinfo.address}".split("-")[2];
+						if(cpComplaintinfoMengshi!=""){
+							$("#mengshi2").val(cpComplaintinfoMengshi);
+							mengshi2 = cpComplaintinfoMengshi;
+						}
+						$.ajax({
+						     url: "/complaint/area/getCitys"
+						    , type: "POST"
+						    //盟市编号
+						    , data: {parentArea:mengshi2}
+						    , success: function(data){
+						   $.each(data, function(i,item){
+								$("#qixian2").append("<option value='"+item.id+"'>"+item.areaName+"</option>");  
+							});
+						    }
+						});
+						if(cpComplaintinfoQixian!=""){
+							$("#qixian2").val(cpComplaintinfoMengshi);
+						}
+						if(cpComplaintinfoAddress!=""){
+							$("#address").val(cpComplaintinfoAddress);
+						}
+						var mengshi3 = $("#mengshi3").find("option:selected").val();
+						$.ajax({
+						     url: "/complaint/area/getCitys"
+						    , type: "POST"
+						    //盟市编号
+						    , data: {parentArea:mengshi3}
+						    , success: function(data){
+						   $.each(data, function(i,item){
+								$("#qixian3").append("<option value='"+item.id+"'>"+item.areaName+"</option>");  
+							});
+						    }
+						});
+				    }
+				});
+				$("select[id^='mengshi']").change(function(){
+					var mengshi = $(this).find("option:selected").val();
+					var qixianObj = $(this).siblings()[0];
+					$.ajax({
+						     url: "/complaint/area/getCitys"
+						    , type: "POST"
+						    //盟市编号
+						    , data: {parentArea:mengshi}
+						    , success: function(data){
+						    	$(qixianObj).empty();
+						     $.each(data, function(i,item){
+						     	$(qixianObj).append("<option value='"+item.id+"'>"+item.areaName+"</option>");  
+							});
+						    }
+					});
+				});
+				
+				    
+				$('#id-disable-check').on('click', function() {
+					var inp = $('#form-input-readonly').get(0);
+					if(inp.hasAttribute('disabled')) {
+						inp.setAttribute('readonly' , 'true');
+						inp.removeAttribute('disabled');
+						inp.value="This text field is readonly!";
+					}
+					else {
+						inp.setAttribute('disabled' , 'disabled');
+						inp.removeAttribute('readonly');
+						inp.value="This text field is disabled!";
+					}
+				});
+			
+			
+				if(!ace.vars['touch']) {
+					$('.chosen-select').chosen({allow_single_deselect:true}); 
+					//resize the chosen on window resize
+			
+					$(window)
+					.off('resize.chosen')
+					.on('resize.chosen', function() {
+						$('.chosen-select').each(function() {
+							 var $this = $(this);
+							 $this.next().css({'width': $this.parent().width()});
+						})
+					}).trigger('resize.chosen');
+					//resize chosen on sidebar collapse/expand
+					$(document).on('settings.ace.chosen', function(e, event_name, event_val) {
+						if(event_name != 'sidebar_collapsed') return;
+						$('.chosen-select').each(function() {
+							 var $this = $(this);
+							 $this.next().css({'width': $this.parent().width()});
+						})
+					});
+			
+			
+					$('#chosen-multiple-style .btn').on('click', function(e){
+						var target = $(this).find('input[type=radio]');
+						var which = parseInt(target.val());
+						if(which == 2) $('#form-field-select-4').addClass('tag-input-style');
+						 else $('#form-field-select-4').removeClass('tag-input-style');
+					});
+				}
+			
+			
+				$('[data-rel=tooltip]').tooltip({container:'body'});
+				$('[data-rel=popover]').popover({container:'body'});
+			
+				autosize($('textarea[class*=autosize]'));
+				
+				$('textarea.limited').inputlimiter({
+					limit:200,
+					remText: '您还可以输入%n 字数',
+					limitText: '最多允许 : %n。'
+				});
+			
+				$.mask.definitions['~']='[-+]';
+				//$.mask.definitions['^']='[/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/]';
+				$('.input-mask-date').mask('99/99/9999');
+				$("#zipcode").mask('999999');
+				$('.input-mask-phone').mask('999-9999-9999');
+				$('.input-mask-eyescript').mask('~9.99 ~9.99 999');
+				$(".input-mask-product").mask("a*-999-a999",{placeholder:" ",completed:function(){alert("You typed the following: "+this.val());}});
+				//$('.input-mask-email').mask('^');
+			
+			
+				$( "#input-size-slider" ).css('width','200px').slider({
+					value:1,
+					range: "min",
+					min: 1,
+					max: 8,
+					step: 1,
+					slide: function( event, ui ) {
+						var sizing = ['', 'input-sm', 'input-lg', 'input-mini', 'input-small', 'input-medium', 'input-large', 'input-xlarge', 'input-xxlarge'];
+						var val = parseInt(ui.value);
+						$('#form-field-4').attr('class', sizing[val]).attr('placeholder', '.'+sizing[val]);
+					}
+				});
+			
+				$( "#input-span-slider" ).slider({
+					value:1,
+					range: "min",
+					min: 1,
+					max: 12,
+					step: 1,
+					slide: function( event, ui ) {
+						var val = parseInt(ui.value);
+						$('#form-field-5').attr('class', 'col-xs-'+val).val('.col-xs-'+val);
+					}
+				});
+			
+			
+				
+				//"jQuery UI Slider"
+				//range slider tooltip example
+				$( "#slider-range" ).css('height','200px').slider({
+					orientation: "vertical",
+					range: true,
+					min: 0,
+					max: 100,
+					values: [ 17, 67 ],
+					slide: function( event, ui ) {
+						var val = ui.values[$(ui.handle).index()-1] + "";
+			
+						if( !ui.handle.firstChild ) {
+							$("<div class='tooltip right in' style='display:none;left:16px;top:-6px;'><div class='tooltip-arrow'></div><div class='tooltip-inner'></div></div>")
+							.prependTo(ui.handle);
+						}
+						$(ui.handle.firstChild).show().children().eq(1).text(val);
+					}
+				}).find('span.ui-slider-handle').on('blur', function(){
+					$(this.firstChild).hide();
+				});
+				
+				
+				$( "#slider-range-max" ).slider({
+					range: "max",
+					min: 1,
+					max: 10,
+					value: 2
+				});
+				
+				$( "#slider-eq > span" ).css({width:'90%', 'float':'left', margin:'15px'}).each(function() {
+					// read initial values from markup and remove that
+					var value = parseInt( $( this ).text(), 10 );
+					$( this ).empty().slider({
+						value: value,
+						range: "min",
+						animate: true
+						
+					});
+				});
+				
+				$("#slider-eq > span.ui-slider-purple").slider('disable');//disable third item
+			
+				
+				$('#uploadFile, #uploadFile').ace_file_input({
+					no_file:'没有文件 ...',
+					btn_choose:'选择',
+					btn_change:'改变',
+					droppable:false,
+					onchange:null,
+					thumbnail:false //| true | large
+					//whitelist:'gif|png|jpg|jpeg'
+					//blacklist:'exe|php'
+					//onchange:''
+					//
+				});
+				//pre-show a file name, for example a previously selected file
+				//$('#id-input-file-1').ace_file_input('show_file_list', ['myfile.txt'])
+			
+			
+				$('#id-input-file-3').ace_file_input({
+					style: 'well',
+					btn_choose: 'Drop files here or click to choose',
+					btn_change: null,
+					no_icon: 'ace-icon fa fa-cloud-upload',
+					droppable: true,
+					thumbnail: 'small'//large | fit
+					//,icon_remove:null//set null, to hide remove/reset button
+					/**,before_change:function(files, dropped) {
+						//Check an example below
+						//or examples/file-upload.html
+						return true;
+					}*/
+					/**,before_remove : function() {
+						return true;
+					}*/
+					,
+					preview_error : function(filename, error_code) {
+						//name of the file that failed
+						//error_code values
+						//1 = 'FILE_LOAD_FAILED',
+						//2 = 'IMAGE_LOAD_FAILED',
+						//3 = 'THUMBNAIL_FAILED'
+						//alert(error_code);
+					}
+			
+				}).on('change', function(){
+					//console.log($(this).data('ace_input_files'));
+					//console.log($(this).data('ace_input_method'));
+				});
+				
+				
+				//$('#id-input-file-3')
+				//.ace_file_input('show_file_list', [
+					//{type: 'image', name: 'name of image', path: 'http://path/to/image/for/preview'},
+					//{type: 'file', name: 'hello.txt'}
+				//]);
+			
+				
+				
+			
+				//dynamically change allowed formats by changing allowExt && allowMime function
+				$('#id-file-format').removeAttr('checked').on('change', function() {
+					var whitelist_ext, whitelist_mime;
+					var btn_choose
+					var no_icon
+					if(this.checked) {
+						btn_choose = "Drop images here or click to choose";
+						no_icon = "ace-icon fa fa-picture-o";
+			
+						whitelist_ext = ["jpeg", "jpg", "png", "gif" , "bmp"];
+						whitelist_mime = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/bmp"];
+					}
+					else {
+						btn_choose = "Drop files here or click to choose";
+						no_icon = "ace-icon fa fa-cloud-upload";
+						
+						whitelist_ext = null;//all extensions are acceptable
+						whitelist_mime = null;//all mimes are acceptable
+					}
+					var file_input = $('#id-input-file-3');
+					file_input
+					.ace_file_input('update_settings',
+					{
+						'btn_choose': btn_choose,
+						'no_icon': no_icon,
+						'allowExt': whitelist_ext,
+						'allowMime': whitelist_mime
+					})
+					file_input.ace_file_input('reset_input');
+					
+					file_input
+					.off('file.error.ace')
+					.on('file.error.ace', function(e, info) {
+						//console.log(info.file_count);//number of selected files
+						//console.log(info.invalid_count);//number of invalid files
+						//console.log(info.error_list);//a list of errors in the following format
+						
+						//info.error_count['ext']
+						//info.error_count['mime']
+						//info.error_count['size']
+						
+						//info.error_list['ext']  = [list of file names with invalid extension]
+						//info.error_list['mime'] = [list of file names with invalid mimetype]
+						//info.error_list['size'] = [list of file names with invalid size]
+						
+						
+						/**
+						if( !info.dropped ) {
+							//perhapse reset file field if files have been selected, and there are invalid files among them
+							//when files are dropped, only valid files will be added to our file array
+							e.preventDefault();//it will rest input
+						}
+						*/
+						
+						
+						//if files have been selected (not dropped), you can choose to reset input
+						//because browser keeps all selected files anyway and this cannot be changed
+						//we can only reset file field to become empty again
+						//on any case you still should check files with your server side script
+						//because any arbitrary file can be uploaded by user and it's not safe to rely on browser-side measures
+					});
+					
+					
+					/**
+					file_input
+					.off('file.preview.ace')
+					.on('file.preview.ace', function(e, info) {
+						console.log(info.file.width);
+						console.log(info.file.height);
+						e.preventDefault();//to prevent preview
+					});
+					*/
+				
+				});
+			
+				$('#spinner1').ace_spinner({value:0,min:0,max:200,step:10, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
+				.closest('.ace-spinner')
+				.on('changed.fu.spinbox', function(){
+					//console.log($('#spinner1').val())
+				}); 
+				$('#spinner2').ace_spinner({value:0,min:0,max:10000,step:100, touch_spinner: true, icon_up:'ace-icon fa fa-caret-up bigger-110', icon_down:'ace-icon fa fa-caret-down bigger-110'});
+				$('#spinner3').ace_spinner({value:0,min:-100,max:100,step:10, on_sides: true, icon_up:'ace-icon fa fa-plus bigger-110', icon_down:'ace-icon fa fa-minus bigger-110', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
+				$('#spinner4').ace_spinner({value:0,min:-100,max:100,step:10, on_sides: true, icon_up:'ace-icon fa fa-plus', icon_down:'ace-icon fa fa-minus', btn_up_class:'btn-purple' , btn_down_class:'btn-purple'});
+			
+				//$('#spinner1').ace_spinner('disable').ace_spinner('value', 11);
+				//or
+				//$('#spinner1').closest('.ace-spinner').spinner('disable').spinner('enable').spinner('value', 11);//disable, enable or change value
+				//$('#spinner1').closest('.ace-spinner').spinner('value', 0);//reset to 0
+			
+			
+				//
+				//link
+				$('.date-picker').datepicker({
+					autoclose: true,
+					todayHighlight: true
+				})
+				//show datepicker when clicking on the icon
+				.next().on(ace.click_event, function(){
+					$(this).prev().focus();
+				});
+			
+				//or change it into a date range picker
+				$('.input-daterange').datepicker({autoclose:true});
+			
+			
+				//to translate the daterange picker, please copy the "examples/daterange-fr.js" contents here before initialization
+				$('input[name=date-range-picker]').daterangepicker({
+					'applyClass' : 'btn-sm btn-success',
+					'cancelClass' : 'btn-sm btn-default',
+					locale: {
+						applyLabel: 'Apply',
+						cancelLabel: 'Cancel',
+					}
+				})
+				.prev().on(ace.click_event, function(){
+					$(this).next().focus();
+				});
+			
+			
+				$('#timepicker1').timepicker({
+					minuteStep: 1,
+					showSeconds: true,
+					showMeridian: false,
+					disableFocus: true,
+					icons: {
+						up: 'fa fa-chevron-up',
+						down: 'fa fa-chevron-down'
+					}
+				}).on('focus', function() {
+					$('#timepicker1').timepicker('showWidget');
+				}).next().on(ace.click_event, function(){
+					$(this).prev().focus();
+				});
+				
+				if(!ace.vars['old_ie']) $('#date-timepicker1').datepicker({
+				 //format: 'YYYY/MM/DD h:mm:ss A',//use this option to display seconds
+				 	format: 'yyyy-MM-dd',  
+		        	language: 'zh-CN',
+		        	pickDate: true, 
+		        	//todayBtn : true,
+		        	inputMask: true  
+				}).next().on(ace.click_event, function(){
+					$(this).prev().focus();
+				});
+				
+				if(!ace.vars['old_ie']) $('#date-timepicker2').datepicker({
+				 //format: 'MM/DD/YYYY h:mm:ss A',//use this option to display seconds
+					format: 'yyyy-MM-dd',  
+		        	language: 'zh-CN',
+		        	//todayBtn : true, 
+		        	pickDate: true,  
+		        	inputMask: true , 
+				 	pickerPosition:'top-right'
+				
+				});
+				$('#colorpicker1').colorpicker();
+				//$('.colorpicker').last().css('z-index', 2000);//if colorpicker is inside a modal, its z-index should be higher than modal'safe
+			
+				$('#simple-colorpicker-1').ace_colorpicker();
+				//$('#simple-colorpicker-1').ace_colorpicker('pick', 2);//select 2nd color
+				//$('#simple-colorpicker-1').ace_colorpicker('pick', '#fbe983');//select #fbe983 color
+				//var picker = $('#simple-colorpicker-1').data('ace_colorpicker')
+				//picker.pick('red', true);//insert the color if it doesn't exist
+			
+			
+				$(".knob").knob();
+				
+				
+				var tag_input = $('#form-field-tags');
+				try{
+					tag_input.tag(
+					  {
+						placeholder:tag_input.attr('placeholder'),
+						//enable typeahead by specifying the source array
+						source: ace.vars['US_STATES'],//defined in ace.js >> ace.enable_search_ahead
+						/**
+						//or fetch data from database, fetch those that match "query"
+						source: function(query, process) {
+						  $.ajax({url: 'remote_source.php?q='+encodeURIComponent(query)})
+						  .done(function(result_items){
+							process(result_items);
+						  });
+						}
+						*/
+					  }
+					)
+			
+					//programmatically add/remove a tag
+					var $tag_obj = $('#form-field-tags').data('tag');
+					$tag_obj.add('Programmatically Added');
+					
+					var index = $tag_obj.inValues('some tag');
+					$tag_obj.remove(index);
+				}
+				catch(e) {
+					//display a textarea for old IE, because it doesn't support this plugin or another one I tried!
+					tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="3">'+tag_input.val()+'</textarea>').remove();
+					//autosize($('#form-field-tags'));
+				}
+				
+				
+				/////////
+				$('#modal-form input[type=file]').ace_file_input({
+					style:'well',
+					btn_choose:'Drop files here or click to choose',
+					btn_change:null,
+					no_icon:'ace-icon fa fa-cloud-upload',
+					droppable:true,
+					thumbnail:'large'
+				})
+				
+				//chosen plugin inside a modal will have a zero width because the select element is originally hidden
+				//and its width cannot be determined.
+				//so we set the width after modal is show
+				$('#modal-form').on('shown.bs.modal', function () {
+					if(!ace.vars['touch']) {
+						$(this).find('.chosen-container').each(function(){
+							$(this).find('a:first-child').css('width' , '210px');
+							$(this).find('.chosen-drop').css('width' , '210px');
+							$(this).find('.chosen-search input').css('width' , '200px');
+						});
+					}
+				})
+				/**
+				//or you can activate the chosen plugin after modal is shown
+				//this way select element becomes visible with dimensions and chosen works as expected
+				$('#modal-form').on('shown', function () {
+					$(this).find('.modal-chosen').chosen();
+				})
+				*/
+				$(document).one('ajaxloadstart.page', function(e) {
+					autosize.destroy('textarea[class*=autosize]')
+					
+					$('.limiterBox,.autosizejs').remove();
+					$('.daterangepicker.dropdown-menu,.colorpicker.dropdown-menu,.bootstrap-datetimepicker-widget.dropdown-menu').remove();
+				});
+			
+			
+		</script>
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+	(function (d, w, c) {
+		(w[c] = w[c] || []).push(function() {
+			try {
+				w.yaCounter25836836 = new Ya.Metrika({id:25836836,
+					webvisor:true,
+					clickmap:true,
+					trackLinks:true,
+					accurateTrackBounce:true});
+			} catch(e) { }
+		});
+
+		var n = d.getElementsByTagName("script")[0],
+				s = d.createElement("script"),
+				f = function () { n.parentNode.insertBefore(s, n); };
+		s.type = "text/javascript";
+		s.async = true;
+		s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+		if (w.opera == "[object Opera]") {
+			d.addEventListener("DOMContentLoaded", f, false);
+		} else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/25836836" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-38894584-2', 'auto');
+	ga('send', 'pageview');
+$(function(){
+		/**
+		动态加载operation的option
+		**/
+		$.ajax({
+			url: "/system/organization/getDeparmentByAccount", 
+			type: "POST", 
+			async:false,
+			success: function(data){
+				console.log(data);
+				    //自治区
+				if(data.orgType=="0"){
+				
+					     $("#operation").append("<option value='1'>&nbsp;交办</option>")
+					     .append("<option value='2'>&nbsp;送审</option>")
+					     .append("<option value='3'>&nbsp;办结</option>")
+					     .append("<option value='4'>&nbsp;同意受理</option>");
+					//盟市
+				}else if(data.orgType=="1"){
+					     	 $("#operation").append("<option value='5' select='selected'>&nbsp;交办旗县</option>")
+					     	 .append("<option value='6'>&nbsp;办结</option>")
+					     	 .append("<option value='7'>&nbsp;同意受理</option>");
+				}
+			},
+			error:function(data){
+				
+			}
+		});
+	
+		//需要选择的时候才显示人员选择
+		if("2"==$("#operation").val()){
+			$("#assignMengshiDiv").show();
+		}else{
+			$("#assignMengshiDiv").hide();	
+		}
+		
+	　　	if("2"==$("#operation").val()||"交办旗县"==$("#operation").val()||"受理交办盟市"==$("#operation").val()|| "1"==$("#operation").val() || "5"==$("#operation").val()){
+			$("#assignNextDiv").show();
+		}else{
+			$("#assignNextDiv").hide();
+		}
+	$("#operation").change(function(){
+		$("#nextAssign").val("");
+    	$("#nextAssignId").val("");
+    	$("#assignMengshi").val("");
+    	$("#nextAssignIdMengshi").val("");
+		//需要选择的时候才显示人员选择
+		if("2"==$("#operation").val()){
+			$("#assignMengshiDiv").show();
+		}else{
+			$("#assignMengshiDiv").hide();	
+		}
+	　　	if("2"==$("#operation").val()||"1"==$("#operation").val()||"5"==$("#operation").val()){
+			$("#assignNextDiv").show();
+		}else{
+			$("#assignNextDiv").hide();
+		}
+	});
+}); 
+
+function showAccount_0(){
+ $("#showAccount").dialog({
+      modal: true,
+      position: ["520px","580px"]
+    });
+	var tableId = "accountTable";
+	$("#"+ tableId).bootstrapTable('destroy'); 
+	$("#" + tableId).bootstrapTable({
+	 			method: 'get',
+	 			queryParams:queryParams_0,
+				//editable:false,//关闭编辑模式  
+                //toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                //showRefresh: true,
+                sidePagination: "client",
+                pageSize: 5, 
+                //search: true,
+                url: "/workflow/complaint/accountListByRole",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "realName",
+                    title: "真实姓名",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "principal",
+                    title: "账号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                field: 'operate',
+                title: '操作',
+                align: 'center',
+                width : 100,
+                events: operateEvents_0,
+                formatter: operateFormatter
+                }]
+            });
+}
+function queryParams_0(pageReqeust) {  
+	if("2"==$("#operation").val()||"受理交办盟市"==$("#operation").val()){
+		pageReqeust.role = "交办盟市";
+	}else if("5"==$("#operation").val()){
+		pageReqeust.role = "交办旗县";
+	}else{
+	    pageReqeust.role = $("#operation").val();
+	}
+    console.log(pageReqeust);
+    return pageReqeust;  
+}
+ window.operateEvents_0 = {
+    'click .RoleOfedit': function (e, value, row, index) {
+    //alert(row.id);
+    	$("#assignMengshi").val(row.realName);
+    	$("#nextAssignIdMengshi").val(row.id);
+    	$("#accountTable").bootstrapTable('destroy'); 
+        $('#showAccount').dialog('close');
+	}
+};
+ function operateFormatter(value, row, index) {
+      return [
+      '<button type="button" class="RoleOfedit btn btn-primary  btn-sm" style="margin-right:15px;">选择</button>'
+      ].join('');
+}
+function showAccount_1(){
+ 	$("#showAccount").dialog({
+      modal: true,
+     // position: ["30px","30px"]
+			position: {
+				my: "center",
+				at: "center",
+				of: window,
+				collision: "fit",
+				// Ensure the titlebar is always visible
+				using: function() {
+								$(this).css({
+									"position":"absolute",
+									"top":"50px", //设置弹出框距离是页面顶端下的200px
+									"left":"400px"
+								});
+						}
+			}
+		
+	});
+	var tableId = "accountTable";
+	$("#"+ tableId).bootstrapTable('destroy'); 
+	$("#" + tableId).bootstrapTable({
+	 			method: 'get',
+	 			queryParams:queryParams_0,
+				//editable:false,//关闭编辑模式  
+                //toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                //showRefresh: true,
+                sidePagination: "client",
+               // pageNumber:1,   
+              	pageSize: 5,
+                url: "/workflow/complaint/accountListByRoleAndCitys",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "realName",
+                    title: "真实姓名",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "principal",
+                    title: "账号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                field: 'operate',
+                title: '操作',
+                align: 'center',
+                width : 100,
+                events: operateEvents_1,
+                formatter: operateFormatter
+                }]
+            });
+}
+function queryParams_1(pageReqeust) {  
+	if("1"==$("#operation").val()){
+		pageReqeust.role = "交办盟市";
+	} else if("2"==$("#operation").val()){
+	    pageReqeust.role = "送审";
+	}else if("5"==$("#operation").val()){
+	    pageReqeust.role = "交办旗县";
+	}
+    console.log(pageReqeust);
+    return pageReqeust;  
+}
+ window.operateEvents_1 = {
+    'click .RoleOfedit': function (e, value, row, index) {
+    //alert(row.id);
+    	$("#nextAssign").val(row.realName);
+    	$("#nextAssignId").val(row.id);
+    	$("#accountTable").bootstrapTable('destroy'); 
+        $('#showAccount').dialog('close');
+	}
+};
+$("#submit").click(function(){
+	$("#registrationForm").submit();
+});
+$("#adjustment").click(function(){
+	adjustment();
+});
+function queryParams_3(pageReqeust) { 
+	pageReqeust.respondentname = $("#respondentname").val();
+	pageReqeust.approvalNumber = $("#approvalNumber").val();
+	pageReqeust.product = $("#product1").val();
+	pageReqeust.batchNumber = $("#batchNumber").val();
+	console.log(pageReqeust);
+	return pageReqeust;  
+}
+function operateFormatter3(value, row, index) {
+      return [
+      '<button type="button" class="detailsOfedit btn btn-primary  btn-sm" style="margin-right:15px;">查看详情</button>'
+      ].join('');
+}
+ window.operateEvents_3 = {
+    'click .detailsOfedit': function (e, value, row, index) {
+   
+   		//window.location.href = "/complaint/cpcomplaintsreport/adjustmentView?cpComplaintsreportId="+row.cpComplaintsreportId;
+   		$( "#showRepeat" ).dialog("close");
+   		$("#repeatListIframe").attr("src","/complaint/cpcomplaintsreport/adjustmentView?cpComplaintsreportId=" + row.cpComplaintsreportId); //设置IFRAME的SRC;
+   		$('#repeatListDialog').dialog({
+		    title: '案件详情',
+		    width: 988,
+		    height: 550,
+		    closed: true,
+		    cache: false,
+		   modal: true
+		});
+	}
+};
+
+</script>
+
+</body>
+</html>

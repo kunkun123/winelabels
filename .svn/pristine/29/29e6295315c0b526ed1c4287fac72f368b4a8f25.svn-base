@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.system.repository.dao.ResourceDao">
+	<resultMap id="Resource" type="org.gecko.framework.system.entity.Resource">
+		<result property="id" column="id" jdbcType="VARCHAR"/>
+		<result property="id" column="id" jdbcType="VARCHAR" />
+		<result property="sourceName" column="source_name" jdbcType="VARCHAR" />
+		<result property="isPlatform" column="is_platform" jdbcType="VARCHAR" />
+		<result property="parentId" column="parent_id" jdbcType="VARCHAR" />
+		<result property="resourceSeq" column="resource_seq" jdbcType="VARCHAR" />
+		<result property="uri" column="uri" jdbcType="VARCHAR" />
+		<result property="iconCls" column="icon_cls" jdbcType="VARCHAR" />
+		<result property="sortIndex" column="sort_index" jdbcType="VARCHAR" />
+		<result property="available" column="available" jdbcType="VARCHAR" />
+		<result property="resourceType" column="resourceType" typeHandler="org.gecko.core.mybatis.handlers.GeckoEnumTypeHandler"/>
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.system.entity.Resource">
+		select count(*) from system_resources t where 1=1
+	</select>
+	
+	<select id="get" resultMap="Resource" parameterType="String">
+		select  Resource.* from system_resources Resource where Resource.id = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.system.entity.Resource">	
+ 		insert into system_resources(id,id,source_name,resource_type,is_platform,parent_id,resource_seq,uri,icon_cls,sort_index,available)
+ 		VALUES(#{id},#{id,jdbcType=VARCHAR},#{sourceName,jdbcType=VARCHAR},#{resourceType,jdbcType=VARCHAR},#{isPlatform,jdbcType=VARCHAR},#{parentId,jdbcType=VARCHAR},#{resourceSeq,jdbcType=VARCHAR},#{uri,jdbcType=VARCHAR},#{iconCls,jdbcType=VARCHAR},#{sortIndex,jdbcType=VARCHAR},#{available,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into system_resources(id,id,source_name,resource_type,is_platform,parent_id,resource_seq,uri,icon_cls,sort_index,available)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.id,jdbcType=VARCHAR},#{o.sourceName,jdbcType=VARCHAR},#{o.resourceType,jdbcType=VARCHAR},#{o.isPlatform,jdbcType=VARCHAR},#{o.parentId,jdbcType=VARCHAR},#{o.resourceSeq,jdbcType=VARCHAR},#{o.uri,jdbcType=VARCHAR},#{o.iconCls,jdbcType=VARCHAR},#{o.sortIndex,jdbcType=VARCHAR},#{o.available,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.system.entity.Resource">
+    		update system_resources set id=#{id}, source_name=#{sourceName}, resource_type=#{resourceType}, is_platform=#{isPlatform}, parent_id=#{parentId}, resource_seq=#{resourceSeq}, uri=#{uri}, icon_cls=#{iconCls}, sort_index=#{sortIndex}, available=#{available} where id=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.system.entity.Resource">
+		delete from system_resources where id=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from system_resources where id=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from system_resources where id in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from system_resources where         <if test="sourceName!=null">and source_name = #{sourceName}</if><if test="resourceType!=null">and resource_type = #{resourceType}</if>    </delete>
+
+    <select id="find" resultMap="Resource" parameterType="org.gecko.framework.system.entity.Resource">
+        select Resource.* from system_resources Resource where 1=1 <if test="id!=null">and id=#{id}</if>
+        <if test="sourceName!=null"> and source_name = #{sourceName} </if><if test="resourceType!=null"> and resource_type = #{resourceType} </if>    </select>
+
+	<select id="findByPage" resultMap="Resource" parameterType="org.gecko.framework.system.entity.Resource">
+		select Resource.* from system_resources Resource where 1=1 <if test="param.id!=null">and id=#{id}</if>
+		<if test="param.sourceName!=null"> and source_name = #{param.sourceName} </if><if test="param.resourceType!=null"> and resource_type = #{param.resourceType} </if>	</select>
+
+    <select id="likeByPage" resultMap="Resource" parameterType="org.gecko.framework.system.entity.Resource">
+        select Resource.* from system_resources Resource where 1=1
+        <if test="param.sourceName!=null"> and source_name like #{param.sourceName}</if><if test="param.resourceType!=null"> and resource_type like #{param.resourceType}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE system_resources SET ${field} = #{value} WHERE id = #{pk}
+    </update>
+</mapper>

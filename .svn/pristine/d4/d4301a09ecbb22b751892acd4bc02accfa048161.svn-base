@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.gecko.framework.memo.repository.dao.MgMemoDao">
+	<select id="findToday" resultMap="MgMemo" parameterType="org.gecko.framework.memo.entity.MgMemo">
+        select MgMemo.* from MG_MEMO MgMemo where 1=1 
+       	<if test="temp1!=null"> and TEMP1 like #{temp1} </if>
+        <if test="userid!=null"> and USERID = #{userid} </if>    
+    </select>
+</mapper>

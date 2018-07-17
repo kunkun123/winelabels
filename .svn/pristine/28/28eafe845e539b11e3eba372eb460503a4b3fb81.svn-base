@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.wineLabels.repository.dao.AlAlcoholflowDao">
+	<resultMap id="AlAlcoholflow" type="org.gecko.framework.wineLabels.entity.AlAlcoholflow">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="temp2" column="TEMP2" jdbcType="VARCHAR" />
+		<result property="saledate" column="SALEDATE" jdbcType="DATE" />
+		<result property="temp3" column="TEMP3" jdbcType="VARCHAR" />
+		<result property="temp4" column="TEMP4" jdbcType="VARCHAR" />
+		<result property="flowname" column="FLOWNAME" jdbcType="VARCHAR" />
+		<result property="temp1" column="TEMP1" jdbcType="VARCHAR" />
+		<result property="lastupdatetime" column="LASTUPDATETIME" jdbcType="DATE" />
+		<result property="creator" column="CREATOR" jdbcType="VARCHAR" />
+		<result property="serial" column="SERIAL" jdbcType="VARCHAR" />
+		<result property="salelinkid" column="SALELINKID" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.wineLabels.entity.AlAlcoholflow">
+		select count(*) from AL_ALCOHOLFLOW t where 1=1
+	</select>
+	
+	<select id="get" resultMap="AlAlcoholflow" parameterType="String">
+		select  AlAlcoholflow.* from AL_ALCOHOLFLOW AlAlcoholflow where AlAlcoholflow.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.wineLabels.entity.AlAlcoholflow">	
+ 		insert into AL_ALCOHOLFLOW(ID,TEMP2,SALEDATE,TEMP3,TEMP4,FLOWNAME,TEMP1,LASTUPDATETIME,CREATOR,SERIAL,SALELINKID)
+ 		VALUES(#{id},#{temp2,jdbcType=VARCHAR},#{saledate,jdbcType=DATE},#{temp3,jdbcType=VARCHAR},#{temp4,jdbcType=VARCHAR},#{flowname,jdbcType=VARCHAR},#{temp1,jdbcType=VARCHAR},#{lastupdatetime,jdbcType=DATE},#{creator,jdbcType=VARCHAR},#{serial,jdbcType=VARCHAR},#{salelinkid,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into AL_ALCOHOLFLOW(ID,TEMP2,SALEDATE,TEMP3,TEMP4,FLOWNAME,TEMP1,LASTUPDATETIME,CREATOR,SERIAL,SALELINKID)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.temp2,jdbcType=VARCHAR},#{o.saledate,jdbcType=DATE},#{o.temp3,jdbcType=VARCHAR},#{o.temp4,jdbcType=VARCHAR},#{o.flowname,jdbcType=VARCHAR},#{o.temp1,jdbcType=VARCHAR},#{o.lastupdatetime,jdbcType=DATE},#{o.creator,jdbcType=VARCHAR},#{o.serial,jdbcType=VARCHAR},#{o.salelinkid,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.wineLabels.entity.AlAlcoholflow">
+    		update AL_ALCOHOLFLOW set TEMP2=#{temp2}, SALEDATE=#{saledate}, TEMP3=#{temp3}, TEMP4=#{temp4}, FLOWNAME=#{flowname}, TEMP1=#{temp1}, LASTUPDATETIME=#{lastupdatetime}, CREATOR=#{creator}, SERIAL=#{serial}, SALELINKID=#{salelinkid} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.wineLabels.entity.AlAlcoholflow">
+		delete from AL_ALCOHOLFLOW where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from AL_ALCOHOLFLOW where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from AL_ALCOHOLFLOW where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from AL_ALCOHOLFLOW where         <if test="temp2!=null">and TEMP2 = #{temp2}</if><if test="saledate!=null">and SALEDATE = #{saledate}</if><if test="temp3!=null">and TEMP3 = #{temp3}</if><if test="temp4!=null">and TEMP4 = #{temp4}</if><if test="flowname!=null">and FLOWNAME = #{flowname}</if><if test="temp1!=null">and TEMP1 = #{temp1}</if><if test="lastupdatetime!=null">and LASTUPDATETIME = #{lastupdatetime}</if><if test="creator!=null">and CREATOR = #{creator}</if><if test="serial!=null">and SERIAL = #{serial}</if><if test="salelinkid!=null">and SALELINKID = #{salelinkid}</if>    </delete>
+
+    <select id="find" resultMap="AlAlcoholflow" parameterType="org.gecko.framework.wineLabels.entity.AlAlcoholflow">
+        select AlAlcoholflow.* from AL_ALCOHOLFLOW AlAlcoholflow where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="temp2!=null"> and TEMP2 = #{temp2} </if><if test="saledate!=null"> and SALEDATE = #{saledate} </if><if test="temp3!=null"> and TEMP3 = #{temp3} </if><if test="temp4!=null"> and TEMP4 = #{temp4} </if><if test="flowname!=null"> and FLOWNAME = #{flowname} </if><if test="temp1!=null"> and TEMP1 = #{temp1} </if><if test="lastupdatetime!=null"> and LASTUPDATETIME = #{lastupdatetime} </if><if test="creator!=null"> and CREATOR = #{creator} </if><if test="serial!=null"> and SERIAL = #{serial} </if><if test="salelinkid!=null"> and SALELINKID = #{salelinkid} </if>    </select>
+
+	<select id="findByPage" resultMap="AlAlcoholflow" parameterType="org.gecko.framework.wineLabels.entity.AlAlcoholflow">
+		select AlAlcoholflow.* from AL_ALCOHOLFLOW AlAlcoholflow where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.temp2!=null"> and TEMP2 = #{param.temp2} </if><if test="param.saledate!=null"> and SALEDATE = #{param.saledate} </if><if test="param.temp3!=null"> and TEMP3 = #{param.temp3} </if><if test="param.temp4!=null"> and TEMP4 = #{param.temp4} </if><if test="param.flowname!=null"> and FLOWNAME = #{param.flowname} </if><if test="param.temp1!=null"> and TEMP1 = #{param.temp1} </if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME = #{param.lastupdatetime} </if><if test="param.creator!=null"> and CREATOR = #{param.creator} </if><if test="param.serial!=null"> and SERIAL = #{param.serial} </if><if test="param.salelinkid!=null"> and SALELINKID = #{param.salelinkid} </if>	</select>
+
+    <select id="likeByPage" resultMap="AlAlcoholflow" parameterType="org.gecko.framework.wineLabels.entity.AlAlcoholflow">
+        select AlAlcoholflow.* from AL_ALCOHOLFLOW AlAlcoholflow where 1=1
+        <if test="param.temp2!=null"> and TEMP2 like #{param.temp2}</if><if test="param.saledate!=null"> and SALEDATE like #{param.saledate}</if><if test="param.temp3!=null"> and TEMP3 like #{param.temp3}</if><if test="param.temp4!=null"> and TEMP4 like #{param.temp4}</if><if test="param.flowname!=null"> and FLOWNAME like #{param.flowname}</if><if test="param.temp1!=null"> and TEMP1 like #{param.temp1}</if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME like #{param.lastupdatetime}</if><if test="param.creator!=null"> and CREATOR like #{param.creator}</if><if test="param.serial!=null"> and SERIAL like #{param.serial}</if><if test="param.salelinkid!=null"> and SALELINKID like #{param.salelinkid}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE AL_ALCOHOLFLOW SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

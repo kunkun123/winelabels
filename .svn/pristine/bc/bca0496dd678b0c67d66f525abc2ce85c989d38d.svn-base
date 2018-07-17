@@ -1,0 +1,162 @@
+/**
+ * demo-pubenttype
+ */
+var tableId = "pubenttypeTable";
+$(function () {
+    $("#" + tableId).bootstrapTable({
+        toolbar: "#toolbar",
+        idField: "ID",
+        pagination: true,
+        limit: 15,
+        showRefresh: true,
+        sidePagination: "server",
+        search: true,
+        url: "/demo/pubenttype/list",
+        columns: [{
+            checkbox: true
+        }, {
+            field: "ID",
+            visible: false
+        }, {
+            field: "groupid",
+            visible: false
+        }, {
+            field: "enttypenum",
+            title: "企业类型编号",
+            type: "text",
+            search: "true",
+            editable: {
+                type: "text"                    }
+        }, {
+            field: "parententtype",
+            visible: false
+        }, {
+            field: "sourceid",
+            title: "资源编号",
+            type: "text",
+            search: "true",
+            editable: {
+                type: "text"                    }
+        }, {
+            field: "enttypename",
+            title: "企业类型名称",
+            type: "text",
+            search: "true",
+            editable: {
+                type: "text"                    }
+        }, {
+            field: "creator",
+            visible: false
+        }],
+        onEditableSave: function (field, row, oldValue, e) {
+            var data = {name: field, pk: row.id, value: row[field]};
+            $.ajax({
+                type: "post",
+                url: "/demo/pubenttype/edit",
+                data: data,
+                dataType: 'JSON',
+                content: "application/json;charset=UTF8",
+                success: function (data, status) {
+                    if (status === "success") {
+                        //info("authorityTable", '修改成功');
+                    }
+                },
+                error: function () {
+                    //info('authorityTable', '编辑失败');
+                },
+                complete: function () {
+
+                }
+            });
+        }
+    });
+});
+var remove = function () {
+    var table = $("#" + tableId);
+    var selected = table.bootstrapTable("getSelections");
+    var ids = [];
+    selected.forEach(function (t) {
+        ids.push(t.id)
+    });
+
+    if (ids.length >= 1 && confirm("确认删除以下数据据：" + ids + " ?")) {
+        $.ajax({
+            url: "/demo/pubenttype/delete", data: JSON.stringify(ids), type: "DELETE",
+            contentType: "application/json;charset=utf8",
+            success: function (resp) {
+                if (resp.code === 0) {
+                    //info(tableId, "删除成功");
+                    table.bootstrapTable('remove', {field: 'id', values: ids});
+                }
+            }
+        });
+    }
+};
+var add = function () {
+    var table = $("#" + tableId);
+    //TODO change this init param my yourself
+    var rowData = {};
+    $("#enttypeForm").serializeArray().forEach(function (x) {
+        rowData[x.name] = x.value;
+    });
+    //var rowData = {ID: "" ,groupid:"",enttypenum:"",parententtype:"",sourceid:"",enttypename:"",creator:""};
+    $.ajax({
+        url: "/demo/pubenttype/save",
+        data: JSON.stringify(rowData),
+        type: "PUT",
+        contentType: "application/json; charset=UTF-8",
+        success: function (res) {
+            if (res.code === 0) {
+                rowData.id = res.data.id;
+                table.bootstrapTable("insertRow", {index: 0, row: rowData});
+            }
+        }
+    });
+    $('#myModal').modal('hide');
+};
+
+var detailShow = function(){
+
+    var table = $("#" + tableId);
+    var selected = table.bootstrapTable("getSelections");
+    var ids = [];
+    selected.forEach(function (t) {
+        ids.push(t.id)
+    });
+    if(ids.length>1||ids.length==0){
+        alert("请选择单一记录进行查看！")
+        return;
+    }
+
+    if (ids.length = 1 ) {
+        $.ajax({
+            url: "/demo/pubenttype/get/"+ids[0], data: JSON.stringify(ids), type: "GET",
+            contentType: "application/json;charset=utf8",
+            success: function (resp) {
+                if (resp.code === 0) {
+                    //info(tableId, "删除成功");
+                    //table.bootstrapTable('remove', {field: 'id', values: ids});
+                    $('#myDetailModal').modal('show');
+                    $('#enttypenumShow').val(resp.data.enttypenum);
+                    $('#enttypenameShow').val(resp.data.enttypename);
+                    $('#sourceidShow').val(resp.data.sourceid);
+                   // console.log("get:"+resp.data.enttypenum);
+                }
+            }
+        });
+    }
+}
+
+var info = function (msg) {
+    var options = {
+        delay: {"show": 500, "hide": 100},
+        content: msg,
+        container: "body",
+        placement: "auto"
+    };
+    $("#user_msg").popover(options);
+    $("#user_msg").popover("show");
+    setTimeout(function () {
+        $("#user_msg").popover('hide')
+    }, 3000);
+};

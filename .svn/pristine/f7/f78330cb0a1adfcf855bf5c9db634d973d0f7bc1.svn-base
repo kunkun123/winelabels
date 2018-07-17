@@ -1,0 +1,971 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>system-Account</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/ace-fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="/static/scripts/gecko-modules/bootstrap/bootstrap-editable.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/ace.css"/>
+   
+    <link rel="stylesheet" href="/static/styles/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/styles/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/static/styles/css/jquery-ui.custom.min.css" />
+	<link rel="stylesheet" href="/static/styles/css/chosen.min.css" />
+	
+	<!-- ace styles -->
+		<link rel="stylesheet" href="/static/static/css/system/ace/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="/static/static/css/system/ace/ace-skins.min.css" />
+		<link rel="stylesheet" href="/static/static/css/system/ace/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+	<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.js"></script>
+		<!-- <![endif]-->
+    <script src="/static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+    <script src="/static/scripts/gecko-modules/jquery/jquery-ui.js"></script>
+		<script src="/static/scripts/gecko-modules/jquery/jquery-ui.custom.min.js"></script>
+		<script src="/static/scripts/gecko-modules/jquery/jquery.ui.touch-punch.js"></script>
+    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+	<!-- ace scripts -->
+	<script src="/static/scripts/gecko-modules/ace/ace-elements.min.js"></script>
+	<script src="/static/scripts/gecko-modules/ace/ace.min.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+	
+	<script src="/static/scripts/gecko-modules/bootstrap/bootstrap-datetimepicker.js"></script>
+		
+<title>投诉举报流程</title>
+</head>
+<body class="no-skin">
+<!--顶部按钮-->
+<div class="page-content">
+
+<div class="">
+	<div class="tabbable">
+		<ul class="nav nav-tabs  tab-color-blue background-blue" id="myTab4">
+			<li class="active">
+				<a data-toggle="tab" href="#home4">基本信息</a>
+			</li>
+			<li>
+				<a data-toggle="tab" href="#profile4">流转明细</a>
+			</li>
+
+			<li>
+				<a data-toggle="tab" href="#dropdown14">办理期限</a>
+			</li>
+		</ul>
+
+	<div class="tab-content">
+		<div id="home4" class="tab-pane in active">
+			<table class="table table-hover">
+			 <tbody class="form-inline">  
+				<tr class="table-bordered">
+					<td class="col-md-2 table-bordered" rowSpan="3" colspan="2" align="center" valign="middle">
+						<label class="bolder blue control-label"  for="form-field-2">登</br>记</br>信</br>息</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">
+						<label class="bolder blue control-label"  for="form-field-2">登记日期</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.registerdate}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="control-label bolder blue" for="form-field-2">等级单位行政区域划分</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">
+						<input name="search" id="endDate" type="text" class="form-control" value="${cpComplaintsreport.temp2}" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					<label class="control-label bolder blue" for="form-field-2-2">&nbsp;&nbsp;&nbsp;&nbsp;接收方式：</span></label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">
+					<input name="search" id="endDate" type="text" class="form-control" value="${cpComplaintsreport.acceptype}"/>
+			
+					</td>
+				</tr>
+				<tr class="table-bordered">
+					
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">登记人姓名</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.operator}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">业务类型</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.businessType}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						
+					</td>
+				</tr>
+				<tr class="table-bordered">
+					
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">登记单位</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.registerdate}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">业务来源</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.source}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						
+					</td>
+				 </tr>
+				 
+				 <tr class="table-bordered  " name=" ">
+				    <td class="col-md-2 table-bordered" colspan="2" rowSpan="4" align="center" valign="middle">
+						<label class="bolder blue control-label"  for="form-field-2">投</br>诉</br>单</br>位</br>/</br>个</br>人</br>信</br>息</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">是否匿名</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.isanonymous}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">投诉举报人来电号码</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.tel}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">投诉举报人邮政编码</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.zipcode}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				 <tr class="table-bordered  " name=" ">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">投诉举报人类型</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.complainanttype}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">投诉举报人联系电话</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.tel}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">投诉举报人电子邮箱</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.email}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				 <tr class="table-bordered  " name=" ">
+				   
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">投诉举报人名称</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.complainantname}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">投诉举报人联系地址</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.address}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">投诉举报人IP地址</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.ip}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				  <tr class="table-bordered" name=" ">
+				   
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">证件类型</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.licensetype}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">证件号码</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintinfo.complainantlicense}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						
+					</td>
+				 </tr>
+				  <tr class="table-bordered  " name=" ">
+				    <td class="col-md-2 table-bordered" colspan="2" rowSpan="7" align="center" valign="middle">
+						<label class="bolder blue control-label"  for="form-field-2">被</br>投</br>诉</br>对</br>象</br>/</br>产</br>品</br>信</br>息</label>			
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">被投诉举报人类型</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpRespondent.respondenttype}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">被投诉举报人名称</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpRespondent.respondentname}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">被投诉举报人联系电话</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpRespondent.respondenttel}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				 <tr class="table-bordered  " name=" ">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">被投诉举报人联系地址</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpRespondent.respondentaddress}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					</td>
+				 </tr>
+				  <tr class="table-bordered  " name=" ">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">是否涉及产品</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.registerdate}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+					</td>
+				 </tr>
+				  <tr class="table-bordered  " name=" ">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">涉及产品名称</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.product}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">涉及产品类型</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.producttype}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品国产进口类型</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.isimport}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				  <tr class="table-bordered" name=" ">
+				   
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品购买渠道</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.productchannel}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品批准文号</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.approvalNumber}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品型号规格</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.spec}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				  <tr class="table-bordered  " name=" ">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品批号</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.batchNumber}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品生产企业</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.manufacturer}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品销售企业</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.temp1}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				  <tr class="table-bordered  " name=" ">
+				   
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品生产日期</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.dateOfManufacture}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品有效期</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintproduct.validitydate}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						
+					</td>
+				 </tr>
+				 <tr class="table-bordered  " name=" ">
+				    <td class="col-md-2 table-bordered" colspan="2" rowSpan="7" align="center" valign="middle">
+						<label class="bolder blue control-label"  for="form-field-2">受</br>理</br>信</br>息</label>			
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">标题</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.title}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">关键词</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.temp5}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">附件</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<a href="/complaint/file/fileDownload?url=/${cpComplaintsreport.attachurl}&&name=${cpComplaintsreport.temp3}">${cpComplaintsreport.temp3}</a>
+					</td>
+				 </tr>
+				 <tr class="table-bordered" name=" ">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">主要内容</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="11" align="center">	
+						<input name="search"  id="startDate" type="textArea" value="${cpComplaintsreport.responsecontent}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				  <tr class="table-bordered  " name=" ">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">问题分类</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.classification}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">问题环节</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.problemLink}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">问题发生地行政区域划分</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.area}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				 <tr class="table-bordered  " name=" ">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">重要程度</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.importance}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">是否首次投诉举报</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.isfirst}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">产品首次投诉举报信息编号</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.infoid}" class="form-control" readonly/>
+					</td>
+				 </tr>
+				 <tr class="table-bordered  " name=" ">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">是否受理</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.acceptance}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">受理日期</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2" align="center">	
+						<input name="search"  id="startDate" type="text" value="${cpComplaintsreport.acceptedDate}" class="form-control" readonly/>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="2">
+						
+					</td>
+				 </tr>
+				 <tr class="table-bordered  " name="">
+				    
+					<td class="col-md-2 table-bordered" colspan="2">
+						<label class="bolder blue control-label"  for="form-field-2">处理意见</label>
+					</td>
+					<td class="col-md-2 table-bordered" colspan="11" align="center">	
+						<input name="search"  id="startDate" type="textArea" value="${cpComplaintsreport.opinion}" class="form-control" readonly/>
+					</td>
+					 					<input name="search"  id="startDate" type="hidden" value="${cpComplaintinfo.id}" class="form-control" />
+										 <input name="search"  id="startDate" type="hidden" value="${cpComplaintproduct.id}" class="form-control" readonly/>
+										 <input name="search"  id="startDate" type="hidden" value="${cpComplaintsreport.id}" class="form-control" readonly/>
+										 <input name="search"  id="startDate" type="hidden" value="${cpRespondent.id}" class="form-control" readonly/>
+							
+				 </tr>
+						
+				</tbody>
+				</table>
+			</div>
+
+			<div id="profile4" class="tab-pane">
+				<table id="transferDetails"></table>				
+			</div>
+
+			<div id="dropdown14" class="tab-pane">
+				<table id="limitDate"></table>		
+			</div>
+			</div>
+		</div>
+</div><!-- /.col -->
+
+
+
+
+		<form action="/workflow/complaint/submitTask?taskId=${taskId}&&cpComplaintreportId=${cpComplaintsreport.id}" method="POST">
+							        <label class="control-label bolder blue" for="form-field-2-2">业务办理：</label>
+									
+							        <select id="operation" name="operation">
+								    	<c:forEach items="${requestScope.outcomeList}" var="u">
+										    <option value="${u}">${u}</option>
+					   					</c:forEach>	
+								    </select>
+								   
+							        </br>
+							        <div id ="assignNextDiv" style="display:none;">
+										<label class="control-label bolder blue" for="form-field-1">拟交办单位：</label>
+										<input name="nextAssign" type="text" id="nextAssign"  style="width: 238px"/>
+										<input type="hidden" name="nextAssignId" id="nextAssignId" value=""/>
+										<input class="btn btn-info" value="选择" type="button" onclick="javascript:showAccount_1()"/>
+									</div>
+									<div id ="assignMengshiDiv" style="display:none;">
+										<label class="control-label bolder blue" for="form-field-1">盟市办理单位：</label>
+										<input type="text" id="assignMengshi" value=""/>
+									    <input class="btn btn-info" value="选择" type="button" onclick="javascript:showAccount_0()"/>
+										
+										<input type="hidden" name="nextAssignIdMengshi" id="nextAssignIdMengshi" value=""/>
+									</div>
+									</br>
+									<label class="control-label bolder blue" for="form-field-1">拟交办意见：</label>
+									<input name="commit" type="text" id="commit"  style="width: 238px"/>
+							        </br>
+									</br>
+									<input class="btn btn-info" type="submit" value="提交" onclick="beforeSubmit()"/>
+												
+									</form>		
+									<div id="showAccount">
+										<table id="accountTable"></table>
+									</div>								
+												
+		</form>		
+</div>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="superviewDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">督办详情</h4>
+            </div>
+            <c:if test="${cpComplaintsreport.supervision==null}"><div class="modal-body">该案件无督办信息！</div></c:if>
+            <c:if test="${cpComplaintsreport.supervision!=null}">
+            	<div class="modal-body" style="width:100%;height:238px">
+            	 <form id="userinfo" class="">
+            		<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 督办单位 </label>
+							<div class="col-sm-9">
+								<input type="text" id="form-field-1" value="${superViewOrg}" class="col-xs-10 col-sm-5" readonly/>
+							</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 督办时间 </label>
+							<div class="col-sm-9">
+								<input type="text" id="form-field-1" value="${cpComplaintsreport.supervisiondate}" class="col-xs-10 col-sm-5" readonly/>
+							</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 督办意见 </label>
+							<div class="col-sm-9">
+								<textarea class="form-control" id="form-field-8" value="${cpComplaintsreport.supervision}" readonly>${cpComplaintsreport.supervision}</textarea>
+							</div>
+					</div>
+					</form>
+            	</div>
+            </c:if>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	$("#transferDetails").bootstrapTable({
+	 			method: 'get',
+	 			queryParams:queryParams_3,
+				editable:false,//关闭编辑模式  
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                //showRefresh: true,
+                sidePagination: "server",
+                //search: true,
+                url: "/workflow/complaint/transferDetails",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "dealDate",
+                    title: "处理时间",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "dealDepartment",
+                    title: "处理单位",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "dealer",
+                    title: "处理人",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                    field: "dealWay",
+                    title: "处理方式",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                    field: "dealCommit",
+                    title: "处理意见",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                    field: "receivedDepartment",
+                    title: "接收单位",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                    field: "receiver",
+                    title: "接收人",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }]
+            });
+$("#limitDate").bootstrapTable({
+	 			method: 'get',
+	 			queryParams:queryParams_3,
+				editable:false,//关闭编辑模式  
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                //showRefresh: true,
+                sidePagination: "server",
+                //search: true,
+                url: "/workflow/complaint/dealLimit",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "dealDate",
+                    title: "办理单位",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "dealDepartment",
+                    title: "办理部门",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "limitdate",
+                    title: "办理期限",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                    field: "startDate",
+                    title: "开始办理时间",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                    field: "endDate",
+                    title: "结束办理时间",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                    field: "isExceed",
+                    title: "是否超期",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                    field: "exceedDays",
+                    title: "超期天数",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                field: 'operate',
+                title: '操作',
+                align: 'center',
+                width : 100,
+               // events: operateEvents_0,
+                formatter: operateFormatter_3
+                }]
+            });
+
+}); 
+function commitList(){
+	$("#commitList").bootstrapTable({
+	 			method: 'get',
+	 			queryParams:queryParams_2,
+				editable:false,//关闭编辑模式  
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                //showRefresh: true,
+                sidePagination: "server",
+                //search: true,
+                url: "/workflow/complaint/accountListByRole",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "realName",
+                    title: "时间",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "principal",
+                    title: "账号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                field: 'operate',
+                title: '操作',
+                align: 'center',
+                width : 100,
+                events: operateEvents_0,
+                formatter: operateFormatter
+                }]
+            });
+}
+
+
+function queryParams_3(pageReqeust) {  
+	pageReqeust.cpComplaintsreportId = ${cpComplaintsreportId};
+	pageReqeust.taskId = ${taskId};
+    console.log(pageReqeust);
+    return pageReqeust;  
+}
+function operateFormatter_3(value, row, index) {
+      return [
+      '<button type="button" data-toggle="modal" data-target="#superviewDetail" class="RoleOfedit btn btn-primary  btn-sm" style="margin-right:15px;">查看</button>'
+      ].join('');
+}
+</script>
+<script>
+$(function(){
+	
+		//需要选择的时候才显示人员选择
+		if("送审"==$("#operation").val()){
+			$("#assignMengshiDiv").show();
+		}else{
+			$("#assignMengshiDiv").hide();	
+		}
+	　　	if("送审"==$("#operation").val()||"交办旗县"==$("#operation").val()||"受理交办盟市"==$("#operation").val()){
+			$("#assignNextDiv").show();
+		}else{
+			$("#assignNextDiv").hide();
+		}
+	$("#operation").change(function(){
+		
+		//需要选择的时候才显示人员选择
+		if("送审"==$("#operation").val()){
+			$("#assignMengshiDiv").show();
+		}else{
+			$("#assignMengshiDiv").hide();	
+		}
+	　　	if("送审"==$("#operation").val()||"交办旗县"==$("#operation").val()||"受理交办盟市"==$("#operation").val()||"交办盟市"==$("#operation").val()){
+			$("#assignNextDiv").show();
+		}else{
+			$("#assignNextDiv").hide();
+		}
+	});
+});
+function showAccount_0(){
+ $( "#showAccount" ).dialog({
+   	position: { my: "center", at: "left+400px top+500px ", of: window  } , 
+      height: 240,
+      width:438,
+      modal: true
+    });
+	var tableId = "accountTable";
+	$("#"+ tableId).bootstrapTable('destroy'); 
+	$("#" + tableId).bootstrapTable({
+	 			method: 'get',
+	 			queryParams:queryParams_0,
+				editable:false,//关闭编辑模式  
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                //showRefresh: true,
+                sidePagination: "server",
+                //search: true,
+                url: "/workflow/complaint/accountListByRole",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "realName",
+                    title: "真实姓名",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "principal",
+                    title: "账号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                field: 'operate',
+                title: '操作',
+                align: 'center',
+                width : 100,
+                events: operateEvents_0,
+                formatter: operateFormatter
+                }]
+            });
+}
+function queryParams_0(pageReqeust) {  
+	if("送审"==$("#operation").val()||"受理交办盟市"==$("#operation").val()||"交办"==$("#operation").val()){
+		pageReqeust.role = "交办盟市";
+	} else{
+	    pageReqeust.role = $("#operation").val();
+	}
+    console.log(pageReqeust);
+    return pageReqeust;  
+}
+ window.operateEvents_0 = {
+    'click .RoleOfedit': function (e, value, row, index) {
+    //alert(row.id);
+    	$("#assignMengshi").val(row.realName);
+    	$("#nextAssignIdMengshi").val(row.id);
+    	$("#accountTable").bootstrapTable('destroy'); 
+        $('#showAccount').dialog('close');
+	}
+};
+ function operateFormatter(value, row, index) {
+      return [
+      '<button type="button" class="RoleOfedit btn btn-primary  btn-sm" style="margin-right:15px;">选择</button>'
+      ].join('');
+}
+function showAccount_1(){
+ $( "#showAccount" ).dialog({
+     position: { my: "center", at: "left+400px top+500px ", of: window  } , 
+     modal: true
+    });
+	var tableId = "accountTable";
+	$("#"+ tableId).bootstrapTable('destroy'); 
+	$("#" + tableId).bootstrapTable({
+	 			method: 'get',
+	 			queryParams:queryParams_1,
+				editable:false,//关闭编辑模式  
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                //showRefresh: true,
+                sidePagination: "server",
+                //search: true,
+                url: "/workflow/complaint/accountListByRoleAndCitys",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "realName",
+                    title: "真实姓名",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "principal",
+                    title: "账号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                field: 'operate',
+                title: '操作',
+                align: 'center',
+                width : 100,
+                events: operateEvents_1,
+                formatter: operateFormatter
+                }]
+            });
+}
+function queryParams_1(pageReqeust) {  
+	if("交办盟市"==$("#operation").val() || "受理交办盟市"==$("#operation").val()){
+		pageReqeust.role = "交办盟市";
+	}else if("送审"==$("#operation").val()){
+	    pageReqeust.role = "处室审批";
+	}else if("交办旗县"==$("#operation").val()){
+		pageReqeust.role = "交办旗县";
+	}
+    console.log(pageReqeust);
+    return pageReqeust;  
+}
+ window.operateEvents_1 = {
+    'click .RoleOfedit': function (e, value, row, index) {
+    //alert(row.id);
+    	$("#nextAssign").val(row.realName);
+    	$("#nextAssignId").val(row.id);
+    	$("#accountTable").bootstrapTable('destroy'); 
+        $('#showAccount').dialog('close');
+	}
+};
+</script>

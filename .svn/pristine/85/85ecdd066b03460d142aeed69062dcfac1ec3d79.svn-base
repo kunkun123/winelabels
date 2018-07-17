@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.gecko.framework.complaint.repository.dao.AreaDao">
+	<resultMap id="Area" type="org.gecko.framework.complaint.entity.Area">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="sourceId" column="SOURCEID" jdbcType="VARCHAR" />
+		<result property="areaNum" column="AREANUM" jdbcType="VARCHAR" />
+		<result property="areaName" column="AREANAME" jdbcType="VARCHAR" />
+		<result property="areaLevel" column="AREALEVEL" jdbcType="VARCHAR" />
+		<result property="areaLevelName" column="AREALEVELNAME" jdbcType="VARCHAR" />
+		<result property="remark" column="REMARK" jdbcType="VARCHAR" />
+		<result property="parentArea" column="PARENTAREA" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="getCity" resultMap="Area" parameterType="String">
+	select  t.* from  PUB_BASEINFO_SYSAREA t where t.parentArea = #{parentArea}
+	</select>
+	<select id="get" resultMap="Area" parameterType="String">
+	select  t.* from  PUB_BASEINFO_SYSAREA t where t.id = #{id}
+	</select>
+</mapper>
+

@@ -1,0 +1,201 @@
+{
+  "serviceStep" : 100000,
+  "services" : {
+    "system" : {
+      "serviceName" : "system",
+      "startIndex" : 100000,
+      "entities" : {
+        "system_resources" : {
+          "entityName" : "system_resources",
+          "startIndex" : 100
+        },
+        "system_role_authorities" : {
+          "entityName" : "system_role_authorities",
+          "startIndex" : 300
+        },
+        "system_org_accounts" : {
+          "entityName" : "system_org_accounts",
+          "startIndex" : 500
+        },
+        "system_authorities" : {
+          "entityName" : "system_authorities",
+          "startIndex" : 700
+        },
+        "system_duties" : {
+          "entityName" : "system_duties",
+          "startIndex" : 900
+        },
+        "system_account_roles" : {
+          "entityName" : "system_account_roles",
+          "startIndex" : 1100
+        },
+        "system_accounts" : {
+          "entityName" : "system_accounts",
+          "startIndex" : 1300
+        },
+        "system_organizations" : {
+          "entityName" : "system_organizations",
+          "startIndex" : 1500
+        },
+        "system_roles" : {
+          "entityName" : "system_roles",
+          "startIndex" : 1900
+        },
+        "system_sys_logs" : {
+          "entityName" : "system_sys_logs",
+          "startIndex" : 2100
+        }
+      }
+    },
+    "demo" : {
+      "serviceName" : "demo",
+      "startIndex" : 200000,
+      "entities" : {
+        "PUB_ENTTYPE" : {
+          "entityName" : "PUB_ENTTYPE",
+          "startIndex" : 100
+        }
+      }
+    },
+    "public" : {
+      "serviceName" : "public",
+      "startIndex" : 300000,
+      "entities" : {
+        "PUB_BASEINFO_SYSDEPT" : {
+          "entityName" : "PUB_BASEINFO_SYSDEPT",
+          "startIndex" : 100
+        },
+        "PUB_BASEINFO_SYSAREA" : {
+          "entityName" : "PUB_BASEINFO_SYSAREA",
+          "startIndex" : 300
+        }
+      }
+    },
+    "pubdata" : {
+      "serviceName" : "pubdata",
+      "startIndex" : 400000,
+      "entities" : {
+        "PUB_BASEINFO_SYSDEPT" : {
+          "entityName" : "PUB_BASEINFO_SYSDEPT",
+          "startIndex" : 100
+        },
+        "PUB_BASEINFO_SYSAREA" : {
+          "entityName" : "PUB_BASEINFO_SYSAREA",
+          "startIndex" : 300
+        },
+        "PUB_BASEINFO_SYSUNIT" : {
+          "entityName" : "PUB_BASEINFO_SYSUNIT",
+          "startIndex" : 500
+        },
+        "PUB_BASEINFO_SYSPOST" : {
+          "entityName" : "PUB_BASEINFO_SYSPOST",
+          "startIndex" : 700
+        }
+      }
+    },
+    "complaint" : {
+      "serviceName" : "complaint",
+      "startIndex" : 500000,
+      "entities" : {
+        "CP_COMPLAINTSREPORT" : {
+          "entityName" : "CP_COMPLAINTSREPORT",
+          "startIndex" : 100
+        },
+        "CP_RESPONDENT" : {
+          "entityName" : "CP_RESPONDENT",
+          "startIndex" : 300
+        },
+        "CP_COMPLAINTPRODUCT" : {
+          "entityName" : "CP_COMPLAINTPRODUCT",
+          "startIndex" : 500
+        },
+        "CP_COMPLAINTINFO" : {
+          "entityName" : "CP_COMPLAINTINFO",
+          "startIndex" : 700
+        },
+        "MG_TRUSTEESHIP" : {
+          "entityName" : "MG_TRUSTEESHIP",
+          "startIndex" : 900
+        }
+      }
+    },
+    "trusteeship" : {
+      "serviceName" : "trusteeship",
+      "startIndex" : 600000,
+      "entities" : {
+        "MG_TRUSTEESHIP" : {
+          "entityName" : "MG_TRUSTEESHIP",
+          "startIndex" : 100
+        },
+        "CP_COMPLAINTINFO" : {
+          "entityName" : "CP_COMPLAINTINFO",
+          "startIndex" : 300
+        },
+        "CP_RESPONDENT" : {
+          "entityName" : "CP_RESPONDENT",
+          "startIndex" : 500
+        },
+        "MG_MEMO" : {
+          "entityName" : "MG_MEMO",
+          "startIndex" : 700
+        }
+      }
+    },
+    "memo" : {
+      "serviceName" : "memo",
+      "startIndex" : 700000,
+      "entities" : {
+        "MG_MEMO" : {
+          "entityName" : "MG_MEMO",
+          "startIndex" : 100
+        }
+      }
+    },
+    "notice" : {
+      "serviceName" : "notice",
+      "startIndex" : 800000,
+      "entities" : {
+        "MG_NOTICE" : {
+          "entityName" : "MG_NOTICE",
+          "startIndex" : 100
+        }
+      }
+    },
+    "wineLabels" : {
+      "serviceName" : "wineLabels",
+      "startIndex" : 900000,
+      "entities" : {
+        "AL_ALCOHOLFLOW" : {
+          "entityName" : "AL_ALCOHOLFLOW",
+          "startIndex" : 100
+        },
+        "AL_ALCOHOLLABLE" : {
+          "entityName" : "AL_ALCOHOLLABLE",
+          "startIndex" : 300
+        },
+        "AL_CIRCULATION" : {
+          "entityName" : "AL_CIRCULATION",
+          "startIndex" : 500
+        },
+        "AL_PRODUCT" : {
+          "entityName" : "AL_PRODUCT",
+          "startIndex" : 700
+        }
+      }
+    },
+    "ent" : {
+      "serviceName" : "ent",
+      "startIndex" : 1000000,
+      "entities" : {
+        "ENT_APPLICATION" : {
+          "entityName" : "ENT_APPLICATION",
+          "startIndex" : 100
+        },
+        "ENT_ENTBASIC" : {
+          "entityName" : "ENT_ENTBASIC",
+          "startIndex" : 300
+        }
+      }
+    }
+  }
+}

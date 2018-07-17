@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>备忘录</title>
+
+		<meta name="description" content="with draggable and editable events" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="../../../static/static/css/system/bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../../static/static/css/system/ace/font-awesome.min.css" />
+
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="../../../static/styles/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="../../../static/styles/css/fullcalendar.min.css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="../../../static/styles/css/fonts.googleapis.com.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="../../../static/static/css/system/ace/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="../../../static/styles/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="../../../static/static/css/system/ace/ace-skins.min.css" />
+		<link rel="stylesheet" href="../../../static/static/css/system/ace/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="../../../static/styles/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="../../../static/scripts/gecko-modules/ace/ace-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="no-skin">
+
+					<div class="page-content">
+
+
+						<div class="page-header">
+							<h1>
+								备忘录
+
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="row">
+									<div class="col-sm-9">
+										<div class="space"></div>
+
+										<div id="calendar"></div>
+									</div>
+
+
+								</div>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="../../../static/scripts/gecko-modules/jquery/jquery-2.2.1.min.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="../../../static/scripts/gecko-modules/jquery/jquery-1.11.3.min.js"></script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='../../../static/scripts/gecko-modules/jquery/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="../../../static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+		<script src="../../../static/scripts/gecko-modules/jquery/jquery-ui.custom.min.js"></script>
+		<script src="../../../static/scripts/gecko-modules/jquery/jquery.ui.touch-punch.min.js"></script>
+		<script src="../../../static/scripts/gecko-modules/ace/moment.min.js"></script>
+		<script src="../../../static/scripts/gecko-modules/ace/fullcalendar.min.js"></script>
+		<script src="../../../static/scripts/gecko-modules/ace/bootbox.js"></script>
+
+		<!-- ace scripts -->
+		<script src="../../../static/scripts/gecko-modules/ace/ace-elements.min.js"></script>
+		<script src="../../../static/scripts/gecko-modules/ace/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+
+/* initialize the external events
+	-----------------------------------------------------------------*/
+
+	$('#external-events div.external-event').each(function() {
+
+		// create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+		// it doesn't need to have a start or end
+		var eventObject = {
+			title: $.trim($(this).text()) // use the element's text as the event title
+		};
+
+		// store the Event Object in the DOM element so we can get to it later
+		$(this).data('eventObject', eventObject);
+
+		// make the event draggable using jQuery UI
+		$(this).draggable({
+			zIndex: 999,
+			revert: true,      // will cause the event to go back to its
+			revertDuration: 0  //  original position after the drag
+		});
+		
+	});
+
+
+
+
+	/* initialize the calendar
+	-----------------------------------------------------------------*/
+
+	var date = new Date();
+	var d = date.getDate();
+	var m = date.getMonth();
+	var y = date.getFullYear();
+
+
+	var calendar = $('#calendar').fullCalendar({
+		//isRTL: true,
+		//firstDay: 1,// >> change first day of week 
+		
+		buttonHtml: {
+			prev: '<i class="ace-icon fa fa-chevron-left"></i>',
+			next: '<i class="ace-icon fa fa-chevron-right"></i>'
+		},
+	
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		},
+		events: [
+		  {
+			title: 'All Day Event',
+			start: new Date(y, m, 1),
+			className: 'label-important'
+		  },
+		  {
+			title: 'Long Event',
+			start: moment().subtract(5, 'days').format('YYYY-MM-DD'),
+			end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
+			className: 'label-success'
+		  },
+		  {
+			title: 'Some Event',
+			start: new Date(y, m, d-3, 16, 0),
+			allDay: false,
+			className: 'label-info'
+		  }
+		]
+		,
+		
+		/**eventResize: function(event, delta, revertFunc) {
+
+			alert(event.title + " end is now " + event.end.format());
+
+			if (!confirm("is this okay?")) {
+				revertFunc();
+			}
+
+		},*/
+		
+		editable: true,
+		droppable: true, // this allows things to be dropped onto the calendar !!!
+		drop: function(date) { // this function is called when something is dropped
+		
+			// retrieve the dropped element's stored Event Object
+			var originalEventObject = $(this).data('eventObject');
+			var $extraEventClass = $(this).attr('data-class');
+			
+			
+			// we need to copy it, so that multiple events don't have a reference to the same object
+			var copiedEventObject = $.extend({}, originalEventObject);
+			
+			// assign it the date that was reported
+			copiedEventObject.start = date;
+			copiedEventObject.allDay = false;
+			if($extraEventClass) copiedEventObject['className'] = [$extraEventClass];
+			
+			// render the event on the calendar
+			// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+			$('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+			
+			// is the "remove after drop" checkbox checked?
+			if ($('#drop-remove').is(':checked')) {
+				// if so, remove the element from the "Draggable Events" list
+				$(this).remove();
+			}
+			
+		}
+		,
+		selectable: true,
+		selectHelper: true,
+		select: function(start, end, allDay) {
+			
+			bootbox.prompt("新建备忘:", function(title) {
+				if (title !== null) {
+					calendar.fullCalendar('renderEvent',
+						{
+							title: title,
+							start: start,
+							end: end,
+							allDay: allDay,
+							className: 'label-info'
+						},
+						true // make the event "stick"
+					);
+				}
+			});
+			
+
+			calendar.fullCalendar('unselect');
+		}
+		,
+		eventClick: function(calEvent, jsEvent, view) {
+
+			//display a modal
+			var modal = 
+			'<div class="modal fade">\
+			  <div class="modal-dialog">\
+			   <div class="modal-content">\
+				 <div class="modal-body">\
+				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+				   <form class="no-margin">\
+					  <label>修改备忘名称 &nbsp;</label>\
+					  <input class="middle" autocomplete="off" type="text" value="' + calEvent.title + '" />\
+					 <button type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> 保存</button>\
+				   </form>\
+				 </div>\
+				 <div class="modal-footer">\
+					<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> 删除备忘</button>\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> 取消</button>\
+				 </div>\
+			  </div>\
+			 </div>\
+			</div>';
+		
+		
+			var modal = $(modal).appendTo('body');
+			modal.find('form').on('submit', function(ev){
+				ev.preventDefault();
+
+				calEvent.title = $(this).find("input[type=text]").val();
+				calendar.fullCalendar('updateEvent', calEvent);
+				modal.modal("hide");
+			});
+			modal.find('button[data-action=delete]').on('click', function() {
+				calendar.fullCalendar('removeEvents' , function(ev){
+					return (ev._id == calEvent._id);
+				})
+				modal.modal("hide");
+			});
+			
+			modal.modal('show').on('hidden', function(){
+				modal.remove();
+			});
+
+
+			//console.log(calEvent.id);
+			//console.log(jsEvent);
+			//console.log(view);
+
+			// change the border color just for fun
+			//$(this).css('border-color', 'red');
+
+		}
+		
+	});
+
+
+})
+		</script>
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+	(function (d, w, c) {
+		(w[c] = w[c] || []).push(function() {
+			try {
+				w.yaCounter25836836 = new Ya.Metrika({id:25836836,
+					webvisor:true,
+					clickmap:true,
+					trackLinks:true,
+					accurateTrackBounce:true});
+			} catch(e) { }
+		});
+
+		var n = d.getElementsByTagName("script")[0],
+				s = d.createElement("script"),
+				f = function () { n.parentNode.insertBefore(s, n); };
+		s.type = "text/javascript";
+		s.async = true;
+		s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+		if (w.opera == "[object Opera]") {
+			d.addEventListener("DOMContentLoaded", f, false);
+		} else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/25836836" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-38894584-2', 'auto');
+	ga('send', 'pageview');
+
+</script>
+</body>
+</html>

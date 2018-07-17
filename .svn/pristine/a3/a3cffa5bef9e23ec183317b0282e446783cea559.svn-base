@@ -1,0 +1,80 @@
+/**
+ * notice-mgnotice
+ */
+
+var publish = function(){
+
+    //TODO change this init param my yourself
+    var rowData = {
+
+        serialno: $("#serialno").val(),
+        title:$("#title").val(),
+        content:$("#content").val(),
+        
+        ispub:"1",
+        scope:$("#scope").find("option:selected").val(),
+       
+        temp1:"",
+        temp2:""
+    };
+    $.ajax({
+        url: "/notice/mgnotice/save",
+        data: JSON.stringify(rowData),
+        type: "PUT",
+        contentType: "application/json; charset=UTF-8",
+        success: function (res) {
+            if (res.code === 0) {
+                alert("发布成功！");
+            }
+        }
+    });
+}
+
+var save = function(){
+
+    //TODO change this init param my yourself
+    var rowData = {
+
+        serialno: $("#serialno").val(),
+        title:$("#title").val(),
+        content:$("#content").val(),
+       
+        ispub:"0",
+        scope:$("#scope").find("option:selected").val(),
+       
+        temp1:"",
+        temp2:""
+    };
+    $.ajax({
+        url: "/notice/mgnotice/save",
+        data: JSON.stringify(rowData),
+        type: "PUT",
+        contentType: "application/json; charset=UTF-8",
+        success: function (res) {
+            if (res.code === 0) {
+                alert("保存成功！");
+            }
+        }
+    });
+
+}
+
+var clear = function(){}
+
+function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+        + " " + (date.getHours()<=9?"0"+date.getHours():date.getHours()) + seperator2 + (date.getMinutes()<=9?"0"+date.getMinutes():date.getMinutes())
+        + seperator2 + (date.getSeconds()<=9?"0"+date.getSeconds():date.getSeconds());
+    return currentdate;
+}

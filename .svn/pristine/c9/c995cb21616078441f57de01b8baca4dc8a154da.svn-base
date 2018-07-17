@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.complaint.repository.dao.CpComplaintsreportDao">
+	<resultMap id="CpComplaintsreport" type="org.gecko.framework.complaint.entity.CpComplaintsreport">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="responsedate" column="RESPONSEDATE" jdbcType="DATE" />
+		<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+		<result property="audiourl" column="AUDIOURL" jdbcType="VARCHAR" />
+		<result property="acceptedDate" column="ACCEPTED" jdbcType="DATE" />
+		<result property="importance" column="IMPORTANCE" jdbcType="VARCHAR" />
+		<result property="isanonymous" column="ISANONYMOUS" jdbcType="VARCHAR" />
+		<result property="acceptype" column="ACCEPTYPE" jdbcType="VARCHAR" />
+		<result property="respondent" column="RESPONDENT" jdbcType="VARCHAR" />
+		<result property="closedate" column="CLOSEDATE" jdbcType="DATE" />
+		<result property="supervisionperson" column="SUPERVISIONPERSON" jdbcType="VARCHAR" />
+		<result property="supervisiondate" column="SUPERVISIONDATE" jdbcType="DATE" />
+		<result property="classification" column="CLASSIFICATION" jdbcType="VARCHAR" />
+		<result property="supervisionedperson" column="SUPERVISIONEDPERSON" jdbcType="VARCHAR" />
+		<result property="registrationUnit" column="REGISTRATION" jdbcType="VARCHAR" />
+		<result property="channel" column="CHANNEL" jdbcType="VARCHAR" />
+		<result property="attachurl" column="ATTACHURL" jdbcType="VARCHAR" />
+		<result property="temp5" column="TEMP5" jdbcType="VARCHAR" />
+		<result property="limitdate" column="LIMITDATE" jdbcType="DATE" />
+		<result property="registerdate" column="REGISTERDATE" jdbcType="DATE" />
+		<result property="temp4" column="TEMP4" jdbcType="VARCHAR" />
+		<result property="responsecontent" column="RESPONSECONTENT" jdbcType="VARCHAR" />
+		<result property="title" column="TITLE" jdbcType="VARCHAR" />
+		<result property="currentflow" column="CURRENTFLOW" jdbcType="VARCHAR" />
+		<result property="callstarttime" column="CALLSTARTTIME" jdbcType="TIMESTAMP" />
+		<result property="feedbacktel" column="FEEDBACKTEL" jdbcType="VARCHAR" />
+		<result property="enttypename" column="ENTTYPENAME" jdbcType="VARCHAR" />
+		<result property="area" column="AREA" jdbcType="VARCHAR" />
+		<result property="temp6" column="TEMP6" jdbcType="VARCHAR" />
+		<result property="caseno" column="CASENO" jdbcType="VARCHAR" />
+		<result property="product" column="PRODUCT" jdbcType="VARCHAR" />
+		<result property="callserial" column="CALLSERIAL" jdbcType="VARCHAR" />
+		<result property="complainant" column="COMPLAINANT" jdbcType="VARCHAR" />
+		<result property="acceptance" column="ACCEPTANCE" jdbcType="VARCHAR" />
+		<result property="businessType" column="BUSINESS" jdbcType="VARCHAR" />
+		<result property="enttype" column="ENTTYPE" jdbcType="VARCHAR" />
+		<result property="operator" column="OPERATOR" jdbcType="VARCHAR" />
+		<result property="isdelay" column="ISDELAY" jdbcType="VARCHAR" />
+		<result property="keyword" column="KEYWORD" jdbcType="CHAR" />
+		<result property="problemLink" column="PROBLEM" jdbcType="VARCHAR" />
+		<result property="supervision" column="SUPERVISION" jdbcType="VARCHAR" />
+		<result property="refid" column="REFID" jdbcType="VARCHAR" />
+		<result property="iscase" column="ISCASE" jdbcType="VARCHAR" />
+		<result property="opinion" column="OPINION" jdbcType="VARCHAR" />
+		<result property="isotherdept" column="ISOTHERDEPT" jdbcType="VARCHAR" />
+		<result property="delayreason" column="DELAYREASON" jdbcType="VARCHAR" />
+		<result property="source" column="SOURCE" jdbcType="VARCHAR" />
+		<result property="otherdept" column="OTHERDEPT" jdbcType="VARCHAR" />
+		<result property="isfirst" column="ISFIRST" jdbcType="VARCHAR" />
+		<result property="accept" column="ACCEPT" jdbcType="VARCHAR" />
+		<result property="calltel" column="CALLTEL" jdbcType="VARCHAR" />
+		<result property="temp1" column="TEMP1" jdbcType="VARCHAR" />
+		<result property="feedback" column="FEEDBACK" jdbcType="VARCHAR" />
+		<result property="querycode" column="QUERYCODE" jdbcType="VARCHAR" />
+		<result property="infoid" column="INFOID" jdbcType="VARCHAR" />
+		<result property="lastupdatetime" column="LASTUPDATETIME" jdbcType="DATE" />
+		<result property="seatno" column="SEATNO" jdbcType="VARCHAR" />
+		<result property="registrationarea" column="REGISTRATIONAREA" jdbcType="VARCHAR" />
+		<result property="temp2" column="TEMP2" jdbcType="VARCHAR" />
+		<result property="status" column="STATUS" jdbcType="VARCHAR" />
+		<result property="temp3" column="TEMP3" jdbcType="VARCHAR" />
+		<result property="callendtime" column="CALLENDTIME" jdbcType="TIMESTAMP" />
+		<result property="fistcomplaint" column="FISTCOMPLAINT" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.complaint.entity.CpComplaintsreport">
+		select count(*) from CP_COMPLAINTSREPORT t where 1=1
+	</select>
+	
+	<select id="get" resultMap="CpComplaintsreport" parameterType="String">
+		select  CpComplaintsreport.* from CP_COMPLAINTSREPORT CpComplaintsreport where CpComplaintsreport.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.complaint.entity.CpComplaintsreport">	
+ 		insert into CP_COMPLAINTSREPORT(ID,RESPONSEDATE,CONTENT,AUDIOURL,ACCEPTED,IMPORTANCE,ISANONYMOUS,ACCEPTYPE,RESPONDENT,CLOSEDATE,SUPERVISIONPERSON,SUPERVISIONDATE,CLASSIFICATION,SUPERVISIONEDPERSON,REGISTRATION,CHANNEL,ATTACHURL,TEMP5,LIMITDATE,REGISTERDATE,TEMP4,RESPONSECONTENT,TITLE,CURRENTFLOW,CALLSTARTTIME,FEEDBACKTEL,ENTTYPENAME,AREA,TEMP6,CASENO,PRODUCT,CALLSERIAL,COMPLAINANT,ACCEPTANCE,BUSINESS,ENTTYPE,OPERATOR,ISDELAY,KEYWORD,PROBLEM,SUPERVISION,REFID,ISCASE,OPINION,ISOTHERDEPT,DELAYREASON,SOURCE,OTHERDEPT,ISFIRST,ACCEPT,CALLTEL,TEMP1,FEEDBACK,QUERYCODE,INFOID,LASTUPDATETIME,SEATNO,REGISTRATIONAREA,TEMP2,STATUS,TEMP3,CALLENDTIME,FISTCOMPLAINT)
+ 		VALUES(#{id},#{responsedate,jdbcType=DATE},#{content,jdbcType=VARCHAR},#{audiourl,jdbcType=VARCHAR},#{acceptedDate,jdbcType=DATE},#{importance,jdbcType=VARCHAR},#{isanonymous,jdbcType=VARCHAR},#{acceptype,jdbcType=VARCHAR},#{respondent,jdbcType=VARCHAR},#{closedate,jdbcType=DATE},#{supervisionperson,jdbcType=VARCHAR},#{supervisiondate,jdbcType=DATE},#{classification,jdbcType=VARCHAR},#{supervisionedperson,jdbcType=VARCHAR},#{registrationUnit,jdbcType=VARCHAR},#{channel,jdbcType=VARCHAR},#{attachurl,jdbcType=VARCHAR},#{temp5,jdbcType=VARCHAR},#{limitdate,jdbcType=DATE},#{registerdate,jdbcType=DATE},#{temp4,jdbcType=VARCHAR},#{responsecontent,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR},#{currentflow,jdbcType=VARCHAR},#{callstarttime,jdbcType=TIMESTAMP},#{feedbacktel,jdbcType=VARCHAR},#{enttypename,jdbcType=VARCHAR},#{area,jdbcType=VARCHAR},#{temp6,jdbcType=VARCHAR},#{caseno,jdbcType=VARCHAR},#{product,jdbcType=VARCHAR},#{callserial,jdbcType=VARCHAR},#{complainant,jdbcType=VARCHAR},#{acceptance,jdbcType=VARCHAR},#{businessType,jdbcType=VARCHAR},#{enttype,jdbcType=VARCHAR},#{operator,jdbcType=VARCHAR},#{isdelay,jdbcType=VARCHAR},#{keyword,jdbcType=CHAR},#{problemLink,jdbcType=VARCHAR},#{supervision,jdbcType=VARCHAR},#{refid,jdbcType=VARCHAR},#{iscase,jdbcType=VARCHAR},#{opinion,jdbcType=VARCHAR},#{isotherdept,jdbcType=VARCHAR},#{delayreason,jdbcType=VARCHAR},#{source,jdbcType=VARCHAR},#{otherdept,jdbcType=VARCHAR},#{isfirst,jdbcType=VARCHAR},#{accept,jdbcType=VARCHAR},#{calltel,jdbcType=VARCHAR},#{temp1,jdbcType=VARCHAR},#{feedback,jdbcType=VARCHAR},#{querycode,jdbcType=VARCHAR},#{infoid,jdbcType=VARCHAR},#{lastupdatetime,jdbcType=DATE},#{seatno,jdbcType=VARCHAR},#{registrationarea,jdbcType=VARCHAR},#{temp2,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{temp3,jdbcType=VARCHAR},#{callendtime,jdbcType=TIMESTAMP},#{fistcomplaint,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into CP_COMPLAINTSREPORT(ID,RESPONSEDATE,CONTENT,AUDIOURL,ACCEPTED,IMPORTANCE,ISANONYMOUS,ACCEPTYPE,RESPONDENT,CLOSEDATE,SUPERVISIONPERSON,SUPERVISIONDATE,CLASSIFICATION,SUPERVISIONEDPERSON,REGISTRATION,CHANNEL,ATTACHURL,TEMP5,LIMITDATE,REGISTERDATE,TEMP4,RESPONSECONTENT,TITLE,CURRENTFLOW,CALLSTARTTIME,FEEDBACKTEL,ENTTYPENAME,AREA,TEMP6,CASENO,PRODUCT,CALLSERIAL,COMPLAINANT,ACCEPTANCE,BUSINESS,ENTTYPE,OPERATOR,ISDELAY,KEYWORD,PROBLEM,SUPERVISION,REFID,ISCASE,OPINION,ISOTHERDEPT,DELAYREASON,SOURCE,OTHERDEPT,ISFIRST,ACCEPT,CALLTEL,TEMP1,FEEDBACK,QUERYCODE,INFOID,LASTUPDATETIME,SEATNO,REGISTRATIONAREA,TEMP2,STATUS,TEMP3,CALLENDTIME,FISTCOMPLAINT)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.responsedate,jdbcType=DATE},#{o.content,jdbcType=VARCHAR},#{o.audiourl,jdbcType=VARCHAR},#{o.acceptedDate,jdbcType=DATE},#{o.importance,jdbcType=VARCHAR},#{o.isanonymous,jdbcType=VARCHAR},#{o.acceptype,jdbcType=VARCHAR},#{o.respondent,jdbcType=VARCHAR},#{o.closedate,jdbcType=DATE},#{o.supervisionperson,jdbcType=VARCHAR},#{o.supervisiondate,jdbcType=DATE},#{o.classification,jdbcType=VARCHAR},#{o.supervisionedperson,jdbcType=VARCHAR},#{o.registrationUnit,jdbcType=VARCHAR},#{o.channel,jdbcType=VARCHAR},#{o.attachurl,jdbcType=VARCHAR},#{o.temp5,jdbcType=VARCHAR},#{o.limitdate,jdbcType=DATE},#{o.registerdate,jdbcType=DATE},#{o.temp4,jdbcType=VARCHAR},#{o.responsecontent,jdbcType=VARCHAR},#{o.title,jdbcType=VARCHAR},#{o.currentflow,jdbcType=VARCHAR},#{o.callstarttime,jdbcType=TIMESTAMP},#{o.feedbacktel,jdbcType=VARCHAR},#{o.enttypename,jdbcType=VARCHAR},#{o.area,jdbcType=VARCHAR},#{o.temp6,jdbcType=VARCHAR},#{o.caseno,jdbcType=VARCHAR},#{o.product,jdbcType=VARCHAR},#{o.callserial,jdbcType=VARCHAR},#{o.complainant,jdbcType=VARCHAR},#{o.acceptance,jdbcType=VARCHAR},#{o.businessType,jdbcType=VARCHAR},#{o.enttype,jdbcType=VARCHAR},#{o.operator,jdbcType=VARCHAR},#{o.isdelay,jdbcType=VARCHAR},#{o.keyword,jdbcType=CHAR},#{o.problemLink,jdbcType=VARCHAR},#{o.supervision,jdbcType=VARCHAR},#{o.refid,jdbcType=VARCHAR},#{o.iscase,jdbcType=VARCHAR},#{o.opinion,jdbcType=VARCHAR},#{o.isotherdept,jdbcType=VARCHAR},#{o.delayreason,jdbcType=VARCHAR},#{o.source,jdbcType=VARCHAR},#{o.otherdept,jdbcType=VARCHAR},#{o.isfirst,jdbcType=VARCHAR},#{o.accept,jdbcType=VARCHAR},#{o.calltel,jdbcType=VARCHAR},#{o.temp1,jdbcType=VARCHAR},#{o.feedback,jdbcType=VARCHAR},#{o.querycode,jdbcType=VARCHAR},#{o.infoid,jdbcType=VARCHAR},#{o.lastupdatetime,jdbcType=DATE},#{o.seatno,jdbcType=VARCHAR},#{o.registrationarea,jdbcType=VARCHAR},#{o.temp2,jdbcType=VARCHAR},#{o.status,jdbcType=VARCHAR},#{o.temp3,jdbcType=VARCHAR},#{o.callendtime,jdbcType=TIMESTAMP},#{o.fistcomplaint,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.complaint.entity.CpComplaintsreport">
+    		update CP_COMPLAINTSREPORT set RESPONSEDATE=#{responsedate,jdbcType=VARCHAR}, 
+    		CONTENT=#{content,jdbcType=VARCHAR}, 
+    		AUDIOURL=#{audiourl,jdbcType=VARCHAR}, 
+    		ACCEPTED=#{acceptedDate,jdbcType=DATE}, 
+    		IMPORTANCE=#{importance,jdbcType=VARCHAR}, 
+    		ISANONYMOUS=#{isanonymous,jdbcType=VARCHAR}, 
+    		ACCEPTYPE=#{acceptype,jdbcType=VARCHAR}, 
+    		RESPONDENT=#{respondent,jdbcType=VARCHAR}, 
+    		CLOSEDATE=#{closedate,jdbcType=DATE}, 
+    		SUPERVISIONPERSON=#{supervisionperson,jdbcType=VARCHAR}, 
+    		SUPERVISIONDATE=#{supervisiondate,jdbcType=DATE}, 
+    		CLASSIFICATION=#{classification,jdbcType=VARCHAR}, 
+    		SUPERVISIONEDPERSON=#{supervisionedperson,jdbcType=VARCHAR}, 
+    		REGISTRATION=#{registrationUnit,jdbcType=VARCHAR}, 
+    		CHANNEL=#{channel,jdbcType=VARCHAR}, 
+    		ATTACHURL=#{attachurl,jdbcType=VARCHAR}, 
+    		TEMP5=#{temp5,jdbcType=VARCHAR}, 
+    		LIMITDATE=#{limitdate,jdbcType=DATE}, 
+    		REGISTERDATE=#{registerdate,jdbcType=DATE}, 
+    		TEMP4=#{temp4,jdbcType=VARCHAR}, 
+    		RESPONSECONTENT=#{responsecontent,jdbcType=VARCHAR}, 
+    		TITLE=#{title,jdbcType=VARCHAR}, 
+    		CURRENTFLOW=#{currentflow,jdbcType=VARCHAR}, 
+    		CALLSTARTTIME=#{callstarttime,jdbcType=TIMESTAMP}, 
+    		FEEDBACKTEL=#{feedbacktel,jdbcType=VARCHAR}, 
+    		ENTTYPENAME=#{enttypename,jdbcType=VARCHAR}, 
+    		AREA=#{area,jdbcType=VARCHAR}, 
+    		TEMP6=#{temp6,jdbcType=VARCHAR}, 
+    		CASENO=#{caseno,jdbcType=VARCHAR}, 
+    		PRODUCT=#{product,jdbcType=VARCHAR}, 
+    		CALLSERIAL=#{callserial,jdbcType=VARCHAR}, 
+    		COMPLAINANT=#{complainant,jdbcType=VARCHAR}, 
+    		ACCEPTANCE=#{acceptance,jdbcType=VARCHAR}, 
+    		BUSINESS=#{businessType,jdbcType=VARCHAR}, 
+    		ENTTYPE=#{enttype,jdbcType=VARCHAR}, 
+    		OPERATOR=#{operator,jdbcType=VARCHAR}, 
+    		ISDELAY=#{isdelay,jdbcType=VARCHAR}, 
+    		KEYWORD=#{keyword,jdbcType=VARCHAR}, 
+    		PROBLEM=#{problemLink,jdbcType=VARCHAR}, 
+    		SUPERVISION=#{supervision,jdbcType=VARCHAR}, 
+    		REFID=#{refid,jdbcType=VARCHAR}, 
+    		ISCASE=#{iscase,jdbcType=VARCHAR}, 
+    		OPINION=#{opinion,jdbcType=VARCHAR}, 
+    		ISOTHERDEPT=#{isotherdept,jdbcType=VARCHAR}, 
+    		DELAYREASON=#{delayreason,jdbcType=VARCHAR}, 
+    		SOURCE=#{source,jdbcType=VARCHAR}, 
+    		OTHERDEPT=#{otherdept,jdbcType=VARCHAR}, 
+    		ISFIRST=#{isfirst,jdbcType=VARCHAR}, 
+    		ACCEPT=#{accept,jdbcType=VARCHAR}, 
+    		CALLTEL=#{calltel,jdbcType=VARCHAR}, 
+    		TEMP1=#{temp1,jdbcType=VARCHAR}, 
+    		FEEDBACK=#{feedback,jdbcType=VARCHAR}, 
+    		QUERYCODE=#{querycode,jdbcType=VARCHAR}, 
+    		INFOID=#{infoid,jdbcType=VARCHAR}, 
+    		LASTUPDATETIME=#{lastupdatetime,jdbcType=DATE}, 
+    		SEATNO=#{seatno,jdbcType=VARCHAR}, 
+    		REGISTRATIONAREA=#{registrationarea,jdbcType=VARCHAR}, 
+    		TEMP2=#{temp2,jdbcType=VARCHAR}, 
+    		STATUS=#{status,jdbcType=VARCHAR}, 
+    		TEMP3=#{temp3,jdbcType=VARCHAR}, 
+    		CALLENDTIME=#{callendtime,jdbcType=TIMESTAMP}, 
+    		FISTCOMPLAINT=#{fistcomplaint,jdbcType=VARCHAR} where ID=#{id,jdbcType=VARCHAR}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.complaint.entity.CpComplaintsreport">
+		delete from CP_COMPLAINTSREPORT where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from CP_COMPLAINTSREPORT where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from CP_COMPLAINTSREPORT where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from CP_COMPLAINTSREPORT where         <if test="responsedate!=null">and RESPONSEDATE = #{responsedate}</if><if test="content!=null">and CONTENT = #{content}</if><if test="audiourl!=null">and AUDIOURL = #{audiourl}</if><if test="acceptedDate!=null">and ACCEPTED = #{acceptedDate}</if><if test="importance!=null">and IMPORTANCE = #{importance}</if><if test="isanonymous!=null">and ISANONYMOUS = #{isanonymous}</if><if test="acceptype!=null">and ACCEPTYPE = #{acceptype}</if><if test="respondent!=null">and RESPONDENT = #{respondent}</if><if test="closedate!=null">and CLOSEDATE = #{closedate}</if><if test="supervisionperson!=null">and SUPERVISIONPERSON = #{supervisionperson}</if><if test="supervisiondate!=null">and SUPERVISIONDATE = #{supervisiondate}</if><if test="classification!=null">and CLASSIFICATION = #{classification}</if><if test="supervisionedperson!=null">and SUPERVISIONEDPERSON = #{supervisionedperson}</if><if test="registrationUnit!=null">and REGISTRATION = #{registrationUnit}</if><if test="channel!=null">and CHANNEL = #{channel}</if><if test="attachurl!=null">and ATTACHURL = #{attachurl}</if><if test="temp5!=null">and TEMP5 = #{temp5}</if><if test="limitdate!=null">and LIMITDATE = #{limitdate}</if><if test="registerdate!=null">and REGISTERDATE = #{registerdate}</if><if test="temp4!=null">and TEMP4 = #{temp4}</if><if test="responsecontent!=null">and RESPONSECONTENT = #{responsecontent}</if><if test="title!=null">and TITLE = #{title}</if><if test="currentflow!=null">and CURRENTFLOW = #{currentflow}</if><if test="callstarttime!=null">and CALLSTARTTIME = #{callstarttime}</if><if test="feedbacktel!=null">and FEEDBACKTEL = #{feedbacktel}</if><if test="enttypename!=null">and ENTTYPENAME = #{enttypename}</if><if test="area!=null">and AREA = #{area}</if><if test="temp6!=null">and TEMP6 = #{temp6}</if><if test="caseno!=null">and CASENO = #{caseno}</if><if test="product!=null">and PRODUCT = #{product}</if><if test="callserial!=null">and CALLSERIAL = #{callserial}</if><if test="complainant!=null">and COMPLAINANT = #{complainant}</if><if test="acceptance!=null">and ACCEPTANCE = #{acceptance}</if><if test="businessType!=null">and BUSINESS = #{businessType}</if><if test="enttype!=null">and ENTTYPE = #{enttype}</if><if test="operator!=null">and OPERATOR = #{operator}</if><if test="isdelay!=null">and ISDELAY = #{isdelay}</if><if test="problemLink!=null">and PROBLEM = #{problemLink}</if><if test="supervision!=null">and SUPERVISION = #{supervision}</if><if test="refid!=null">and REFID = #{refid}</if><if test="iscase!=null">and ISCASE = #{iscase}</if><if test="opinion!=null">and OPINION = #{opinion}</if><if test="isotherdept!=null">and ISOTHERDEPT = #{isotherdept}</if><if test="delayreason!=null">and DELAYREASON = #{delayreason}</if><if test="source!=null">and SOURCE = #{source}</if><if test="otherdept!=null">and OTHERDEPT = #{otherdept}</if><if test="isfirst!=null">and ISFIRST = #{isfirst}</if><if test="accept!=null">and ACCEPT = #{accept}</if><if test="calltel!=null">and CALLTEL = #{calltel}</if><if test="temp1!=null">and TEMP1 = #{temp1}</if><if test="feedback!=null">and FEEDBACK = #{feedback}</if><if test="querycode!=null">and QUERYCODE = #{querycode}</if><if test="infoid!=null">and INFOID = #{infoid}</if><if test="lastupdatetime!=null">and LASTUPDATETIME = #{lastupdatetime}</if><if test="seatno!=null">and SEATNO = #{seatno}</if><if test="registrationarea!=null">and REGISTRATIONAREA = #{registrationarea}</if><if test="temp2!=null">and TEMP2 = #{temp2}</if><if test="status!=null">and STATUS = #{status}</if><if test="temp3!=null">and TEMP3 = #{temp3}</if><if test="callendtime!=null">and CALLENDTIME = #{callendtime}</if><if test="fistcomplaint!=null">and FISTCOMPLAINT = #{fistcomplaint}</if>    </delete>
+
+    <select id="find" resultMap="CpComplaintsreport" parameterType="org.gecko.framework.complaint.entity.CpComplaintsreport">
+        select CpComplaintsreport.* from CP_COMPLAINTSREPORT CpComplaintsreport where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="responsedate!=null"> and RESPONSEDATE = #{responsedate} </if><if test="content!=null"> and CONTENT = #{content} </if><if test="audiourl!=null"> and AUDIOURL = #{audiourl} </if><if test="acceptedDate!=null"> and ACCEPTED = #{acceptedDate} </if><if test="importance!=null"> and IMPORTANCE = #{importance} </if><if test="isanonymous!=null"> and ISANONYMOUS = #{isanonymous} </if><if test="acceptype!=null"> and ACCEPTYPE = #{acceptype} </if><if test="respondent!=null"> and RESPONDENT = #{respondent} </if><if test="closedate!=null"> and CLOSEDATE = #{closedate} </if><if test="supervisionperson!=null"> and SUPERVISIONPERSON = #{supervisionperson} </if><if test="supervisiondate!=null"> and SUPERVISIONDATE = #{supervisiondate} </if><if test="classification!=null"> and CLASSIFICATION = #{classification} </if><if test="supervisionedperson!=null"> and SUPERVISIONEDPERSON = #{supervisionedperson} </if><if test="registrationUnit!=null"> and REGISTRATION = #{registrationUnit} </if><if test="channel!=null"> and CHANNEL = #{channel} </if><if test="attachurl!=null"> and ATTACHURL = #{attachurl} </if><if test="temp5!=null"> and TEMP5 = #{temp5} </if><if test="limitdate!=null"> and LIMITDATE = #{limitdate} </if><if test="registerdate!=null"> and REGISTERDATE = #{registerdate} </if><if test="temp4!=null"> and TEMP4 = #{temp4} </if><if test="responsecontent!=null"> and RESPONSECONTENT = #{responsecontent} </if><if test="title!=null"> and TITLE = #{title} </if><if test="currentflow!=null"> and CURRENTFLOW = #{currentflow} </if><if test="callstarttime!=null"> and CALLSTARTTIME = #{callstarttime} </if><if test="feedbacktel!=null"> and FEEDBACKTEL = #{feedbacktel} </if><if test="enttypename!=null"> and ENTTYPENAME = #{enttypename} </if><if test="area!=null"> and AREA = #{area} </if><if test="temp6!=null"> and TEMP6 = #{temp6} </if><if test="caseno!=null"> and CASENO = #{caseno} </if><if test="product!=null"> and PRODUCT = #{product} </if><if test="callserial!=null"> and CALLSERIAL = #{callserial} </if><if test="complainant!=null"> and COMPLAINANT = #{complainant} </if><if test="acceptance!=null"> and ACCEPTANCE = #{acceptance} </if><if test="businessType!=null"> and BUSINESS = #{businessType} </if><if test="enttype!=null"> and ENTTYPE = #{enttype} </if><if test="operator!=null"> and OPERATOR = #{operator} </if><if test="isdelay!=null"> and ISDELAY = #{isdelay} </if><if test="problemLink!=null"> and PROBLEM = #{problemLink} </if><if test="supervision!=null"> and SUPERVISION = #{supervision} </if><if test="refid!=null"> and REFID = #{refid} </if><if test="iscase!=null"> and ISCASE = #{iscase} </if><if test="opinion!=null"> and OPINION = #{opinion} </if><if test="isotherdept!=null"> and ISOTHERDEPT = #{isotherdept} </if><if test="delayreason!=null"> and DELAYREASON = #{delayreason} </if><if test="source!=null"> and SOURCE = #{source} </if><if test="otherdept!=null"> and OTHERDEPT = #{otherdept} </if><if test="isfirst!=null"> and ISFIRST = #{isfirst} </if><if test="accept!=null"> and ACCEPT = #{accept} </if><if test="calltel!=null"> and CALLTEL = #{calltel} </if><if test="temp1!=null"> and TEMP1 = #{temp1} </if><if test="feedback!=null"> and FEEDBACK = #{feedback} </if><if test="querycode!=null"> and QUERYCODE = #{querycode} </if><if test="infoid!=null"> and INFOID = #{infoid} </if><if test="lastupdatetime!=null"> and LASTUPDATETIME = #{lastupdatetime} </if><if test="seatno!=null"> and SEATNO = #{seatno} </if><if test="registrationarea!=null"> and REGISTRATIONAREA = #{registrationarea} </if><if test="temp2!=null"> and TEMP2 = #{temp2} </if><if test="status!=null"> and STATUS = #{status} </if><if test="temp3!=null"> and TEMP3 = #{temp3} </if><if test="callendtime!=null"> and CALLENDTIME = #{callendtime} </if><if test="fistcomplaint!=null"> and FISTCOMPLAINT = #{fistcomplaint} </if>    </select>
+
+	<select id="findByPage" resultMap="CpComplaintsreport" parameterType="org.gecko.framework.complaint.entity.CpComplaintsreport">
+		select CpComplaintsreport.* from CP_COMPLAINTSREPORT CpComplaintsreport where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.responsedate!=null"> and RESPONSEDATE = #{param.responsedate} </if><if test="param.content!=null"> and CONTENT = #{param.content} </if><if test="param.audiourl!=null"> and AUDIOURL = #{param.audiourl} </if><if test="param.acceptedDate!=null"> and ACCEPTED = #{param.acceptedDate} </if><if test="param.importance!=null"> and IMPORTANCE = #{param.importance} </if><if test="param.isanonymous!=null"> and ISANONYMOUS = #{param.isanonymous} </if><if test="param.acceptype!=null"> and ACCEPTYPE = #{param.acceptype} </if><if test="param.respondent!=null"> and RESPONDENT = #{param.respondent} </if><if test="param.closedate!=null"> and CLOSEDATE = #{param.closedate} </if><if test="param.supervisionperson!=null"> and SUPERVISIONPERSON = #{param.supervisionperson} </if><if test="param.supervisiondate!=null"> and SUPERVISIONDATE = #{param.supervisiondate} </if><if test="param.classification!=null"> and CLASSIFICATION = #{param.classification} </if><if test="param.supervisionedperson!=null"> and SUPERVISIONEDPERSON = #{param.supervisionedperson} </if><if test="param.registrationUnit!=null"> and REGISTRATION = #{param.registrationUnit} </if><if test="param.channel!=null"> and CHANNEL = #{param.channel} </if><if test="param.attachurl!=null"> and ATTACHURL = #{param.attachurl} </if><if test="param.temp5!=null"> and TEMP5 = #{param.temp5} </if><if test="param.limitdate!=null"> and LIMITDATE = #{param.limitdate} </if><if test="param.registerdate!=null"> and REGISTERDATE = #{param.registerdate} </if><if test="param.temp4!=null"> and TEMP4 = #{param.temp4} </if><if test="param.responsecontent!=null"> and RESPONSECONTENT = #{param.responsecontent} </if><if test="param.title!=null"> and TITLE = #{param.title} </if><if test="param.currentflow!=null"> and CURRENTFLOW = #{param.currentflow} </if><if test="param.callstarttime!=null"> and CALLSTARTTIME = #{param.callstarttime} </if><if test="param.feedbacktel!=null"> and FEEDBACKTEL = #{param.feedbacktel} </if><if test="param.enttypename!=null"> and ENTTYPENAME = #{param.enttypename} </if><if test="param.area!=null"> and AREA = #{param.area} </if><if test="param.temp6!=null"> and TEMP6 = #{param.temp6} </if><if test="param.caseno!=null"> and CASENO = #{param.caseno} </if><if test="param.product!=null"> and PRODUCT = #{param.product} </if><if test="param.callserial!=null"> and CALLSERIAL = #{param.callserial} </if><if test="param.complainant!=null"> and COMPLAINANT = #{param.complainant} </if><if test="param.acceptance!=null"> and ACCEPTANCE = #{param.acceptance} </if><if test="param.businessType!=null"> and BUSINESS = #{param.businessType} </if><if test="param.enttype!=null"> and ENTTYPE = #{param.enttype} </if><if test="param.operator!=null"> and OPERATOR = #{param.operator} </if><if test="param.isdelay!=null"> and ISDELAY = #{param.isdelay} </if><if test="param.problemLink!=null"> and PROBLEM = #{param.problemLink} </if><if test="param.supervision!=null"> and SUPERVISION = #{param.supervision} </if><if test="param.refid!=null"> and REFID = #{param.refid} </if><if test="param.iscase!=null"> and ISCASE = #{param.iscase} </if><if test="param.opinion!=null"> and OPINION = #{param.opinion} </if><if test="param.isotherdept!=null"> and ISOTHERDEPT = #{param.isotherdept} </if><if test="param.delayreason!=null"> and DELAYREASON = #{param.delayreason} </if><if test="param.source!=null"> and SOURCE = #{param.source} </if><if test="param.otherdept!=null"> and OTHERDEPT = #{param.otherdept} </if><if test="param.isfirst!=null"> and ISFIRST = #{param.isfirst} </if><if test="param.accept!=null"> and ACCEPT = #{param.accept} </if><if test="param.calltel!=null"> and CALLTEL = #{param.calltel} </if><if test="param.temp1!=null"> and TEMP1 = #{param.temp1} </if><if test="param.feedback!=null"> and FEEDBACK = #{param.feedback} </if><if test="param.querycode!=null"> and QUERYCODE = #{param.querycode} </if><if test="param.infoid!=null"> and INFOID = #{param.infoid} </if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME = #{param.lastupdatetime} </if><if test="param.seatno!=null"> and SEATNO = #{param.seatno} </if><if test="param.registrationarea!=null"> and REGISTRATIONAREA = #{param.registrationarea} </if><if test="param.temp2!=null"> and TEMP2 = #{param.temp2} </if><if test="param.status!=null"> and STATUS = #{param.status} </if><if test="param.temp3!=null"> and TEMP3 = #{param.temp3} </if><if test="param.callendtime!=null"> and CALLENDTIME = #{param.callendtime} </if><if test="param.fistcomplaint!=null"> and FISTCOMPLAINT = #{param.fistcomplaint} </if>	</select>
+
+    <select id="likeByPage" resultMap="CpComplaintsreport" parameterType="org.gecko.framework.complaint.entity.CpComplaintsreport">
+        select CpComplaintsreport.* from CP_COMPLAINTSREPORT CpComplaintsreport where 1=1
+        <if test="param.responsedate!=null"> and RESPONSEDATE like #{param.responsedate}</if><if test="param.content!=null"> and CONTENT like #{param.content}</if><if test="param.audiourl!=null"> and AUDIOURL like #{param.audiourl}</if><if test="param.acceptedDate!=null"> and ACCEPTED like #{param.acceptedDate}</if><if test="param.importance!=null"> and IMPORTANCE like #{param.importance}</if><if test="param.isanonymous!=null"> and ISANONYMOUS like #{param.isanonymous}</if><if test="param.acceptype!=null"> and ACCEPTYPE like #{param.acceptype}</if><if test="param.respondent!=null"> and RESPONDENT like #{param.respondent}</if><if test="param.closedate!=null"> and CLOSEDATE like #{param.closedate}</if><if test="param.supervisionperson!=null"> and SUPERVISIONPERSON like #{param.supervisionperson}</if><if test="param.supervisiondate!=null"> and SUPERVISIONDATE like #{param.supervisiondate}</if><if test="param.classification!=null"> and CLASSIFICATION like #{param.classification}</if><if test="param.supervisionedperson!=null"> and SUPERVISIONEDPERSON like #{param.supervisionedperson}</if><if test="param.registrationUnit!=null"> and REGISTRATION like #{param.registrationUnit}</if><if test="param.channel!=null"> and CHANNEL like #{param.channel}</if><if test="param.attachurl!=null"> and ATTACHURL like #{param.attachurl}</if><if test="param.temp5!=null"> and TEMP5 like #{param.temp5}</if><if test="param.limitdate!=null"> and LIMITDATE like #{param.limitdate}</if><if test="param.registerdate!=null"> and REGISTERDATE like #{param.registerdate}</if><if test="param.temp4!=null"> and TEMP4 like #{param.temp4}</if><if test="param.responsecontent!=null"> and RESPONSECONTENT like #{param.responsecontent}</if><if test="param.title!=null"> and TITLE like #{param.title}</if><if test="param.currentflow!=null"> and CURRENTFLOW like #{param.currentflow}</if><if test="param.callstarttime!=null"> and CALLSTARTTIME like #{param.callstarttime}</if><if test="param.feedbacktel!=null"> and FEEDBACKTEL like #{param.feedbacktel}</if><if test="param.enttypename!=null"> and ENTTYPENAME like #{param.enttypename}</if><if test="param.area!=null"> and AREA like #{param.area}</if><if test="param.temp6!=null"> and TEMP6 like #{param.temp6}</if><if test="param.caseno!=null"> and CASENO like #{param.caseno}</if><if test="param.product!=null"> and PRODUCT like #{param.product}</if><if test="param.callserial!=null"> and CALLSERIAL like #{param.callserial}</if><if test="param.complainant!=null"> and COMPLAINANT like #{param.complainant}</if><if test="param.acceptance!=null"> and ACCEPTANCE like #{param.acceptance}</if><if test="param.businessType!=null"> and BUSINESS like #{param.businessType}</if><if test="param.enttype!=null"> and ENTTYPE like #{param.enttype}</if><if test="param.operator!=null"> and OPERATOR like #{param.operator}</if><if test="param.isdelay!=null"> and ISDELAY like #{param.isdelay}</if><if test="param.problemLink!=null"> and PROBLEM like #{param.problemLink}</if><if test="param.supervision!=null"> and SUPERVISION like #{param.supervision}</if><if test="param.refid!=null"> and REFID like #{param.refid}</if><if test="param.iscase!=null"> and ISCASE like #{param.iscase}</if><if test="param.opinion!=null"> and OPINION like #{param.opinion}</if><if test="param.isotherdept!=null"> and ISOTHERDEPT like #{param.isotherdept}</if><if test="param.delayreason!=null"> and DELAYREASON like #{param.delayreason}</if><if test="param.source!=null"> and SOURCE like #{param.source}</if><if test="param.otherdept!=null"> and OTHERDEPT like #{param.otherdept}</if><if test="param.isfirst!=null"> and ISFIRST like #{param.isfirst}</if><if test="param.accept!=null"> and ACCEPT like #{param.accept}</if><if test="param.calltel!=null"> and CALLTEL like #{param.calltel}</if><if test="param.temp1!=null"> and TEMP1 like #{param.temp1}</if><if test="param.feedback!=null"> and FEEDBACK like #{param.feedback}</if><if test="param.querycode!=null"> and QUERYCODE like #{param.querycode}</if><if test="param.infoid!=null"> and INFOID like #{param.infoid}</if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME like #{param.lastupdatetime}</if><if test="param.seatno!=null"> and SEATNO like #{param.seatno}</if><if test="param.registrationarea!=null"> and REGISTRATIONAREA like #{param.registrationarea}</if><if test="param.temp2!=null"> and TEMP2 like #{param.temp2}</if><if test="param.status!=null"> and STATUS like #{param.status}</if><if test="param.temp3!=null"> and TEMP3 like #{param.temp3}</if><if test="param.callendtime!=null"> and CALLENDTIME like #{param.callendtime}</if><if test="param.fistcomplaint!=null"> and FISTCOMPLAINT like #{param.fistcomplaint}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE CP_COMPLAINTSREPORT SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+    
+    
+   
+    
+</mapper>

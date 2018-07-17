@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
+    <title>GeckoFramework</title>
+    <link rel="stylesheet" href="../static/static/css/system/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/static/css/system/ace/font-awesome.min.css"/>
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="../static/static/css/system/ace/font-awesome.min.css"/>
+    <![endif]-->
+    <link rel="stylesheet" href="../static/static/css/system/ace/ace.min.css"/>
+    <link rel="stylesheet" href="../static/static/css/system/ace/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../static/static/css/system/ace/ace-skins.min.css"/>
+</head>
+<body style="background-color: #FFFFFF;">
+<div class="error-container">
+    <div class="well">
+        <h1 class="grey lighter smaller">
+				<span class="bigger-125"> <i class="icon-warning-sign icon-animated-wrench" style="color: #fee188"></i> Welcome
+				</span>欢迎
+        </h1>
+        <hr>
+        <!--  -->
+        <h3 class="lighter smaller"></h3>
+        <div>
+            <div class="space"></div>
+            <h3 class="smaller">欢迎来到...</h3>
+            <ul class="list-unstyled spaced inline bigger-110 margin-15" style="font-family: 'Open Sans';">
+                <li><i class="icon-hand-right blue icon-animated-wrench">1. </i><a href="views/system/login.jsp">登录</a></li>
+                <li><i class="icon-hand-right blue icon-animated-wrench">2. </i><a href="views/index.jsp">进入后台</a></li>
+                <li><i class="icon-hand-right blue icon-animated-wrench">3. </i><a href="index.html">其他</a></li>
+            </ul>
+        </div>
+        <hr>
+        <div class="space"></div>
+        <div class="center">
+            <a class="btn btn-info" href="javascript:location.reload();"> <i class="icon-refresh"></i> 刷新页面
+            </a>
+        </div>
+    </div>
+</div>
+</body>

@@ -1,0 +1,1167 @@
+
+
+
+
+
+<div id="loading" style="position:absolute;Z-INDEX: 999;left:45%;top:45%;width:150px;height:15px;" >
+    <img id="loadingImg" align="middle">
+    <span id="display" style="font-family:宋体;font-size:10pt;font-weight:bold">正在运行...</span>
+</div>
+<HTML>
+	<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+	<META HTTP-EQUIV="expires" CONTENT="Sat, 01 Jan 2000 00:00:00 GMT">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<HEAD>
+		<script>
+			var __dp_flag = false;
+			if ( __dp_flag ) window.__dp_start = new Date().getTime();
+		</script>
+		
+		<script type="text/javascript" src="offline_resources.js?1521527928303"></script>
+		<script type="text/javascript" src="offline_rmis.js?1521527928303"></script>
+		<script type="text/javascript" src="js/Offline.js"></script>
+		<link href="css/bof_merge.css" rel="stylesheet" type="text/css" />
+		
+		
+		<!-- <link href="css/bof_merge.css.jsp" rel="stylesheet" type="text/css" /> -->
+		<!-- <link id="portalStyleElement" href="themes/default/css/default__top.css" rel="stylesheet" type="text/css" />-->
+		<script type="text/javascript" src="js/thirdparty/jquery/jquery.js"></script>
+		<script type="text/javascript" src="js/ext/IPad/iscroll.js"></script>
+		<script type="text/javascript" src="js/freequery/lang/JSLoader.js"></script>
+
+		<script><!--
+			var jsloader = new JSLoader();
+		
+			var parentJsloader = null;
+			try {
+				if (window.parent.window.jsloader)
+					parentJsloader = window.parent.window.jsloader;
+			} catch(ex) {
+				;//忽略跨域错误
+			}
+			if (!parentJsloader)
+				parentJsloader = jsloader;
+			jsloader.setCacheFile( parentJsloader.getCacheFile() );
+			
+			jsloader.resolveMany([
+				"bof.baseajax.common.AbstractAction",
+				"bof.baseajax.common.BasicAction",
+				"bof.baseajax.common.CompositeAction",
+				"bof.baseajax.control.ScrollToolbar",
+				"bof.decisionpanel.newportal.NewPage",
+				"bof.decisionpanel.newportal.DashletView",
+				"bof.decisionpanel.newportal.NewDashletContent",
+				"bof.decisionpanel.newportal.Right",
+				//"bof.decisionpanel.Chart.DPChart",
+				"bof.decisionpanel.dashboard.DashboardAction",
+				"bof.decisionpanel.dashboard.Dashboard",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.GraphReportPortlet",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.GraphReportPortletEdit",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.FolderPortlet",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.FolderObject",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.FolderPortletEdit",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.FreeReportPortlet",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.FreeReportPortletEdit",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.URLPortlet",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.URLPortletEdit",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.OlapReportPortlet",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.OlapReportPortletEdit",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.Portlet",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.PortletEdit",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.PortletContainer",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.SimpleReportPortlet",
+				"bof.decisionpanel.Portal.Dashlet.Portlet.SimpleReportPortletEdit",
+				"bof.decisionpanel.Portal.Dashlet.Dashlet",
+				"bof.decisionpanel.Portal.Dashlet.util.DashletUtil",
+				"bof.decisionpanel.Portal.macro.MacroMenuCommand",
+				"bof.decisionpanel.Portal.PortalManagement.PortalManagementTreeNode",
+				"bof.decisionpanel.Portal.PageTree",
+				"bof.decisionpanel.Portal.PageUtil",
+				"bof.decisionpanel.Portal.PortalService",
+				"bof.decisionpanel.Portal.ScrollableWrapper"
+			]);
+			jsloader.resolveMany([
+				"freequery.actions.AbstractTabAction",
+				"freequery.control.BaseGrid",
+				"freequery.control.ComboBox",
+				"freequery.control.DropDownCheckList",
+				"freequery.control.DropDownPanel",
+				"freequery.control.DropDownBox",
+				"freequery.control.DropDownTree",
+				"freequery.control.DropDownTreePanel",
+				"freequery.control.DateTimePicker",
+				"freequery.control.DragTable",
+				"freequery.control.FreqDatePicker",
+				"freequery.control.Listbox",
+				"freequery.control.ListDialog",
+				"freequery.control.QueryGrid",
+				"freequery.control.ReportDatePicker",
+				"freequery.control.TreeDialog",
+				"freequery.dialog.BaseDialog",
+				"freequery.dialog.dialogFactory",
+				"freequery.query.Axis",
+				"freequery.query.FieldSelectPanel",
+				"freequery.query.GridPropData",
+				"freequery.query.PagePanel",
+				"freequery.query.ParameterPanel",
+				"freequery.query.QueryViewCommand",
+				"freequery.query.QueryNavigator",
+				"freequery.query.QueryView",
+				"freequery.sysresource.URLLinkCommand",
+				"bof.macro.services.MacroService",
+				"bof.macro.SimpleReportMacroExecutor",
+				"bof.usermanager.UserService"
+			]);
+			jsloader.resolveMany([
+				"freequery.control.Progress",
+				"bof.baseajax.common.DOMAgent",
+				"bof.baseajax.control.HResizer",
+				//"bof.chart.Chart",
+				"bof.macro.OlapQueryMacroExecutor",
+				"bof.olapquery.OlapQueryCommand",
+				"bof.olapquery.olapquery.ExpListPanel",
+				"bof.olapquery.olapquery.ExpListView",
+				"bof.olapquery.olapquery.OlapQueryView",
+				"bof.olapquery.olapquery.OlapQueryViewChart",
+				"bof.olapquery.olapquery.OlapQueryViewToolbar",
+				"bof.olapquery.olapquery.OlapTable",
+				"bof.olapquery.olapquery.workspace.HierarchyDefinePanel",
+				"bof.olapquery.param.OlapParamDropDownTree",
+				"bof.olapquery.param.OlapParamTreePanel",
+				"bof.olapquery.param.OlapParamTree",
+				"bof.olapquery.param.OlapParamTreeNode",
+				"bof.olapquery.paging.Paging"
+			]);
+			
+			var domutils = jsloader.resolve("freequery.lang.domutils");
+			var registry = jsloader.resolve("freequery.lang.registry");
+			var util = jsloader.resolve("freequery.common.util");
+			util.redefineAlert();
+			var UserService = jsloader.resolve("bof.usermanager.UserService");
+			var NewPage = jsloader.resolve("bof.decisionpanel.newportal.NewPage");
+			var Right = jsloader.resolve("bof.decisionpanel.newportal.Right");
+			var modalWindow = jsloader.resolve("freequery.common.modalWindow");	
+			var lang = jsloader.resolve("freequery.lang.lang");
+			var ExportPage = jsloader.resolve("bof.decisionpanel.Portal.ExportPage");
+			var PagePopupMenu = jsloader.resolve("bof.decisionpanel.Portal.PagePopupMenu");
+			
+			var ruleCount = 0;
+			/*
+			var parentDocument = window.frameElement ? window.frameElement.ownerDocument : null;
+			if (!window.bof_offline_xhr && domutils.isIOS() && parentDocument) {
+				if (document.styleSheets.length<1) {
+					document.head.appendChild(document.createElement("style"));
+				}
+				var newStyleSheet = document.styleSheets[document.styleSheets.length-1];
+				var index = 0;
+				for (var i = 0; i < parentDocument.styleSheets.length; i++) {
+					var styleSheet = parentDocument.styleSheets[i];
+					ruleCount = ruleCount + styleSheet.cssRules.length;
+					for (var j = 0; j < styleSheet.cssRules.length; j++) {
+						newStyleSheet.insertRule(styleSheet.cssRules[j].cssText, index++);
+					}
+				}
+			}
+			*/  // 这里大伟想加载父窗口样式，有问题关闭
+			if ( ruleCount < 100 && !window.bof_offline_xhr){
+				var head = document.getElementsByTagName("HEAD")[0];
+				var element = document.createElement("LINK");
+				element.rel = "stylesheet";
+				element.type = "text/css";
+				element.href = "themes/default/css/default__top.css";
+				head.appendChild(element);
+				
+				var element = document.createElement("LINK");
+				element.rel = "stylesheet";
+				element.type = "text/css";
+				element.href = window.bof_offline_xhr ? "css/bof_merge.css" : "css/bof_merge.css.jsp";
+				head.appendChild(element);
+
+			}
+			var page = null;
+			var right = new Right();
+			var pageId = 'I297edff815b2411f0162422140a7605b';
+			var pagePath = '当前位置： 企业纳税申报图';
+			var noopInterval = null;
+			var skinDisplay = 'none'
+			var isPublic = 'true';
+			
+			var user= 'admin';
+			var serverObjs;
+			var popupMenu = null;
+			var dialogFactory = null;
+			var ipadstyle = true;
+			
+			function init() {				
+				window.__Portlet_is_hybrid = true;
+				window.__QueryView_is_hybrid = true;
+				window.__Chart_is_hybrid = true;
+				registry.put("User", user);
+				var parentRegistry = parentJsloader.resolve("freequery.lang.registry");
+				if (parentRegistry){
+					if(parentRegistry.get("Password"))
+						registry.put("Password", parentRegistry.get("Password"));
+				}
+				if(!registry.get("Password")) {
+					//var sessionPassword = util.getSessionAttribute("password");
+					//registry.put("Password", sessionPassword);
+					//if (parentRegistry)
+					//	parentRegistry.put("Password", sessionPassword);
+				}
+				var name = 'null';
+				if (name == null || name =='null')
+					name = "";
+				//窗口标题参数,由外部应用设置的窗口标题会覆盖系统默认设罄1�7
+				
+				
+				var windowTitle = '';
+				
+				if (!windowTitle || windowTitle == 'null')
+					windowTitle = name;
+					
+				//如果外部应用传�1�7�了windowTitle参数，则将窗口标题设置为windowTitle	
+				if(windowTitle)
+					document.title = windowTitle;
+				else
+					document.title = "";
+				
+				serverObjs = document.getElementById("serverGeneratedJSON");
+				
+				var elem_allFunctionsOfCurrentUser = domutils.findElementByBofid(serverObjs,"allFunctionsOfCurrentUser");
+				var opFunctions = lang.parseJSON(elem_allFunctionsOfCurrentUser.value);
+				if (parentRegistry)
+					parentRegistry.put("opFunctions", opFunctions);
+				registry.put("opFunctions",opFunctions);
+					
+				var elem_systemConfigs = domutils.findElementByBofid(serverObjs,"systemConfigs");
+				var systemConfigs = lang.parseJSON(elem_systemConfigs.value);
+				if (parentRegistry)
+					parentRegistry.put("systemConfigs",systemConfigs);
+				registry.put("systemConfigs",systemConfigs);
+				
+				var elem_portletsDefiniens = domutils.findElementByBofid(serverObjs,"portletsDefiniens");
+				var portletsDefiniens = lang.parseJSON(elem_portletsDefiniens.value);
+				if (parentRegistry)
+					parentRegistry.put("portletsDefiniens",portletsDefiniens);
+				registry.put("portletsDefiniens",portletsDefiniens);
+				
+				var dashletOptions = {skinDisplay:"none"};
+				if (skinDisplay == "none" || skinDisplay == "title_only")
+					dashletOptions.ipadSkinDisplay =  skinDisplay
+				registry.put("dashletOptions",dashletOptions);		
+
+				//保存页面主题在registry
+				registry.put("pageTheme",null);
+				
+				var pathSlot = document.getElementById("currentPlace");
+				pathSlot.innerHTML = pagePath;
+				
+				if (pageId!="")
+					openPage();
+				
+				setInterval(function() {
+					domutils.doPost('noop.jsp');	
+				}, 1000 * 60 * 2);
+
+				if ( __dp_flag ) {
+					window.__dp_end = new Date().getTime();
+					window.status = "__dp_during: " + (__dp_end-__dp_start); 
+				}
+				
+				if (parent && parent != window && parent.openingSubPage && parent.afterSubPageLoad){
+					parent.afterSubPageLoad();
+				}
+
+				var iframe = getInvokeIFrame();
+				document._pageAlias = "企业纳税申报图";
+				if (domutils.isIOS() && !domutils.isSafari()) {	
+					iframe.src = "invokemethod:changetitle:" + document._pageAlias;
+				}
+			}
+			
+			function openPage(){
+				showLoadingDiv(true);
+				
+				closePage();
+				
+				var slot = document.getElementById("content");
+				if (!window.__Portlet_is_hybrid) {
+					util.compositeInvoke("openPage",[this.pageId]);
+				}
+				
+				var paramObjList = null;
+				try {
+					if (window.parent.window.frameView && window.parent.window.frameView.paramList)
+						paramObjList = window.parent.window.frameView.paramList;
+				} catch(ex) {
+					;//忽略跨域错误
+				}
+				
+				if (window.bof_offline_xhr){//离线时，从sessionStorage获取参数
+					var storage = window.sessionStorage;
+					if(storage){
+						paramObjList = storage.getItem(pageId);
+						if(null != paramObjList){
+							paramObjList =  lang.parseJSON(paramObjList);
+						}
+					}
+				}
+				
+				var paramsInfo = '[]';
+				if (paramsInfo && null != []){
+					var params = lang.parseJSON(paramsInfo);
+					paramObjList = params;
+				}
+				
+				var elem_pageBO = domutils.findElementByBofid(serverObjs,"pageBO");
+				page = new NewPage(slot,pageId,"","true"==isPublic,right,lang.parseJSON(elem_pageBO.value));
+				page.onShowPage.subscribe(
+					function() { //主要用于通知外层页面页面已经加载完毕
+						if (window.top.handlePageShow) {
+							window.top.handlePageShow();
+						}
+					}
+				);
+				
+				var elem_modules = domutils.findElementByBofid(serverObjs,"modules");
+				var elem_modules_childs = elem_modules.childNodes;
+				for(var i=0,len=elem_modules_childs.length;i<len;i++){
+					var tmpChild = elem_modules_childs[i];
+					if (tmpChild.tagName == "TEXTAREA"){
+						var eventName = tmpChild.getAttribute("eventName");
+						page.modules[eventName] = lang.parseJSON(tmpChild.value);
+					}
+				}
+				var publicParamsStr = 'null';
+				if(publicParamsStr.length>0)
+					var publicParams = lang.parseJSON(publicParamsStr);
+				
+				var nested = null;
+			
+				if (nested || "true" == nested) {
+					page.setInnerPage(true,publicParams);
+				}
+					
+				page.show(paramObjList);
+				
+				noopInterval = setInterval(function() {
+					if (page.loadComplete){	
+						showLoadingDiv(false);
+						clearInterval(noopInterval);
+						window.__Portlet_is_hybrid = false;
+					}
+				}, 1000);
+			}
+			
+			function closePage(){
+				if (page){
+					page.destroy();
+				}
+				page = null; 
+			}
+			
+			function destroy() {
+				var mainTable = document.getElementById("_rightBodyTable");
+				if (mainTable.style.display == "none"){
+					var subPageFrame = document.getElementById("subpageframe");
+					subPageFrame.contentWindow.document.location.href = "about:blank";
+				}
+			
+				closePage(); 
+				if ( exportManager ){
+					exportManager.destroy();
+					exportManager = null;
+				}
+				if (popupMenu){
+					popupMenu.onHide.unsubscribe(doMenuHide, this);
+					popupMenu.destroy();
+					popupMenu = null;
+				}
+				if (right)
+					right.destroy();
+				right = null;
+			}
+			
+			function showLoadingDiv(show){
+				//show = false;
+				if(window && window.parent && window.parent.main) {
+					window.parent.main.showLoadingDiv(false);
+				}
+				
+	//			if (parent && parent.showLoadingDiv && parent != window){
+	//				parent.showLoadingDiv(show);
+	//			}else{
+					if(show) {
+						document.getElementById("loading").style.display = "";
+					} else {
+						document.getElementById("loading").style.display = "none";
+					}
+	//			}
+				
+				if(!show && ( domutils.isIOS() || domutils.isAndroid()) ) {
+					var slot = document.getElementById("_viewdiv_");
+					if(typeof slot == "undefined") {
+						return;
+					}
+					//if (slot.scrollHeight > slot.offsetHeight){
+						//slot.style.cssText = "";
+					//}
+					/*
+					var BofIPadScroll = jsloader.resolve("ext.IPad.BofIPadScroll");
+					var iPadScroll = new BofIPadScroll(slot);
+					iPadScroll.scrollContent.refresh();
+					*/
+					/*
+					if (parent && parent != window && parent.openingInnerPage) {
+						var slot = document.getElementById("_rightBodyTable");
+						var containerParent = slot.parentNode;
+						var wrapperDiv = document.createElement("div");
+						wrapperDiv.style.cssText = "position:relative;z-index:1;width:100%;height:100%;";
+						containerParent.insertBefore(wrapperDiv, slot);
+						wrapperDiv.appendChild(slot);
+						var BofIPadScroll = jsloader.resolve("ext.IPad.BofIPadScroll");
+						var iPadScroll = new BofIPadScroll(slot,null,wrapperDiv);
+						iPadScroll.scrollContent.refresh();
+					}*/
+				}
+				if (!show && domutils.isIE() && domutils.getBrowserVersion()==10){
+					var slot = document.getElementById("_viewdiv_");
+					if(typeof slot == "undefined") {
+						return;
+					}
+					//if (slot.scrollWidth > slot.offsetWidth || slot.scrollHeight > slot.offsetHeight){
+					//	slot.style.cssText = "";
+					//}
+				}
+				if (page) {
+					page.loadingImgDisplay = show;
+				}
+			}
+			var exportManager = null;
+			function doExport(func){
+				if ( exportManager )
+					exportManager.destroy();
+				exportManager = new ExportPage(page);
+					
+				if (func == "exportExcel"){
+					exportManager.exportExcel();
+				}else if (func == "exportMHT"){
+					exportManager.exportMHT();
+				}else if (func == "exportPDF"){
+					exportManager.exportPDF();
+				}else if (func == "exportWord"){
+					exportManager.exportWord();
+				}
+			}
+			
+			function btnPagePopupMenu_click_handler(){
+				var needResetPopupMenuStyle = false;
+				if (!popupMenu) {
+					popupMenu = new PagePopupMenu(null, page);
+					popupMenu.onHide.subscribe(doMenuHide, this);
+					needResetPopupMenuStyle = true;
+				}
+				btnPagePopupMenu.className = "pagePopupMenu_pressed";
+				popupMenu.execute(btnPagePopupMenuDiv);
+				if (needResetPopupMenuStyle){
+					//popupMenu.resetPopupMenuStyle("themes/default/css/popupmenu.css");
+				}
+			}
+			
+			function doMenuHide(){
+				btnPagePopupMenu.className = "pagePopupMenu_normal";
+			}
+
+			var openingSubPage = false;
+			function showSubPage(resId,paramObjList){
+				if(!resId)
+					return;
+				var paramObj = "";
+				if (paramObjList && typeof paramObjList == 'string')
+					paramObj = paramObjList;
+				else if(paramObjList && paramObjList.length>0)
+					paramObj = lang.toJSONString(paramObjList);
+				
+				if (window.bof_offline_xhr){
+					if (paramObj != ""){
+						var storage = window.sessionStorage;
+						if(storage){
+							storage.setItem(resId,paramObj);
+						}
+					}
+					var subPageFrame = document.getElementById("subpageframe");
+					subPageFrame.contentWindow.document.location.href = "../" + resId + "/index.html";
+					openingSubPage = true;
+					return;
+				}
+				
+				var submitForm = document.getElementById("submitform")
+				var pageIdInput = document.getElementById("submitform_pageId");
+				var paramsInput = document.getElementById("submitform_params");
+				
+				submitForm.target = "subpageframeI297edff815b2411f0162422140a7605b";
+				pageIdInput.value = resId;
+				paramsInput.value = paramObj;
+				submitForm.submit();
+
+				openingSubPage = true;
+				//showLoadingView();
+				//subPageFrame.onload = loadComplete;
+			}
+			
+			function afterSubPageLoad(){
+				var subPageFrame = document.getElementById("subpageframe");
+				var mainTable = document.getElementById("_rightBodyTable");
+			
+				subPageFrame.style.display = "block";
+				mainTable.style.display = "none";
+				pushSubPage();
+			}
+			
+			function getInvokeIFrame() {
+				var iframe = document.getElementById("invokeIFrame");
+				if (!iframe) {
+					iframe = document.createElement("IFRAME");
+					iframe.id = "invokeIFrame";
+					iframe.style.display = "none";
+					document.body.appendChild(iframe);
+					iframe.__deep = 0;
+					window.jsPopSubPage = function() {
+			            if (--iframe.__deep <= 0)
+			            {
+			                iframe.src = "invokemethod:hideBackButton";
+			            }
+			            popSubPage();
+					}
+				}
+				if (window.bof_offline_xhr) {
+					iframe = {};  //离线的话,不存在invokeIFrame的可能性
+				}
+				return iframe;
+			}
+			
+			function pushSubPage(){
+				if (parent && parent!=window && parent.pushSubPage){
+					parent.pushSubPage();
+				} else {
+					var iframe = getInvokeIFrame();
+					if (iframe.__deep++ == 0)
+						iframe.src = "invokemethod:showBackButton";
+				}
+			}
+			
+			function popSubPage(){
+				var mainTable = document.getElementById("_rightBodyTable");
+				if (mainTable.style.display != "none"){
+					if (page.backwordClick()){
+						return false;
+					}
+				
+					return true;
+				}else{
+					var subPageFrame = document.getElementById("subpageframe");
+					var value = subPageFrame.contentWindow.popSubPage();
+					if (value){
+						subPageFrame.style.display = "none";
+						subPageFrame.contentWindow.document.location.href = "about:blank";
+						mainTable.style.display = "block";
+						openingSubPage = false;
+						var iframe = getInvokeIFrame();
+						if (domutils.isIOS() && !domutils.isSafari()) {	
+							iframe.src = "invokemethod:changetitle:" + document._pageAlias;
+						}
+					}
+					return false;
+				}
+			}
+			
+			function showLoadingView(){
+				if (parent && parent!=window && parent.showLoadingView){
+					parent.showLoadingView();
+				}
+			}
+			
+			function loadComplete(){
+				if (parent && parent!=window && parent.loadComplete){
+					parent.loadComplete();
+				}
+			}
+
+			var openingInnerPage = false;
+			function showInternalFrame(resId,paramObjList){
+				if(!resId)
+					return;
+
+				openingInnerPage = true;
+				var overlayDiv = document.getElementById("overlayDiv");
+				overlayDiv.style.display = "block";
+				var innerFrameDiv = document.getElementById("innerFrameDiv");
+				var topwin = window;
+				try {
+					while(true) {
+						var ptop = topwin.parent;
+						if (ptop == topwin)
+							break;
+						var b = ptop.document.body;//Will throw exception when cross domain
+						topwin = ptop;
+					}
+				} catch (e) {
+				}
+				var winheight = topwin.document.body.clientHeight;
+				var winwidth = topwin.document.body. clientWidth;
+				innerFrameDiv.style.height = winheight * 0.8;
+				innerFrameDiv.style.width = winwidth * 0.8;
+				innerFrameDiv.style.left = winwidth * 0.1;
+				innerFrameDiv.style.top = winheight * 0.1;
+				innerFrameDiv.style.display = "block";
+				
+				var paramObj = "";
+				if (paramObjList && typeof paramObjList == 'string')
+					paramObj = paramObjList;
+				else if(paramObjList && paramObjList.length>0)
+					paramObj = lang.toJSONString(paramObjList);
+				
+				if (window.bof_offline_xhr){
+					var storage = window.sessionStorage;
+					if(storage){
+						storage.setItem(resId,paramObj);
+					}
+					var subPageFrame = document.getElementById("innerframe");
+					subPageFrame.contentWindow.document.location.href = "../" + resId + "/index.html";
+					return;
+				}
+				
+				var submitForm = document.getElementById("submitform")
+				var pageIdInput = document.getElementById("submitform_pageId");
+				var paramsInput = document.getElementById("submitform_params");
+
+				submitForm.target = "innerframeI297edff815b2411f0162422140a7605b";
+				pageIdInput.value = resId;
+				paramsInput.value = paramObj;
+				submitForm.submit();
+			}
+			
+			function afterInnerPageLoad(){
+				var contentDiv = document.getElementById("contentDiv");
+				var BofIPadScroll = jsloader.resolve("ext.IPad.BofIPadScroll");
+				var iPadScroll = new BofIPadScroll(contentDiv);
+				iPadScroll.scrollContent.refresh();
+			}
+			
+			function closeInnerFrame(){
+				openingInnerPage = false;
+				
+				var overlayDiv = document.getElementById("overlayDiv");
+				overlayDiv.style.display = "none";
+				var innerFrameDiv = document.getElementById("innerFrameDiv");
+				innerFrameDiv.style.display = "none";
+				
+				var innerFrame = document.getElementById("innerframe");
+				innerFrame.contentWindow.document.location.href = "about:blank";
+				var iframe = getInvokeIFrame();
+				document._pageAlias = "企业纳税申报图";
+				if (domutils.isIOS() && !domutils.isSafari()) {	
+					iframe.src = "invokemethod:changetitle:" + document._pageAlias;
+				}
+			}
+		--></script>
+	<style type="text/css">
+		select {
+			height:24px;
+			padding:0em 3em 0em 0.5em;
+			background:url('data:image/png;base64,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') no-repeat right center;
+		
+     		-webkit-background-size: 615px 24px;
+     		-webkit-border-radius: 0.5em;
+     		-webkit-appearance: none;
+		}
+		input {
+     		-webkit-border-radius: 0.0em;
+     		padding:0em 0em 0em 0em;
+     		background-color: transparent;
+		}
+		input[type="date"] {
+			height:24px;
+			padding:0em 3em 0em 0.5em;
+			background:url('data:image/png;base64,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') no-repeat right center;
+		
+     		-webkit-background-size: 615px 24px;
+     		-webkit-border-radius: 0.5em;
+     		-webkit-appearance: none;
+		}
+	</style>
+
+<style type="text/css">
+.overlay {
+	z-index: 1000;
+	background-color: #777;
+	opacity:0.5;
+	position: absolute;	
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.wrap {
+	z-index: 1001;
+	position: absolute;
+	background-color: #666;
+	padding: 5px;
+}
+
+.outer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+}
+
+.bg_n {
+	z-index: 1001;
+	background-image: url('img/ipad/innerFrameBox/fancybox-x.png');
+	position: absolute;
+	top: -20px;
+	left: 0px;
+	width: 100%;
+	height: 20px;
+}
+
+.bg_ne {
+	z-index: 1001;
+	background-image: url('img/ipad/innerFrameBox/fancybox.png');
+	background-position: -40px -162px; position : absolute;
+	top: -20px;
+	right: -20px;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+}
+
+.bg_e {
+	z-index: 1001;
+	background-image: url('img/ipad/innerFrameBox/fancybox-y.png');
+	background-position: -20px -0px;
+	position: absolute;
+	top: 0px;
+	right: -20px;
+	width: 20px;
+	height: 100%;
+}
+
+.bg_se {
+	z-index: 1001;
+	background-image: url('img/ipad/innerFrameBox/fancybox.png');
+	background-position: -40px -182px;
+	position: absolute;
+	bottom: -20px;
+	right: -20px;
+	width: 20px;
+	height: 20px;
+}
+
+.bg_s {
+	z-index: 1001;
+	background-image: url('img/ipad/innerFrameBox/fancybox-x.png');
+	background-position: 0px -20px;
+	position: absolute;
+	bottom: -20px;
+	left: 0px;
+	width: 100%;
+	height: 20px;
+}
+
+.bg_sw {
+	z-index: 1001;
+	background-image: url('img/ipad/innerFrameBox/fancybox.png');
+	background-position: -40px -142px;
+	position: absolute;
+	left: -20px;
+	bottom: -20px;
+	width: 20px;
+	height: 20px;
+}
+
+.bg_w {
+	z-index: 1001;
+	background-image: url('img/ipad/innerFrameBox/fancybox-y.png');
+	position: absolute;
+	top: 0px;
+	left: -20px;
+	width: 20px;
+	height: 100%;
+}
+
+.bg_nw {
+	z-index: 1001;
+	background-image: url('img/ipad/innerFrameBox/fancybox.png');
+	background-position: -40px -122px;
+	position: absolute;
+	left: -20px;
+	top: -20px;
+	width: 20px;
+	height: 20px;
+}
+
+.close {
+	z-index: 1003;
+	background-image: url('img/ipad/innerFrameBox/fancy_close.png');
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: -15px;
+	right: -15px;
+}
+
+.contentDiv {
+	z-index: 1002;
+	border: 0px;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.bordygradient{
+    background:;
+    background:;
+    filter:;
+}
+</style>
+</HEAD>
+<body leftMargin="0" rightMargin="0" topMargin="0" onload="init()" onunload="destroy()" style="overflow:hidden;" scroll="no" >
+<table width=100% height=100% cellpadding="0" cellspacing="0" border="0" id="_rightBodyTable" >
+	<tr height=21px style='display:none;' id="pathInfoTr" >
+		<td >
+		<table width=100% height=100% cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td></td>
+				<td id='currentPlace' bofid='currentPlace'  height=21px ></td>
+				<td width="19" align="right" valign="top"><div id="btnPagePopupMenu" ></div></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr height="1" style='display:none;'>
+		<td>
+		<table width=100% height=100% cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td style="padding-left:10px;"></td>
+				<td width="120" align="right"><div id="btnPagePopupMenuDiv"></div></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr style="width:100%;height:100%;">
+		<td class="bordygradient">
+			<div id='content' style="width:100%;height:100%;overflow:hidden;"><table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" valign="top">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellspacing="1" cellpadding="1" valign="top">
+				<tr id = 'paramPanelTr'>
+					<td width=100% colspan="2" align="center" bofid='paramPanel'></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr height="100%">
+		<td>
+			<div class="_viewdiv" id='_viewdiv_' style="width: 100%; height: 100%; left: 0px; top: 0px; overflow: auto; padding: 0px; margin: 0px;">
+				<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" valign="top">
+					<tr>
+						<td valign="top" bofid="layout0"><div class='frameDiv' name='frameDiv1' style='width :100%; height:300;' bofid='I297edff815b2411f0162422140a8605e'><table cellspacing="0" cellpadding="0"  style='width :100%;height:100%;'bofid='dashletFrame'>
+	<tr style="width:100%;height:100%">
+	<td style="width:100%;height:100%">
+	<table class="dashletRadiusBorder" style="width:100%;height:100%;border:0px" bofid="oldDashletFrame" cellspacing="0" cellpadding="0">	
+	<tr valign="middle" bofid='dashletTopTr' class = 'dashletTopTr' style="height: 28px;display:none;">
+		<td class="dashletTopCenter" bofid='dashletCenterTopTd' style="height: 28px;padding:0 5 0 0">
+			<table width=100% height=100% align=center valign="middle" border="0" cellspacing="0" cellpadding="0">
+				<tr valign="middle"  style="height:28px">
+					<td align="left" bofid="dashletTitle" style="width:50%; height: 28px"></td>
+					<td align='right' bofid="dashletToolBar"  class="dashletToolBar" style="width:50%; height: 28px">
+						<img bofid=backward style="cursor:pointer;display:none" src="themes/default/images/blank.gif" class="dashletBackward" title="后退" 
+						/><img bofid='forward' style="cursor:pointer;display:none" src="themes/default/images/blank.gif" class="dashletForward" title="前进" 
+						/><img bofid='preview' style="cursor:pointer;display:none" src="themes/default/images/blank.gif" class="dashletPreview" title="查看数据" 
+						/><img bofid='export' style="cursor:pointer;display:none" src="themes/default/images/blank.gif" class="dashletExport" title="导出" 
+						/><img bofid='locateReport' style="cursor:pointer;display:none" src="themes/default/images/blank.gif" class="dashletLocateReport" title="定位报表" 
+						/><img bofid='min' style="cursor:pointer" src="themes/default/images/blank.gif" class="dashletMin" title="最小化" 
+						/><img bofid='max' style="cursor:pointer" src="themes/default/images/blank.gif" class="dashletMax" title="最大化" 
+						/><img bofid='delete' style="cursor:pointer;visibility: hidden;display:none" src="themes/default/images/blank.gif" class="dashletClose" title="删除"/>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" bofid='dashletCenterCenterTd' style="width:100%;height:100%" class="dashletContent">
+			<div __portletDefine='{"description":"灵活分析","displayName":"灵活分析","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.SimpleReportPortletEdit","icon":"","name":"SimpleReport","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.SimpleReportPortlet"}' bofid="dashletContent" valign="top" style="width:100%;height:100%">
+			<div style='height: 100%;width:100%' class='portletDiv' __accessible='true' __writable='true'><div __QueryView_is_hybrid='true' style='height: 100%'><div id="_leftFrameWith" width="100%"></div>
+<table bofid="_outerTable" class="_outerTable" height="100%" width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout : fixed;">
+  <tr style="display:none" bofid="_trToolbar" class="_trToolbar queryview-toolbar" height="26px" valign="top">
+    <td bofid="toolbarBg" class="toolbarBg">
+    
+	<table style="width: 100%; table-layout: fixed" cellSpacing="0" cellPadding="0">
+		<tbody>
+			<tr>
+				<td nowrap><div style="overflow: hidden; width: 100%"><div style="position: relative; width: 100%">
+						
+      <table cellPadding="0" cellSpacing="0" height="26px" whg="whg">
+        <tr style="margin-left:5;px;text-indent:5px;" bofid="toolbarTr">
+          <td nowrap>
+            <input bofid="_btnBackward" type="button" title="后退" class="_btnBackward queryview-toolbar-button disable-queryview-toolbar-backward" disabled>
+          </td>
+          <td nowrap>
+            <input bofid="_btnForward" type="button" title="前进" class="_btnForward queryview-toolbar-button disable-queryview-toolbar-forward" disabled>
+          </td>
+          <td nowrap>
+            <input bofid="_btnRefresh" type="button" title="显示结果" class="_btnRefresh queryview-toolbar-button queryview-toolbar-refresh">
+          </td>
+          <td nowrap>
+            <SPAN bofid="_space1" class="_space1" style="BACKGROUND-IMAGE: url(img/banner/toolbar_tab_space.gif); WIDTH: 2px; HEIGHT: 12px;display: inline-block;">
+            </SPAN>
+          </td>
+
+          <td nowrap>
+            <input bofid="_btnSave" type="button" title="保存" class="_btnSave queryview-toolbar-button queryview-toolbar-save">
+          </td>
+          <td nowrap>
+            <input bofid="_btnSaveAs" type="button" title="另存为" class="_btnSaveAs queryview-toolbar-button queryview-toolbar-saveAs">
+          </td>
+
+          <td nowrap>
+            <input bofid="_btnMyFavorite" type="button" title="添加到收藏夹" class="_btnMyFavorite queryview-toolbar-button queryview-toolbar-myfavorite">
+          </td>
+          <td nowrap>
+            <SPAN bofid="_space2" class="_space2" style="BACKGROUND-IMAGE: url(img/banner/toolbar_tab_space.gif); WIDTH: 2px; HEIGHT: 12px;display: inline-block;">
+            </SPAN>
+          </td>
+
+          <td nowrap>
+            <input bofid="_btnChart" type="button" title="图形" class="_btnChart queryview-toolbar-button queryview-toolbar-chart">
+          </td>
+          <td nowrap>
+            <input bofid="_btnView" type="button" title="视图" class="_btnView queryview-toolbar-button queryview-toolbar-view">
+          </td>
+          <td nowrap>
+            <input bofid="_btnSelectField" type="button" title="添加/删除字段" class="_btnSelectField queryview-toolbar-button queryview-toolbar-select">
+          </td>
+          <td nowrap>
+            <SPAN bofid="_space3" class="_space3" style="BACKGROUND-IMAGE: url(img/banner/toolbar_tab_space.gif); WIDTH: 2px; HEIGHT: 12px;display: inline-block;">
+            </SPAN>
+          </td>
+
+          <td nowrap>
+            <input bofid="_btnQueryViewSetting" type="button" title="报表设置" class="_btnQueryViewSetting queryview-toolbar-button queryview-toolbar-header">
+          </td>
+          <td nowrap>
+            <input bofid="_btnSubtotal" type="button" title="分类汇总" class="_btnSubtotal queryview-toolbar-button queryview-toolbar-subtotal">
+          </td>
+          <td nowrap>
+            <input bofid="_btnReportParam" type="button" title="参数设置" class="_btnReportParam queryview-toolbar-button queryview-toolbar-param">
+          </td>
+          <td nowrap>
+            <SPAN bofid="_space4" class="_space4" style="BACKGROUND-IMAGE: url(img/banner/toolbar_tab_space.gif); WIDTH: 2px; HEIGHT: 12px;display: inline-block;">
+            </SPAN>
+          </td>
+
+          <td nowrap style="display:none;">
+            <input bofid="_btnExcel" style="display:none;" type="button" title="在Excel中分析" class="_btnExcel queryview-toolbar-button queryview-toolbar-excel">
+          </td>
+          <td nowrap>
+            <input bofid="_btnExport" type="button" title="导出" class="_btnExport queryview-toolbar-button queryview-toolbar-export">
+          </td>
+          <td nowrap>
+            <input bofid="_btnPrint" type="button" title="打印 " class="_btnPrint queryview-toolbar-button queryview-toolbar-print">
+          </td>
+
+          <td nowrap>
+            <SPAN bofid="_space5" class="_space5" style="BACKGROUND-IMAGE: url(img/banner/toolbar_tab_space.gif); WIDTH: 2px; HEIGHT: 12px;display: inline-block;">
+            </SPAN>
+          </td>
+          <td nowrap>
+            <input bofid="_btnLocate" type="button" title="定位业务查询" class="_btnLocate queryview-toolbar-button queryview-toolbar-locate">
+          </td>
+
+          <td nowrap width="100%" bofid="toolbarLastTd">
+          </td>
+          <!--Add extend function button here-->
+        </tr>
+      </table>
+						
+						</div>
+					</div>
+				</td>
+				<td style="width: 40px" nowrap><span class="tab-scroll-left-disabled"></span><span class="tab-scroll-right-disabled"></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+    </td>
+  </tr>
+
+  <tr bofid="_content" class="_content" style="padding-top:2px; width:100%; height:100%;">
+    <td bofid="_contentTd" width="100%" style="padding-left:10px;">
+      <div bofid="_contentDiv" class="_contentDiv searchResult" style="overflow:hidden;">
+        <table bofid="_contentTable" width="100%" border="0" style="">
+          <tr style="display:''" bofid="_trmaskdiv" class="_trmaskdiv" valign="top">
+            <td colspan="2">
+            	<DIV bofid="_maskDiv"
+					style="display:none; POSITION: absolute; left:35%; top:35%;  Z-INDEX: 100; FILTER: progid : DXImageTransform.Microsoft.Alpha(opacity = 80); BACKGROUND-COLOR: lightsteelblue;  text-align : center;"
+					class=Noprint>
+					<span></span>
+					<BUTTON bofid="_maskDiv_CancelButton" style="POSITION: relative; WIDTH: 120px; HEIGHT: 50px;">取消查询</BUTTON>
+				</DIV>
+				</td>
+          </tr>
+          <tr style="display:none" bofid="_trHeader" class="_trHeader" valign="top">
+            <td colspan="2">
+              <!--此栏目放表头面板-->
+              <div bofid="_reportHeader" class="_reportHeader no_margin_p">
+              </div>
+            </td>
+          </tr>
+          <tr bofid="_alignControlorTr" style="">
+            <td bofid="_alignControlor">
+              <table bofid="_alignControlorTable" style="width:;">
+                <tr style="display:none" bofid="_trParam" class="_trParam " height="20px" valign="top">
+                  <td colspan="2">
+                    <!--此栏目放参数-->
+                    <div bofid="_param" class="_param">
+                    </div>
+                  </td>
+                </tr>
+                <tr style="display:none" bofid="_trShortcut" class="_trShortcut" height="20px" valign="top">
+                  <td colspan="2">
+                    <input bofid="_btnSearchEx" class="button-buttonbar button-bgicon-search " type="button" value="查询报表(Q)" ACCESSKEY="Q"
+                    /><input bofid="_btnChartEx" class="button-buttonbar button-bgicon-chart " type="button" value="添加图形(C)" ACCESSKEY="C"
+                    /><input bofid="_btnExportEx" class="button-buttonbar button-bgicon-export " type="button" value="导出EXCEL(E)" ACCESSKEY="E"/>
+                  </td>
+                </tr>
+                <tr style="display:none" bofid="_trJumpRuleLink" class="_trJumpRuleLink" height="26px" valign="bottom">
+                  <td colspan="2">
+                    <!--此栏目跳转规则链接-->
+                    跳转区域：
+                    <span bofid="_jumpRuleLink" class="_jumpRuleLink">
+                    </span>
+                  </td>
+                </tr>
+                <tr style="display:none" bofid="_trOrderby" class="_trOrderby" valign="top">
+                  <td colspan="2">
+                    <!--此栏目放排序-->
+                    <div bofid="_orderby" class="_orderby">
+                    </div>
+                  </td>
+                </tr>
+
+                <tr style="display:none" bofid="_trOrderByPriority" class="_trOrderByPriority" height="26px" valign="bottom">
+                  <td colspan="2">
+                    <!--此栏目放排序优先顺序-->
+                    排序优先级：
+                    <span bofid="_orderByPriority" class="_orderByPriority">
+                    </span>
+                  </td>
+                </tr>	
+
+                <tr bofid="_trNavigation" id="_frWith" class="_trNavigation" height="26px" valign="bottom" style="display:none;">
+                  <td colspan="2">
+                 <div bofid="_navigation" class="_navigation"
+	><div
+		><table width="100%"  border="0" cellspacing="0" cellpadding="0"
+			><tr
+				><td valign="bottom" style="font-size:12px; "
+					><span style="cursor:'hand'" class="_firstPage">[首页]</span
+					><span style="cursor:'hand'" class="_prevPage">[上页]</span
+					><span style="cursor:'hand'" class="_nextPage">[下页]</span
+					><span style="cursor:'hand'" class="_lastPage">[尾页]</span
+					>&nbsp;第<input type="text" class="_curPage" style="width:34px; height:16px;border: 0px;border-top: 1px solid #919B9C;border-bottom: 1px solid #919B9C;border-left: 1px solid #919B9C;border-right: 1px solid #919B9C;"
+					>页，共<span class="_pageCount">&nbsp;</span
+					>页 每页<input type="text" class="_rowCount"  style="width:34px; height:16px;border: 0px;border-top: 1px solid #919B9C;border-bottom: 1px solid #919B9C;border-left: 1px solid #919B9C;border-right: 1px solid #919B9C;"
+					>行，共<span class="_allRowCount">&nbsp;</span>行
+					<span style="color: red;display:none;" class="_onloading">(正在获取中..)</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div> </td>
+                </tr>	
+                <tr height="1px">
+                  <td colspan="2">
+                  </td>
+                </tr>	
+                <tr style="display: position:absolute;" bofid="_trGrid" class="_trGrid" height="100%" valign="top">
+                  <td colspan="2">
+                    <!--此栏目放表格 width属性的设置是为冻结表头所用-->
+                    <div clientId="I297edff815b2411f01624221b5f46078" bofid="_grid" class="_grid" style="">
+                    	<div bofid="_tablepanel" class="_tablepanel">               
+                    	<TABLE id='_baseGrid1111111' class='table-grid _query_grid' cellSpacing=0 cellpadding='1' _headerRowIndex="0" style="border-top-color:#87B3E0;border-left-color:#87B3E0;background-color:#87B3E0;display:none;"><COLGROUP><COL style='width: 105px' fid='BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7'/><COL style='width: 105px' fid='BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1'/></COLGROUP><TR isHeader=true class=table-grid-top><TD nowrap class='table-grid-top-cell ' isHeader=true _drag_=true id="BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7" style="font-style:;font-weight:;font-size:12;color:#000000;background-color:#CEDDF0;border-right-color:#87B3E0;border-bottom-color:#87B3E0;display:;"><SPAN class='table-grid-top-span' style='width:105px;' name = 'header'><FONT class='table-grid-top-resizeDivClass' size='+0'></FONT><SPAN class='table-grid-top-span-sp' style='white-space:normal;word-break:break-all;' name = 'headerCell' alias = 'INCOMECOUNT'><span></span><span></span>INCOM<wbr>ECOUN<wbr>T<wbr><span style="visibility:hidden;display:inline-block;width:15px;height:15px;" class="table-grid-button-sub-menu _OPBUTTON" bofclass="OPBUTTON" id="OPBUTTON" btnChecked="true" title="操作"></span></SPAN></SPAN></TD><TD nowrap class='table-grid-top-cell ' isHeader=true _drag_=true id="BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1" style="font-style:;font-weight:;font-size:12;color:#000000;background-color:#CEDDF0;border-right-color:#87B3E0;border-bottom-color:#87B3E0;display:;"><SPAN class='table-grid-top-span' style='width:105px;' name = 'header'><FONT class='table-grid-top-resizeDivClass' size='+0'></FONT><SPAN class='table-grid-top-span-sp' style='white-space:normal;word-break:break-all;' name = 'headerCell' alias = '统计日期'><span></span><span></span>统计日期<wbr><span style="visibility:hidden;display:inline-block;width:15px;height:15px;" class="table-grid-button-sub-menu _OPBUTTON" bofclass="OPBUTTON" id="OPBUTTON" btnChecked="true" title="操作"></span></SPAN></SPAN></TD></TR></TABLE></div>
+
+					<div>	
+                  </td>
+                </tr>
+                <tr style="display:" bofid="_trGraph" class="_trGraph" height="1" valign="top">
+                  <td colspan="2">
+                    <!--此栏目放图形-->
+                    <div bofid="_graphConfig" class="_graphConfig">
+                    </div>
+                    <div bofid="_graph" class="_graph" style="display:;">
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr style="display:none" bofid="_trTail" class="_trTail" valign="top">
+            <td>
+              <!--此栏目放表尾面板-->
+              <div bofid="_reportTail" class="_reportTail no_margin_p">
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table><div onselectstart="return false;" class="dragDiv" style="display: none; cursor: default"></div><div class="dropdown-div" style="display: none; position: absolute"><table style="width: 100%;"><tr><td style="height: 26px" nowrap><input type="checkbox" id="_trHeader" itemName="显示表头"/><span>&nbsp;显示表头</span></td></tr><tr><td style="height: 26px" nowrap><input type="checkbox" id="_trTail" itemName="显示表尾"/><span>&nbsp;显示表尾</span></td></tr><tr><td style="height: 26px" nowrap><input type="checkbox" id="_trParam" itemName="显示参数"/><span>&nbsp;显示参数</span></td></tr><tr><td style="height: 26px" nowrap><input type="checkbox" id="_query_grid" itemName="显示表格"/><span>&nbsp;显示表格</span></td></tr><tr><td style="height: 26px" nowrap><input type="checkbox" id="_graph" itemName="显示图形" checked/><span>&nbsp;显示图形</span></td></tr><tr><td style="height: 26px" nowrap><input type="checkbox" id="_trNavigation" itemName="显示分页控制器"/><span>&nbsp;显示分页控制器</span></td></tr><tr><td style="height: 26px" nowrap><input type="checkbox" id="_trOrderByPriority" itemName="显示排序优先级"/><span>&nbsp;显示排序优先级</span></td></tr><tr><td><hr></td></tr><tr><td style="height: 26px" nowrap><input type="checkbox" id="grid_showBtn" itemName="显示表头按钮" checked/><span>&nbsp;显示表头按钮</span></td></tr></table></div><textarea style='display:none' boftype='clientReportView'>{"chartOptions":["{\"chartex\":{\"isStacked\":\"0\",\"style\":{\"font\":{\"caption\":{\"size\":13,\"color\":\"#555555\",\"font\":\"Verdana\",\"bold\":\"bold\"},\"legend\":{\"size\":12,\"color\":\"#555555\",\"font\":\"Verdana\",\"bold\":\"normal\"},\"dataValues\":{\"size\":12,\"color\":\"#555555\",\"font\":\"Verdana\",\"bold\":\"normal\"},\"tooltip\":{\"size\":12,\"color\":\"#555555\",\"font\":\"Verdana\",\"bold\":\"normal\"},\"xAxisName\":{\"font\":\"Verdana\",\"size\":\"12\",\"bold\":\"bold\",\"color\":\"#555555\"},\"dataLabels\":{\"font\":\"Verdana\",\"size\":\"12\",\"bold\":\"normal\",\"color\":\"#555555\"},\"yAxisName\":{\"font\":\"Verdana\",\"size\":\"12\",\"bold\":\"bold\",\"color\":\"#555555\"},\"yAxisValues\":{\"font\":\"Verdana\",\"size\":\"12\",\"bold\":\"normal\",\"color\":\"#555555\"}}},\"is3D\":\"0\",\"isScroll\":\"0\",\"effect\":\"0\",\"colorThemeId\":\"SYSTEM_DEFAULT_CHART_COLORS\",\"chartName\":\"柱图\",\"showSubTotal\":\"0\",\"chartDataRows\":\"system\",\"chartDataRowsNum\":\"20\",\"chartId\":\"I297edff815b2411f01624221b5f5607b\",\"showPercent\":false},\"chartDatas\":{\"fieldList\":[{\"id\":\"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7\",\"alias\":\"INCOMECOUNT\",\"axisType\":\"yAxis\"},{\"id\":\"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1\",\"alias\":\"统计日期\",\"axisType\":\"categories\"}]},\"chart\":{\"caption\":\"\",\"animation\":\"1\",\"showLegend\":\"0\",\"legendPosition\":\"BOTTOM\",\"chartStyle\":\"systemSetting\",\"showPlotBorder\":\"1\",\"plotBorderColor\":\"#909090\",\"plotBorderThickness\":\"1\",\"plotGradientColor\":\"#ffffff\",\"plotFillAngle\":\"270\",\"showValues\":\"0\",\"showToolTip\":\"1\",\"toolTipBgColor\":\"#ffffff\",\"toolTipBorderColor\":\"#c0c0c0\",\"showToolTipShadow\":\"1\",\"bgColor\":\"#FFFFFF\",\"bgAlpha\":\"100\",\"showBorder\":\"0\",\"borderColor\":\"#c0c0c0\",\"borderThickness\":\"1\",\"canvasBgColor\":\"FFFFFF\",\"canvasBgAlpha\":\"100\",\"canvasBorderColor\":\"#707070\",\"canvasBorderThickness\":\"1\",\"chartTopMargin\":\"15\",\"chartBottomMargin\":\"15\",\"chartLeftMargin\":\"15\",\"chartRightMargin\":\"15\",\"xAxisName\":\"统计日期\",\"labelStep\":1,\"labelDisplay\":\"WRAP\",\"showLabels\":1,\"yAxisName\":\"数量\",\"forceYAxisValueDecimals\":\"0\",\"showYAxisValues\":\"1\",\"nullShow\":\"0\",\"width\":600,\"height\":400,\"type\":\"column\",\"unescapeLinks\":\"0\"},\"trendLines\":{\"line\":[]},\"chartTemplate\":{\"id\":\"column_common\",\"type\":\"column\"},\"parentInfo\":{\"reportId\":\"I297edff815b2411f01610d5be61b3dd1\",\"bizViewId\":\"I297edff815b2411f01610851ce0f3bc9\",\"dataSourceId\":\"DS.酒类纳税信息管理\",\"pClientId\":\"I297edff815b2411f01610d5be61b3dd1\",\"reportType\":\"SIMPLE_REPORT\"},\"colors\":[\"rgb(175,216,248)\",\"rgb(246,189,15)\",\"rgb(139,186,0)\",\"rgb(255,142,70)\",\"rgb(0,142,142)\",\"rgb(214,70,70)\",\"rgb(142,70,142)\",\"rgb(88,133,38)\",\"rgb(179,170,0)\",\"rgb(0,142,214)\",\"rgb(157,8,13)\",\"rgb(161,134,190)\",\"rgb(204,102,0)\",\"rgb(253,198,137)\",\"rgb(171,160,0)\",\"rgb(242,109,125)\",\"rgb(255,242,0)\",\"rgb(0,84,166)\",\"rgb(247,148,28)\",\"rgb(204,51,0)\"],\"clientId\":\"I297edff815b2411f01624221b5f56079\"}"],"charts":[{"chartData":{"columnsCount":2,"data":[],"fields":[{"alias":"INCOMECOUNT","dataFormat":{"dateFormat":"","decimal":0,"forceDecimal":true,"prefix":"","scale":1.0,"suffix":"","timeFormat":"","type":"INTEGER","viewType":"TNUMBER"},"id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7"},{"alias":"统计日期","dataFormat":{"dateFormat":"","decimal":0,"forceDecimal":true,"prefix":"","scale":1.0,"suffix":"","timeFormat":"","type":"STRING","viewType":"NONE"},"id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1"}],"paramsData":[],"rowsCount":0},"chartDefine":{"chartDefine":"{\"chartex\":{\"isStacked\":\"0\",\"style\":{\"font\":{\"caption\":{\"size\":13,\"color\":\"#555555\",\"font\":\"Verdana\",\"bold\":\"bold\"},\"legend\":{\"size\":12,\"color\":\"#555555\",\"font\":\"Verdana\",\"bold\":\"normal\"},\"dataValues\":{\"size\":12,\"color\":\"#555555\",\"font\":\"Verdana\",\"bold\":\"normal\"},\"tooltip\":{\"size\":12,\"color\":\"#555555\",\"font\":\"Verdana\",\"bold\":\"normal\"},\"xAxisName\":{\"font\":\"Verdana\",\"size\":\"12\",\"bold\":\"bold\",\"color\":\"#555555\"},\"dataLabels\":{\"font\":\"Verdana\",\"size\":\"12\",\"bold\":\"normal\",\"color\":\"#555555\"},\"yAxisName\":{\"font\":\"Verdana\",\"size\":\"12\",\"bold\":\"bold\",\"color\":\"#555555\"},\"yAxisValues\":{\"font\":\"Verdana\",\"size\":\"12\",\"bold\":\"normal\",\"color\":\"#555555\"}}},\"is3D\":\"0\",\"isScroll\":\"0\",\"effect\":\"0\",\"colorThemeId\":\"SYSTEM_DEFAULT_CHART_COLORS\",\"chartName\":\"柱图\",\"showSubTotal\":\"0\",\"chartDataRows\":\"system\",\"chartDataRowsNum\":\"20\"},\"chartDatas\":{\"fieldList\":[{\"id\":\"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7\",\"alias\":\"INCOMECOUNT\",\"axisType\":\"yAxis\"},{\"id\":\"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1\",\"alias\":\"统计日期\",\"axisType\":\"categories\"}]},\"chart\":{\"caption\":\"\",\"animation\":\"1\",\"showLegend\":\"0\",\"legendPosition\":\"BOTTOM\",\"chartStyle\":\"systemSetting\",\"showPlotBorder\":\"1\",\"plotBorderColor\":\"#909090\",\"plotBorderThickness\":\"1\",\"plotGradientColor\":\"#ffffff\",\"plotFillAngle\":\"270\",\"showValues\":\"0\",\"showToolTip\":\"1\",\"toolTipBgColor\":\"#ffffff\",\"toolTipBorderColor\":\"#c0c0c0\",\"showToolTipShadow\":\"1\",\"bgColor\":\"#FFFFFF\",\"bgAlpha\":\"100\",\"showBorder\":\"0\",\"borderColor\":\"#c0c0c0\",\"borderThickness\":\"1\",\"canvasBgColor\":\"FFFFFF\",\"canvasBgAlpha\":\"100\",\"canvasBorderColor\":\"#707070\",\"canvasBorderThickness\":\"1\",\"chartTopMargin\":\"15\",\"chartBottomMargin\":\"15\",\"chartLeftMargin\":\"15\",\"chartRightMargin\":\"15\",\"xAxisName\":\"统计日期\",\"labelStep\":1,\"labelDisplay\":\"WRAP\",\"showLabels\":1,\"yAxisName\":\"数量\",\"forceYAxisValueDecimals\":\"0\",\"showYAxisValues\":\"1\",\"nullShow\":\"0\",\"width\":600,\"height\":400},\"trendLines\":{\"line\":[]},\"dataProcessing\":{\"sort\":{\"enableSort\":false},\"percent\":{\"showPercent\":false}},\"chartTemplate\":{\"id\":\"column_common\",\"type\":\"column\"},\"parentInfo\":{\"reportId\":\"I297edff815b2411f01610d5be61b3dd1\",\"bizViewId\":\"I297edff815b2411f01610851ce0f3bc9\",\"dataSourceId\":\"DS.酒类纳税信息管理\",\"pClientId\":\"I297edff815b2411f01610d5be61b3dd1\",\"reportType\":\"SIMPLE_REPORT\"}}","chartType":"column","externalDefine":"","id":"I297edff815b2411f01610d5c1b643dd6","resId":"I297edff815b2411f01610d5be61b3dd1"},"clientId":"I297edff815b2411f01624221b5f56079","pageThemeChartOptions":{}}],"clientId":"I297edff815b2411f01624221b5f46078","hasValidCustomOrderRule":false,"isEnabledCache":false,"multiHeaders":"","orderBys":"[{\"id\":\"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7\",\"orderby\":\"NONE\"},{\"id\":\"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1\",\"orderby\":\"NONE\"}]","paramLayout":"[[]]","parameterPanelDisable":false,"parameterPanelId":"I297edff815b2411f01624221b5f5607a","reportBean":{"alias":"企业纳税申报图","autoRefresh":true,"businessViewId":"I297edff815b2411f01610851ce0f3bc9","businessViewType":"BUSINESS_VIEW","clientConfig":"{\"gridProp\":{\"fieldProps\":{\"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7\":{\"width\":105,\"align\":\"RIGHT\"},\"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1\":{\"width\":105,\"align\":\"LEFT\"}},\"queryViewBackgroundColor\":\"#FFFFFF\",\"bgColor\":\"#FCFAF6\",\"gridBorderColor\":\"#87B3E0\",\"headerBackgroundColor\":\"#CEDDF0\",\"rowHeaderBackgroundColor\":\"#CEDDF0\",\"headerFontSize\":\"12\",\"headerFontStyle\":\"normal\",\"headerFontColor\":\"#000000\",\"rowHeaderFontColor\":\"#000000\",\"spColor\":\"#E6EBFF\",\"selectedBgColor\":\"#A0A0FF\",\"gridDataFontColor\":\"#000000\",\"fontSize\":\"12\",\"mergeZ\":false,\"mergeH\":false,\"mergeMaxCol\":1,\"useSystemDefaultValue\":true,\"defaultRow\":false},\"header\":\"CurrentReportName()\",\"displayheader\":\"企业纳税申报图\"}","desc":"企业纳税申报图","fields":[{"aggregateMethod":"NULL","alias":"INCOMECOUNT","businessViewField":{"aggregateMethod":"NULL","alias":"INCOMECOUNT","dataFormat":"<整型-默认值>","dataType":"INTEGER","desc":"INCOMECOUNT","fieldType":"BUSINESSVIEW_OUTPUT_FIELD","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7","name":"INCOMECOUNT","orderby":"NONE","orderbyLevel":-1,"transformRule":""},"cacheIdentity":"FIELD.酒类纳税信息管理.WINELABELS.BI_INCOMELABLE.INCOMECOUNTINCOMECOUNT<整型-默认值>nullNULL","dataFormat":"<整型-默认值>","dataType":"INTEGER","desc":"INCOMECOUNT","format":"","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7","name":"INCOMECOUNT","refId":"FIELD.酒类纳税信息管理.WINELABELS.BI_INCOMELABLE.INCOMECOUNT","table":{"alias":"应税确认","desc":"应税确认","fields":[{"alias":"INCOMECOUNT","desc":"INCOMECOUNT","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7","name":"INCOMECOUNT"},{"alias":"统计日期","desc":"","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1","name":"统计日期"}],"id":"I297edff815b2411f01610851ce0f3bc9","name":"应税确认"},"tempId":"F1738","transformRule":""},{"aggregateMethod":"NULL","alias":"统计日期","businessViewField":{"aggregateMethod":"NULL","alias":"统计日期","dataFormat":"<字符串-默认值>","dataType":"STRING","desc":"","fieldType":"BUSINESSVIEW_OUTPUT_FIELD","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1","name":"统计日期","orderby":"NONE","orderbyLevel":-1,"transformRule":""},"cacheIdentity":"BizViewCalcField.I297edff815b2411f01610851ce0f3bc9.统计日期统计日期<字符串-默认值>nullNULL","dataFormat":"<字符串-默认值>","dataType":"STRING","desc":"","format":"","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1","name":"统计日期","refId":"BizViewCalcField.I297edff815b2411f01610851ce0f3bc9.统计日期","table":{"alias":"应税确认","desc":"应税确认","fields":[{"alias":"INCOMECOUNT","desc":"INCOMECOUNT","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7","name":"INCOMECOUNT"},{"alias":"统计日期","desc":"","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1","name":"统计日期"}],"id":"I297edff815b2411f01610851ce0f3bc9","name":"应税确认"},"tempId":"F1739","transformRule":""}],"id":"I297edff815b2411f01610d5be61b3dd1","javaQuerySupports":null,"layout":"{\"viewState\":[{\"id\":\"_trHeader\",\"checked\":false},{\"id\":\"_trTail\",\"checked\":false},{\"id\":\"_trParam\",\"checked\":false},{\"id\":\"_query_grid\",\"checked\":false},{\"id\":\"_graph\",\"checked\":true},{\"id\":\"_trNavigation\",\"checked\":false},{\"id\":\"_trOrderByPriority\",\"checked\":false},{\"id\":\"grid_showBtn\",\"checked\":true}]}","name":"企业纳税申报图","params":[],"reportType":"SIMPLE_REPORT","subtotalSetting":null},"retrieveCountSettingValue":-1,"rowsPerPage":10,"warnings":[]}</textarea><textarea style='display:none' boftype='availableFieldList'>[{"aggregateMethod":"NULL","alias":"INCOMECOUNT","dataFormat":"<整型-默认值>","dataType":"INTEGER","desc":"INCOMECOUNT","fieldType":"BUSINESSVIEW_OUTPUT_FIELD","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f0161085132d13bc7","name":"INCOMECOUNT","orderby":"NONE","orderbyLevel":-1,"transformRule":""},{"aggregateMethod":"NULL","alias":"统计日期","dataFormat":"<字符串-默认值>","dataType":"STRING","desc":"","fieldType":"BUSINESSVIEW_OUTPUT_FIELD","id":"BizViewOutField.I297edff815b2411f01610851ce0f3bc9.I297edff815b2411f01610852f6b73bd1","name":"统计日期","orderby":"NONE","orderbyLevel":-1,"transformRule":""}]</textarea></div></div></div>
+		</td>
+	</tr>
+	</table>
+	</td>
+	</tr>
+	<tr bofid='dashletBottomSpaceTr' class='dashletBottomSpace'>
+		<td></td>
+	</tr>
+</table></div></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+</table></div>
+		</td>
+	</tr>
+</table>
+<SPAN style="display:none"></SPAN>
+<div style='display:none' id="serverGeneratedJSON">
+	<textarea style='display:none' bofid='allFunctionsOfCurrentUser'>[{"alias":"Excel分析","desc":"Excel分析","id":"BROWSE_FLEXIBLEREPORT_ANALYZEINEXCEL","name":"Excel分析","systemId":"DEFAULT_SYS"},{"alias":"Java查询","desc":"Java查询","id":"CUSTOM_DEFINEDATASET_JAVAQUERY","name":"Java查询","systemId":"DEFAULT_SYS"},{"alias":"SQL查询","desc":"SQL查询","id":"CUSTOM_DEFINEDATASET_SQLQUERY","name":"SQL查询","systemId":"DEFAULT_SYS"},{"alias":"Web链接","desc":"Web链接","id":"CUSTOM_DISPLAYCUSTOM_WEBLINK","name":"Web链接","systemId":"DEFAULT_SYS"},{"alias":"帮助","desc":"帮助","id":"DASHBOARD_HELP","name":"帮助","systemId":"DEFAULT_SYS"},{"alias":"保存","desc":"保存","id":"BROWSE_ANALYSISREPORT_SAVE","name":"保存","systemId":"DEFAULT_SYS"},{"alias":"保存","desc":"保存","id":"BROWSE_DASHBOARD_DSAVE","name":"保存","systemId":"DEFAULT_SYS"},{"alias":"保存","desc":"保存","id":"BROWSE_DMAP_MSAVE","name":"保存","systemId":"DEFAULT_SYS"},{"alias":"保存","desc":"保存","id":"BROWSE_FLEXIBLEREPORT_SAVE","name":"保存","systemId":"DEFAULT_SYS"},{"alias":"保存","desc":"保存","id":"BROWSE_SPREADSHEET_SAVE","name":"保存","systemId":"DEFAULT_SYS"},{"alias":"报表宏","desc":"报表宏","id":"CUSTOM_COMMONSETTINGS_REPORTMACRO","name":"报表宏","systemId":"DEFAULT_SYS"},{"alias":"报表设置","desc":"报表设置","id":"BROWSE_ANALYSISREPORT_SETTING","name":"报表设置","systemId":"DEFAULT_SYS"},{"alias":"报表设置","desc":"报表设置","id":"BROWSE_FLEXIBLEREPORT_REPORTSETTING","name":"报表设置","systemId":"DEFAULT_SYS"},{"alias":"备份知识库","desc":"备份知识库","id":"MANAGE_TOOLKIT_REPOSITORYBACKUP","name":"备份知识库","systemId":"DEFAULT_SYS"},{"alias":"本地文件","desc":"本地文件","id":"BROWSE_FILERESOURCE","name":"本地文件","systemId":"DEFAULT_SYS"},{"alias":"本地文件","desc":"本地文件","id":"CUSTOM_DISPLAYCUSTOM_FILERESOURCE","name":"本地文件","systemId":"DEFAULT_SYS"},{"alias":"编辑","desc":"编辑组","id":"MANAGE_USERMANAGEMENT_DEPARTMENT_EDIT","name":"编辑","systemId":"DEFAULT_SYS"},{"alias":"编辑","desc":"编辑角色","id":"MANAGE_USERMANAGEMENT_ROLE_EDIT","name":"编辑","systemId":"DEFAULT_SYS"},{"alias":"编辑","desc":"编辑用户","id":"MANAGE_USERMANAGEMENT_USER_EDIT","name":"编辑","systemId":"DEFAULT_SYS"},{"alias":"补录索引","desc":"补录索引","id":"MANAGE_METADATAANALYSIS_REPLACEINDEX","name":"补录索引","systemId":"DEFAULT_SYS"},{"alias":"布局管理","desc":"布局管理","id":"CUSTOM_PORTALMANAGER_LAYOUTMANAGER","name":"布局管理","systemId":"DEFAULT_SYS"},{"alias":"参数","desc":"参数","id":"CUSTOM_COMMONSETTINGS_PARAMETER","name":"参数","systemId":"DEFAULT_SYS"},{"alias":"参数设置","desc":"参数设置","id":"BROWSE_ANALYSISREPORT_PARAMETERSETTING","name":"参数设置","systemId":"DEFAULT_SYS"},{"alias":"参数设置","desc":"参数设置","id":"BROWSE_DASHBOARD_DPARAMETERSETTING","name":"参数设置","systemId":"DEFAULT_SYS"},{"alias":"参数设置","desc":"参数设置","id":"BROWSE_DMAP_MPARAMETERSETTING","name":"参数设置","systemId":"DEFAULT_SYS"},{"alias":"参数设置","desc":"参数设置","id":"BROWSE_FLEXIBLEREPORT_PARAMETERSETTING","name":"参数设置","systemId":"DEFAULT_SYS"},{"alias":"操作授权","desc":"设置角色拥有的操作权限","id":"MANAGE_USERMANAGEMENT_ROLE_ASSIGNFUNCTIONS","name":"操作授权","systemId":"DEFAULT_SYS"},{"alias":"查看MDX","desc":"查看MDX","id":"BROWSE_ANALYSISREPORT_PREVIEWMDX","name":"查看MDX","systemId":"DEFAULT_SYS"},{"alias":"查看操作日志","desc":"查看操作日志","id":"MANAGE_TOOLKIT_VIEWOPERATIONLOG","name":"查看操作日志","systemId":"DEFAULT_SYS"},{"alias":"查询免审核","desc":"查询免审核","id":"RESOURCEAUDIT_QUERYAVOIDAUDIT","name":"查询免审核","systemId":"DEFAULT_SYS"},{"alias":"查询审核","desc":"查询审核","id":"RESOURCEAUDIT","name":"查询审核","systemId":"DEFAULT_SYS"},{"alias":"查询审核","desc":"查询审核","id":"RESOURCEAUDIT_QUERYAUDIT","name":"查询审核","systemId":"DEFAULT_SYS"},{"alias":"存储过程查询","desc":"存储过程查询","id":"CUSTOM_DEFINEDATASET_PROCEDUREQUERY","name":"存储过程查询","systemId":"DEFAULT_SYS"},{"alias":"打印 ","desc":"打印 ","id":"BROWSE_ANALYSISREPORT_PRINT","name":"打印 ","systemId":"DEFAULT_SYS"},{"alias":"打印 ","desc":"打印 ","id":"BROWSE_FLEXIBLEREPORT_PRINT","name":"打印 ","systemId":"DEFAULT_SYS"},{"alias":"打印 ","desc":"打印 ","id":"BROWSE_SPREADSHEET_PRINT","name":"打印 ","systemId":"DEFAULT_SYS"},{"alias":"导出","desc":"导出","id":"BROWSE_ANALYSISREPORT_EXPORT","name":"导出","systemId":"DEFAULT_SYS"},{"alias":"导出","desc":"导出","id":"BROWSE_DASHBOARD_EXPORTIMAGE","name":"导出","systemId":"DEFAULT_SYS"},{"alias":"导出","desc":"导出","id":"BROWSE_DMAP_EXPORTIMAGE","name":"导出","systemId":"DEFAULT_SYS"},{"alias":"导出","desc":"导出","id":"BROWSE_FLEXIBLEREPORT_EXPORT","name":"导出","systemId":"DEFAULT_SYS"},{"alias":"导出","desc":"导出","id":"BROWSE_SPREADSHEET_EXPORT","name":"导出","systemId":"DEFAULT_SYS"},{"alias":"导出系统日志","desc":"导出系统日志","id":"MANAGE_TOOLKIT_EXPORTSYSTEMLOG","name":"导出系统日志","systemId":"DEFAULT_SYS"},{"alias":"导出资源","desc":"导出资源","id":"MANAGE_TOOLKIT_EXPORTRESOURCE","name":"导出资源","systemId":"DEFAULT_SYS"},{"alias":"导入审核","desc":"导入审核","id":"RESOURCEAUDIT_IMPORTAUDIT","name":"导入审核","systemId":"DEFAULT_SYS"},{"alias":"导入数据库函数","desc":"导入数据库函数","id":"MANAGE_TOOLKIT_IMPORTDATABASEFUNCTION","name":"导入数据库函数","systemId":"DEFAULT_SYS"},{"alias":"导入用户信息","desc":"导入用户信息","id":"MANAGE_USERMANAGEMENT_USER_IMPORT","name":"导入用户信息","systemId":"DEFAULT_SYS"},{"alias":"导入资源","desc":"导入资源","id":"MANAGE_TOOLKIT_IMPORTRESOURCE","name":"导入资源","systemId":"DEFAULT_SYS"},{"alias":"地图分析","desc":"地图分析","id":"BROWSE_DMAP","name":"地图分析","systemId":"DEFAULT_SYS"},{"alias":"地图分析","desc":"地图分析","id":"CUSTOM_DISPLAYCUSTOM_DASHBOARMAP","name":"地图分析","systemId":"DEFAULT_SYS"},{"alias":"地图配色方案","desc":"地图配色方案","id":"CUSTOM_COMMONSETTINGS_MAPINTERVALCOLORS","name":"地图配色方案","systemId":"DEFAULT_SYS"},{"alias":"地图区域","desc":"地图区域","id":"CUSTOM_COMMONSETTINGS_REGIONALMAP","name":"地图区域","systemId":"DEFAULT_SYS"},{"alias":"地图设置","desc":"地图设置","id":"BROWSE_DMAP_MAPSETTING","name":"地图设置","systemId":"DEFAULT_SYS"},{"alias":"电子表格","desc":"电子表格","id":"BROWSE_SPREADSHEET","name":"电子表格","systemId":"DEFAULT_SYS"},{"alias":"电子表格","desc":"电子表格","id":"CUSTOM_DISPLAYCUSTOM_SPREADSHEET","name":"电子表格","systemId":"DEFAULT_SYS"},{"alias":"定位业务查询","desc":"定位业务查询","id":"BROWSE_DASHBOARD_LOCATE","name":"定位业务查询","systemId":"DEFAULT_SYS"},{"alias":"定位业务查询","desc":"定位业务查询","id":"BROWSE_DMAP_LOCATE","name":"定位业务查询","systemId":"DEFAULT_SYS"},{"alias":"定位业务查询","desc":"定位业务查询","id":"BROWSE_FLEXIBLEREPORT_GOTOQUERY","name":"定位业务查询","systemId":"DEFAULT_SYS"},{"alias":"定制","desc":"定制","id":"CUSTOM","name":"定制","systemId":"DEFAULT_SYS"},{"alias":"断开会话","desc":"断开会话","id":"MANAGE_SESSION_CLOSE","name":"断开会话","systemId":"DEFAULT_SYS"},{"alias":"多维报表","desc":"多维报表","id":"CUSTOM_DISPLAYCUSTOM_MULTIDIMENSIONREPORT","name":"多维报表","systemId":"DEFAULT_SYS"},{"alias":"多维分析 ","desc":"多维分析 ","id":"BROWSE_ANALYSISREPORT","name":"多维分析 ","systemId":"DEFAULT_SYS"},{"alias":"多维分析 ","desc":"多维分析 ","id":"CUSTOM_DISPLAYCUSTOM_ANALYSISREPORT","name":"多维分析 ","systemId":"DEFAULT_SYS"},{"alias":"分类汇总","desc":"分类汇总","id":"BROWSE_FLEXIBLEREPORT_SUMMARY","name":"分类汇总","systemId":"DEFAULT_SYS"},{"alias":"分配角色","desc":"给组分配角色","id":"MANAGE_USERMANAGEMENT_DEPARTMENT_ASSIGNROLES","name":"分配角色","systemId":"DEFAULT_SYS"},{"alias":"分配角色","desc":"给用户分配角色","id":"MANAGE_USERMANAGEMENT_USER_ASSIGNROLES","name":"分配角色","systemId":"DEFAULT_SYS"},{"alias":"高级设置","desc":"高级设置","id":"BROWSE_ANALYSISREPORT_ADVANCEDSETTING","name":"高级设置","systemId":"DEFAULT_SYS"},{"alias":"告警格式","desc":"告警格式","id":"CUSTOM_COMMONSETTINGS_AP_WARNING_STYLE_SETTTING","name":"告警格式","systemId":"DEFAULT_SYS"},{"alias":"个人目录","desc":"当用户具有此权限时，在资源树中，个人目录才可见","id":"FOLDER_PRIVATE","name":"个人目录","systemId":"DEFAULT_SYS"},{"alias":"个人页面","desc":"个人页面","id":"CUSTOM_PORTALMANAGER_SELFPAGEMANAGER","name":"个人页面","systemId":"DEFAULT_SYS"},{"alias":"根目录","desc":"当用户具有此权限且具有根目录的资源权限(资源授权中授予)时，在资源树中，根目录才可见","id":"FOLDER_ROOT","name":"根目录","systemId":"DEFAULT_SYS"},{"alias":"更多分析","desc":"更多分析","id":"DASHBOARD_MOREANALYSIS","name":"更多分析","systemId":"DEFAULT_SYS"},{"alias":"工具","desc":"工具","id":"MANAGE_TOOLKIT","name":"工具","systemId":"DEFAULT_SYS"},{"alias":"公共设置","desc":"公共设置","id":"CUSTOM_COMMONSETTINGS","name":"公共设置","systemId":"DEFAULT_SYS"},{"alias":"公共页面","desc":"公共页面","id":"CUSTOM_PORTALMANAGER_PUBLICMANAGER","name":"公共页面","systemId":"DEFAULT_SYS"},{"alias":"公式","desc":"公式","id":"BROWSE_FLEXIBLEREPORT_TABLECOLMBUTTON_FORMULA","name":"公式","systemId":"DEFAULT_SYS"},{"alias":"管理","desc":"管理","id":"MANAGE","name":"管理","systemId":"DEFAULT_SYS"},{"alias":"管理控制","desc":"管理控制","id":"CUSTOM_SCHEDULETASK_SCHEDULEMANAGE","name":"管理控制","systemId":"DEFAULT_SYS"},{"alias":"归档","desc":"归档","id":"ARCHIVE","name":"归档","systemId":"DEFAULT_SYS"},{"alias":"归档回退","desc":"归档回退","id":"ARCHIVE_ROLLBACK","name":"归档回退","systemId":"DEFAULT_SYS"},{"alias":"过滤","desc":"过滤","id":"BROWSE_FLEXIBLEREPORT_TABLECOLMBUTTON_FILTER","name":"过滤","systemId":"DEFAULT_SYS"},{"alias":"宏管理","desc":"宏管理","id":"MACRO_MANAGEMENT","name":"宏管理","systemId":"DEFAULT_SYS"},{"alias":"恢复知识库","desc":"恢复知识库","id":"MANAGE_TOOLKIT_REPOSITORYRESTORE","name":"恢复知识库","systemId":"DEFAULT_SYS"},{"alias":"回写","desc":"回写","id":"BROWSE_SPREADSHEET_WRITEBACK","name":"回写","systemId":"DEFAULT_SYS"},{"alias":"回写","desc":"回写","id":"WRITE_BACK","name":"回写","systemId":"DEFAULT_SYS"},{"alias":"会话查看","desc":"会话查看","id":"MANAGE_SESSION_VIEW","name":"会话查看","systemId":"DEFAULT_SYS"},{"alias":"会话管理","desc":"会话管理","id":"MANAGE_SESSION","name":"会话管理","systemId":"DEFAULT_SYS"},{"alias":"会话设置","desc":"会话设置","id":"MANAGE_SESSION_CONFIG","name":"会话设置","systemId":"DEFAULT_SYS"},{"alias":"汇总设置","desc":"汇总设置","id":"BROWSE_ANALYSISREPORT_SUBTOTAL","name":"汇总设置","systemId":"DEFAULT_SYS"},{"alias":"计划","desc":"计划","id":"CUSTOM_SCHEDULETASK_SCHEDULE","name":"计划","systemId":"DEFAULT_SYS"},{"alias":"计划任务","desc":"计划任务","id":"CUSTOM_SCHEDULETASK","name":"计划任务","systemId":"DEFAULT_SYS"},{"alias":"角色","desc":"角色相关权限","id":"MANAGE_USERMANAGEMENT_ROLE","name":"角色","systemId":"DEFAULT_SYS"},{"alias":"开发人员调试工具集","desc":"开发人员调试工具集","id":"MANAGE_TOOLKIT_DEBUGTOOLS","name":"开发人员调试工具集","systemId":"DEFAULT_SYS"},{"alias":"可视化查询","desc":"可视化查询","id":"CUSTOM_DEFINEDATASET_VISUALQUERY","name":"可视化查询","systemId":"DEFAULT_SYS"},{"alias":"临时表","desc":"创建临时表","id":"CUSTOM_DEFINEDATASET_TEMPTABLE","name":"临时表","systemId":"DEFAULT_SYS"},{"alias":"灵活分析","desc":"灵活分析","id":"BROWSE_FLEXIBLEREPORT","name":"灵活分析","systemId":"DEFAULT_SYS"},{"alias":"灵活分析","desc":"灵活分析","id":"CUSTOM_DISPLAYCUSTOM_FLEXIBLEREPORT","name":"灵活分析","systemId":"DEFAULT_SYS"},{"alias":"另存为","desc":"另存为","id":"BROWSE_ANALYSISREPORT_SAVEAS","name":"另存为","systemId":"DEFAULT_SYS"},{"alias":"另存为","desc":"另存为","id":"BROWSE_DASHBOARD_DSAVEAS","name":"另存为","systemId":"DEFAULT_SYS"},{"alias":"另存为","desc":"另存为","id":"BROWSE_DMAP_MSAVEAS","name":"另存为","systemId":"DEFAULT_SYS"},{"alias":"另存为","desc":"另存为","id":"BROWSE_FLEXIBLEREPORT_SAVEAS","name":"另存为","systemId":"DEFAULT_SYS"},{"alias":"另存为","desc":"另存为","id":"BROWSE_SPREADSHEET_SAVEAS","name":"另存为","systemId":"DEFAULT_SYS"},{"alias":"门户定制","desc":"门户定制","id":"CUSTOM_PORTALMANAGER","name":"门户定制","systemId":"DEFAULT_SYS"},{"alias":"目录发布 ","desc":"目录发布 ","id":"CUSTOM_CATALOGPUBLISH","name":"目录发布 ","systemId":"DEFAULT_SYS"},{"alias":"目录权限","desc":"控制目录是否可见","id":"FOLDER","name":"目录权限","systemId":"DEFAULT_SYS"},{"alias":"排序","desc":"排序","id":"BROWSE_FLEXIBLEREPORT_TABLECOLMBUTTON_SORT","name":"排序","systemId":"DEFAULT_SYS"},{"alias":"清空缓存","desc":"清空缓存","id":"MANAGE_TOOLKIT_CLEARCACHE","name":"清空缓存","systemId":"DEFAULT_SYS"},{"alias":"全局自定义管理","desc":"全局自定义管理","id":"BROWSE_ANALYSISREPORT_GLOBAL_MANAGER","name":"全局自定义管理","systemId":"DEFAULT_SYS"},{"alias":"任务","desc":"任务","id":"CUSTOM_SCHEDULETASK_TASK","name":"任务","systemId":"DEFAULT_SYS"},{"alias":"删除","desc":"删除","id":"BROWSE_FLEXIBLEREPORT_TABLECOLMBUTTON_DELETE","name":"删除","systemId":"DEFAULT_SYS"},{"alias":"删除","desc":"删除组","id":"MANAGE_USERMANAGEMENT_DEPARTMENT_DELETE","name":"删除","systemId":"DEFAULT_SYS"},{"alias":"删除","desc":"删除角色","id":"MANAGE_USERMANAGEMENT_ROLE_DELETE","name":"删除","systemId":"DEFAULT_SYS"},{"alias":"删除","desc":"删除用户","id":"MANAGE_USERMANAGEMENT_USER_DELETE","name":"删除","systemId":"DEFAULT_SYS"},{"alias":"删除操作日志","desc":"删除操作日志","id":"MANAGE_TOOLKIT_DELETEOPERATIONLOG","name":"删除操作日志","systemId":"DEFAULT_SYS"},{"alias":"删除会话历史","desc":"删除会话历史","id":"MANAGE_SESSION_DELETE","name":"删除会话历史","systemId":"DEFAULT_SYS"},{"alias":"设备管理","desc":"设备管理","id":"MANAGER_DEVICE_MANAGER","name":"设备管理","systemId":"DEFAULT_SYS"},{"alias":"设置","desc":"设置","id":"DASHBOARD_SET","name":"设置","systemId":"DEFAULT_SYS"},{"alias":"设置角色用户","desc":"设置角色用户","id":"MANAGE_USERMANAGEMENT_ROLE_ASSIGNUSERS","name":"设置角色用户","systemId":"DEFAULT_SYS"},{"alias":"设置用户所属组","desc":"设置用户所属组","id":"MANAGE_USERMANAGEMENT_USER_ASSIGNDEPARTMENTS","name":"设置用户所属组","systemId":"DEFAULT_SYS"},{"alias":"审核回退","desc":"审核回退","id":"AUDIT_ROLLBACK","name":"审核回退","systemId":"DEFAULT_SYS"},{"alias":"视图","desc":"视图","id":"BROWSE_ANALYSISREPORT_VIEWPANEL","name":"视图","systemId":"DEFAULT_SYS"},{"alias":"视图","desc":"视图","id":"BROWSE_DASHBOARD_DCHOOSEVIEWPANEL","name":"视图","systemId":"DEFAULT_SYS"},{"alias":"视图","desc":"视图","id":"BROWSE_DMAP_MCHOOSEVIEWPANEL","name":"视图","systemId":"DEFAULT_SYS"},{"alias":"视图","desc":"视图","id":"BROWSE_FLEXIBLEREPORT_CHOOSEVIEWPANEL","name":"视图","systemId":"DEFAULT_SYS"},{"alias":"属性","desc":"属性","id":"BROWSE_FLEXIBLEREPORT_TABLECOLMBUTTON_PROPERTIES","name":"属性","systemId":"DEFAULT_SYS"},{"alias":"数据保存","desc":"数据保存","id":"DATA_SAVE","name":"数据保存","systemId":"DEFAULT_SYS"},{"alias":"数据格式","desc":"数据格式","id":"CUSTOM_COMMONSETTINGS_DATAFORMAT","name":"数据格式","systemId":"DEFAULT_SYS"},{"alias":"数据集定义","desc":"数据集定义","id":"CUSTOM_DEFINEDATASET","name":"数据集定义","systemId":"DEFAULT_SYS"},{"alias":"数据审核","desc":"数据审核","id":"DATA_AUDIT","name":"数据审核","systemId":"DEFAULT_SYS"},{"alias":"数据源查询","desc":"选择数据源新建查询","id":"CUSTOM_DEFINEDATASET_VISUALQUERY_DATASOURCE","name":"数据源查询","systemId":"DEFAULT_SYS"},{"alias":"刷新","desc":"刷新","id":"BROWSE_ANALYSISREPORT_REFRESH","name":"刷新","systemId":"DEFAULT_SYS"},{"alias":"刷新","desc":"刷新","id":"BROWSE_DASHBOARD_DREFRESH","name":"刷新","systemId":"DEFAULT_SYS"},{"alias":"刷新","desc":"刷新","id":"BROWSE_DMAP_MREFRESH","name":"刷新","systemId":"DEFAULT_SYS"},{"alias":"刷新","desc":"刷新","id":"BROWSE_FLEXIBLEREPORT_REFRESH","name":"刷新","systemId":"DEFAULT_SYS"},{"alias":"刷新","desc":"刷新","id":"BROWSE_SPREADSHEET_REFRESH","name":"刷新","systemId":"DEFAULT_SYS"},{"alias":"探索","desc":"探索","id":"BROWSE_ANALYSISREPORT_DISCOVER","name":"探索","systemId":"DEFAULT_SYS"},{"alias":"添加/删除字段","desc":"添加/删除字段","id":"BROWSE_FLEXIBLEREPORT_CHOOSEFIELDS","name":"添加/删除字段","systemId":"DEFAULT_SYS"},{"alias":"添加到收藏夹","desc":"添加到收藏夹","id":"BROWSE_ANALYSISREPORT_ADDTOFAVORITE","name":"添加到收藏夹","systemId":"DEFAULT_SYS"},{"alias":"添加到收藏夹","desc":"添加到收藏夹","id":"BROWSE_DASHBOARD_DADDTOFAVORITE","name":"添加到收藏夹","systemId":"DEFAULT_SYS"},{"alias":"添加到收藏夹","desc":"添加到收藏夹","id":"BROWSE_DMAP_MADDTOFAVORITE","name":"添加到收藏夹","systemId":"DEFAULT_SYS"},{"alias":"添加到收藏夹","desc":"添加到收藏夹","id":"BROWSE_FILERESOURCE_ADDTOFAVORITE","name":"添加到收藏夹","systemId":"DEFAULT_SYS"},{"alias":"添加到收藏夹","desc":"添加到收藏夹","id":"BROWSE_FLEXIBLEREPORT_ADDTOFAVORITE","name":"添加到收藏夹","systemId":"DEFAULT_SYS"},{"alias":"添加到收藏夹","desc":"添加到收藏夹","id":"BROWSE_SPREADSHEET_ADDTOFAVORITE","name":"添加到收藏夹","systemId":"DEFAULT_SYS"},{"alias":"跳转规则","desc":"跳转规则","id":"CUSTOM_COMMONSETTINGS_JUMPRULE","name":"跳转规则","systemId":"DEFAULT_SYS"},{"alias":"图形配色方案","desc":"图形配色方案","id":"CUSTOM_COMMONSETTINGS_CHARTCOLORS","name":"图形配色方案","systemId":"DEFAULT_SYS"},{"alias":"图形设置","desc":"图形设置","id":"BROWSE_ANALYSISREPORT_GRAPH","name":"图形设置","systemId":"DEFAULT_SYS"},{"alias":"图形设置","desc":"图形设置","id":"BROWSE_DASHBOARD_DGRAPHSETTING","name":"图形设置","systemId":"DEFAULT_SYS"},{"alias":"图形设置","desc":"图形设置","id":"BROWSE_DMAP_MGRAPHSETTING","name":"图形设置","systemId":"DEFAULT_SYS"},{"alias":"图形设置","desc":"图形设置","id":"BROWSE_FLEXIBLEREPORT_GRAPH","name":"图形设置","systemId":"DEFAULT_SYS"},{"alias":"系统管理","desc":"系统管理","id":"MANAGE_SYSTEMMANAGEMENT","name":"系统管理","systemId":"DEFAULT_SYS"},{"alias":"下载","desc":"下载","id":"BROWSE_FILERESOURCE_DOWNLOAD","name":"下载","systemId":"DEFAULT_SYS"},{"alias":"显示表头按钮","desc":"显示表头按钮","id":"BROWSE_FLEXIBLEREPORT_TABLECOLMBUTTON","name":"显示表头按钮","systemId":"DEFAULT_SYS"},{"alias":"新建","desc":"新建组","id":"MANAGE_USERMANAGEMENT_DEPARTMENT_CREATE","name":"新建","systemId":"DEFAULT_SYS"},{"alias":"新建","desc":"新建角色","id":"MANAGE_USERMANAGEMENT_ROLE_CREATE","name":"新建","systemId":"DEFAULT_SYS"},{"alias":"新建","desc":"新建用户","id":"MANAGE_USERMANAGEMENT_USER_CREATE","name":"新建","systemId":"DEFAULT_SYS"},{"alias":"页面缩略图上传","desc":"页面缩略图上传","id":"CUSTOM_PAGE_SCREENSHOT","name":"页面缩略图上传","systemId":"DEFAULT_SYS"},{"alias":"页面主题","desc":"页面主题","id":"CUSTOM_COMMONSETTINGS_PAGETHEMES","name":"页面主题","systemId":"DEFAULT_SYS"},{"alias":"业务主题查询","desc":"选择业务主题新建查询","id":"CUSTOM_DEFINEDATASET_VISUALQUERY_BIZTHEME","name":"业务主题查询","systemId":"DEFAULT_SYS"},{"alias":"移除用户","desc":"从当前组中移除用户","id":"MANAGE_USERMANAGEMENT_USER_MOVE","name":"移除用户","systemId":"DEFAULT_SYS"},{"alias":"移动组","desc":"移动组","id":"MANAGE_USERMANAGEMENT_DEPARTMENT_MOVE","name":"移动组","systemId":"DEFAULT_SYS"},{"alias":"仪表分析","desc":"仪表分析","id":"BROWSE_DASHBOARD","name":"仪表分析","systemId":"DEFAULT_SYS"},{"alias":"仪表分析","desc":"仪表分析","id":"CUSTOM_DISPLAYCUSTOM_DASHBOARD","name":"仪表分析","systemId":"DEFAULT_SYS"},{"alias":"仪表盘","desc":"仪表盘","id":"DASHBOARD","name":"仪表盘","systemId":"DEFAULT_SYS"},{"alias":"仪表设置","desc":"仪表设置","id":"BROWSE_DASHBOARD_DDASHBOASETTING","name":"仪表设置","systemId":"DEFAULT_SYS"},{"alias":"用户","desc":"用户相关权限","id":"MANAGE_USERMANAGEMENT_USER","name":"用户","systemId":"DEFAULT_SYS"},{"alias":"用户管理 ","desc":"用户管理 ","id":"MANAGE_USERMANAGEMENT","name":"用户管理 ","systemId":"DEFAULT_SYS"},{"alias":"元数据分析 ","desc":"元数据分析 ","id":"MANAGE_METADATAANALYSIS","name":"元数据分析 ","systemId":"DEFAULT_SYS"},{"alias":"元数据搜索","desc":"元数据搜索","id":"MANAGE_METADATAANALYSIS_METADATASEARCH","name":"元数据搜索","systemId":"DEFAULT_SYS"},{"alias":"原生SQL查询","desc":"原生SQL查询","id":"CUSTOM_DEFINEDATASET_RAWSQLQUERY","name":"原生SQL查询","systemId":"DEFAULT_SYS"},{"alias":"展现定制","desc":"展现定制","id":"CUSTOM_DISPLAYCUSTOM","name":"展现定制","systemId":"DEFAULT_SYS"},{"alias":"指标报表","desc":"指标报表","id":"CUSTOM_DISPLAYCUSTOM_INDICATEREPORT","name":"指标报表","systemId":"DEFAULT_SYS"},{"alias":"制表","desc":"制表","id":"CREATE_METRICREPORT","name":"制表","systemId":"DEFAULT_SYS"},{"alias":"重建索引","desc":"重建索引","id":"MANAGE_METADATAANALYSIS_REBUILDINDEX","name":"重建索引","systemId":"DEFAULT_SYS"},{"alias":"转换规则","desc":"转换规则","id":"CUSTOM_COMMONSETTINGS_TRANSFORMRULE","name":"转换规则","systemId":"DEFAULT_SYS"},{"alias":"资源授权","desc":"设置角色拥有的资源权限","id":"MANAGE_USERMANAGEMENT_ROLE_RESOURCEPERMISSION","name":"资源授权","systemId":"DEFAULT_SYS"},{"alias":"自由报表","desc":"自由报表","id":"CUSTOM_DISPLAYCUSTOM_FREEREPORT","name":"自由报表","systemId":"DEFAULT_SYS"},{"alias":"组","desc":"组相关权限","id":"MANAGE_USERMANAGEMENT_DEPARTMENT","name":"组","systemId":"DEFAULT_SYS"},{"alias":"浏览","desc":"浏览","id":"BROWSE","name":"浏览","systemId":"DEFAULT_SYS"}]</textarea>
+	<textarea style='display:none' bofid='systemConfigs'>[{"key":"BUSINESSTHEME_GLOBALTABLELINKS","longValue":"","value":"true"},{"key":"BUSINESSVIEWBOPOOL_MAXACTIVE","longValue":"","value":"-1"},{"key":"BUSINESSVIEWBOPOOL_MAXTOTAL","longValue":"","value":"300"},{"key":"CHART_STYLE","longValue":"","value":"HTML5"},{"key":"CHART_TOOLBAR_DISPLAY","longValue":"","value":"false"},{"key":"CSV_EXPORT_DELIMITER","longValue":"","value":","},{"key":"DASHBOARD_DEFAULT_DISPLAY_SUB_PAGE","longValue":"","value":"false"},{"key":"DASHBOARD_SHOW_THE_WAY","longValue":"","value":"hasMenu"},{"key":"DASHBOARD_TREE_SHOW_THE_WAY","longValue":"","value":"TREE"},{"key":"DASHLET_TITLE_AND_BORDER_DISPLAY","longValue":"","value":"title_border"},{"key":"DBSQLRESULTSTOREPOOL_MAXACTIVE","longValue":"","value":"-1"},{"key":"DBSQLRESULTSTOREPOOL_MAXTOTAL","longValue":"","value":"50"},{"key":"DEFAULT_CHART_COLORS","longValue":"","value":"DEFAULT_CHART_COLORS_FC"},{"key":"EMAIL_SMTP_SERVER","longValue":"","value":""},{"key":"EMAIL_USER_NAME","longValue":"","value":""},{"key":"EMAIL_USER_PASSWORD","longValue":"","value":""},{"key":"EXCEL_EXPORT_MAX_COUNT","longValue":"","value":"2000"},{"key":"EXCEL_EXPORT_PROTECTION","longValue":"","value":"NO"},{"key":"EXECUTEDREPORTPOOL_MAXACTIVE","longValue":"","value":"20"},{"key":"EXECUTEDREPORTPOOL_MAXTOTAL","longValue":"","value":"30"},{"key":"FIREST_ACTION","longValue":"","value":"freequery.actions.BrowseAction"},{"key":"FIXEDREPORTPOOL_MAXACTIVE","longValue":"","value":"-1"},{"key":"FIXEDREPORTPOOL_MAXTOTAL","longValue":"","value":"200"},{"key":"FUSION_CHART_MAXROW","longValue":"","value":"100"},{"key":"GROUP_ORDERBY","longValue":"","value":"name"},{"key":"INDEX_SEARCH_ROWS_PER_PAGE","longValue":"","value":"20"},{"key":"INDEX_SERVER_URL","longValue":"","value":""},{"key":"IPAD_DASHLET_TITLE_DISPLAY","longValue":"","value":"none"},{"key":"IPAD_REGISTER_TYPE","longValue":"","value":"AUTO"},{"key":"JSP_PROCESSOR_TYPE","longValue":"","value":"AUTO"},{"key":"MEMDB_MAXROW","longValue":"","value":"1000"},{"key":"MY_FAVORITE_LAYOUT","longValue":"","value":"NORMAL"},{"key":"NULL_SHOW","longValue":"","value":""},{"key":"Notes_Fname","longValue":"","value":"YES"},{"key":"OFFLINE_MAXPAGE","longValue":"","value":"10"},{"key":"OFFLINE_MAXTOTAL","longValue":"","value":"50"},{"key":"PARAMETER_DEFAULT","longValue":"","value":"false"},{"key":"PARAM_AUTOCACHE","longValue":"","value":"true"},{"key":"PORTAL_COMPATIBLITY_MODE","longValue":"","value":"false"},{"key":"PORTAL_INTIALVIEW_SETTINGS","longValue":"","value":"homePage"},{"key":"PORTAL_MYFOLDER_DISPLAY","longValue":"","value":"true"},{"key":"PORTAL_RENDERING_STYLE","longValue":"","value":"NEW"},{"key":"QUERY_BROWSER_TREE_PURVIEW","longValue":"","value":"REF"},{"key":"QUERY_DEFAULT_ROWS","longValue":"","value":"10"},{"key":"QUERY_DEFAULT_ROW_SETTING","longValue":"","value":"false"},{"key":"QUERY_RETRIEVECOUNT","longValue":"","value":"true"},{"key":"REPORT_AUTO_REFRESH","longValue":"","value":"true"},{"key":"REPORT_BACKGROUND","longValue":"","value":"#FFFFFF"},{"key":"REPORT_BROWSE_AUTO_REFRESH","longValue":"","value":"false"},{"key":"REPORT_DATA_FONT_COLOR","longValue":"","value":"#000000"},{"key":"REPORT_DATA_FONT_SIZE","longValue":"","value":"12"},{"key":"REPORT_GRIDBORDER_COLOR","longValue":"","value":"#87B3E0"},{"key":"REPORT_GRIDDATA_BACKGROUND","longValue":"","value":"#FCFAF6"},{"key":"REPORT_HEADERFONT","longValue":"","value":"normal"},{"key":"REPORT_HEADER_BACKGROUND","longValue":"","value":"#CEDDF0"},{"key":"REPORT_HEADER_FONT_COLOR","longValue":"","value":"#000000"},{"key":"REPORT_HEADER_FONT_SIZE","longValue":"","value":"12"},{"key":"REPORT_ROW_HEADER_BACKGROUND","longValue":"","value":"#CEDDF0"},{"key":"REPORT_ROW_HEADER_FONT_COLOR","longValue":"","value":"#000000"},{"key":"REPORT_SELECTEDDATA_BACKGROUND","longValue":"","value":"#A0A0FF"},{"key":"REPORT_SPACINGLINE_BACKGROUND","longValue":"","value":"#E6EBFF"},{"key":"RESOURCES_AUDIT","longValue":"","value":"false"},{"key":"RESOURCES_DETECT","longValue":"","value":"false"},{"key":"ROLE_ORDERBY","longValue":"","value":"name"},{"key":"SINGLE_JUMP_NEED_MENU","longValue":"","value":"false"},{"key":"SPREAD_SHEET_REPORT_BO_POOL","longValue":"","value":"100"},{"key":"SPREAD_SHEET_REPORT_EXECUTED_REPORT_POOL","longValue":"","value":"100"},{"key":"SPREAD_SHEET_REPORT_MAX_CELLS","longValue":"","value":"200000"},{"key":"SPREAD_SHEET_REPORT_MAX_DATA_ROWS","longValue":"","value":"20000"},{"key":"SPREAD_SHEET_REPORT_OUTPUT_POOL","longValue":"","value":"100"},{"key":"SUB_PANEL_EXPAND","longValue":"","value":"true"},{"key":"SYSTEM_AUTOCACHE","longValue":"","value":"true"},{"key":"SYSTEM_PAGE","longValue":"","value":"true"},{"key":"UPLOAD_EXTENSION","longValue":"","value":""},{"key":"UPLOAD_MAXSIZE","longValue":"","value":"0"},{"key":"USER_ORDERBY","longValue":"","value":"name"},{"key":"smartbi.beforestartup","longValue":"","value":"0.0.1"},{"key":"smartbi.catalogtree","longValue":"","value":"0.0.8"},{"key":"smartbi.chart","longValue":"","value":"0.0.24"},{"key":"smartbi.composite","longValue":"","value":"0.0.6"},{"key":"smartbi.composite.postupgrade","longValue":"","value":"0.0.50"},{"key":"smartbi.decisionpanel","longValue":"","value":"0.0.52"},{"key":"smartbi.hotreport","longValue":"","value":"0.0.1"},{"key":"smartbi.hotreport.postupgrade","longValue":"","value":"0.0.4"},{"key":"smartbi.ipad","longValue":"","value":"0.0.6"},{"key":"smartbi.macro","longValue":"","value":"0.0.45"},{"key":"smartbi.managereport","longValue":"","value":"0.0.58"},{"key":"smartbi.metadata","longValue":"","value":"0.0.6"},{"key":"smartbi.offline","longValue":"","value":"0.0.1"},{"key":"smartbi.olap","longValue":"","value":"0.0.40"},{"key":"smartbi.oltp","longValue":"","value":"2.2.51"},{"key":"smartbi.repository","longValue":"","value":"0.0.14"},{"key":"smartbi.scheduletask","longValue":"","value":"0.0.14"},{"key":"smartbi.spreadsheetreport","longValue":"","value":"0.0.3"},{"key":"smartbi.usermanager","longValue":"","value":"0.0.34"}]</textarea>
+	<textarea style='display:none' bofid='pageBO'>{"clientId":"I297edff815b2411f01624221b5ec6077","dashletInfo":[{"content":"<layout><portlet id=\"I297edff815b2411f01610d5be61b3dd1\" name=\"根目录 &amp;gt; 酒类产品税收 &amp;gt; 企业纳税申报图\" height=\"300\" width=\"100%\" display=\"title_border\" dashletName=\"企业纳税申报图\" ipadDisplay=\"none\" autorefresh=\"true\" ishidetoolbar=\"true\" ishideshortcuttoolbar=\"true\" delayTime=\"1\" AutoHeight=\"true\" rightmenu=\"true\"/><\/layout>","id":"I297edff815b2411f0162422140a8605e","pageId":"I297edff815b2411f0162422140a7605b","type":"SimpleReport"}],"interactList":null,"pageInfo":{"alias":"企业纳税申报图","bgImage":"","bgImageName":"","childStyle":"","desc":"","extended":"{\"displayClient\":[\"pc\"],\"pageTheme\":\"\",\"ipadPageTheme\":\"\",\"headerHTML\":\"\"}","hasChild":false,"iconpath":"PAGE.gif","id":"I297edff815b2411f0162422140a7605b","name":"企业纳税申报图","openInNewWindows":false,"paramConfig":"","paramLayout":"null","showFavorite":false},"paramList":null,"parameterPanelId":"","privateDashletLayout":[],"privateLayout":null,"publicDashletLayout":[{"content":"","dashletId":"I297edff815b2411f0162422140a8605e","indexInLayout":0,"layoutPosition":0,"pageId":"I297edff815b2411f0162422140a7605b","userId":"Public"}],"publicLayout":{"id":"001","img_url":"img/1_column.JPG","layoutContent":"","layoutContentString":"","name":"1列","type":"system","url":"layout/1_columns.html"},"publicParamList":null,"readable":["I297edff815b2411f01610d5be61b3dd1:true"],"resList":[{"alias":"企业纳税申报图","author":"管理员","createdDate":"2018-01-19 15:40:20","customImage":"","desc":"企业纳税申报图","detectChild":false,"extended":"","hasChild":false,"hiddenInBrowse":false,"id":"I297edff815b2411f01610d5be61b3dd1","lastModifiedDate":"2018-01-19 15:40:20","name":"企业纳税申报图","order":0,"type":"SIMPLE_REPORT"}]}</textarea>
+	<textarea style='display:none' bofid='portletsDefiniens'>[{"description":"仪表分析资源","displayName":"仪表分析","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.GraphReportPortletEdit","icon":"","name":"Dashboard","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.GraphReportPortlet"},{"description":"地图分析资源","displayName":"地图分析","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.GraphReportPortletEdit","icon":"","name":"DashboardMap","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.GraphReportPortlet"},{"description":"灵活分析","displayName":"灵活分析","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.SimpleReportPortletEdit","icon":"","name":"SimpleReport","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.SimpleReportPortlet"},{"description":"多维分析","displayName":"多维分析","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.OlapReportPortletEdit","icon":"","name":"OlapReport","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.OlapReportPortlet"},{"description":"链接","displayName":"链接","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.URLPortletEdit","icon":"","name":"URL","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.URLPortlet"},{"description":"文件夹","displayName":"文件夹","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.FolderPortletEdit","icon":"","name":"FOLDER","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.FolderPortlet"},{"description":"复杂报表","displayName":"复杂报表","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.FreeReportPortletEdit","icon":"","name":"FreeReport","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.FreeReportPortlet"},{"description":"复杂报表","displayName":"复杂报表","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.FreeReportPortletEdit","icon":"","name":"MetricReport","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.FreeReportPortlet"},{"description":"内嵌页面，通过宏代码跳转的页面","displayName":"内嵌页面","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.URLPortletEdit","icon":"","name":"PAGE","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.URLPortlet"},{"description":"内嵌页面，从资源树上拖动的页面","displayName":"内嵌页面","editorJs":"smartbi.portlet.PagePortlet.PagePortletEdit","icon":"PAGE.gif","name":"NESTEDPAGE","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":true,"title":"页面资源","viewerJs":"smartbi.portlet.PagePortlet.PagePortletView"},{"description":"大图标导航","displayName":"大图标导航","editorJs":"mdp.portlet.largeIconsNavigate.edit.IconNavigatePortletEdit","icon":"","name":"Large_Icons","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":false,"title":"","viewerJs":"mdp.portlet.largeIconsNavigate.show.IconNavigatePortlet"},{"description":"电子表格报表","displayName":"电子表格报表","editorJs":"bof.decisionpanel.Portal.Dashlet.Portlet.SpreadsheetPortletEdit","icon":"","name":"SPREADSHEET_REPORT","offlineHandlerClass":"smartbi.offline.impl.handler.SpreadsheetOfflineHandler","paramsHandlerClass":"smartbi.spreadsheetreport.SpreadsheetParamsHandler","systemPortlet":true,"title":"","viewerJs":"bof.decisionpanel.Portal.Dashlet.Portlet.SpreadsheetPortlet"},{"description":"自定义链接","displayName":"自定义链接","editorJs":"smartbi.portlet.URLPortlet.URLPortletEdit","icon":"URL.gif","name":"URLPortlet","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":false,"title":"自定义链接","viewerJs":"smartbi.portlet.URLPortlet.URLPortletView"},{"description":"目录发布","displayName":"目录发布","editorJs":"smartbi.portlet.catalogPortlet.edit.catalogPortletEdit","icon":"","name":"catalogPortlet","offlineHandlerClass":"","paramsHandlerClass":"","systemPortlet":false,"title":"目录资源树导航","viewerJs":"smartbi.portlet.catalogPortlet.show.catalogPortlet"},{"description":"","displayName":"IPAD分页部件","editorJs":"ext.portlet.PagingPortletEditor","icon":"PagingPortlet.gif","name":"PagingPortlet","offlineHandlerClass":"smartbi.offline.impl.handler.PagingPortletOfflineHandler","paramsHandlerClass":"","systemPortlet":false,"title":"","viewerJs":"ext.portlet.PagingPortlet"},{"description":"","displayName":"面板参数部件","editorJs":"smartbi.parameterportlet.panelportlet.PanelPortletEditor","icon":"PICTURE_PLAYER.gif","name":"PanelPortlet","offlineHandlerClass":"smartbi.parameterportlet.panelportlet.PanelPortletOfflineHandler","paramsHandlerClass":"","systemPortlet":false,"title":"","viewerJs":"smartbi.parameterportlet.panelportlet.PanelPortlet"},{"description":"","displayName":"选择参数部件","editorJs":"smartbi.parameterportlet.selectportlet.SelectPortletEditor","icon":"PICTURE_PLAYER.gif","name":"SelectPortlet","offlineHandlerClass":"smartbi.parameterportlet.panelportlet.PanelPortletOfflineHandler","paramsHandlerClass":"","systemPortlet":false,"title":"","viewerJs":"smartbi.parameterportlet.selectportlet.SelectPortlet"},{"description":"","displayName":"滑块参数部件","editorJs":"smartbi.parameterportlet.sliderportlet.SliderPortletEditor","icon":"PICTURE_PLAYER.gif","name":"SliderPortlet","offlineHandlerClass":"smartbi.parameterportlet.panelportlet.PanelPortletOfflineHandler","paramsHandlerClass":"","systemPortlet":false,"title":"","viewerJs":"smartbi.parameterportlet.sliderportlet.SliderPortlet"},{"description":"","displayName":"双滑块参数部件","editorJs":"smartbi.parameterportlet.doublesliderportlet.DoubleSliderPortletEditor","icon":"PICTURE_PLAYER.gif","name":"DoubleSliderPortlet","offlineHandlerClass":"smartbi.parameterportlet.panelportlet.DoubleSliderPortletOfflineHandler","paramsHandlerClass":"","systemPortlet":false,"title":"","viewerJs":"smartbi.parameterportlet.doublesliderportlet.DoubleSliderPortlet"}]</textarea>
+	<DIV style='display:none' bofid='modules'></DIV>
+</div>
+<div bofid="rigthContent" id="rigthContent" style="display:none"></div>
+<form id="submitform" method="post" target="subpageframeI297edff815b2411f0162422140a7605b" action="ipadright.jsp" >
+<input type="hidden" id="submitform_pageId" name="pageId">
+<input type="hidden" id="submitform_params" name="params">
+</form>
+<div id="overlayDiv" class="overlay" style="display:none"></div>
+<div id="innerFrameDiv" class="wrap" style="display:none">
+	<div class="outerDiv">
+		<div id="contentDiv" class="contentDiv" style="overflow:auto;">
+			<iframe id="innerframe" src="about:blank" name="innerframeI297edff815b2411f0162422140a7605b" border="0" frameborder="0" style="border:0px;height:100%;width:100%;"></iframe>
+		</div>
+		<div class="close" onclick="closeInnerFrame();"></div>
+	</div>
+</div>
+<iframe id="subpageframe" frameBorder=0 name="subpageframeI297edff815b2411f0162422140a7605b" style="display:none;width:100%;height:100%"></iframe>
+</body>
+</HTML>

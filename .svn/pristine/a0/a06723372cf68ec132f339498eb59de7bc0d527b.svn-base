@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package org.gecko.framework.utils;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+import java.util.UUID;
+
+/**
+ * @author Aisino.liuyk
+ * @email liuyikun@aisino.com
+ * @date 2018年1月8日
+ */
+public class GenerateIdUtils {
+	public static String generateId32(){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		String id = sdf.format(new Date());
+		id = id.concat((UUID.randomUUID().toString().substring(0, 24)));
+		return id;
+	}
+}

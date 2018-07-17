@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.memo.repository.dao.MgMemoDao">
+	<resultMap id="MgMemo" type="org.gecko.framework.memo.entity.MgMemo">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="temp2" column="TEMP2" jdbcType="VARCHAR" />
+		<result property="temp1" column="TEMP1" jdbcType="VARCHAR" />
+		<result property="userid" column="USERID" jdbcType="VARCHAR" />
+		<result property="lastupdatetime" column="LASTUPDATETIME" jdbcType="VARCHAR" />
+		<result property="notedate" column="NOTEDATE" jdbcType="DATE" />
+		<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.memo.entity.MgMemo">
+		select count(*) from MG_MEMO t where 1=1
+	</select>
+	
+	<select id="get" resultMap="MgMemo" parameterType="String">
+		select  MgMemo.* from MG_MEMO MgMemo where MgMemo.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.memo.entity.MgMemo">	
+ 		insert into MG_MEMO(ID,TEMP2,TEMP1,USERID,LASTUPDATETIME,NOTEDATE,CONTENT)
+ 		VALUES(#{id},#{temp2,jdbcType=VARCHAR},#{temp1,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR},#{lastupdatetime,jdbcType=VARCHAR},#{notedate,jdbcType=DATE},#{content,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into MG_MEMO(ID,TEMP2,TEMP1,USERID,LASTUPDATETIME,NOTEDATE,CONTENT)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.temp2,jdbcType=VARCHAR},#{o.temp1,jdbcType=VARCHAR},#{o.userid,jdbcType=VARCHAR},#{o.lastupdatetime,jdbcType=VARCHAR},#{o.notedate,jdbcType=DATE},#{o.content,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.memo.entity.MgMemo">
+    		update MG_MEMO set TEMP2=#{temp2}, TEMP1=#{temp1}, USERID=#{userid}, LASTUPDATETIME=#{lastupdatetime}, NOTEDATE=#{notedate}, CONTENT=#{content} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.memo.entity.MgMemo">
+		delete from MG_MEMO where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from MG_MEMO where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from MG_MEMO where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from MG_MEMO where         <if test="temp2!=null">and TEMP2 = #{temp2}</if><if test="temp1!=null">and TEMP1 = #{temp1}</if><if test="userid!=null">and USERID = #{userid}</if><if test="lastupdatetime!=null">and LASTUPDATETIME = #{lastupdatetime}</if><if test="notedate!=null">and NOTEDATE = #{notedate}</if><if test="content!=null">and CONTENT = #{content}</if>    </delete>
+
+    <select id="find" resultMap="MgMemo" parameterType="org.gecko.framework.memo.entity.MgMemo">
+        select MgMemo.* from MG_MEMO MgMemo where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="temp2!=null"> and TEMP2 = #{temp2} </if><if test="temp1!=null"> and TEMP1 = #{temp1} </if><if test="userid!=null"> and USERID = #{userid} </if><if test="lastupdatetime!=null"> and LASTUPDATETIME = #{lastupdatetime} </if><if test="notedate!=null"> and NOTEDATE = #{notedate} </if><if test="content!=null"> and CONTENT = #{content} </if>    </select>
+
+	<select id="findByPage" resultMap="MgMemo" parameterType="org.gecko.framework.memo.entity.MgMemo">
+		select MgMemo.* from MG_MEMO MgMemo where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.temp2!=null"> and TEMP2 = #{param.temp2} </if><if test="param.temp1!=null"> and TEMP1 = #{param.temp1} </if><if test="param.userid!=null"> and USERID = #{param.userid} </if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME = #{param.lastupdatetime} </if><if test="param.notedate!=null"> and NOTEDATE = #{param.notedate} </if><if test="param.content!=null"> and CONTENT = #{param.content} </if>	</select>
+
+    <select id="likeByPage" resultMap="MgMemo" parameterType="org.gecko.framework.memo.entity.MgMemo">
+        select MgMemo.* from MG_MEMO MgMemo where 1=1
+        <if test="param.temp2!=null"> and TEMP2 like #{param.temp2}</if><if test="param.temp1!=null"> and TEMP1 like #{param.temp1}</if><if test="param.userid!=null"> and USERID like #{param.userid}</if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME like #{param.lastupdatetime}</if><if test="param.notedate!=null"> and NOTEDATE like #{param.notedate}</if><if test="param.content!=null"> and CONTENT like #{param.content}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE MG_MEMO SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

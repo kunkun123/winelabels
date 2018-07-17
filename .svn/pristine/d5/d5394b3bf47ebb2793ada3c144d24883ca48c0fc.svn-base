@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.activiti.repository.dao.ComplainDao">
+
+	<resultMap type="org.gecko.framework.activiti.entity.Complain" id="complainResult">
+		<result property="id" column="id"/>
+		<result property="complainer" column="complainer"/>
+		<result property="complainState" column="complainState"/>
+		<result property="processInstanceId" column="processInstanceId"/>
+	</resultMap>
+	<select id="findAllComplain" resultMap="complainResult" >
+		select * from t_complain where 1=1
+	</select>
+	<select id="findComplainById" resultMap="complainResult" parameterType="String">
+		select * from t_complain where id = #{id}
+	</select>
+	
+</mapper> 

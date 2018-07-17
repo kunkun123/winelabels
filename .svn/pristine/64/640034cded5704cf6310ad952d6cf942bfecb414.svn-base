@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.system.repository.dao.DemoDao">
+	<resultMap id="Demo" type="org.gecko.framework.system.entity.Demo">
+		<result property="id" column="id" jdbcType="VARCHAR"/>
+		<result property="name" column="name" jdbcType="VARCHAR" />
+		<result property="gender" column="gender" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.system.entity.Demo">
+		select count(*) from system_demos t where 1=1
+	</select>
+	
+	<select id="get" resultMap="Demo" parameterType="String">
+		select  Demo.* from system_demos Demo where Demo.id = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.system.entity.Demo">	
+ 		insert into system_demos(id,name,gender)
+ 		VALUES(#{id},#{name,jdbcType=VARCHAR},#{gender,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into system_demos(id,name,gender)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.name,jdbcType=VARCHAR},#{o.gender,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.system.entity.Demo">
+    		update system_demos set name=#{name}, gender=#{gender} where id=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.system.entity.Demo">
+		delete from system_demos where id=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from system_demos where id=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from system_demos where id in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from system_demos where         <if test="name!=null">and name = #{name}</if>    </delete>
+
+    <select id="find" resultMap="Demo" parameterType="org.gecko.framework.system.entity.Demo">
+        select Demo.* from system_demos Demo where 1=1 <if test="id!=null">and id=#{id}</if>
+        <if test="name!=null"> and name = #{name} </if>    </select>
+
+	<select id="findByPage" resultMap="Demo" parameterType="org.gecko.framework.system.entity.Demo">
+		select Demo.* from system_demos Demo where 1=1 <if test="param.id!=null">and id=#{id}</if>
+		<if test="param.name!=null"> and name = #{param.name} </if>	</select>
+
+    <select id="likeByPage" resultMap="Demo" parameterType="org.gecko.framework.system.entity.Demo">
+        select Demo.* from system_demos Demo where 1=1
+        <if test="param.name!=null"> and name like #{param.name}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE system_demos SET ${field} = #{value} WHERE id = #{pk}
+    </update>
+</mapper>

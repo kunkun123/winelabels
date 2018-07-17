@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.system.repository.dao.OrganizationDao">
+	<resultMap id="Organization" type="org.gecko.framework.system.entity.Organization">
+		<result property="id" column="id" jdbcType="VARCHAR"/>
+		<result property="orgName" column="org_name" jdbcType="VARCHAR" />
+		<result property="orgCode" column="org_code" jdbcType="VARCHAR" />
+		<result property="parentOrg" column="parent_org" jdbcType="VARCHAR" />
+		<result property="orgSeq" column="org_seq" jdbcType="VARCHAR" />
+		<result property="orgCategory" column="orgCategory" typeHandler="org.gecko.core.mybatis.handlers.GeckoEnumTypeHandler"/>
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.system.entity.Organization">
+		select count(*) from system_organizations t where 1=1
+	</select>
+	
+	<select id="get" resultMap="Organization" parameterType="String">
+		select  Organization.* from system_organizations Organization where Organization.id = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.system.entity.Organization">	
+ 		insert into system_organizations(id,org_name,org_code,org_category,parent_org,org_seq)
+ 		VALUES(#{id},#{orgName,jdbcType=VARCHAR},#{orgCode,jdbcType=VARCHAR},#{orgCategory,jdbcType=VARCHAR},#{parentOrg,jdbcType=VARCHAR},#{orgSeq,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into system_organizations(id,org_name,org_code,org_category,parent_org,org_seq)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.orgName,jdbcType=VARCHAR},#{o.orgCode,jdbcType=VARCHAR},#{o.orgCategory,jdbcType=VARCHAR},#{o.parentOrg,jdbcType=VARCHAR},#{o.orgSeq,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.system.entity.Organization">
+    		update system_organizations set org_name=#{orgName}, org_code=#{orgCode}, org_category=#{orgCategory}, parent_org=#{parentOrg}, org_seq=#{orgSeq} where id=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.system.entity.Organization">
+		delete from system_organizations where id=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from system_organizations where id=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from system_organizations where id in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from system_organizations where         <if test="orgName!=null">and org_name = #{orgName}</if><if test="orgCode!=null">and org_code = #{orgCode}</if><if test="orgCategory!=null">and org_category = #{orgCategory}</if>    </delete>
+
+    <select id="find" resultMap="Organization" parameterType="org.gecko.framework.system.entity.Organization">
+        select Organization.* from system_organizations Organization where 1=1 <if test="id!=null">and id=#{id}</if>
+        <if test="orgName!=null"> and org_name = #{orgName} </if><if test="orgCode!=null"> and org_code = #{orgCode} </if><if test="orgCategory!=null"> and org_category = #{orgCategory} </if>    </select>
+
+	<select id="findByPage" resultMap="Organization" parameterType="org.gecko.framework.system.entity.Organization">
+		select Organization.* from system_organizations Organization where 1=1 <if test="param.id!=null">and id=#{id}</if>
+		<if test="param.orgName!=null"> and org_name = #{param.orgName} </if><if test="param.orgCode!=null"> and org_code = #{param.orgCode} </if><if test="param.orgCategory!=null"> and org_category = #{param.orgCategory} </if>	</select>
+
+    <select id="likeByPage" resultMap="Organization" parameterType="org.gecko.framework.system.entity.Organization">
+        select Organization.* from system_organizations Organization where 1=1
+        <if test="param.orgName!=null"> and org_name like #{param.orgName}</if><if test="param.orgCode!=null"> and org_code like #{param.orgCode}</if><if test="param.orgCategory!=null"> and org_category like #{param.orgCategory}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE system_organizations SET ${field} = #{value} WHERE id = #{pk}
+    </update>
+</mapper>

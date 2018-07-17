@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.complaint.repository.dao.CpComplaintinfoDao">
+	<resultMap id="CpComplaintinfo" type="org.gecko.framework.complaint.entity.CpComplaintinfo">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="temp2" column="TEMP2" jdbcType="VARCHAR" />
+		<result property="temp1" column="TEMP1" jdbcType="VARCHAR" />
+		<result property="ip" column="IP" jdbcType="VARCHAR" />
+		<result property="complainanttype" column="COMPLAINANTTYPE" jdbcType="VARCHAR" />
+		<result property="complainantlicense" column="COMPLAINANTLICENSE" jdbcType="VARCHAR" />
+		<result property="address" column="ADDRESS" jdbcType="VARCHAR" />
+		<result property="tel" column="TEL" jdbcType="VARCHAR" />
+		<result property="zipcode" column="ZIPCODE" jdbcType="VARCHAR" />
+		<result property="complainantname" column="COMPLAINANTNAME" jdbcType="VARCHAR" />
+		<result property="email" column="EMAIL" jdbcType="VARCHAR" />
+		<result property="licensetype" column="LICENSETYPE" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.complaint.entity.CpComplaintinfo">
+		select count(*) from CP_COMPLAINTINFO t where 1=1
+	</select>
+	
+	<select id="get" resultMap="CpComplaintinfo" parameterType="String">
+		select  CpComplaintinfo.* from CP_COMPLAINTINFO CpComplaintinfo where CpComplaintinfo.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.complaint.entity.CpComplaintinfo">	
+ 		insert into CP_COMPLAINTINFO(ID,TEMP2,TEMP1,IP,COMPLAINANTTYPE,COMPLAINANTLICENSE,ADDRESS,TEL,ZIPCODE,COMPLAINANTNAME,EMAIL,LICENSETYPE)
+ 		VALUES(#{id},#{temp2,jdbcType=VARCHAR},#{temp1,jdbcType=VARCHAR},#{ip,jdbcType=VARCHAR},#{complainanttype,jdbcType=VARCHAR},#{complainantlicense,jdbcType=VARCHAR},#{address,jdbcType=VARCHAR},#{tel,jdbcType=VARCHAR},#{zipcode,jdbcType=VARCHAR},#{complainantname,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{licensetype,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into CP_COMPLAINTINFO(ID,TEMP2,TEMP1,IP,COMPLAINANTTYPE,COMPLAINANTLICENSE,ADDRESS,TEL,ZIPCODE,COMPLAINANTNAME,EMAIL,LICENSETYPE)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.temp2,jdbcType=VARCHAR},#{o.temp1,jdbcType=VARCHAR},#{o.ip,jdbcType=VARCHAR},#{o.complainanttype,jdbcType=VARCHAR},#{o.complainantlicense,jdbcType=VARCHAR},#{o.address,jdbcType=VARCHAR},#{o.tel,jdbcType=VARCHAR},#{o.zipcode,jdbcType=VARCHAR},#{o.complainantname,jdbcType=VARCHAR},#{o.email,jdbcType=VARCHAR},#{o.licensetype,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.complaint.entity.CpComplaintinfo">
+    		update CP_COMPLAINTINFO set TEMP2=#{temp2,jdbcType=VARCHAR}, TEMP1=#{temp1,jdbcType=VARCHAR}, IP=#{ip,jdbcType=VARCHAR}, COMPLAINANTTYPE=#{complainanttype,jdbcType=VARCHAR}, COMPLAINANTLICENSE=#{complainantlicense,jdbcType=VARCHAR}, ADDRESS=#{address,jdbcType=VARCHAR}, TEL=#{tel,jdbcType=VARCHAR}, ZIPCODE=#{zipcode,jdbcType=VARCHAR}, COMPLAINANTNAME=#{complainantname,jdbcType=VARCHAR}, EMAIL=#{email,jdbcType=VARCHAR}, LICENSETYPE=#{licensetype,jdbcType=VARCHAR} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.complaint.entity.CpComplaintinfo">
+		delete from CP_COMPLAINTINFO where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from CP_COMPLAINTINFO where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from CP_COMPLAINTINFO where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from CP_COMPLAINTINFO where         <if test="temp2!=null">and TEMP2 = #{temp2}</if><if test="temp1!=null">and TEMP1 = #{temp1}</if><if test="ip!=null">and IP = #{ip}</if><if test="complainanttype!=null">and COMPLAINANTTYPE = #{complainanttype}</if><if test="complainantlicense!=null">and COMPLAINANTLICENSE = #{complainantlicense}</if><if test="address!=null">and ADDRESS = #{address}</if><if test="tel!=null">and TEL = #{tel}</if><if test="zipcode!=null">and ZIPCODE = #{zipcode}</if><if test="complainantname!=null">and COMPLAINANTNAME = #{complainantname}</if><if test="email!=null">and EMAIL = #{email}</if><if test="licensetype!=null">and LICENSETYPE = #{licensetype}</if>    </delete>
+
+    <select id="find" resultMap="CpComplaintinfo" parameterType="org.gecko.framework.complaint.entity.CpComplaintinfo">
+        select CpComplaintinfo.* from CP_COMPLAINTINFO CpComplaintinfo where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="temp2!=null"> and TEMP2 = #{temp2} </if><if test="temp1!=null"> and TEMP1 = #{temp1} </if><if test="ip!=null"> and IP = #{ip} </if><if test="complainanttype!=null"> and COMPLAINANTTYPE = #{complainanttype} </if><if test="complainantlicense!=null"> and COMPLAINANTLICENSE = #{complainantlicense} </if><if test="address!=null"> and ADDRESS = #{address} </if><if test="tel!=null"> and TEL = #{tel} </if><if test="zipcode!=null"> and ZIPCODE = #{zipcode} </if><if test="complainantname!=null"> and COMPLAINANTNAME = #{complainantname} </if><if test="email!=null"> and EMAIL = #{email} </if><if test="licensetype!=null"> and LICENSETYPE = #{licensetype} </if>    </select>
+
+	<select id="findByPage" resultMap="CpComplaintinfo" parameterType="org.gecko.framework.complaint.entity.CpComplaintinfo">
+		select CpComplaintinfo.* from CP_COMPLAINTINFO CpComplaintinfo where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.temp2!=null"> and TEMP2 = #{param.temp2} </if><if test="param.temp1!=null"> and TEMP1 = #{param.temp1} </if><if test="param.ip!=null"> and IP = #{param.ip} </if><if test="param.complainanttype!=null"> and COMPLAINANTTYPE = #{param.complainanttype} </if><if test="param.complainantlicense!=null"> and COMPLAINANTLICENSE = #{param.complainantlicense} </if><if test="param.address!=null"> and ADDRESS = #{param.address} </if><if test="param.tel!=null"> and TEL = #{param.tel} </if><if test="param.zipcode!=null"> and ZIPCODE = #{param.zipcode} </if><if test="param.complainantname!=null"> and COMPLAINANTNAME = #{param.complainantname} </if><if test="param.email!=null"> and EMAIL = #{param.email} </if><if test="param.licensetype!=null"> and LICENSETYPE = #{param.licensetype} </if>	</select>
+
+    <select id="likeByPage" resultMap="CpComplaintinfo" parameterType="org.gecko.framework.complaint.entity.CpComplaintinfo">
+        select CpComplaintinfo.* from CP_COMPLAINTINFO CpComplaintinfo where 1=1
+        <if test="param.temp2!=null"> and TEMP2 like #{param.temp2}</if><if test="param.temp1!=null"> and TEMP1 like #{param.temp1}</if><if test="param.ip!=null"> and IP like #{param.ip}</if><if test="param.complainanttype!=null"> and COMPLAINANTTYPE like #{param.complainanttype}</if><if test="param.complainantlicense!=null"> and COMPLAINANTLICENSE like #{param.complainantlicense}</if><if test="param.address!=null"> and ADDRESS like #{param.address}</if><if test="param.tel!=null"> and TEL like #{param.tel}</if><if test="param.zipcode!=null"> and ZIPCODE like #{param.zipcode}</if><if test="param.complainantname!=null"> and COMPLAINANTNAME like #{param.complainantname}</if><if test="param.email!=null"> and EMAIL like #{param.email}</if><if test="param.licensetype!=null"> and LICENSETYPE like #{param.licensetype}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE CP_COMPLAINTINFO SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

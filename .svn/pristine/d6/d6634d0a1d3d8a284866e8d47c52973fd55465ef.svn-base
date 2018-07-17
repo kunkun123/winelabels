@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.complaint.repository.dao.CpRespondentDao">
+	<resultMap id="CpRespondent" type="org.gecko.framework.complaint.entity.CpRespondent">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="respondentaddress" column="RESPONDENTADDRESS" jdbcType="VARCHAR" />
+		<result property="temp1" column="TEMP1" jdbcType="VARCHAR" />
+		<result property="temp2" column="TEMP2" jdbcType="VARCHAR" />
+		<result property="respondenttel" column="RESPONDENTTEL" jdbcType="VARCHAR" />
+		<result property="respondenttype" column="RESPONDENTTYPE" jdbcType="VARCHAR" />
+		<result property="respondentname" column="RESPONDENTNAME" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.complaint.entity.CpRespondent">
+		select count(*) from CP_RESPONDENT t where 1=1
+	</select>
+	
+	<select id="get" resultMap="CpRespondent" parameterType="String">
+		select  CpRespondent.* from CP_RESPONDENT CpRespondent where CpRespondent.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.complaint.entity.CpRespondent">	
+ 		insert into CP_RESPONDENT(ID,RESPONDENTADDRESS,TEMP1,TEMP2,RESPONDENTTEL,RESPONDENTTYPE,RESPONDENTNAME)
+ 		VALUES(#{id},#{respondentaddress,jdbcType=VARCHAR},#{temp1,jdbcType=VARCHAR},#{temp2,jdbcType=VARCHAR},#{respondenttel,jdbcType=VARCHAR},#{respondenttype,jdbcType=VARCHAR},#{respondentname,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into CP_RESPONDENT(ID,RESPONDENTADDRESS,TEMP1,TEMP2,RESPONDENTTEL,RESPONDENTTYPE,RESPONDENTNAME)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.respondentaddress,jdbcType=VARCHAR},#{o.temp1,jdbcType=VARCHAR},#{o.temp2,jdbcType=VARCHAR},#{o.respondenttel,jdbcType=VARCHAR},#{o.respondenttype,jdbcType=VARCHAR},#{o.respondentname,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.complaint.entity.CpRespondent">
+    		update CP_RESPONDENT set RESPONDENTADDRESS=#{respondentaddress,jdbcType=VARCHAR}, TEMP1=#{temp1,jdbcType=VARCHAR}, TEMP2=#{temp2,jdbcType=VARCHAR}, RESPONDENTTEL=#{respondenttel,jdbcType=VARCHAR}, RESPONDENTTYPE=#{respondenttype,jdbcType=VARCHAR}, RESPONDENTNAME=#{respondentname,jdbcType=VARCHAR} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.complaint.entity.CpRespondent">
+		delete from CP_RESPONDENT where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from CP_RESPONDENT where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from CP_RESPONDENT where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from CP_RESPONDENT where         <if test="respondentaddress!=null">and RESPONDENTADDRESS = #{respondentaddress}</if><if test="temp1!=null">and TEMP1 = #{temp1}</if><if test="temp2!=null">and TEMP2 = #{temp2}</if><if test="respondenttel!=null">and RESPONDENTTEL = #{respondenttel}</if><if test="respondenttype!=null">and RESPONDENTTYPE = #{respondenttype}</if><if test="respondentname!=null">and RESPONDENTNAME = #{respondentname}</if>    </delete>
+
+    <select id="find" resultMap="CpRespondent" parameterType="org.gecko.framework.complaint.entity.CpRespondent">
+        select CpRespondent.* from CP_RESPONDENT CpRespondent where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="respondentaddress!=null"> and RESPONDENTADDRESS = #{respondentaddress} </if><if test="temp1!=null"> and TEMP1 = #{temp1} </if><if test="temp2!=null"> and TEMP2 = #{temp2} </if><if test="respondenttel!=null"> and RESPONDENTTEL = #{respondenttel} </if><if test="respondenttype!=null"> and RESPONDENTTYPE = #{respondenttype} </if><if test="respondentname!=null"> and RESPONDENTNAME = #{respondentname} </if>    </select>
+
+	<select id="findByPage" resultMap="CpRespondent" parameterType="org.gecko.framework.complaint.entity.CpRespondent">
+		select CpRespondent.* from CP_RESPONDENT CpRespondent where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.respondentaddress!=null"> and RESPONDENTADDRESS = #{param.respondentaddress} </if><if test="param.temp1!=null"> and TEMP1 = #{param.temp1} </if><if test="param.temp2!=null"> and TEMP2 = #{param.temp2} </if><if test="param.respondenttel!=null"> and RESPONDENTTEL = #{param.respondenttel} </if><if test="param.respondenttype!=null"> and RESPONDENTTYPE = #{param.respondenttype} </if><if test="param.respondentname!=null"> and RESPONDENTNAME = #{param.respondentname} </if>	</select>
+
+    <select id="likeByPage" resultMap="CpRespondent" parameterType="org.gecko.framework.complaint.entity.CpRespondent">
+        select CpRespondent.* from CP_RESPONDENT CpRespondent where 1=1
+        <if test="param.respondentaddress!=null"> and RESPONDENTADDRESS like #{param.respondentaddress}</if><if test="param.temp1!=null"> and TEMP1 like #{param.temp1}</if><if test="param.temp2!=null"> and TEMP2 like #{param.temp2}</if><if test="param.respondenttel!=null"> and RESPONDENTTEL like #{param.respondenttel}</if><if test="param.respondenttype!=null"> and RESPONDENTTYPE like #{param.respondenttype}</if><if test="param.respondentname!=null"> and RESPONDENTNAME like #{param.respondentname}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE CP_RESPONDENT SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

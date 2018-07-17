@@ -1,0 +1,366 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../workflow/js/commons.jspf" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%> 
+<html>
+<head>
+ <meta charset="UTF-8">
+    <title>system-Account</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/ace-fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="/static/scripts/gecko-modules/bootstrap/bootstrap-editable.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/ace.css"/>
+
+
+
+    <script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+    <script src="/static/scripts/gecko-modules/bootstrap/bootstrap-table-editable.js"></script>
+    <script src="/static/scripts/gecko-modules/bootstrap/bootstrap-editable.min.js"></script>
+    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+    <script type="text/javascript" src="/static/scripts/app/system/comm/utils.js"></script>
+    <script type="text/javascript" src="/static/scripts/system/account/account.js"></script>
+<title>投诉件任务办理</title>
+</head>
+<body>
+ 	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+		        <td height="24" bgcolor="#353c44"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		          <tr>
+		            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		              <tr>
+		                <td width="6%" height="19" valign="bottom"><div align="center"><img src="${pageContext.request.contextPath }/images/tb.gif" width="14" height="14" /></div></td>
+		                <td width="94%" valign="bottom"><span class="STYLE1">投诉申请的任务办理</span></td>
+		              </tr>
+		            </table></td>
+		            <td><div align="right"><span class="STYLE1">
+		              </span></div></td>
+		          </tr>
+		        </table></td>
+		      </tr>
+		    </table></td>
+		  </tr>
+		  <tr>
+		  
+		  	<td>
+		  		<form action="../workflow/submitTask?taskId=${taskId}&&workflow=${workflow}" method="POST">
+			  		<div align="left" class="STYLE21">
+				 		<input type="hidden" name="taskId"/>
+				 		投诉编号:<input type="text" name="days" value="${complain.id}" disabled="true" style="width: 200px;"/><br/>
+				 		投诉人:<input type="text" name="content" value="${complain.complainer}" disabled="true" style="width: 800px;"/><br/>
+				 		投诉单位:<textarea name="remark" disabled="true" cols="30" rows="2">${complain.complainState}</textarea><br/>
+				 		批&emsp;&emsp;注:<textarea name="comment" cols="50" rows="5"></textarea><br/>
+				 		</div>
+			<div>
+				 		<!-- 使用连线的名称作为按钮 -->
+				<select id="operation" name="operation">
+			    	<c:forEach items="${requestScope.outcomeList}" var="u">
+					    <option value="${u}">${u}</option>
+   					</c:forEach>	
+			    </select>
+			    <div id ="assignDiv" style="display:none;">
+				    <input value="选择交办对象" type="button" onclick="javascript:showAccount_0()"/>
+					<input type="text" id="assign" value=""/>
+					<input type="hidden" name="assignId" id="assignId" value=""/>
+				</div>
+				<div id ="assignMengshiDiv" style="display:none;">
+				    <input value="选择盟市办理人员" type="button" onclick="javascript:showAccount_1()"/>
+					<input type="text" id="assignMengshi" value=""/>
+					<input type="hidden" name="assignIdMengshi" id="assignIdMengshi" value=""/>
+				</div>
+				<input type="submit" value="提交"/>
+				</div>
+			 	</form>
+			 	<form id ="upload" action="/workflow/attachment?taskId=${taskId}&&workflow=${workflow}" enctype="multipart/form-data" method="POST">		 
+				  <tr>
+				    <td>
+				    	<div align="left" class="STYLE21">
+							审批意见文件:<input type="file" name="file" style="width: 200px;"/><br/>
+							<input type="button" value="提交1" class="button_ok" onclick="javascript:upload();"/>
+						</div>
+				    </td>
+				  </tr>
+			</form> 	
+		  	</td>
+		  </tr>
+	</table>
+	<div id="showAccount">
+		<table id="accountTable"></table>
+	</div>
+	<hr>
+	<br>
+	
+<c:choose>
+   <c:when test="${requestScope.commentList != null && !requestScope.commentList.isEmpty()}">  
+        
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+			  <tr>
+			    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			      <tr>
+			        <td height="24" bgcolor="#353c44"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			          <tr>
+			            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			              <tr>
+			                <td width="6%" height="19" valign="bottom"><div align="center"><img src="${pageContext.request.contextPath }/images/tb.gif" width="14" height="14" /></div></td>
+			                <td width="94%" valign="bottom"><span class="STYLE1">显示投诉申请的批注信息</span></td>
+			              </tr>
+			            </table></td>
+			            <td><div align="right"><span class="STYLE1">
+			              </span></div></td>
+			          </tr>
+			        </table></td>
+			      </tr>
+			    </table></td>
+			  </tr>
+			  <tr>
+			    <td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+			      <tr>
+			        <td width="15%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">时间</span></div></td>
+			        <td width="10%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">批注人</span></div></td>
+			        <td width="55%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">批注信息</span></div></td>
+			      	<td width="20%" height="20" bgcolor="d3eaef" class="STYLE6"><div align="center"><span class="STYLE10">批注附件</span></div></td>
+			      </tr>
+			<c:forEach items="${requestScope.commentList}" var="u">
+			    	<tr>
+			    		<c:if test="${u.type=='comment'}">
+				        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><c:out value="${u.time}"/></div></td>
+				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><c:out value="${u.userId}"/></div></td>
+				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><c:out value="${u.fullMessage}"/></div></td>
+				         
+				         <td height="20" bgcolor="#FFFFFF" class="STYLE6">
+						<c:forEach items="${requestScope.attachementList}" var="z">
+						<c:if test="${u.taskId==z.taskId}">
+				        	<div align="center"><a href="/workflow/GETattachment?attachmentId=${z.id}&attachmentName=${z.name}">${z.name}</a></div>
+					   	</c:if>
+					    </c:forEach>
+					    </td>
+					    </c:if>
+				    </tr> 
+   			</c:forEach>	
+			    </table></td>
+			  </tr>
+		</table>     
+   </c:when>
+   <c:otherwise> 
+	    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+			  <tr>
+			    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			      <tr>
+			        <td height="24" bgcolor="#F7F7F7"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			          <tr>
+			            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			              <tr>
+			                <td width="6%" height="19" valign="bottom"><div align="center"><img src="${pageContext.request.contextPath }/images/tb.gif" width="14" height="14" /></div></td>
+			                <td width="94%" valign="bottom"><span><b>暂时没有批注信息</b></span></td>
+			              </tr>
+			            </table></td>
+			          </tr>
+			        </table></td>
+			      </tr>
+			    </table></td>
+			  </tr>
+		</table> 
+   </c:otherwise>
+</c:choose>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+		//需要选择的时候才显示人员选择
+		if("送审"==$("#operation").val()){
+			$("#assignMengshiDiv").show();
+		}else{
+			$("#assignMengshiDiv").hide();	
+		}
+	　　	if("送审"==$("#operation").val()||"交办旗县"==$("#operation").val()||"受理交办盟市"==$("#operation").val()){
+			$("#assignDiv").show();
+		}else{
+			$("#assignDiv").hide();
+		}
+	$("#operation").change(function(){
+		//需要选择的时候才显示人员选择
+		if("送审"==$("#operation").val()){
+			$("#assignMengshiDiv").show();
+		}else{
+			$("#assignMengshiDiv").hide();	
+		}
+	　　	if("送审"==$("#operation").val()||"交办旗县"==$("#operation").val()||"受理交办盟市"==$("#operation").val()){
+			$("#assignDiv").show();
+		}else{
+			$("#assignDiv").hide();
+		}
+	});
+}); 
+
+function showAccount_0(){
+ $( "#showAccount" ).dialog({
+      height: 140,
+      width:438,
+      modal: true
+    });
+	var tableId = "accountTable";
+	$("#"+ tableId).bootstrapTable('destroy'); 
+	$("#" + tableId).bootstrapTable({
+	 			method: 'get',
+	 			queryParams:queryParams_0,
+				editable:false,//关闭编辑模式  
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                showRefresh: true,
+                sidePagination: "server",
+                search: true,
+                url: "/workflow/accountListByRole",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "realName",
+                    title: "真实姓名",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "principal",
+                    title: "账号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                field: 'operate',
+                title: '操作',
+                align: 'center',
+                width : 100,
+                events: operateEvents_0,
+                formatter: operateFormatter
+                }]
+            });
+}
+function showAccount_1(){
+ $( "#showAccount" ).dialog({
+      height: 140,
+      width:438,
+      modal: true
+    });
+	//$("#operation").val();
+	var tableId = "accountTable";
+	$("#"+ tableId).bootstrapTable('destroy'); 
+	$("#" + tableId).bootstrapTable({
+	 			method: 'get',
+	 			queryParams:queryParams_1,
+				editable:false,//关闭编辑模式  
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                showRefresh: true,
+                sidePagination: "server",
+                search: true,
+                url: "/workflow/accountListByRole",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "realName",
+                    title: "真实姓名",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "principal",
+                    title: "账号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                },{
+                field: 'operate',
+                title: '操作',
+                align: 'center',
+                width : 100,
+                events: operateEvents_1,
+                formatter: operateFormatter
+                }]
+            });
+}
+function queryParams_0(pageReqeust) {  
+	if("返回盟市办理"==$("#operation").val()||"受理交办盟市"==$("#operation").val()){
+		pageReqeust.role = "交办盟市";
+	} else{
+	    pageReqeust.role = $("#operation").val();
+	}
+    console.log(pageReqeust);
+    return pageReqeust;  
+}
+function queryParams_1(pageReqeust) {  
+	pageReqeust.role = "交办盟市";
+    return pageReqeust;  
+}
+ function operateFormatter(value, row, index) {
+      return [
+      '<button type="button" class="RoleOfedit btn btn-primary  btn-sm" style="margin-right:15px;">选择</button>'
+      ].join('');
+}
+ window.operateEvents_0 = {
+    'click .RoleOfedit': function (e, value, row, index) {
+    //alert(row.id);
+    	$("#assign").val(row.realName);
+    	$("#assignId").val(row.id);
+    	$("#accountTable").bootstrapTable('destroy'); 
+        $('#showAccount').dialog('close');
+	}
+};
+ window.operateEvents_1 = {
+    'click .RoleOfedit': function (e, value, row, index) {
+    //alert(row.id);
+    	$("#assignMengshi").val(row.realName);
+    	$("#assignIdMengshi").val(row.id);
+    	$("#accountTable").bootstrapTable('destroy'); 
+        $('#showAccount').dialog('close');
+	}
+};
+//异步提交附件
+ function upload(){
+ 			alert(11);
+            var form = new FormData(document.getElementById("upload"));
+//             var req = new XMLHttpRequest();
+//             req.open("post", "${pageContext.request.contextPath}/public/testupload", false);
+//             req.send(form);
+            $.ajax({
+                url: "/workflow/attachment?taskId=${taskId}",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                success:function(data){
+                    //window.clearInterval(timer);
+                    console.log("over..");
+                },
+                error:function(e){
+                  
+                }
+            });        
+           // get();//此处为上传文件的进度条
+        }
+</script>

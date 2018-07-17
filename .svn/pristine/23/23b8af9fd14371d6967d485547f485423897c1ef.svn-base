@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wineLabels-AlAlcohollable</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/ace-fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../../static/scripts/gecko-modules/bootstrap/bootstrap-editable.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/ace.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/gecko.css"/>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+    <script src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-table-editable.js"></script>
+    <script src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-editable.min.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/app/system/comm/utils.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/wineLabels/alalcohollable/alalcohollable.js"></script>
+    <script type="text/javascript">
+        var tableId = "alalcohollableTable";
+        $(function () {
+            $("#" + tableId).bootstrapTable({
+                toolbar: "#toolbar",
+                idField: "ID",
+                pagination: true,
+                limit: 15,
+                showRefresh: true,
+                sidePagination: "server",
+                search: true,
+                url: "/wineLabels/alalcohollable/list",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "ID",
+                    visible: false
+                }, {
+                    field: "temp1",
+                    title: "",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "applicanid",
+                    title: "申请单id",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "altype",
+                    title: "商品类型",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "serial",
+                    title: "酒标编号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "applicant",
+                    title: "申请人",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "verfycode",
+                    title: "酒标验证码",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "temp3",
+                    title: "",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "temp2",
+                    title: "",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "type",
+                    title: "酒标类型",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "productid",
+                    title: "商品id",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "status",
+                    title: "状态",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "sales",
+                    title: "销售单号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "creator",
+                    title: "",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "lastupdatetime",
+                    title: "",
+                    type: "date",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "temp4",
+                    title: "",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "boxlable",
+                    title: "关联箱标",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "grant",
+                    title: "发放单位",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }],
+                onEditableSave: function (field, row, oldValue, e) {
+                    var data = {name: field, pk: row.id, value: row[field]};
+                    $.ajax({
+                        type: "post",
+                        url: "/wineLabels/alalcohollable/edit",
+                        data: data,
+                        dataType: 'JSON',
+                        content: "application/json;charset=UTF8",
+                        success: function (data, status) {
+                            if (status === "success") {
+                                //info("authorityTable", '修改成功');
+                            }
+                        },
+                        error: function () {
+                            //info('authorityTable', '编辑失败');
+                        },
+                        complete: function () {
+
+                        }
+                    });
+                }
+            });
+        });
+        var remove = function () {
+            var table = $("#" + tableId);
+            var selected = table.bootstrapTable("getSelections");
+            var ids = [];
+            selected.forEach(function (t) {
+                ids.push(t.id)
+            });
+
+            if (ids.length >= 1 && confirm("确认删除以下数据据：" + ids + " ?")) {
+                $.ajax({
+                    url: "/wineLabels/alalcohollable/delete", data: JSON.stringify(ids), type: "DELETE",
+                    contentType: "application/json;charset=utf8",
+                    success: function (resp) {
+                        if (resp.code === 0) {
+                            //info(tableId, "删除成功");
+                            table.bootstrapTable('remove', {field: 'id', values: ids});
+                        }
+                    }
+                });
+            }
+        };
+        var add = function () {
+            var table = $("#" + tableId);
+            //TODO change this init param my yourself
+            var rowData = {ID: "" ,temp1:"",applicanid:"",altype:"",serial:"",applicant:"",verfycode:"",temp3:"",temp2:"",type:"",productid:"",status:"",sales:"",creator:"",lastupdatetime:"",temp4:"",boxlable:"",grant:""};
+            $.ajax({
+                url: "/wineLabels/alalcohollable/save",
+                data: JSON.stringify(rowData),
+                type: "PUT",
+                contentType: "application/json; charset=UTF-8",
+                success: function (res) {
+                    if (res.code === 0) {
+                        rowData.id = res.data.id;
+                        table.bootstrapTable("insertRow", {index: 0, row: rowData});
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<!--顶部按钮-->
+<div id="toolbar">
+    <div class="btn-group">
+        <button id="add" class="btn btn-md btn-success" onclick="add();">新建</button>
+        <button id="delete" class="btn btn-md btn-danger" onclick="remove();">删除</button>
+    </div>
+</div>
+
+<div class="page-content">
+    <table id="alalcohollableTable"></table>
+</div>
+</body>
+</html>

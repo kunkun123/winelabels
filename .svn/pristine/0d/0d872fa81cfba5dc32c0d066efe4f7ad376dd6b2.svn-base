@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.pubdata.repository.dao.PubBaseinfoSysunitDao">
+	<resultMap id="PubBaseinfoSysunit" type="org.gecko.framework.pubdata.entity.PubBaseinfoSysunit">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="sourceid" column="SOURCEID" jdbcType="VARCHAR" />
+		<result property="iscityarea" column="ISCITYAREA" jdbcType="VARCHAR" />
+		<result property="unitlevelname" column="UNITLEVELNAME" jdbcType="VARCHAR" />
+		<result property="unitlevel" column="UNITLEVEL" jdbcType="VARCHAR" />
+		<result property="unitname" column="UNITNAME" jdbcType="VARCHAR" />
+		<result property="unitfullname" column="UNITFULLNAME" jdbcType="VARCHAR" />
+		<result property="cityname" column="CITYNAME" jdbcType="VARCHAR" />
+		<result property="parentunit" column="PARENTUNIT" jdbcType="VARCHAR" />
+		<result property="unitnum" column="UNITNUM" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSysunit">
+		select count(*) from PUB_BASEINFO_SYSUNIT t where 1=1
+	</select>
+	
+	<select id="get" resultMap="PubBaseinfoSysunit" parameterType="String">
+		select  PubBaseinfoSysunit.* from PUB_BASEINFO_SYSUNIT PubBaseinfoSysunit where PubBaseinfoSysunit.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSysunit">	
+ 		insert into PUB_BASEINFO_SYSUNIT(ID,SOURCEID,ISCITYAREA,UNITLEVELNAME,UNITLEVEL,UNITNAME,UNITFULLNAME,CITYNAME,PARENTUNIT,UNITNUM)
+ 		VALUES(#{id},#{sourceid,jdbcType=VARCHAR},#{iscityarea,jdbcType=VARCHAR},#{unitlevelname,jdbcType=VARCHAR},#{unitlevel,jdbcType=VARCHAR},#{unitname,jdbcType=VARCHAR},#{unitfullname,jdbcType=VARCHAR},#{cityname,jdbcType=VARCHAR},#{parentunit,jdbcType=VARCHAR},#{unitnum,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into PUB_BASEINFO_SYSUNIT(ID,SOURCEID,ISCITYAREA,UNITLEVELNAME,UNITLEVEL,UNITNAME,UNITFULLNAME,CITYNAME,PARENTUNIT,UNITNUM)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.sourceid,jdbcType=VARCHAR},#{o.iscityarea,jdbcType=VARCHAR},#{o.unitlevelname,jdbcType=VARCHAR},#{o.unitlevel,jdbcType=VARCHAR},#{o.unitname,jdbcType=VARCHAR},#{o.unitfullname,jdbcType=VARCHAR},#{o.cityname,jdbcType=VARCHAR},#{o.parentunit,jdbcType=VARCHAR},#{o.unitnum,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSysunit">
+    		update PUB_BASEINFO_SYSUNIT set SOURCEID=#{sourceid}, ISCITYAREA=#{iscityarea}, UNITLEVELNAME=#{unitlevelname}, UNITLEVEL=#{unitlevel}, UNITNAME=#{unitname}, UNITFULLNAME=#{unitfullname}, CITYNAME=#{cityname}, PARENTUNIT=#{parentunit}, UNITNUM=#{unitnum} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSysunit">
+		delete from PUB_BASEINFO_SYSUNIT where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from PUB_BASEINFO_SYSUNIT where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from PUB_BASEINFO_SYSUNIT where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from PUB_BASEINFO_SYSUNIT where         <if test="sourceid!=null">and SOURCEID = #{sourceid}</if><if test="iscityarea!=null">and ISCITYAREA = #{iscityarea}</if><if test="unitlevelname!=null">and UNITLEVELNAME = #{unitlevelname}</if><if test="unitlevel!=null">and UNITLEVEL = #{unitlevel}</if><if test="unitname!=null">and UNITNAME = #{unitname}</if><if test="unitfullname!=null">and UNITFULLNAME = #{unitfullname}</if><if test="cityname!=null">and CITYNAME = #{cityname}</if><if test="parentunit!=null">and PARENTUNIT = #{parentunit}</if><if test="unitnum!=null">and UNITNUM = #{unitnum}</if>    </delete>
+
+    <select id="find" resultMap="PubBaseinfoSysunit" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSysunit">
+        select PubBaseinfoSysunit.* from PUB_BASEINFO_SYSUNIT PubBaseinfoSysunit where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="sourceid!=null"> and SOURCEID = #{sourceid} </if><if test="iscityarea!=null"> and ISCITYAREA = #{iscityarea} </if><if test="unitlevelname!=null"> and UNITLEVELNAME = #{unitlevelname} </if><if test="unitlevel!=null"> and UNITLEVEL = #{unitlevel} </if><if test="unitname!=null"> and UNITNAME = #{unitname} </if><if test="unitfullname!=null"> and UNITFULLNAME = #{unitfullname} </if><if test="cityname!=null"> and CITYNAME = #{cityname} </if><if test="parentunit!=null"> and PARENTUNIT = #{parentunit} </if><if test="unitnum!=null"> and UNITNUM = #{unitnum} </if>    </select>
+
+	<select id="findByPage" resultMap="PubBaseinfoSysunit" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSysunit">
+		select PubBaseinfoSysunit.* from PUB_BASEINFO_SYSUNIT PubBaseinfoSysunit where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.sourceid!=null"> and SOURCEID = #{param.sourceid} </if><if test="param.iscityarea!=null"> and ISCITYAREA = #{param.iscityarea} </if><if test="param.unitlevelname!=null"> and UNITLEVELNAME = #{param.unitlevelname} </if><if test="param.unitlevel!=null"> and UNITLEVEL = #{param.unitlevel} </if><if test="param.unitname!=null"> and UNITNAME = #{param.unitname} </if><if test="param.unitfullname!=null"> and UNITFULLNAME = #{param.unitfullname} </if><if test="param.cityname!=null"> and CITYNAME = #{param.cityname} </if><if test="param.parentunit!=null"> and PARENTUNIT = #{param.parentunit} </if><if test="param.unitnum!=null"> and UNITNUM = #{param.unitnum} </if>	</select>
+
+    <select id="likeByPage" resultMap="PubBaseinfoSysunit" parameterType="org.gecko.framework.pubdata.entity.PubBaseinfoSysunit">
+        select PubBaseinfoSysunit.* from PUB_BASEINFO_SYSUNIT PubBaseinfoSysunit where 1=1
+        <if test="param.sourceid!=null"> and SOURCEID like #{param.sourceid}</if><if test="param.iscityarea!=null"> and ISCITYAREA like #{param.iscityarea}</if><if test="param.unitlevelname!=null"> and UNITLEVELNAME like #{param.unitlevelname}</if><if test="param.unitlevel!=null"> and UNITLEVEL like #{param.unitlevel}</if><if test="param.unitname!=null"> and UNITNAME like #{param.unitname}</if><if test="param.unitfullname!=null"> and UNITFULLNAME like #{param.unitfullname}</if><if test="param.cityname!=null"> and CITYNAME like #{param.cityname}</if><if test="param.parentunit!=null"> and PARENTUNIT like #{param.parentunit}</if><if test="param.unitnum!=null"> and UNITNUM like #{param.unitnum}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE PUB_BASEINFO_SYSUNIT SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

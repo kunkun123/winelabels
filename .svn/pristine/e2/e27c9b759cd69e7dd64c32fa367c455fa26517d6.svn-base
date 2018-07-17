@@ -1,0 +1,61 @@
+w#spring base path
+server.servlet.context-path=/
+
+#gecko.ds.mysql.driver=com.mysql.jdbc.Driver
+#gecko.ds.mysql.url=jdbc:mysql://192.168.1.150:3306/gecko_demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+#gecko.ds.mysql.username=root
+#gecko.ds.mysql.password=root
+
+
+gecko.ds.oracle.driver=oracle.jdbc.driver.OracleDriver
+gecko.ds.oracle.url=jdbc:oracle:thin:@localhost:49161:xe
+gecko.ds.oracle.username=gecko_demo
+gecko.ds.oracle.password=root
+
+#connection pool settings
+druid.initialSize=1
+druid.maxActive=20
+#druid.maxIdle=10
+druid.minIdle=5
+druid.maxWait=60000
+druid.removeAbandoned=true
+druid.removeAbandonedTimeout=1200
+druid.timeBetweenEvictionRunsMillis=60000
+druid.minEvictableIdleTimeMillis=300000
+druid.validationQuery=SELECT 1 FROM DUAL
+druid.testWhileIdle=true
+druid.testOnBorrow=false
+druid.testOnReturn=false
+druid.poolPreparedStatements=true
+druid.maxPoolPreparedStatementPerConnectionSize=50
+druid.filters=stat
+
+#generator
+gecko.generator.sourcemodel=org.gecko.generator.sourcemodel.GeckoSourceModel
+gecko.generator.web=org.gecko.generator.sourcereader.HtmlTemplateReader
+gecko.generator.sourcewriter=org.gecko.generator.sourcewriter.CMDSourceWriter
+## app setting
+
+# security
+security.enable=false
+security.advanced=false
+security.ignore_paths=/static/**,/resources/**,/uploads/public/**,/login,/system/login*,/logout,/system/account/auth,/favicon.ico,/service
+security.session_key=account
+security.login_path=/views/system/login.jsp
+
+# cache config
+cache.processor=org.gecko.core.cache.GKCache
+
+# license
+app.license=UfJHvcj6vHFP7rS3z1nrig==
+
+#data initailize
+gecko.data.top.orgnization.id=\u5E7F\u5DDE\u5E02\u5DE5\u5546\u884C\u653F\u7BA1\u7406\u5C40
+
+##COMPANY,SYSTEM or DEPARTMENT
+gecko.data.top.orgnization.category=SYSTEM
+logging.path=logs
+logging.level.root=info
+logging.level.org.springframework.web=info
+logging.file=server.log
+debug=false
