@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>system-Account</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/ace-fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../../static/scripts/gecko-modules/bootstrap/bootstrap-editable.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/ace.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/gecko.css"/>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+    <script src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-table-editable.js"></script>
+    <script src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-editable.min.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/app/system/comm/utils.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/system/account/account.js"></script>
+    <script type="text/javascript">
+        var tableId = "accountTable";
+        $(function () {
+            $("#" + tableId).bootstrapTable({
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                showRefresh: true,
+                sidePagination: "server",
+                search: true,
+                url: "/system/account/list",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "realName",
+                    title: "真实姓名",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "principal",
+                    title: "账号",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "locked",
+                    title: "锁定",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "select",
+                        source: [{value: 0, text: "正常"}, {value: 1, text: "锁定"}]
+                    }
+                }, {
+                    field: "mobilePhone",
+                    title: "手机号码",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "telPhone",
+                    title: "座机号码",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "qq",
+                    title: "QQ",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "email",
+                    title: "Email",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"
+                    }
+                }],
+                onEditableSave: function (field, row, oldValue, e) {
+                    var data = {name: field, pk: row.id, value: row[field]};
+                    $.ajax({
+                        type: "post",
+                        url: "/system/account/edit",
+                        data: data,
+                        dataType: 'JSON',
+                        content: "application/json;charset=UTF8",
+                        success: function (data, status) {
+                            if (status === "success") {
+                                //info("authorityTable", '修改成功');
+                            }
+                        },
+                        error: function () {
+                            //info('authorityTable', '编辑失败');
+                        },
+                        complete: function () {
+
+                        }
+                    });
+                }
+            });
+        });
+        var remove = function () {
+            var table = $("#" + tableId);
+            var selected = table.bootstrapTable("getSelections");
+            var ids = [];
+            selected.forEach(function (t) {
+                ids.push(t.id)
+            });
+
+            if (ids.length >= 1 && confirm("确认删除以下数据据：" + ids + " ?")) {
+                $.ajax({
+                    url: "/system/account/delete", data: JSON.stringify(ids), type: "DELETE",
+                    contentType: "application/json;charset=utf8",
+                    success: function (resp) {
+                        if (resp.code === 0) {
+                            //info(tableId, "删除成功");
+                            table.bootstrapTable('remove', {field: 'id', values: ids});
+                        }
+                    }
+                });
+            }
+        };
+        var add = function () {
+            var table = $("#" + tableId);
+            //TODO change this init param my yourself
+            var rowData = {
+                id: "",
+                realName: "",
+                principal: "",
+                gender: "",
+                credential: "",
+                locked: 0,
+                salt: "",
+                mobilePhone: "",
+                telPhone: "",
+                qq: "",
+                email: "",
+                createTime: ""
+            };
+            $.ajax({
+                url: "/system/account/save",
+                data: JSON.stringify(rowData),
+                type: "PUT",
+                contentType: "application/json; charset=UTF-8",
+                success: function (res) {
+                    if (res.code === 0) {
+                        rowData.id = res.data.id;
+                        table.bootstrapTable("insertRow", {index: 0, row: rowData});
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<!--顶部按钮-->
+<div id="toolbar">
+    <div class="btn-group">
+        <button id="add" class="btn btn-md btn-success" onclick="add();">新建</button>
+        <button id="delete" class="btn btn-md btn-danger" onclick="remove();">删除</button>
+    </div>
+</div>
+
+<div class="page-content">
+    <table id="accountTable"></table>
+</div>
+</body>
+</html>

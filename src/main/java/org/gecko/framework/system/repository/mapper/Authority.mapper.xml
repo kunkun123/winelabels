@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.gecko.framework.system.repository.dao.AuthorityDao">
+    <resultMap id="roleAuthority" type="org.gecko.framework.system.entity.RoleAuthority">
+        <result property="id" column="id"/>
+        <result property="roleId" column="role_id"/>
+        <result property="authorityId" column="authority_id"/>
+    </resultMap>
+    <select id="getAuthByAccountId" resultMap="Authority" parameterType="String">
+        SELECT DISTINCT auth.*
+        FROM system_authorities auth, system_role_authority rr, system_account_roles ar
+        WHERE auth.id = rr.authority_id AND rr.role_id = ar.role_id AND ar.account_id = #{accountId}
+    </select>
+    <select id="roleAuth" resultType="java.util.HashMap" parameterType="String">
+        SELECT DISTINCT
+            rr.role_id      AS roleId,
+            rr.authority_id AS authorityId
+        FROM system_authorities auth, system_role_authority rr
+        WHERE auth.id = rr.authority_id AND rr.role_id = #{roleId}
+    </select>
+    <insert id="saveRoleAuth" parameterType="java.util.List">
+        INSERT INTO system_role_authority (role_id, authority_id)
+     	<foreach close=")" collection="list" item="item" open="(" separator="union all">
+            select #{item.roleId}, #{item.authorityId} from dual
+        </foreach>
+    </insert>
+    <delete id="deleteByRoleIds" parameterType="java.util.List">
+        DELETE FROM system_role_authority
+        WHERE role_id in(<foreach collection="list" item="item" separator=",">#{item}</foreach>)
+    </delete>
+    <update id="updateAuthority" parameterType="String">
+        UPDATE system_authorities
+        SET ${name} = #{value}
+        WHERE id = #{pk}
+    </update>
+    <select id="getPage" resultMap="Authority" parameterType="org.gecko.framework.system.entity.Authority">
+        SELECT *
+        FROM system_authorities
+        <if test="#{param}!=null and #{param}!=''">WHERE authority_name LIKE '%${param}%'</if>
+    </select>
+    <select id="getMaxId" resultType="string">
+       select max(id) from SYSTEM_AUTHORITIES t
+    </select>
+</mapper>

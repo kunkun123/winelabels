@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/ace-fonts.css" />
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/ace.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css" />
+
+		
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery-2.2.1.min.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/handlebas/handlebars-v4.0.10.js"></script>
+		<script type="text/javascript" src="/static/scripts/app/system/dataorgin/index.js"></script>
+	</head>
+
+	<body>
+		<!--头部信息-->
+		<div class="col-sm-12 infobox-container">
+			<div class="infobox infobox-green infobox-small infobox-dark" style="width: 200px;">
+				<div class="infobox-icon">
+					<i class="ace-icon fa fa-cogs"></i>
+				</div>
+
+				<div class="infobox-data" style="max-width: 200px;">
+					<div class="infobox-content">启动时间</div>
+					<div id="start-up-time" class="infobox-content" style="font-size: 10px;">2017-05-24 17:53:43</div>
+				</div>
+			</div>
+			
+			<div class="infobox infobox-blue infobox-small infobox-dark" style="width: 200px;">
+				<div class="infobox-icon">
+					<i class="ace-icon fa fa-compass"></i>
+				</div>
+
+				<div class="infobox-data" style="max-width: 200px;">
+					<div class="infobox-content">JVM</div>
+					<div id="jvm-name" class="infobox-content" data-rel="tooltip" data-placement="right" title="" data-original-title="Right Success" style="font-size: 10px;height: 20px; overflow: hidden;">Java HotSpot(TM) 64-Bit Server VM</div>
+				</div>
+			</div>
+
+			<div class="infobox infobox-pink infobox-small infobox-dark" style="width: 200px;">
+				<div class="infobox-icon">
+					<i class="ace-icon fa fa-cubes"></i>
+				</div>
+
+				<div class="infobox-data" style="max-width: 200px;">
+					<div class="infobox-content">Java版本</div>
+					<div id="jdk-version" class="infobox-content">1.8.0_131</div>
+				</div>
+			</div>
+
+			<!-- /section:pages/dashboard.infobox.dark -->
+		</div>
+		<!--content部分-->
+		<div class="">
+
+			<div class="tabbable">
+				<ul class="nav nav-tabs" id="datasource-tabs">
+					<!-- <li class="active">
+						<a data-toggle="tab" href="#home">
+							<i class="green ace-icon fa fa-list bigger-120"></i> DataSource-1110678540
+						</a>
+					</li>
+					<li>
+						<a data-toggle="tab" href="#messages">
+							<i class="green ace-icon fa fa-users bigger-120"></i> 用户信息
+						</a>
+					</li> -->
+				</ul>
+				<div class="tab-content" id="datasource-tabs-content">
+					<!-- <div id="home" class="tab-pane fade in active menu-control">
+						<table id="table-data" class="table table-bordered table-condensed">
+							<tr>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+							</tr>							
+						</table>
+					</div>
+					<div id="messages" class="tab-pane fade">
+						2222222
+
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</body>
+		<script id="dataorgin-tab-template" type="text/x-handlebars-template">
+		<li class="active">
+			<a data-toggle="tab" href="#{{Identity}}">
+				<i class="green ace-icon fa fa-list bigger-120"></i> {{Name}}
+			</a>
+		</li>
+	</script>
+
+	<script id="dataorgin-tab-content-template" type="text/x-handlebars-template">
+		<div id="{{Identity}}" class="tab-pane fade {{#if}} in active {{/if}} menu-control">
+			{{Name}}
+		</div>
+	</script>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>system-Authority</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/ace-fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../../static/scripts/gecko-modules/bootstrap/bootstrap-editable.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/css/ace.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/styles/gecko.css"/>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+    <script src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-table-editable.js"></script>
+    <script src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-editable.min.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/app/system/comm/utils.js"></script>
+    <script type="text/javascript" src="../../../static/scripts/system/authority/authority.js"></script>
+    <script type="text/javascript">
+        var tableId = "authorityTable";
+        $(function () {
+            $("#" + tableId).bootstrapTable({
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                showRefresh: true,
+                sidePagination: "server",
+                search: true,
+                url: "/system/authority/list",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "id",
+                    title: "主键",
+                    type: "text",
+                    search: "false"
+                }, {
+                    field: "authorityCode",
+                    title: "资源编码",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }, {
+                    field: "authorityName",
+                    title: "资源名称",
+                    type: "text",
+                    search: "true",
+                    editable: {
+                        type: "text"                    }
+                }],
+                onEditableSave: function (field, row, oldValue, e) {
+                    var data = {name: field, pk: row.id, value: row[field]};
+                    
+                    $.ajax({
+                        type: "post",
+                        url: "/system/authority/edit",
+                        data: data,
+                        dataType: 'JSON',
+                        content: "application/json;charset=UTF8",
+                        success: function (data, status) {
+                        
+                            if (status === "success") {
+                               alert("修改成功");
+                            }
+                        },
+                        error: function () {
+                            //info('authorityTable', '编辑失败');
+                        },
+                        complete: function () {
+
+                        }
+                    });
+                }
+            });
+        });
+        var remove = function () {
+            var table = $("#" + tableId);
+            var selected = table.bootstrapTable("getSelections");
+            var ids = [];
+            selected.forEach(function (t) {
+                ids.push(t.id)
+            });
+
+            if (ids.length >= 1 && confirm("确认删除以下数据据：" + ids + " ?")) {
+                $.ajax({
+                    url: "/system/authority/delete", data: JSON.stringify(ids), type: "DELETE",
+                    contentType: "application/json;charset=utf8",
+                    success: function (resp) {
+                        if (resp.code === 0) {
+                            //info(tableId, "删除成功");
+                            table.bootstrapTable('remove', {field: 'id', values: ids});
+                        }
+                    }
+                });
+            }
+        };
+        var add = function () {
+            
+            var $table = $("#authorityTable");
+            var index = $table.bootstrapTable('getData').length;
+	        $table.bootstrapTable('insertRow', {
+	            index: index,
+	            row: {
+	                id: '',
+	                wareName: ''
+	            }
+	        });
+	         $.ajax({
+	                url: "/system/authority/add",
+	                type: "PUT",
+	                contentType: "application/json; charset=UTF-8",
+	                success: function (res) {
+	                 $("#" + tableId).bootstrapTable('refresh',"/system/authority/list")
+	                	alert("success");
+	                    /* if (res.code === 0) {
+	                        rowData.id = res.data.id;
+	                        table.bootstrapTable("insertRow", {index: 0, row: rowData});
+	                    } */
+	                }
+	         });  
+	        
+	 };
+         var save = function () {
+            var table = $("#" + tableId);
+            //TODO change this init param my yourself
+            var rowData = table.bootstrapTable('getSelections');
+            console.log(rowData);
+            
+        }
+    </script>
+</head>
+<body>
+<!--顶部按钮-->
+<div id="toolbar">
+    <div class="btn-group">
+        <button id="add" class="btn btn-md btn-success" onclick="add();">新建</button>
+        
+        <button id="delete" class="btn btn-md btn-danger" onclick="remove();">删除</button>
+        
+    </div>
+</div>
+
+<div class="page-content">
+    <table id="authorityTable"></table>
+</div>
+</body>
+</html>

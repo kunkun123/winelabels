@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.notice.repository.dao.MgNoticeDao">
+	<resultMap id="MgNotice" type="org.gecko.framework.notice.entity.MgNotice">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="serialno" column="SERIALNO" jdbcType="VARCHAR" />
+		<result property="title" column="TITLE" jdbcType="VARCHAR" />
+		<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+		<result property="publicdate" column="PUBLICDATE" jdbcType="DATE" />
+		<result property="ispub" column="ISPUB" jdbcType="VARCHAR" />
+		<result property="scope" column="SCOPE" jdbcType="VARCHAR" />
+		<result property="lastupdatetime" column="LASTUPDATETIME" jdbcType="DATE" />
+		<result property="temp1" column="TEMP1" jdbcType="VARCHAR" />
+		<result property="temp2" column="TEMP2" jdbcType="VARCHAR" />
+		<result property="attachurl" column="ATTACHURL" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.notice.entity.MgNotice">
+		select count(*) from MG_NOTICE t where 1=1
+	</select>
+	
+	<select id="get" resultMap="MgNotice" parameterType="String">
+		select  MgNotice.* from MG_NOTICE MgNotice where MgNotice.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.notice.entity.MgNotice">	
+ 		insert into MG_NOTICE(ID,SERIALNO,TITLE,CONTENT,PUBLICDATE,ISPUB,SCOPE,LASTUPDATETIME,TEMP1,TEMP2,ATTACHURL)
+ 		VALUES(#{id},#{serialno,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR},#{publicdate,jdbcType=DATE},#{ispub,jdbcType=VARCHAR},#{scope,jdbcType=VARCHAR},#{lastupdatetime,jdbcType=DATE},#{temp1,jdbcType=VARCHAR},#{temp2,jdbcType=VARCHAR},#{attachurl,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into MG_NOTICE(ID,SERIALNO,TITLE,CONTENT,PUBLICDATE,ISPUB,SCOPE,LASTUPDATETIME,TEMP1,TEMP2,ATTACHURL)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.serialno,jdbcType=VARCHAR},#{o.title,jdbcType=VARCHAR},#{o.content,jdbcType=VARCHAR},#{o.publicdate,jdbcType=DATE},#{o.ispub,jdbcType=VARCHAR},#{o.scope,jdbcType=VARCHAR},#{o.lastupdatetime,jdbcType=DATE},#{o.temp1,jdbcType=VARCHAR},#{o.temp2,jdbcType=VARCHAR},#{o.attachurl,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.notice.entity.MgNotice">
+    		update MG_NOTICE set SERIALNO=#{serialno}, TITLE=#{title}, CONTENT=#{content}, PUBLICDATE=#{publicdate}, ISPUB=#{ispub}, SCOPE=#{scope}, LASTUPDATETIME=#{lastupdatetime}, TEMP1=#{temp1}, TEMP2=#{temp2}, ATTACHURL=#{attachurl} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.notice.entity.MgNotice">
+		delete from MG_NOTICE where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from MG_NOTICE where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from MG_NOTICE where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from MG_NOTICE where         <if test="serialno!=null">and SERIALNO = #{serialno}</if><if test="title!=null">and TITLE = #{title}</if><if test="content!=null">and CONTENT = #{content}</if><if test="publicdate!=null">and PUBLICDATE = #{publicdate}</if><if test="ispub!=null">and ISPUB = #{ispub}</if><if test="scope!=null">and SCOPE = #{scope}</if><if test="lastupdatetime!=null">and LASTUPDATETIME = #{lastupdatetime}</if><if test="temp1!=null">and TEMP1 = #{temp1}</if><if test="temp2!=null">and TEMP2 = #{temp2}</if><if test="attachurl!=null">and ATTACHURL = #{attachurl}</if>    </delete>
+
+    <select id="find" resultMap="MgNotice" parameterType="org.gecko.framework.notice.entity.MgNotice">
+        select MgNotice.* from MG_NOTICE MgNotice where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="serialno!=null"> and SERIALNO = #{serialno} </if><if test="title!=null"> and TITLE = #{title} </if><if test="content!=null"> and CONTENT = #{content} </if><if test="publicdate!=null"> and PUBLICDATE = #{publicdate} </if><if test="ispub!=null"> and ISPUB = #{ispub} </if><if test="scope!=null"> and SCOPE = #{scope} </if><if test="lastupdatetime!=null"> and LASTUPDATETIME = #{lastupdatetime} </if><if test="temp1!=null"> and TEMP1 = #{temp1} </if><if test="temp2!=null"> and TEMP2 = #{temp2} </if><if test="attachurl!=null"> and ATTACHURL = #{attachurl} </if>    </select>
+
+	<select id="findByPage" resultMap="MgNotice" parameterType="org.gecko.framework.notice.entity.MgNotice">
+		select MgNotice.* from MG_NOTICE MgNotice where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.serialno!=null"> and SERIALNO = #{param.serialno} </if><if test="param.title!=null"> and TITLE = #{param.title} </if><if test="param.content!=null"> and CONTENT = #{param.content} </if><if test="param.publicdate!=null"> and PUBLICDATE = #{param.publicdate} </if><if test="param.ispub!=null"> and ISPUB = #{param.ispub} </if><if test="param.scope!=null"> and SCOPE = #{param.scope} </if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME = #{param.lastupdatetime} </if><if test="param.temp1!=null"> and TEMP1 = #{param.temp1} </if><if test="param.temp2!=null"> and TEMP2 = #{param.temp2} </if><if test="param.attachurl!=null"> and ATTACHURL = #{param.attachurl} </if>	</select>
+
+    <select id="likeByPage" resultMap="MgNotice" parameterType="org.gecko.framework.notice.entity.MgNotice">
+        select MgNotice.* from MG_NOTICE MgNotice where 1=1
+        <if test="param.serialno!=null"> and SERIALNO like #{param.serialno}</if><if test="param.title!=null"> and TITLE like #{param.title}</if><if test="param.content!=null"> and CONTENT like #{param.content}</if><if test="param.publicdate!=null"> and PUBLICDATE like #{param.publicdate}</if><if test="param.ispub!=null"> and ISPUB like #{param.ispub}</if><if test="param.scope!=null"> and SCOPE like #{param.scope}</if><if test="param.lastupdatetime!=null"> and LASTUPDATETIME like #{param.lastupdatetime}</if><if test="param.temp1!=null"> and TEMP1 like #{param.temp1}</if><if test="param.temp2!=null"> and TEMP2 like #{param.temp2}</if><if test="param.attachurl!=null"> and ATTACHURL like #{param.attachurl}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE MG_NOTICE SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>

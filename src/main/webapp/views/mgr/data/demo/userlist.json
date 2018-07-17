@@ -1,0 +1,106 @@
+{
+    "data": [{
+        "id": 1,
+        "name": "朱旭刚",
+        "sex":"男",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        "createTime":"2012-12-01"
+        
+    }, {
+       "id": 2,
+        "name": "宁富纯",
+        "sex":"男",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        "createTime":"2012-12-01"
+    },{
+       "id": 3,
+        "name": "何琪琪",
+        "sex":"女",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        "createTime":"2012-12-01"
+    },{
+       "id": 4,
+        "name": "陆蕴莹",
+        "sex":"女",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        "createTime":"2012-12-01"
+    },{
+       "id": 5,
+        "name": "赖琪情",
+        "sex":"女",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        "createTime":"2012-12-01"
+    },{
+       "id": 6,
+        "name": "余斌",
+        "sex":"男",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        "createTime":"2012-12-01"
+    },{
+       "id": 7,
+        "name": "王鹏",
+        "sex":"男",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        "createTime":"2012-12-01"
+    },{
+       "id": 8,
+        "name": "毕结维",
+        "sex":"男",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        
+        "createTime":"2012-12-01"
+    },{
+       "id": 9,
+        "name": "张茂海",
+        "sex":"男",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        
+        "createTime":"2012-12-01"
+    },{
+       "id": 10,
+        "name": "罗晓东",
+        "sex":"男",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        
+        "createTime":"2012-12-01"
+    },{
+       "id": 11,
+        "name": "陈瑞丽",
+        "sex":"女",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        
+        "createTime":"2012-12-01"
+    },{
+       "id": 12,
+        "name": "黄春燕",
+        "sex":"女",
+        "account":12345,
+        "phoneNum":13577891230,
+        "email":"12324",
+        
+        "createTime":"2012-12-01"
+    }]
+    
+}

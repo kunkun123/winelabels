@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/static/styles/css/tree.css">
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/chosen.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/ace-fonts.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/organization.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap-table.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/gecko.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/jquery-ui.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap-datetimepicker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/ace.css"/>
+				
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/static/scripts/app/acceptance/gridcomplex/index.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.jqGrid.src.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery-ui.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+		<script src="/static/scripts/gecko-modules/jquery/jquery.ztree.all-3.5.min.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.ui.touch-punch.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/chosen.jquery.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-datetimepicker.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/ace/fuelux.spinner.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/ace/ace.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid gird-complex">
+			<div class="row breadcrumbs  gird-complex-top" >
+				<div class="lt query">
+					<dl class=" query-dl">
+						<dt class="lt" style="margin-top:14px">服务地址</dt>
+						<dd class="lt">
+							<input class="gird-search-input " type="text" name="" id="" value="" placeholder="请输入服务地址" />
+						</dd>
+						<dd class="lt">
+							<button class="btn btn-sm btn-primary">
+								<i class="ace-icon fa fa-search-minus bigger-110"></i>
+								查询
+						    </button>
+						</dd>
+					</dl>
+				</div>
+				<div class="rt">
+					<button class="btn btn-sm btn-primary" >
+						<i class="ace-icon fa fa-pencil-square bigger-110"></i>
+						新增服务
+					</button>
+					<button class="btn btn-sm btn-success">
+						<i class="ace-icon fa fa-refresh bigger-110"></i>
+						刷新页面
+				   </button>					
+				</div>
+			</div>
+			<!--表格部分的内容-->
+			<div class="gird-complex-body">	
+				<table id="complex-table"></table>
+			</div>
+			<!--表格的footer部分-->			
+		</div>
+		<!--点击删除弹出的模态框-->
+		<div id="deal-modal" class="modal fade role-modal">
+	        <div class="modal-dialog modal-sm" role="document">
+	            <div class="modal-content" style="margin-top:150px">
+	                <div class="modal-header">
+	                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                        <span aria-hidden="true">&times;</span>
+	                    </button>
+	                    <i class="normal-icon ace-icon fa fa-info-circle red bigger-130 user-icon"></i> <span
+	                        class="modal-title" style="color: #DD5A43">提示</span>
+	                </div>
+	                <!--modal-body部分-->
+	                <div class="modal-body del-info">
+	                    <p>确定要删除这条条数据吗？</p>
+	                </div>
+	                <!--modal-footer部分-->
+	                <div class="modal-footer">
+	                    <button class="btn btn-xs btn-primary" onclick="save('menuForm')">
+	                        <i class="ace-icon fa fa fa-check bigger-110"></i> 确定
+	                    </button>
+	                    <button class="btn btn-xs btn-default" data-dismiss="modal">
+	                        <i class="ace-icon fa fa-times bigger-110"></i> 取消
+	                    </button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</body>
+</html>

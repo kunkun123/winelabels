@@ -1,0 +1,561 @@
+/* info */
+.slider_info {
+	font-size: 12px;
+}
+
+.slider_info span {
+	position: absolute;
+}
+
+.slider_currentinfo {
+	color:#000000;
+	position: absolute;
+	font-size: 12px;
+	padding: 2px;
+	border : 1px solid black;
+	background-color: white;
+	border: 1px solid black;
+}
+
+/* end info*/
+
+/* Default skin */
+.slider_default {
+	position: relative;
+	overflow: hidden;
+	height: 14px;
+	left: 10px;
+}
+
+.slider_default .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 31px;
+	left: 5px;
+}
+
+.slider_default .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 3px;
+	height: 100%;
+}
+
+.slider_default .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	height: 100%;
+}
+
+.slider_default .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	height: 100%;
+}
+
+.slider_default .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 3px;
+	height: 100%;
+}
+
+.slider_default .rightZone {
+	position: absolute;
+	left: 3px;
+	top: 0px;
+	height: 100%;
+}
+/* End default skin */
+
+/* Ball skin */
+.slider_ball {
+	position: relative;
+	overflow: hidden;
+	height: 16px;
+	left: 10px;
+}
+
+.slider_ball .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 16px;
+	left: 5px;
+}
+
+.slider_ball .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 3px;
+	height: 100%;
+}
+
+.slider_ball .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	height: 100%;
+}
+
+.slider_ball .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	height: 100%;
+}
+
+.slider_ball .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 4px;
+	height: 100%;
+}
+
+.slider_ball .rightZone {
+	position: absolute;
+	left: 3px;
+	top: 0px;
+	height: 100%;
+}
+/* End ball skin */
+
+/* Zipper skin */
+.slider_zipper {
+	position: relative;
+	overflow: hidden;
+	height: 17px;
+	left: 10px;
+}
+
+.slider_zipper .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 17px;
+	left: 0px;
+}
+
+.slider_zipper .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 3px;
+	height: 100%;
+}
+
+.slider_zipper .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+}
+
+.slider_zipper .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+}
+
+.slider_zipper .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 4px;
+	height: 100%;
+}
+
+.slider_zipper .rightZone {
+	position: absolute;
+	left: 3px;
+	top: 0px;
+	height: 100%;
+}
+/* End zipper skin */
+
+/* Silverskin skin */
+.slider_simplesilver {
+	position: relative;
+	overflow: hidden;
+	height: 16px;
+	left: 10px;
+}
+
+.slider_simplesilver .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 15px;
+	left: 0px;
+}
+
+.slider_simplesilver .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1px;
+	height: 100%;
+}
+
+.slider_simplesilver .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_simplesilver .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_simplesilver .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 1px;
+	height: 100%;
+}
+
+.slider_simplesilver .rightZone {
+	position: absolute;
+	left: 3px;
+	top: 0px;
+	height: 100%;
+}
+/* End simplesilver skin */
+
+/* Simplegray skin */
+.slider_simplegray {
+	position: relative;
+	overflow: hidden;
+	height: 16px;
+	left: 10px;
+}
+
+.slider_simplegray .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 15px;
+	left: 0px;
+}
+
+.slider_simplegray .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1px;
+	height: 100%;
+}
+
+.slider_simplegray .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_simplegray .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_simplegray .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 1px;
+	height: 100%;
+}
+
+.slider_simplegray .rightZone {
+	position: absolute;
+	left: 3px;
+	top: 0px;
+	height: 100%;
+}
+/* End silver skin */
+
+/* Simplegray skin */
+.slider_bar {
+	position: relative;
+	overflow: hidden;
+	height: 21px;
+	left: 10px;
+}
+
+.slider_bar .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 15px;
+	left: 17px;
+}
+
+.slider_bar .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 17px;
+	height: 100%;
+}
+
+.slider_bar .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_bar .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_bar .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 17px;
+	height: 100%;
+}
+
+.slider_bar .rightZone {
+	position: absolute;
+	left: 3px;
+	top: 0px;
+	height: 100%;
+}
+/* End silver skin */
+
+/* Arrow skin */
+.slider_arrow {
+	position: relative;
+	overflow: hidden;
+	height: 14px;
+	left: 10px;
+}
+
+.slider_arrow .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 7px;
+	left: 1px;
+}
+
+.slider_arrow .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1px;
+	height: 100%;
+}
+
+.slider_arrow .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_arrow .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_arrow .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 1px;
+	height: 100%;
+}
+
+.slider_arrow .rightZone {
+	position: absolute;
+	left: 1px;
+	top: 0px;
+	height: 100%;
+}
+/* End arrow skin */
+
+/* Arrow green skin */
+.slider_arrowgreen {
+	position: relative;
+	overflow: hidden;
+	height: 21px;
+	left: 10px;
+}
+
+.slider_arrowgreen .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 11px;
+	left: 1px;
+}
+
+.slider_arrowgreen .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1px;
+	height: 100%;
+}
+
+.slider_arrowgreen .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_arrowgreen .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	height: 100%;
+}
+
+.slider_arrowgreen .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 1px;
+	height: 100%;
+}
+
+.slider_arrowgreen .rightZone {
+	position: absolute;
+	left: 1px;
+	top: 0px;
+	height: 100%;
+}
+/* End arrow skin */
+
+/* Skyblue skin */
+.slider_skyblue {
+	position: relative;
+	overflow: hidden;
+	height: 15px;
+	left: 10px;
+}
+
+.slider_skyblue .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 15px;
+	width: 15px;
+	left: 0px;
+}
+
+.slider_skyblue .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 0px;
+	height: 100%;
+}
+
+.slider_skyblue .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+}
+
+.slider_skyblue .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+}
+
+.slider_skyblue .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 0px;
+	height: 100%;
+}
+
+.slider_skyblue .rightZone {
+	position: absolute;
+	left: 3px;
+	top: 0px;
+	height: 100%;
+}
+/* End Skyblue skin */
+
+/* ipad skin */
+.slider_ipad {
+	position: relative;
+	overflow: hidden;
+	height: 24px;
+	left: 10px;
+}
+
+.slider_ipad .selector {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 24px;
+	left: 8px;
+}
+
+.slider_ipad .leftSide {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 8px;
+	height: 100%;
+}
+
+.slider_ipad .leftZone {
+	position: absolute;
+	top: 0px;
+	left: 8px;
+	height: 100%;
+}
+
+.slider_ipad .middleZone {
+	position: absolute;
+	top: 0px;
+	left: 8px;
+	height: 100%;
+}
+
+.slider_ipad .rightSide {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 8px;
+	height: 100%;
+	
+}
+
+.slider_ipad .rightZone {
+	position: absolute;
+	left: 8px;
+	top: 0px;
+	height: 100%;
+}
+/* End ipad skin */

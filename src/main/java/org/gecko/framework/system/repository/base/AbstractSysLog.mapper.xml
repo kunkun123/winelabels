@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.system.repository.dao.SysLogDao">
+	<resultMap id="SysLog" type="org.gecko.framework.system.entity.SysLog">
+		<result property="id" column="id" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.system.entity.SysLog">
+		select count(*) from system_sys_logs t where 1=1
+	</select>
+	
+	<select id="get" resultMap="SysLog" parameterType="String">
+		select  SysLog.* from system_sys_logs SysLog where SysLog.id = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.system.entity.SysLog">	
+ 		insert into system_sys_logs(id)
+ 		VALUES(#{id})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into system_sys_logs(id)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.system.entity.SysLog">
+    </update>
+	<delete id="delete" parameterType="org.gecko.framework.system.entity.SysLog">
+		delete from system_sys_logs where id=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from system_sys_logs where id=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from system_sys_logs where id in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from system_sys_logs             </delete>
+
+    <select id="find" resultMap="SysLog" parameterType="org.gecko.framework.system.entity.SysLog">
+        select SysLog.* from system_sys_logs SysLog where 1=1 <if test="id!=null">and id=#{id}</if>
+            </select>
+
+	<select id="findByPage" resultMap="SysLog" parameterType="org.gecko.framework.system.entity.SysLog">
+		select SysLog.* from system_sys_logs SysLog where 1=1 <if test="param.id!=null">and id=#{id}</if>
+			</select>
+
+    <select id="likeByPage" resultMap="SysLog" parameterType="org.gecko.framework.system.entity.SysLog">
+        select SysLog.* from system_sys_logs SysLog where 1=1
+            </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE system_sys_logs SET ${field} = #{value} WHERE id = #{pk}
+    </update>
+</mapper>

@@ -1,0 +1,331 @@
+body {
+    margin: 0;
+    font-family: Helvetica;
+    background: #FFFFFF;
+    color: #000000;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: none;
+}
+
+.pageTitle {
+    position: absolute;
+    overflow: hidden;
+    top: 8;
+    left: 50%;
+    margin: 1px 0 0 -75px;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #FFFFFF;
+}
+
+.toolbartd {
+	background: url(../img/ipad/toorbar_bg.jpg) repeat;
+    margin: 0px 0 0px 0px;
+    padding: 0px 5px 0px 5px;
+}
+
+.liclass {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    border-bottom: 1px solid #bdc6d5;
+    padding: 5px 0 5px 10px;
+    font-size: 19px;
+    list-style: none;
+}
+
+.liimgclass {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    border-bottom: 1px solid #bdc6d5;
+    padding: 5px 5 5px 6px;
+    font-size: 19px;
+    list-style: none;
+}
+
+.liclassspan {
+    display: block;
+    margin: -8px 0 -8px -10px;
+    padding: 0px 5px 0px 5px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.previewimgclass{
+	height:280px;
+	width:380px; 
+	background-color:#0b2856;
+}
+
+.previewimgTr{
+	height:369;
+	background-color:#0b2856;
+}
+
+.previewbackground {
+    background:  url(../img/ipad/imgbackground.jpg) no-repeat center;
+}
+
+.ipad_boby_div{
+	margin:0px;
+	overflow:auto;
+	background-color: #ffffff;
+    margin:0px 0px 0px 0px;
+	overflow:hidden;
+	background-image:url(../img/ipad/login/logint_bg.jpg);
+    background-repeat:no-repeat;
+	background-position:center;
+}
+.ipad_img_topbg{
+    /*background-image:url(../img/ipad/login/login_top_line.jpg);*/
+    background-repeat:repeat-x;
+    background-position:top;
+}
+
+.ipadLayer1{
+   position:relative;
+   width:506px; 
+   height:350px;
+   z-index:1;   
+   border: 0px none #fff;
+}
+
+.ipadLayer2 {
+	position:absolute;
+	left:40px;
+	top:75px;
+	width:460px;
+	height:230px;
+	z-index:2;
+}
+
+.ipad_img_top{
+	/*background-image:url(../img/login/login_top_img.jpg);*/
+	width:506px;
+	height:71px;
+}
+
+.ipad_img_bottom{
+	/*background-image:url(../img/login/login_bottom_img.jpg);*/
+	width:506px;
+	height:276px;
+}
+
+.ipad_user_css{
+	width:252px;
+	height:25px;
+	padding:4px 0px 0px 1px;
+}
+
+.ipad_passwoard_css{
+	width:252px;
+	height:25px;
+	padding:0px 0px 0px 1px;
+}
+
+.ipad_save_css{
+	height:10px;
+	padding:10 0 2 0px;
+}
+
+.ipad_button_css{
+	heigh:42px;
+	padding:8 0 0 155px;
+}
+
+.ipad_font01{color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+.ipad_font02{color: #ffffff; font-family:Arial, Helvetica, sans-serif，"宋体"; font-size: 12px;font-weight:bold;  }
+.ipad_font03{color: #999999;font-family:Arial, Helvetica, sans-serif，"宋体";font-size: 12px;letter-spacing: 1px;}
+.ipad_font04{color:#ffffff;font-family:Arial, Helvetica, sans-serif，"宋体";font-size: 16px; font-weight:bold; text-align:right;}
+
+.ipad_input_style{
+	border:1px solid #92a2b9;
+	height:25px;
+	width:250px;
+	size:13px;
+	font-size: 16px;
+}
+.login img{ border:0px;} 
+
+.h_paging_panel_left{
+	background-image:url(../img/ipad/panel/tabpanel_bg.png);
+	height:31px;
+	display:-moz-inline-box; 
+	display:inline-block;
+	width:7px;
+	margin-left:1px;
+	cursor:pointer;
+	margin-right: 0px;
+}
+.h_paging_panel{
+	background-image:url(../img/ipad/panel/tabpanel_bg.png);
+	color:#ffffff;
+	font-size:16px;
+	height:31px;
+	text-align:center;
+	cursor:pointer;
+	display:-moz-inline-box; 
+	display:inline-block;
+	line-height:31px;
+	overflow:hidden;
+	vertical-align:top;
+}
+.h_paging_panel_right{
+	background-image:url(../img/ipad/panel/tabpanel_bg.png);
+	height:31px;
+	display:-moz-inline-box; 
+	display:inline-block;
+	width:7px;
+	margin-right:1px;
+	cursor:pointer;
+	margin-left: 0px;
+}
+.h_paging_panel_highlight_left{
+	background-image:url(../img/ipad/panel/tabpanel_bg_s.png);
+	height:31px;
+	cursor:pointer;
+	display:-moz-inline-box; 
+	display:inline-block;
+	margin-left:1px;
+	margin-right:1px;
+	overflow:hidden;
+	width:7px;
+	margin-left:1px;
+	margin-right: 0px;
+	cursor:pointer;
+}
+.h_paging_panel_highlight{
+	background-image:url(../img/ipad/panel/tabpanel_bg_s.png);
+	color:#ffffff;
+	font-size:16px;
+	height:31px;
+	text-align:center;
+	cursor:pointer;
+	display:-moz-inline-box; 
+	display:inline-block;
+	line-height:31px;
+	overflow:hidden;
+	vertical-align:top;
+}
+.h_paging_panel_highlight_right{
+	background-image:url(../img/ipad/panel/tabpanel_bg_s.png);
+	height:31px;
+	cursor:pointer;
+	display:-moz-inline-box; 
+	display:inline-block;
+	margin-left:1px;
+	margin-right:1px;
+	overflow:hidden;
+	width:7px;
+	margin-right:1px;
+	cursor:pointer;
+	margin-left: 0px;
+}
+.h_bull_panel{
+	color:#697279;
+	font-size:24px;
+	height:31px;
+	width:20px;
+	line-height:31px;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+	display:-moz-inline-box; 
+	display:inline-block;
+	margin-left:1px;
+	margin-right:1px;
+}
+
+.h_bull_panel_highlight{
+	color:#D0D0D0;
+	font-size:24px;
+	height:31px;
+	width:20px;
+	line-height:31px;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+	display:-moz-inline-box; 
+	display:inline-block;
+	margin-left:1px;
+	margin-right:1px;
+}
+
+/* 第三种方案 ,实现换图片即换背景*/
+.other_panel_left{
+	background-image:url(../img/ipad/panel/ot_penel_left.png);
+	height:30px;
+	display:-moz-inline-box; 
+	display:inline-block;
+	width:15px;
+	margin-left:4px;
+	cursor:pointer;
+	margin-right: 0px;
+	vertical-align:top;
+}
+.other_panel{
+	background-image:url(../img/ipad/panel/ot_penel.png);
+	color:gray;
+	font-weight:bold;
+	font-size:14px;
+	height:30px;
+	text-align:center;
+	cursor:pointer;
+	display:-moz-inline-box; 
+	display:inline-block;
+	line-height:29px;
+	overflow:hidden;
+	vertical-align:top;
+}
+.other_panel_right{
+	background-image:url(../img/ipad/panel/ot_penel_right.png);
+	height:30px;
+	display:-moz-inline-box; 
+	display:inline-block;
+	width:15px;
+	margin-left:0px;
+	cursor:pointer;
+	margin-right: 4px;
+	vertical-align:top;
+}
+.other_panel_highlight_left{
+	background-image:url(../img/ipad/panel/ot_penel_highlight_left.png);
+	height:31px;
+	display:-moz-inline-box; 
+	display:inline-block;
+	width:15px;
+	margin-left:4px;
+	cursor:pointer;
+	margin-right: 0px;
+}
+.other_panel_highlight{
+	background-image:url(../img/ipad/panel/ot_penel_highlight.png);
+	color:black;
+	font-size:16px;
+	font-weight:bold;
+	height:31px;
+	text-align:center;
+	cursor:pointer;
+	display:-moz-inline-box; 
+	display:inline-block;
+	line-height:31px;
+	overflow:hidden;
+	vertical-align:top;
+}
+.other_panel_highlight_right{
+	background-image:url(../img/ipad/panel/ot_penel_highlight_right.png);
+	height:31px;
+	display:-moz-inline-box; 
+	display:inline-block;
+	width:15px;
+	margin-left:0px;
+	cursor:pointer;
+	margin-right: 4px;
+}

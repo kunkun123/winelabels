@@ -1,0 +1,512 @@
+/*通用样式*/
+/*body,html{
+	height:100%;
+}*/
+.padding-0{
+	padding:0px !important;
+}
+.lt{
+	float:left !important;
+}
+.rt{
+		float:right !important;
+}
+.control-label{
+	padding-top:3px !important;
+}
+label{
+	font-weight: normal !important;
+	padding-left: 0px !important;
+}
+.fontSize{
+	font-size:12px;
+}
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+button{
+	border:none !important;
+	outline: none !important;
+}
+.overflow{
+	overflow: hidden;
+}
+.btn-group-sm>.btn, .btn-sm {
+	/*padding: 5px 10px;*/
+	/*font-size: 12px;*/
+	/*line-height: 1.5;*/
+	border-radius: 3px;
+}
+
+/*account的css样式*/
+.add-btn,.edit-btn,.lock-btn,.delete-btn{
+	border-radius:0 !important;
+	position:relative;
+	height:25px;
+	width:55px;
+}
+.add-btn span,.edit-btn span,.lock-btn span,.delete-btn span {
+	display: inline-block;
+	position:absolute;
+	box-sizing: border-box;
+	font-size: 12px;
+	top:4px;
+	right:5px;
+	font-family: "微软雅黑";
+}
+.add-btn i,.edit-btn i,.lock-btn i,.delete-btn i{
+	position: absolute;
+	top:5px;
+	left:5px;
+}
+#tool{
+	background:#FFFFFF;
+	height:40px;
+	line-height:35px;
+	padding:0px 10px;
+	box-sizing: border-box;
+	position: relative;
+}
+.search-box{
+	position: absolute;
+	right:10px;
+	top:0px;
+}
+.search-input{
+	height:32px;
+}
+/*menu的css样式*/
+.menu-content{
+	padding-top:none;
+	height:550px;
+}
+ .menu-content div{
+    	height:100%;
+    	width:100%;
+    } 
+    
+ .menu-content iframe{
+    		height:100%;
+    		width:100%;
+    		border:none;
+   }  
+html,body{
+    	height:100%;
+   }
+/*organization*/
+.page-content{
+	height:509px;
+}
+.page-left{
+	border:solid 1px #DAE0E7;
+	border-top:solid 2px #4C8EBC;
+	height:487px;
+	overflow:scroll;
+	overflow-x: hidden;
+}
+.page-right{
+	padding-left:10px !important;
+}
+.list-group{
+	border:solid 1px #DAE0E7;
+	border-top:none;
+	height:444px;
+	padding:0px 15px !important;
+	box-sizing: border-box;
+	margin-top:1px;
+}
+.list-group-item{
+	border:dotted 1px #DAE0E7 !important;
+	border-right:none !important;
+	border-left:none !important;
+}
+.list-group-item:first-child{
+	border-top:none !important;	
+}
+.tap{
+	border-top:solid 2px #4C8EBC !important;
+}
+.tree{
+	background:red !important;
+}
+.row-fluid{
+	background: #FFFFFF !important;
+}
+.tree-widget-box{
+	border:none !important;
+}
+
+#table>tbody>tr{
+	height:10px;
+}
+
+/*account文件中模态窗口的css代码*/
+/*.modal-content{
+	height:500px;
+	width:400px;
+	margin-left:95px;
+}*/
+.modal-header{
+	height:30px;
+	padding:5px;
+	font-size: 14px !important;
+	border-top-left-radius:5px !important;
+	border-top-right-radius:5px !important;
+}
+.role-box{
+	width:100%;
+	height:78px;
+}
+.role-select{
+	height:36px;
+}
+.role-input{
+	width:100%;
+	height:40px;
+	line-height: 20px;
+	border:solid 1px #CCCCCC;
+	padding: 4px 4px 0px 4px;
+	margin-top:2px;
+	
+}
+.search-choice{
+  width:60px;
+  height:25px;
+  position: relative;
+  margin: 3px 5px 3px 0;
+  padding: 3px 0px 3px 5px;
+  border: 1px solid #aaa;
+  max-width: 100%;
+  border-radius: 3px;
+  background-color: #F2F2F2;
+  
+  box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  color: #333;
+  line-height:18px;
+  cursor: default;
+  font-size:12px;
+}
+.search-choice span{
+	color:#515051;
+}
+.role-tree{
+	width:100%;
+	height:330px;
+	border:solid 1px #CCCCCC;
+	margin-top:5px;
+	overflow-y: scroll;
+}
+.modal-footer{
+	/*height:34px;
+	width:368px;*/
+	background:#FFFFFF;
+	text-align:center;
+	padding-top:0px;
+	padding-bottom:18px !important;
+	border-top:none !important;
+}
+.search-choice-close{
+	display:inline-block;
+	height:10px;
+	width:10px;
+	position: absolute;
+	top:8px;
+	right:4px;
+	background: url(../images/atvar/chosen-sprite.png) -42px -1px no-repeat;
+}
+.save{
+   height: 25px;
+   padding:2px 0px !important;
+   width: 55px;
+   font-size: 12px;
+   border-radius:0px;
+}
+.modal-body{
+	padding-top:5px;
+}
+.modal-title{
+	display: inline-block;
+	margin-left:4px;
+	margin-bottom: 10px !important;
+}
+.user-icon{
+	display: inline-block;
+	margin-left:12px;
+}
+/*role页面的css*/
+#toolbar{
+	background:#FAFAFA;
+	height:41px;
+	line-height:35px;
+	padding:2px 20px;
+	box-sizing: border-box;
+	position: relative;
+}
+.add,.edit,.delete{
+	border-radius:0 !important;
+	position:relative;
+	height:25px;
+	width:55px;
+}
+.add span,.edit span,.lock span,.delete span {
+	display: inline-block;
+	position:absolute;
+	box-sizing: border-box;
+	font-size: 12px;
+	top:0px;
+	right:0px;
+	font-family: "微软雅黑";
+}
+.add i,.edit i,.lock i,.delete i{
+	position: absolute;
+	top:1px;
+	left:2px;
+}
+.menu-control{
+	height:417px;
+}
+.menu-control-btn{
+	height:40px;
+	width:100%;
+	padding-top:8px;
+	box-sizing: border-box;
+}
+
+.btn-save{
+	border-radius:0 !important;
+	position:relative;
+	height:25px;
+	width:55px;
+	float:left;
+}
+.btn-save span {
+	display: inline-block;
+	position:absolute;
+	box-sizing: border-box;
+	font-size: 12px;
+	top:0px;
+	right:0px;
+	font-family: "微软雅黑";
+}
+.btn-save i{
+	position: absolute;
+	top:1px;
+	left:2px;
+}
+.check-box{
+	display: inline-block;
+	height:25px;
+	width:55px;
+	background:#2283C5;
+}
+.check-all{
+	float:left;
+	height:25px;
+	width:55px;
+	background:#2283C5;
+	padding:4px 6px;
+	box-sizing: border-box;
+	color:#FFFFFF;
+	margin-left:10px;
+	
+}
+.lbl{
+	font-size:12px;
+}
+.mune-control-tree{
+	width:100%;
+	height:392px;
+	background:#009CEB;
+}
+.role-modal{
+	background:rgba(0,0,0,0.5) !important;
+}
+.modal-contain {
+    height: 180px !important;
+    width: 400px;
+    margin-left: 95px;
+}
+.include{
+	height:200px !important;
+	background:red;
+}
+.text{
+	width:300px !important;
+}
+.role-name{
+	margin-top:6px;
+	margin-right:6px;
+}
+.label{
+	border-bottom:dotted #E4EEF6 1px;
+	background:#FFFFFF;
+	color:#000000;
+	margin-left:5px;
+	width:196px;
+	text-align: left;
+	color:#5F615F;
+}
+
+.time-box{
+	width:120px !important;
+	height:20px;
+}
+.handle-are{
+	height:41px;
+	padding:3px 0px;
+	margin-bottom:0px !important;
+}
+.inpu-text{
+	height:34px;
+	width:120px;
+	border-radius:0px !important;
+}
+.margin-right{
+	margin-right:5px;
+}
+.query{
+	margin-left:8px !important;
+	margin-top:3px;
+}
+
+.pic-icon{
+	position:absolute !important;
+	height:10px;
+	width:10px;
+	background:#FFFFFF;
+	top:0px;
+	left:0px;
+}
+.login-tap{
+	height:266px;
+	width:500px;
+	position:absolute;
+	right:234px;
+	top:215px;
+	padding-left:70px;
+
+}
+.tab-content{
+	border:0px;
+}
+.account-login,.brush-login{
+	width:149px;
+}
+.account-form{
+	height:231px;
+}
+
+.loginSubmit{
+	height:223px !important;
+	/*background:red;*/
+}
+.btn-login{
+	width:100% !important;
+	outline: none !important;
+	background:#4C5576 !important;
+	height:34px !important;
+	color:#FFFFFF;
+}
+.input{
+	display: inline-block;
+	margin-top:26px !important;
+}
+.code {
+	text-align: center;
+}
+.code img{
+	height:160px;
+	width:220px;
+	margin-top:30px;
+}
+.logo-pic{
+	display: inline-block;
+	width:40px;
+	height:30px;
+	background:url(../images/log/logo2.png) no-repeat;
+	background-size:70% 100%;
+	position: absolute;
+	top:7px;
+	left:1px;
+}
+.logo-text{
+	display:inline-block;
+	margin-left: 24px;
+}
+.bus label{
+	margin-right: 5px;
+	font-weight: normal;
+}
+.bus select{
+	margin-right: 5px;
+	/*padding:0px !important;
+	width:80px;*/
+}
+/*点击按钮图标位置调整的代码*/
+.icon-place{
+	position: relative;
+	padding-left:28px;
+}
+.icon-place-pic{
+	position: absolute;
+	left:0px; top:9px;
+}
+.text-style{
+	height:30px;
+	background-color: #F5F2F2;
+}
+.bus-text-place{
+    text-align: right;
+	padding-top:3px;
+}
+.text-height{
+	height:30px;
+}
+.select-style{
+	width: 100%;
+	height:100% !important;
+	border: none;
+}
+.select-text{
+	border: solid 1px #DAE0E7;
+	border-top: solid 2px #4C8EBC;
+	margin-top:18px;
+	height:487px!important;
+}
+.date-search{
+	height: 50px;
+}
+.date-search div{
+	margin-right: 25px;
+}
+.pointer{
+	text-decoration: none !important;
+	cursor: pointer !important;
+}
+.duty-modal label{
+	width:130px;
+	text-align: right;
+	margin-right: 10px;
+}
+.duty-modal input,.duty-modal select {
+	width:200px;
+}
+.bus-con-style{
+	border:solid 1px #C1E3F7;
+	padding:3px 12px;
+	margin-right:5px;
+	margin-top:5px;
+	font-family: 微软雅黑;
+	font-size:12px;
+	display: inline-block;
+}
+#add-submit-btn{
+	outline:none !important;
+	border-width:0px;
+	padding:4px 8px;
+	border-radius: 3px;
+}
+.block-style{
+	display: none;
+}

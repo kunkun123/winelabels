@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/styles/css/tree.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/ace-fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/organization.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/ace.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/styles/gecko.css"/>
+    <script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.ztree.all-3.5.min.js"></script>
+    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Editable Table -->
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="/static/scripts/gecko-modules/bootstrap/bootstrap-editable.css">
+    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+    <script src="/static/scripts/gecko-modules/bootstrap/bootstrap-table-editable.js"></script>
+    <script src="/static/scripts/gecko-modules/bootstrap/bootstrap-editable.min.js"></script>
+
+    <!-- Custom  -->
+    <script type="text/javascript" src="/static/scripts/app/system/comm/utils.js"></script>
+    <script type="text/javascript" src="/static/scripts/app/system/resource/resource.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#resourceTable").bootstrapTable({
+                toolbar: "#toolbar",
+                idField: "id",
+                pagination: true,
+                limit: 15,
+                showRefresh: true,
+                sidePagination: "server",
+                search: true,
+                url: "/system/resource/list",
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: "id",
+                    visible: false
+                }, {
+                    field: "sourceName",
+                    title: "名称",
+                    editable: {
+                        type: 'text',
+                        title: '名称'
+                    }
+                }, {
+                    field: "resourceType",
+                    title: "类型",
+                    editable: {
+                        type: "select",
+                        source: [{value: 1, text: "SYSTEM"}, {value: 2, text: "CUSTOM"}],
+                        value: "2"
+                    }
+                }, {
+                    field: "isPlatform",
+                    title: "平台功能",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "parentId",
+                    title: "上级菜单",
+                    searchable: false,
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "uri",
+                    title: "链接地址",
+                    type: "text",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "iconCls",
+                    title: "图标",
+                    type: "text",
+                    editable: {
+                        type: "text"
+                    }
+                }, {
+                    field: "sortIndex",
+                    title: "排列顺序",
+                    type: "number",
+                    editable: {
+                        type: "number"
+                    }
+                }, {
+                    field: "available",
+                    title: "是否可用",
+                    editable: {
+                        type: "select",
+                        source: [{value: 1, text: "使用"}, {value: 0, text: "不使用"}],
+                        value: 1
+                    }
+                }],
+                onEditableSave: function (field, row, oldValue, e) {
+                    var data = {name: field, pk: row.id, value: row[field]};
+                    $.ajax({
+                        type: "post",
+                        url: "/system/resource/edit",
+                        data: data,
+                        dataType: 'JSON',
+                        content: "application/json;charset=UTF8",
+                        success: function (data, status) {
+                            if (status === "success") {
+                                //info("authorityTable", '修改成功');
+                            }
+                        },
+                        error: function () {
+                            //info('authorityTable', '编辑失败');
+                        },
+                        complete: function () {
+
+                        }
+                    });
+                }
+            });
+        });
+        var remove = function () {
+            var table = $("#resourceTable");
+            var selected = table.bootstrapTable("getSelections");
+            var ids = [];
+            selected.forEach(function (t) {
+                ids.push(t.id)
+            });
+
+            if (ids.length >= 1 && confirm("请谨慎删除，确认删除以下数据据：" + ids)) {
+                $.ajax({
+                    url: "/system/resource/delete", data: JSON.stringify(ids), type: "DELETE",
+                    contentType: "application/json;charset=utf8",
+                    success: function (resp) {
+                        if (resp.code === 0) {
+                            info("authorityTable", "删除成功");
+                            $("#resourceTable").bootstrapTable('remove', {field: 'id', values: ids});
+                        }
+                    }
+                });
+            }
+        };
+        var addResource = function () {
+            var table = $("#resourceTable");
+            var rowData = {
+                id: "",
+                sourceName: "新菜单",
+                resourceType: 2,
+                sortIndex: 0,
+                available: 1,
+                iconCls: "glyphicon glyphicon-link",
+                isPlatform:2
+            };
+            $.ajax({
+                url: "/system/resource/save",
+                data: JSON.stringify(rowData),
+                type: "put",
+                contentType: "application/json; charset=UTF-8",
+                success: function (res) {
+                    rowData.id = res.data.id;
+                    table.bootstrapTable("insertRow", {index: 0, row: rowData});
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div class="breadcrumbs" id="breadcrumbs" style="height:41px;">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('breadcrumbs', 'fixed')
+        } catch (e) {
+        }
+    </script>
+    <ul class="breadcrumb">
+        <li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">首页</a></li>
+        <li class="active">菜单管理</li>
+    </ul>
+</div>
+<div class="btn-group" id="toolbar">
+    <button id="addMenu" data-type="add" class="btn btn-primary" onclick="addResource();">添加菜单</button>
+    <button id="removeLink" data-type="delete" class="btn btn-danger" onclick="remove();">删除菜单</button>
+</div>
+<div class="page-content">
+    <table id="resourceTable"></table>
+</div>
+</body>
+</html>

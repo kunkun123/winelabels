@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/ace-fonts.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap-table.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/ace.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/gecko.css"/>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+	    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+		<script type="text/javascript" src="/static/scripts/app/system/sessioncontrol/index.js"></script>
+		<style type="text/css">
+			.sql-top{
+				height:41px;
+			}
+			.ref-time{
+				margin-top:9px;
+			}
+			.time-sec{
+				width:80px;
+			}			
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid" style="padding-top:10px;">
+			<div class="row sql-top">
+				<div class="col-md-3 pull-right" style="padding:0px">
+					<button class="btn btn-primary btn-sm rt" style="margin-right:12px">暂停刷新</button>		
+					<div class="role-select rt" style="margin-right:5px">
+						<select class="chosen-select form-control time-sec">
+							<option value="">10s</option>
+							<option value="AL">20s</option>
+							<option value="AK">30s</option>
+							<option value="AZ">40s</option>
+							<option value="AR">50s</option>
+						</select>
+					</div>
+					<lable class='rt ref-time' style='margin-right:5px'>刷新时间</lable>	
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<!--<table class="table table-bordered">  
+					  	<thead> 															
+							<tr>      
+								<th>N</th>      
+								<th>SESSIONID</th>
+								<th>Principal</th>
+								<th>创建时间</th>
+								<th>最后访问时间</th>
+								<th>访问ip地址</th>
+								
+								<th>总共请求时间</th>
+								<th>执行中</th>
+								<th>最大并发</th>
+								<th>Jdbc执行数</th>
+								<th>Jdbc时间</th>
+								<th>事务提交数</th>
+								<th>事务回滚数</th> 
+								<th>读取行数</th>
+								<th>更新行数</th> 
+							</tr>  
+						</thead>  
+						<tbody>    
+							<tr>      
+								<td>1</td>      
+								<td>2</td>
+								<td>3</td>      
+								<td>4</td>
+								<td>5</td>      
+								<td>6</td>
+								<td>7</td>      
+								<td>8</td>
+								<td>9</td>      
+								<td>10</td>
+								<td>11</td>      
+								<td>12</td>
+								<td>13</td>      
+								<td>14</td>
+								<td>15</td>      
+							</tr>  
+						</tbody>
+					</table>-->
+					<table id="sessionTable"></table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

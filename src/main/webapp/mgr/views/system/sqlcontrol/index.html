@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/ace-fonts.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap-table.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/ace.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/gecko.css"/>
+
+		<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+	    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+		<script type="text/javascript" src="/static/scripts/app/system/sqlcontrol/index.js"></script>
+			
+		
+		<style type="text/css">
+			.sql-top{
+				height:41px;
+			}
+			.ref-time{
+				margin-top:9px;
+			}
+			.time-sec{
+				width:80px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid" style="padding-top:10px;">
+			<div class="row sql-top">
+				<div class="col-md-3 pull-right" style="padding:0px">
+				<button class="btn btn-primary btn-sm rt" style="margin-right:12px">暂停刷新</button>					
+					<div class="role-select rt" style="margin-right:5px">
+						<select class="chosen-select form-control time-sec">
+							<option value="">10s</option>
+							<option value="AL">20s</option>
+							<option value="AK">30s</option>
+							<option value="AZ">40s</option>
+							<option value="AR">50s</option>
+						</select>
+					</div>
+					<lable class='rt ref-time' style='margin-right:5px'>刷新时间</lable>										
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<table id="sqlTable"></table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-CN">
+	<head>
+	    <title></title>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    
+	
+	   	<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery.js"></script>
+	   	<script type="text/javascript" src="/static/scripts/gecko-modules/jquery/jquery-ui.js"></script>
+	    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap.min.js"></script>
+	    <script src="/static/scripts/gecko-modules/jquery/jquery.ztree.all-3.5.min.js"></script>
+	    <script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-table-zh-CN.js"></script>
+		<script type="text/javascript" src="/static/scripts/gecko-modules/bootstrap/bootstrap-datepicker.js"></script>
+		<!--<script type="text/javascript" src="/static/scripts/app/system/account/role.js"></script>-->
+		<script type="text/javascript" src="/static/scripts/app/system/logquery/index.js"></script>
+
+	
+	
+	    <link rel="stylesheet" href="/static/styles/css/tree.css">
+	    <link rel="stylesheet" type="text/css" href="/static/styles/css/ace-fonts.css"/>
+	    <link rel="stylesheet" type="text/css" href="/static/styles/css/font-awesome.css"/>
+	    <link rel="stylesheet" type="text/css" href="/static/styles/css/organization.css"/>
+	    <link rel="stylesheet" type="text/css" href="/static/styles/css/ace.css"/>
+	   	<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap-table.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/gecko.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/styles/css/jquery-ui.css"/>
+		<style>
+			/*bootstrap-table-cssy样式的重写*/
+			.fixed-table-container.bs-checkbox .th-inner{
+				padding:30px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="breadcrumbs" id="breadcrumbs" style="height: 41px; padding-top:5px;">
+			<div class="input-group input-group-sm time-box lt" style="margin-left:5px;">
+				<input type="text" id="datepicker1" class="form-control" />
+				<span class="input-group-addon">
+					<i class="ace-icon fa fa-calendar"></i>
+				</span>
+			</div>
+			<div class="input-group input-group-sm time-box lt" style="margin-left:5px;" >
+				<input type="text" id="datepicker2" class="form-control" />
+				<span class="input-group-addon">
+					<i class="ace-icon fa fa-calendar"></i>
+				</span>
+			</div>
+			<div class="lt time-box" style="margin-left:5px;">
+				<select id="form-field-select-3" class="chosen-select form-control"  data-placeholder="Choose a State..." style="height:30px !important;border-radius:0px !important;" >
+					<option value="">请选择级别</option>
+					<option value="AL">普通</option>
+					<option value="AK">警告</option>
+					<option value="AZ">打印专员</option>
+					<option value="AR">档案管理员</option>
+				</select>
+			</div>
+			<div class="input-group input-group-sm time-box lt" style="margin-left:5px;" >
+				<button class="btn btn-sm btn-primary" style="line-height: 25px !important;">
+					<i class="ace-icon fa fa-search bigger-110"></i>
+					<span class="bigger-120 no-text-shadow">查询</span>
+			    </button>
+			</div>
+		</div>
+		 <div>
+		 	<table id="logTable"></table>
+		 </div>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.system.repository.dao.PositionDao">
+	<resultMap id="Position" type="org.gecko.framework.system.entity.Position">
+		<result property="id" column="id" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.system.entity.Position">
+		select count(*) from system_positions t where 1=1
+	</select>
+	
+	<select id="get" resultMap="Position" parameterType="String">
+		select  Position.* from system_positions Position where Position.id = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.system.entity.Position">	
+ 		insert into system_positions(id)
+ 		VALUES(#{id})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into system_positions(id)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.system.entity.Position">
+    </update>
+	<delete id="delete" parameterType="org.gecko.framework.system.entity.Position">
+		delete from system_positions where id=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from system_positions where id=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from system_positions where id in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from system_positions             </delete>
+
+    <select id="find" resultMap="Position" parameterType="org.gecko.framework.system.entity.Position">
+        select Position.* from system_positions Position where 1=1 <if test="id!=null">and id=#{id}</if>
+            </select>
+
+	<select id="findByPage" resultMap="Position" parameterType="org.gecko.framework.system.entity.Position">
+		select Position.* from system_positions Position where 1=1 <if test="param.id!=null">and id=#{id}</if>
+			</select>
+
+    <select id="likeByPage" resultMap="Position" parameterType="org.gecko.framework.system.entity.Position">
+        select Position.* from system_positions Position where 1=1
+            </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE system_positions SET ${field} = #{value} WHERE id = #{pk}
+    </update>
+</mapper>
