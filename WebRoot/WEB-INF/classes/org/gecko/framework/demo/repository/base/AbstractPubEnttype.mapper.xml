@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.gecko.framework.demo.repository.dao.PubEnttypeDao">
+	<resultMap id="PubEnttype" type="org.gecko.framework.demo.entity.PubEnttype">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="creator" column="CREATOR" jdbcType="VARCHAR" />
+		<result property="parententtype" column="PARENTENTTYPE" jdbcType="VARCHAR" />
+		<result property="enttypename" column="ENTTYPENAME" jdbcType="VARCHAR" />
+		<result property="enttypenum" column="ENTTYPENUM" jdbcType="VARCHAR" />
+		<result property="groupid" column="GROUPID" jdbcType="VARCHAR" />
+		<result property="sourceid" column="SOURCEID" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="count" resultType="int" parameterType="org.gecko.framework.demo.entity.PubEnttype">
+		select count(*) from PUB_ENTTYPE t where 1=1
+	</select>
+	
+	<select id="get" resultMap="PubEnttype" parameterType="String">
+		select  PubEnttype.* from PUB_ENTTYPE PubEnttype where PubEnttype.ID = #{id}
+	</select>
+
+	<insert id="save" parameterType="org.gecko.framework.demo.entity.PubEnttype">	
+ 		insert into PUB_ENTTYPE(ID,CREATOR,PARENTENTTYPE,ENTTYPENAME,ENTTYPENUM,GROUPID,SOURCEID)
+ 		VALUES(#{id},#{creator,jdbcType=VARCHAR},#{parententtype,jdbcType=VARCHAR},#{enttypename,jdbcType=VARCHAR},#{enttypenum,jdbcType=VARCHAR},#{groupid,jdbcType=VARCHAR},#{sourceid,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchSave" parameterType="java.util.List">	
+ 		insert into PUB_ENTTYPE(ID,CREATOR,PARENTENTTYPE,ENTTYPENAME,ENTTYPENUM,GROUPID,SOURCEID)
+		values
+		<foreach item="o" collection="list"  separator="," >
+ 		(#{o.id},#{o.creator,jdbcType=VARCHAR},#{o.parententtype,jdbcType=VARCHAR},#{o.enttypename,jdbcType=VARCHAR},#{o.enttypenum,jdbcType=VARCHAR},#{o.groupid,jdbcType=VARCHAR},#{o.sourceid,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<update id="update" parameterType="org.gecko.framework.demo.entity.PubEnttype">
+    		update PUB_ENTTYPE set CREATOR=#{creator}, PARENTENTTYPE=#{parententtype}, ENTTYPENAME=#{enttypename}, ENTTYPENUM=#{enttypenum}, GROUPID=#{groupid}, SOURCEID=#{sourceid} where ID=#{id}
+	</update>
+	<delete id="delete" parameterType="org.gecko.framework.demo.entity.PubEnttype">
+		delete from PUB_ENTTYPE where ID=#{id}
+	</delete>
+	
+	<delete id="deleteById" parameterType="String">
+		delete from PUB_ENTTYPE where ID=#{id}
+	</delete>
+	
+	<delete id="batchDelete">
+		delete from PUB_ENTTYPE where ID in
+		<foreach item="ids" collection="array" open="(" separator="," close=")" >#{ids}</foreach>
+	</delete>
+	
+	<delete id="batchDeleteBy">
+        delete from PUB_ENTTYPE where         <if test="creator!=null">and CREATOR = #{creator}</if><if test="parententtype!=null">and PARENTENTTYPE = #{parententtype}</if><if test="enttypename!=null">and ENTTYPENAME = #{enttypename}</if><if test="enttypenum!=null">and ENTTYPENUM = #{enttypenum}</if><if test="groupid!=null">and GROUPID = #{groupid}</if><if test="sourceid!=null">and SOURCEID = #{sourceid}</if>    </delete>
+
+    <select id="find" resultMap="PubEnttype" parameterType="org.gecko.framework.demo.entity.PubEnttype">
+        select PubEnttype.* from PUB_ENTTYPE PubEnttype where 1=1 <if test="id!=null">and ID=#{id}</if>
+        <if test="creator!=null"> and CREATOR = #{creator} </if><if test="parententtype!=null"> and PARENTENTTYPE = #{parententtype} </if><if test="enttypename!=null"> and ENTTYPENAME = #{enttypename} </if><if test="enttypenum!=null"> and ENTTYPENUM = #{enttypenum} </if><if test="groupid!=null"> and GROUPID = #{groupid} </if><if test="sourceid!=null"> and SOURCEID = #{sourceid} </if>    </select>
+
+	<select id="findByPage" resultMap="PubEnttype" parameterType="org.gecko.framework.demo.entity.PubEnttype">
+		select PubEnttype.* from PUB_ENTTYPE PubEnttype where 1=1 <if test="param.id!=null">and ID=#{id}</if>
+		<if test="param.creator!=null"> and CREATOR = #{param.creator} </if><if test="param.parententtype!=null"> and PARENTENTTYPE = #{param.parententtype} </if><if test="param.enttypename!=null"> and ENTTYPENAME = #{param.enttypename} </if><if test="param.enttypenum!=null"> and ENTTYPENUM = #{param.enttypenum} </if><if test="param.groupid!=null"> and GROUPID = #{param.groupid} </if><if test="param.sourceid!=null"> and SOURCEID = #{param.sourceid} </if>	</select>
+
+    <select id="likeByPage" resultMap="PubEnttype" parameterType="org.gecko.framework.demo.entity.PubEnttype">
+        select PubEnttype.* from PUB_ENTTYPE PubEnttype where 1=1
+        <if test="param.creator!=null"> and CREATOR like #{param.creator}</if><if test="param.parententtype!=null"> and PARENTENTTYPE like #{param.parententtype}</if><if test="param.enttypename!=null"> and ENTTYPENAME like #{param.enttypename}</if><if test="param.enttypenum!=null"> and ENTTYPENUM like #{param.enttypenum}</if><if test="param.groupid!=null"> and GROUPID like #{param.groupid}</if><if test="param.sourceid!=null"> and SOURCEID like #{param.sourceid}</if>    </select>
+
+    <update id="updateField" parameterType="String">
+        UPDATE PUB_ENTTYPE SET ${field} = #{value} WHERE ID = #{pk}
+    </update>
+</mapper>
