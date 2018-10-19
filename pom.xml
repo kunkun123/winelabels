@@ -9,7 +9,7 @@
     <packaging>war</packaging>
     <properties>
         <gecko.version>0.3.1-SNAPSHOT</gecko.version>
-        <spring.version>4.3.2.RELEASE</spring.version>
+        <spring.version>4.3.18</spring.version>
         <junit.version>4.12</junit.version>
         <mybatis.version>3.2.5</mybatis.version>
         <druid.version>1.0.29</druid.version>
